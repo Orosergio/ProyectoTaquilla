@@ -1,0 +1,8 @@
+ //MATUTINO
+        btnMatutina.setOnClickListener{
+            if(txtMatutina.visibility == View.GONE ){
+                txtMatutina.setVisibility(View.VISIBLE)
+                
+            }else if (txtMatutina.visibility == View.VISIBLE){
+                txtMatutina.setVisibility(View.GONE)
+            
