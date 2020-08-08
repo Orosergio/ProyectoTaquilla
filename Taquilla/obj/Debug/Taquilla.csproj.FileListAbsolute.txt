@@ -1,0 +1,11 @@
+C:\Users\Carlos\source\repos\Taquilla\bin\Debug\Taquilla.exe.config
+C:\Users\Carlos\source\repos\Taquilla\bin\Debug\Taquilla.exe
+C:\Users\Carlos\source\repos\Taquilla\bin\Debug\Taquilla.pdb
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.csprojAssemblyReference.cache
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.Boletos.resources
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.Properties.Resources.resources
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.csproj.GenerateResource.cache
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.exe
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.pdb
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.Cartelera.resources
+C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.FuncionesCine.resources
