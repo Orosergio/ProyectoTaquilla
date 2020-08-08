@@ -318,6 +318,8 @@
             this.txtNoTarjeta.Name = "txtNoTarjeta";
             this.txtNoTarjeta.Size = new System.Drawing.Size(174, 26);
             this.txtNoTarjeta.TabIndex = 38;
+            this.txtNoTarjeta.TextChanged += new System.EventHandler(this.txtNoTarjeta_TextChanged);
+            this.txtNoTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoTarjeta_KeyPress);
             // 
             // txtCantTotal
             // 
@@ -347,6 +349,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(174, 26);
             this.txtApellido.TabIndex = 35;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
@@ -355,6 +358,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(174, 26);
             this.txtNombre.TabIndex = 34;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtNit
             // 
@@ -494,6 +498,7 @@
             this.btnPagar.TabIndex = 44;
             this.btnPagar.Text = "PAGAR";
             this.btnPagar.UseVisualStyleBackColor = false;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // pnlBarraSuperior
             // 
