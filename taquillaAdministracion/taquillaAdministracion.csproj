@@ -77,6 +77,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="modificarFunciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modificarFunciones.Designer.cs">
+      <DependentUpon>modificarFunciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modificarFunciones.resx">
+      <DependentUpon>modificarFunciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarPelicula.resx">
       <DependentUpon>ModificarPelicula.cs</DependentUpon>

@@ -214,7 +214,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1131, 716);
+            this.panel5.Size = new System.Drawing.Size(1010, 716);
             this.panel5.TabIndex = 10;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -260,7 +260,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1131, 716);
+            this.panel1.Size = new System.Drawing.Size(1010, 716);
             this.panel1.TabIndex = 55;
             // 
             // panel2
@@ -300,7 +300,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1131, 716);
+            this.panel2.Size = new System.Drawing.Size(1010, 716);
             this.panel2.TabIndex = 55;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -312,6 +312,7 @@
             this.cboCodigoF.Name = "cboCodigoF";
             this.cboCodigoF.Size = new System.Drawing.Size(76, 24);
             this.cboCodigoF.TabIndex = 72;
+            this.cboCodigoF.Visible = false;
             // 
             // cboCodigoI
             // 
@@ -321,6 +322,7 @@
             this.cboCodigoI.Name = "cboCodigoI";
             this.cboCodigoI.Size = new System.Drawing.Size(76, 24);
             this.cboCodigoI.TabIndex = 71;
+            this.cboCodigoI.Visible = false;
             // 
             // cboCodigoP
             // 
@@ -330,6 +332,7 @@
             this.cboCodigoP.Name = "cboCodigoP";
             this.cboCodigoP.Size = new System.Drawing.Size(76, 24);
             this.cboCodigoP.TabIndex = 70;
+            this.cboCodigoP.Visible = false;
             // 
             // cboCodigoS
             // 
@@ -339,6 +342,7 @@
             this.cboCodigoS.Name = "cboCodigoS";
             this.cboCodigoS.Size = new System.Drawing.Size(76, 24);
             this.cboCodigoS.TabIndex = 69;
+            this.cboCodigoS.Visible = false;
             // 
             // cboCodigoC
             // 
@@ -348,6 +352,7 @@
             this.cboCodigoC.Name = "cboCodigoC";
             this.cboCodigoC.Size = new System.Drawing.Size(76, 24);
             this.cboCodigoC.TabIndex = 68;
+            this.cboCodigoC.Visible = false;
             // 
             // cboCodigoM
             // 
@@ -357,6 +362,7 @@
             this.cboCodigoM.Name = "cboCodigoM";
             this.cboCodigoM.Size = new System.Drawing.Size(76, 24);
             this.cboCodigoM.TabIndex = 67;
+            this.cboCodigoM.Visible = false;
             // 
             // cboCodigoD
             // 
@@ -366,6 +372,7 @@
             this.cboCodigoD.Name = "cboCodigoD";
             this.cboCodigoD.Size = new System.Drawing.Size(76, 24);
             this.cboCodigoD.TabIndex = 66;
+            this.cboCodigoD.Visible = false;
             // 
             // cboFormato
             // 
@@ -422,13 +429,14 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(338, 650);
+            this.btnModificar.Location = new System.Drawing.Point(272, 637);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(225, 54);
+            this.btnModificar.Size = new System.Drawing.Size(193, 54);
             this.btnModificar.TabIndex = 61;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -441,13 +449,14 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(823, 650);
+            this.btnEliminar.Location = new System.Drawing.Point(725, 637);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(225, 54);
+            this.btnEliminar.Size = new System.Drawing.Size(205, 54);
             this.btnEliminar.TabIndex = 60;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCancelar
             // 
@@ -460,10 +469,10 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(579, 651);
+            this.btnCancelar.Location = new System.Drawing.Point(492, 637);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(225, 54);
+            this.btnCancelar.Size = new System.Drawing.Size(204, 54);
             this.btnCancelar.TabIndex = 59;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -480,10 +489,10 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(99, 650);
+            this.btnIngresar.Location = new System.Drawing.Point(53, 637);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(227, 54);
+            this.btnIngresar.Size = new System.Drawing.Size(196, 54);
             this.btnIngresar.TabIndex = 58;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
@@ -538,7 +547,7 @@
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.RowHeadersWidth = 51;
             this.dgtDatos.RowTemplate.Height = 24;
-            this.dgtDatos.Size = new System.Drawing.Size(1052, 150);
+            this.dgtDatos.Size = new System.Drawing.Size(922, 150);
             this.dgtDatos.TabIndex = 53;
             // 
             // ptbImagen
@@ -551,6 +560,7 @@
             this.ptbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbImagen.TabIndex = 50;
             this.ptbImagen.TabStop = false;
+            this.ptbImagen.Visible = false;
             // 
             // cboPelicula
             // 
@@ -1512,7 +1522,7 @@
             this.comboBox21.FormattingEnabled = true;
             this.comboBox21.Location = new System.Drawing.Point(311, 378);
             this.comboBox21.Name = "comboBox21";
-            this.comboBox21.Size = new System.Drawing.Size(263, 25);
+            this.comboBox21.Size = new System.Drawing.Size(263, 24);
             this.comboBox21.TabIndex = 65;
             // 
             // button6
@@ -1574,7 +1584,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1131, 716);
+            this.ClientSize = new System.Drawing.Size(1010, 716);
             this.Controls.Add(this.panel5);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "funciones";

@@ -28,61 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtMultimedia = new System.Windows.Forms.TextBox();
             this.cboClasificacion = new System.Windows.Forms.ComboBox();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.cboCodigoC = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.txtDuracion = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblDescripion = new System.Windows.Forms.Label();
+            this.lblMultimedia = new System.Windows.Forms.Label();
+            this.lblClasificacion = new System.Windows.Forms.Label();
+            this.lblEstreno = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.lblDuracion = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cboCodigoP = new System.Windows.Forms.ComboBox();
             this.cboPelicula = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblNuevo = new System.Windows.Forms.Label();
             this.txtNuevo = new System.Windows.Forms.TextBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(8, 37);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(61, 17);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(213, 120);
+            this.txtDescripcion.Location = new System.Drawing.Point(173, 115);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(330, 157);
+            this.txtDescripcion.Size = new System.Drawing.Size(289, 157);
             this.txtDescripcion.TabIndex = 3;
             // 
             // txtMultimedia
             // 
-            this.txtMultimedia.Location = new System.Drawing.Point(213, 294);
+            this.txtMultimedia.Location = new System.Drawing.Point(173, 289);
             this.txtMultimedia.Name = "txtMultimedia";
-            this.txtMultimedia.Size = new System.Drawing.Size(330, 22);
+            this.txtMultimedia.Size = new System.Drawing.Size(289, 23);
             this.txtMultimedia.TabIndex = 4;
             // 
             // cboClasificacion
             // 
             this.cboClasificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboClasificacion.FormattingEnabled = true;
-            this.cboClasificacion.Location = new System.Drawing.Point(213, 334);
+            this.cboClasificacion.Location = new System.Drawing.Point(173, 329);
             this.cboClasificacion.Name = "cboClasificacion";
-            this.cboClasificacion.Size = new System.Drawing.Size(330, 24);
+            this.cboClasificacion.Size = new System.Drawing.Size(289, 24);
             this.cboClasificacion.TabIndex = 5;
             this.cboClasificacion.SelectedIndexChanged += new System.EventHandler(this.cboClasificacion_SelectedIndexChanged);
             // 
@@ -93,125 +95,136 @@
             this.cboEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cboEstado.Location = new System.Drawing.Point(213, 417);
+            this.cboEstado.Location = new System.Drawing.Point(173, 412);
             this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(330, 24);
+            this.cboEstado.Size = new System.Drawing.Size(289, 24);
             this.cboEstado.TabIndex = 7;
             // 
             // cboCodigoC
             // 
             this.cboCodigoC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoC.FormattingEnabled = true;
-            this.cboCodigoC.Location = new System.Drawing.Point(560, 334);
+            this.cboCodigoC.Location = new System.Drawing.Point(476, 329);
             this.cboCodigoC.Name = "cboCodigoC";
-            this.cboCodigoC.Size = new System.Drawing.Size(75, 24);
+            this.cboCodigoC.Size = new System.Drawing.Size(66, 24);
             this.cboCodigoC.TabIndex = 8;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(577, 40);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(501, 79);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 60);
+            this.button1.Size = new System.Drawing.Size(165, 60);
             this.button1.TabIndex = 10;
             this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(213, 376);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(330, 22);
-            this.dateTimePicker1.TabIndex = 11;
+            this.dtpFecha.Location = new System.Drawing.Point(173, 371);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(289, 23);
+            this.dtpFecha.TabIndex = 11;
             // 
             // txtDuracion
             // 
-            this.txtDuracion.Location = new System.Drawing.Point(213, 462);
+            this.txtDuracion.Location = new System.Drawing.Point(173, 457);
             this.txtDuracion.Name = "txtDuracion";
-            this.txtDuracion.Size = new System.Drawing.Size(326, 22);
+            this.txtDuracion.Size = new System.Drawing.Size(286, 23);
             this.txtDuracion.TabIndex = 12;
+            this.txtDuracion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDuracion_KeyPress);
             // 
-            // label2
+            // lblDescripion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Descripcion";
+            this.lblDescripion.AutoSize = true;
+            this.lblDescripion.ForeColor = System.Drawing.Color.White;
+            this.lblDescripion.Location = new System.Drawing.Point(8, 118);
+            this.lblDescripion.Name = "lblDescripion";
+            this.lblDescripion.Size = new System.Drawing.Size(85, 17);
+            this.lblDescripion.TabIndex = 13;
+            this.lblDescripion.Text = "Descripcion";
             // 
-            // label3
+            // lblMultimedia
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 299);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Multimedia";
+            this.lblMultimedia.AutoSize = true;
+            this.lblMultimedia.ForeColor = System.Drawing.Color.White;
+            this.lblMultimedia.Location = new System.Drawing.Point(8, 294);
+            this.lblMultimedia.Name = "lblMultimedia";
+            this.lblMultimedia.Size = new System.Drawing.Size(80, 17);
+            this.lblMultimedia.TabIndex = 14;
+            this.lblMultimedia.Text = "Multimedia";
             // 
-            // label4
+            // lblClasificacion
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 341);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 17);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Clasificacion";
+            this.lblClasificacion.AutoSize = true;
+            this.lblClasificacion.ForeColor = System.Drawing.Color.White;
+            this.lblClasificacion.Location = new System.Drawing.Point(8, 336);
+            this.lblClasificacion.Name = "lblClasificacion";
+            this.lblClasificacion.Size = new System.Drawing.Size(89, 17);
+            this.lblClasificacion.TabIndex = 15;
+            this.lblClasificacion.Text = "Clasificacion";
             // 
-            // label6
+            // lblEstreno
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 381);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 17);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Estreno de la pelicula";
+            this.lblEstreno.AutoSize = true;
+            this.lblEstreno.ForeColor = System.Drawing.Color.White;
+            this.lblEstreno.Location = new System.Drawing.Point(8, 376);
+            this.lblEstreno.Name = "lblEstreno";
+            this.lblEstreno.Size = new System.Drawing.Size(148, 17);
+            this.lblEstreno.TabIndex = 17;
+            this.lblEstreno.Text = "Estreno de la pelicula";
             // 
-            // label7
+            // lblEstado
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 424);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 17);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Estado de la pelicula";
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.ForeColor = System.Drawing.Color.White;
+            this.lblEstado.Location = new System.Drawing.Point(14, 419);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(142, 17);
+            this.lblEstado.TabIndex = 18;
+            this.lblEstado.Text = "Estado de la pelicula";
             // 
-            // label8
+            // lblDuracion
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 467);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(152, 17);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Duracion de la pelicula";
+            this.lblDuracion.AutoSize = true;
+            this.lblDuracion.ForeColor = System.Drawing.Color.White;
+            this.lblDuracion.Location = new System.Drawing.Point(8, 462);
+            this.lblDuracion.Name = "lblDuracion";
+            this.lblDuracion.Size = new System.Drawing.Size(157, 17);
+            this.lblDuracion.TabIndex = 19;
+            this.lblDuracion.Text = "Duracion de la pelicula";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(577, 120);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(501, 159);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 62);
+            this.button2.Size = new System.Drawing.Size(165, 62);
             this.button2.TabIndex = 20;
             this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 510);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 503);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(739, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(647, 185);
             this.dataGridView1.TabIndex = 21;
             // 
             // cboCodigoP
             // 
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(213, 12);
+            this.cboCodigoP.Location = new System.Drawing.Point(501, 38);
             this.cboCodigoP.Name = "cboCodigoP";
-            this.cboCodigoP.Size = new System.Drawing.Size(170, 24);
+            this.cboCodigoP.Size = new System.Drawing.Size(149, 24);
             this.cboCodigoP.TabIndex = 2;
             this.cboCodigoP.SelectedIndexChanged += new System.EventHandler(this.cboCodigoP_SelectedIndexChanged);
             // 
@@ -219,45 +232,58 @@
             // 
             this.cboPelicula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPelicula.FormattingEnabled = true;
-            this.cboPelicula.Location = new System.Drawing.Point(212, 42);
+            this.cboPelicula.Location = new System.Drawing.Point(172, 37);
             this.cboPelicula.Name = "cboPelicula";
-            this.cboPelicula.Size = new System.Drawing.Size(331, 24);
+            this.cboPelicula.Size = new System.Drawing.Size(290, 24);
             this.cboPelicula.TabIndex = 1;
             this.cboPelicula.SelectedIndexChanged += new System.EventHandler(this.cboPelicula_SelectedIndexChanged);
             // 
-            // label10
+            // lblNuevo
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 83);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 17);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Nuevo Nombre";
+            this.lblNuevo.AutoSize = true;
+            this.lblNuevo.ForeColor = System.Drawing.Color.White;
+            this.lblNuevo.Location = new System.Drawing.Point(8, 78);
+            this.lblNuevo.Name = "lblNuevo";
+            this.lblNuevo.Size = new System.Drawing.Size(107, 17);
+            this.lblNuevo.TabIndex = 23;
+            this.lblNuevo.Text = "Nuevo Nombre";
             // 
             // txtNuevo
             // 
-            this.txtNuevo.Location = new System.Drawing.Point(212, 83);
+            this.txtNuevo.Location = new System.Drawing.Point(172, 78);
             this.txtNuevo.Name = "txtNuevo";
-            this.txtNuevo.Size = new System.Drawing.Size(327, 22);
+            this.txtNuevo.Size = new System.Drawing.Size(287, 23);
             this.txtNuevo.TabIndex = 24;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(195, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(172, 17);
+            this.lblTitulo.TabIndex = 25;
+            this.lblTitulo.Text = "Modificacion de peliculas";
             // 
             // ModificarPelicula
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 776);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.ClientSize = new System.Drawing.Size(759, 776);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtNuevo);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblNuevo);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDuracion);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.lblEstreno);
+            this.Controls.Add(this.lblClasificacion);
+            this.Controls.Add(this.lblMultimedia);
+            this.Controls.Add(this.lblDescripion);
             this.Controls.Add(this.txtDuracion);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cboCodigoC);
             this.Controls.Add(this.cboEstado);
@@ -266,8 +292,11 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.cboCodigoP);
             this.Controls.Add(this.cboPelicula);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNombre);
+            this.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "ModificarPelicula";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificarPelicula";
             this.Load += new System.EventHandler(this.ModificarPelicula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -278,26 +307,27 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtMultimedia;
         private System.Windows.Forms.ComboBox cboClasificacion;
         private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.ComboBox cboCodigoC;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.TextBox txtDuracion;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDescripion;
+        private System.Windows.Forms.Label lblMultimedia;
+        private System.Windows.Forms.Label lblClasificacion;
+        private System.Windows.Forms.Label lblEstreno;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Label lblDuracion;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cboCodigoP;
         private System.Windows.Forms.ComboBox cboPelicula;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblNuevo;
         private System.Windows.Forms.TextBox txtNuevo;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

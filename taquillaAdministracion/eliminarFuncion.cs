@@ -17,7 +17,29 @@ namespace taquillaAdministracion
         public eliminarFuncion()
         {
             InitializeComponent();
-            //funcCargar();
+            funcCargar();
+            cargarFuncion();
+        }
+        
+        void cargarFuncion()
+        {
+            try
+            {
+                string Sala = "SELECT * FROM PROYECCIONPELICULA";
+                OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
+                OdbcDataReader mostrarC = comm.ExecuteReader();
+                while (mostrarC.Read())
+                {
+                    cboCodigoPro.Items.Add(mostrarC.GetInt32(0));
+                   // cboNombre.Items.Add(mostrarC.GetString(1));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+            }
+
+
         }
         void funcCargar()
         {
@@ -36,20 +58,33 @@ namespace taquillaAdministracion
         }
             private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (cboCodigoPro.SelectedItem == null)
             {
-                string Eliminar = "DELET * FROM PROYECCIONPELICULA WHERE idProyeccionPelicula = " + cboCodigoPro.SelectedItem;
-                OdbcCommand comm = new OdbcCommand(Eliminar, cn.nuevaConexion());
-                OdbcDataReader mostrarC = comm.ExecuteReader();
-                MessageBox.Show("Los datos se eliminaron correctamente");
-                //funcCargar();
-            }
-            catch (Exception ex)
+                MessageBox.Show("Si desea eliminar una Funcion, elija un Codigo primero ");
+            }else
             {
-                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                try
+                {
+                    string Eliminar = "DELETE  FROM PROYECCIONPELICULA WHERE idProyeccionPelicula = " + cboCodigoPro.SelectedItem;
+                    OdbcCommand comm = new OdbcCommand(Eliminar, cn.nuevaConexion());
+                    OdbcDataReader mostrarC = comm.ExecuteReader();
+                    MessageBox.Show("Los datos se eliminaron correctamente");
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+
+                }
+                cboCodigoPro.Items.Clear();
+                funcCargar();
             }
-            //funcCargar();
+           
+        }
+
+        private void eliminarFuncion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

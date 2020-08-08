@@ -21,7 +21,36 @@ namespace taquillaAdministracion
             InitializeComponent();
            funcBuscar();
            funcCargar();
+            funcCodigoA();
+
+
+        }
+        int codigoA;
+        void funcCodigoA()
+        {
            
+            try
+            {
+                
+                string contador = "SELECT MAX(idProyeccionPelicula) FROM PROYECCIONPELICULA ORDER BY idProyeccionPelicula ASC";
+                OdbcCommand comando = new OdbcCommand(contador, cn.nuevaConexion());
+                int numero = 0;
+                numero = Convert.ToInt32(comando.ExecuteScalar());
+
+                if (numero == 0)
+                {
+                    codigoA = 1;
+                }
+                else
+                {
+                    codigoA = numero + 1;
+                }
+              //   MessageBox.Show(""+codigoA);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex);
+            }
         }
         void funcCargar()
         {
@@ -277,24 +306,6 @@ namespace taquillaAdministracion
         private void cboPelicula_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoP.SelectedIndex = cboPelicula.SelectedIndex;
-            try
-            {
-                string Idioma = "SELECT * FROM IDIOMA WHERE idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString());
-                OdbcCommand comm5 = new OdbcCommand(Idioma, cn.nuevaConexion());
-                OdbcDataReader mostrarIdi = comm5.ExecuteReader();
-
-                while (mostrarIdi.Read())
-                {
-                    cboCodigoI.Items.Add(mostrarIdi.GetInt32(0));
-                    cboIdioma.Items.Add(mostrarIdi.GetString(1));
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde");
-
-            }
 
         }
 
@@ -320,22 +331,39 @@ namespace taquillaAdministracion
             }
                 else
                     {
-                        try
+                funcCodigoA();
+                String Fecha = dtpFecha2.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                 try
                         {
                             string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion) " +
-                                "VALUES (" + cboCodigoP + "," + cboCodigoS + "," + cboCodigoI + "," + cboFormato + "," + dtpFecha2.Value + ")";
+                                "VALUES ( "+codigoA+"," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "')";
                             OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                             OdbcDataReader mostrarC = comm.ExecuteReader();
-                            MessageBox.Show("Los datos se ingresaron correctamente");
+                           
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
 
                         }
+                MessageBox.Show("Los mensajes se agregaron correctamente");
                         funcLimpiar();
-                    }
+                         funcCargar();
+                funcBuscar();
+              //  MessageBox.Show(""+codigoA);
+            }
         }
-           
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminarFuncion eliminar = new eliminarFuncion();
+            eliminar.Show();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+           modificarFunciones eliminar = new modificarFunciones();
+            eliminar.Show();
+        }
     }
 }

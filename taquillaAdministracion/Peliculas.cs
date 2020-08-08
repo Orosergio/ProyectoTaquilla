@@ -63,12 +63,9 @@ namespace taquillaAdministracion
             txtDuracion.Text = "";
             txtDescripcion.Text = "";
             txtMultimedia.Text = "";
-          //  cboClasificacion.Items.Clear();
-         //   cboEstado.Items.Clear();
-          ///  cboIdioma.Items.Clear();
-         //   cboCodigoCla.Items.Clear();
-          //  cboCodigoEstado.Items.Clear();
-         //   cboCodigoIdio.Items.Clear();
+           cboClasificacion.Items.Clear();
+          //  cboCodigoCla.Items.Clear();
+               
         }
         void funcCargar()
         {
@@ -178,6 +175,7 @@ namespace taquillaAdministracion
                 }
                 funcLimpiar();
                 funcCargar();
+                funcBuscar();
             }
          
         }
@@ -185,6 +183,7 @@ namespace taquillaAdministracion
         private void Button2_Click(object sender, EventArgs e)
         {
             funcLimpiar();
+            funcBuscar();
 
         }
 
@@ -249,10 +248,11 @@ namespace taquillaAdministracion
         {
 
         }
-
+       
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            ModificarPelicula modificarPelicula = new ModificarPelicula();
+           
+           ModificarPelicula modificarPelicula = new ModificarPelicula();
             modificarPelicula.Show();
         }
     }

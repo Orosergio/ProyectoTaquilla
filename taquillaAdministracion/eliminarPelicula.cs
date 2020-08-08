@@ -17,7 +17,7 @@ namespace taquillaAdministracion
         {
             InitializeComponent();
             funcCargar();
-           cargar();
+             cargar();
         }
         Conexion cn = new Conexion();
         void funcCargar()
@@ -33,8 +33,6 @@ namespace taquillaAdministracion
             {
                 MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
             }
-           
-
         }
         void cargar()
         {
@@ -63,19 +61,25 @@ namespace taquillaAdministracion
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            try
+            if(cboNombre.SelectedItem == null)
             {
-                string Eliminar = "DELETE FROM PELICULA WHERE idPelicula = " +cboCodigoP.SelectedItem;
-                OdbcCommand comm = new OdbcCommand(Eliminar, cn.nuevaConexion());
-                OdbcDataReader mostrarC = comm.ExecuteReader();
-                MessageBox.Show("Los datos se eliminaron correctamente");
-                funcCargar();
+                MessageBox.Show("Si desea eliminar una pelicula, elija un nombre primero ");
             }
-            catch (Exception ex)
+           else
             {
-                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                try
+                {
+                    string Eliminar = "DELETE FROM PELICULA WHERE idPelicula = " + cboCodigoP.SelectedItem;
+                    OdbcCommand comm = new OdbcCommand(Eliminar, cn.nuevaConexion());
+                    OdbcDataReader mostrarC = comm.ExecuteReader();
+                    MessageBox.Show("Los datos se eliminaron correctamente");
+                    funcCargar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
 
+                }
             }
 
 

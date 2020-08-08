@@ -40,18 +40,20 @@
             // 
             this.cboNombre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNombre.FormattingEnabled = true;
-            this.cboNombre.Location = new System.Drawing.Point(235, 43);
+            this.cboNombre.Location = new System.Drawing.Point(206, 43);
             this.cboNombre.Name = "cboNombre";
-            this.cboNombre.Size = new System.Drawing.Size(340, 24);
+            this.cboNombre.Size = new System.Drawing.Size(298, 24);
             this.cboNombre.TabIndex = 0;
             this.cboNombre.SelectedIndexChanged += new System.EventHandler(this.cboNombre_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 43);
+            this.label1.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(34, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 17);
+            this.label1.Size = new System.Drawing.Size(152, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre de la pelicula";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -59,19 +61,20 @@
             // dgtDatos
             // 
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(31, 137);
+            this.dgtDatos.Location = new System.Drawing.Point(27, 137);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.RowHeadersWidth = 51;
             this.dgtDatos.RowTemplate.Height = 24;
-            this.dgtDatos.Size = new System.Drawing.Size(683, 166);
+            this.dgtDatos.Size = new System.Drawing.Size(598, 166);
             this.dgtDatos.TabIndex = 2;
             this.dgtDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgtDatos_CellContentClick);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(31, 350);
+            this.btnEliminar.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(27, 328);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(257, 56);
+            this.btnEliminar.Size = new System.Drawing.Size(225, 56);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -81,23 +84,26 @@
             // 
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(593, 43);
+            this.cboCodigoP.Location = new System.Drawing.Point(519, 43);
             this.cboCodigoP.Name = "cboCodigoP";
-            this.cboCodigoP.Size = new System.Drawing.Size(121, 24);
+            this.cboCodigoP.Size = new System.Drawing.Size(106, 24);
             this.cboCodigoP.TabIndex = 4;
             this.cboCodigoP.Visible = false;
             // 
             // eliminarPelicula
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 486);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.ClientSize = new System.Drawing.Size(668, 486);
             this.Controls.Add(this.cboCodigoP);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgtDatos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboNombre);
+            this.Font = new System.Drawing.Font("Rockwell", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "eliminarPelicula";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eliminarPelicula";
             this.Load += new System.EventHandler(this.eliminarPelicula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).EndInit();

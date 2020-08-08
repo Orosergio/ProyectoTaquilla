@@ -38,9 +38,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(72, 385);
+            this.btnEliminar.Location = new System.Drawing.Point(22, 381);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(233, 86);
+            this.btnEliminar.Size = new System.Drawing.Size(233, 63);
             this.btnEliminar.TabIndex = 0;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -49,15 +49,16 @@
             // dgtDatos
             // 
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(72, 210);
+            this.dgtDatos.Location = new System.Drawing.Point(22, 130);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.RowHeadersWidth = 51;
             this.dgtDatos.RowTemplate.Height = 24;
-            this.dgtDatos.Size = new System.Drawing.Size(660, 150);
+            this.dgtDatos.Size = new System.Drawing.Size(715, 232);
             this.dgtDatos.TabIndex = 1;
             // 
             // cboCodigoPro
             // 
+            this.cboCodigoPro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoPro.FormattingEnabled = true;
             this.cboCodigoPro.Location = new System.Drawing.Point(237, 55);
             this.cboCodigoPro.Name = "cboCodigoPro";
@@ -67,10 +68,11 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(454, 58);
+            this.comboBox2.Location = new System.Drawing.Point(404, 55);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.Size = new System.Drawing.Size(93, 24);
             this.comboBox2.TabIndex = 3;
+            this.comboBox2.Visible = false;
             // 
             // lblCodigo
             // 
@@ -92,7 +94,9 @@
             this.Controls.Add(this.dgtDatos);
             this.Controls.Add(this.btnEliminar);
             this.Name = "eliminarFuncion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eliminarFuncion";
+            this.Load += new System.EventHandler(this.eliminarFuncion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
