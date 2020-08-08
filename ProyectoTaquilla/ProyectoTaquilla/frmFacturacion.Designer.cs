@@ -156,7 +156,7 @@
             // 
             // btnDescripcion
             // 
-            this.btnDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnDescripcion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDescripcion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDescripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -456,7 +456,7 @@
             // 
             // btnAtras
             // 
-            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -471,7 +471,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -486,7 +486,7 @@
             // 
             // btnPagar
             // 
-            this.btnPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnPagar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -502,7 +502,7 @@
             // 
             // pnlBarraSuperior
             // 
-            this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.pnlBarraSuperior.Controls.Add(this.btnRestaurar);
             this.pnlBarraSuperior.Controls.Add(this.btnMin);
             this.pnlBarraSuperior.Controls.Add(this.btnMax);
