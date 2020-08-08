@@ -1,0 +1,11 @@
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\bin\Debug\ProyectoTaquilla.exe.config
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\bin\Debug\ProyectoTaquilla.exe
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\bin\Debug\ProyectoTaquilla.pdb
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.csprojAssemblyReference.cache
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.Properties.Resources.resources
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.csproj.GenerateResource.cache
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.csproj.CoreCompileInputs.cache
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.exe
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.pdb
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.frmBoletos.resources
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\ProyectoTaquilla\ProyectoTaquilla\ProyectoTaquilla\obj\Debug\ProyectoTaquilla.frmFacturacion.resources
