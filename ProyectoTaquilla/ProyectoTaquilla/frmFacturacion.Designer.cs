@@ -114,21 +114,21 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Location = new System.Drawing.Point(184, 203);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(174, 26);
+            this.txtCorreo.Size = new System.Drawing.Size(174, 30);
             this.txtCorreo.TabIndex = 53;
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.BackColor = System.Drawing.Color.Transparent;
-            this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreo.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCorreo.Location = new System.Drawing.Point(17, 204);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(109, 25);
+            this.lblCorreo.Size = new System.Drawing.Size(94, 21);
             this.lblCorreo.TabIndex = 52;
             this.lblCorreo.Text = "CORREO:";
             // 
@@ -146,11 +146,11 @@
             // 
             this.lblPago.AutoSize = true;
             this.lblPago.BackColor = System.Drawing.Color.Transparent;
-            this.lblPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPago.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPago.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPago.Location = new System.Drawing.Point(17, 325);
             this.lblPago.Name = "lblPago";
-            this.lblPago.Size = new System.Drawing.Size(72, 25);
+            this.lblPago.Size = new System.Drawing.Size(64, 21);
             this.lblPago.TabIndex = 50;
             this.lblPago.Text = "PAGO";
             // 
@@ -160,11 +160,11 @@
             this.btnDescripcion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDescripcion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDescripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescripcion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDescripcion.ForeColor = System.Drawing.SystemColors.Info;
             this.btnDescripcion.Location = new System.Drawing.Point(577, 278);
             this.btnDescripcion.Name = "btnDescripcion";
-            this.btnDescripcion.Size = new System.Drawing.Size(69, 26);
+            this.btnDescripcion.Size = new System.Drawing.Size(84, 26);
             this.btnDescripcion.TabIndex = 45;
             this.btnDescripcion.Text = "DESC...";
             this.btnDescripcion.UseVisualStyleBackColor = false;
@@ -173,11 +173,11 @@
             // 
             this.lblPelicula.AutoSize = true;
             this.lblPelicula.BackColor = System.Drawing.Color.Transparent;
-            this.lblPelicula.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPelicula.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPelicula.Location = new System.Drawing.Point(419, 160);
             this.lblPelicula.Name = "lblPelicula";
-            this.lblPelicula.Size = new System.Drawing.Size(227, 25);
+            this.lblPelicula.Size = new System.Drawing.Size(204, 21);
             this.lblPelicula.TabIndex = 49;
             this.lblPelicula.Text = "PELICULA: Iron Man 3";
             this.lblPelicula.Click += new System.EventHandler(this.label7_Click);
@@ -186,11 +186,11 @@
             // 
             this.lblFuncion.AutoSize = true;
             this.lblFuncion.BackColor = System.Drawing.Color.Transparent;
-            this.lblFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFuncion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFuncion.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFuncion.Location = new System.Drawing.Point(419, 204);
             this.lblFuncion.Name = "lblFuncion";
-            this.lblFuncion.Size = new System.Drawing.Size(210, 25);
+            this.lblFuncion.Size = new System.Drawing.Size(188, 21);
             this.lblFuncion.TabIndex = 48;
             this.lblFuncion.Text = "FUNCIÓN: 8:30 P.M.";
             this.lblFuncion.Click += new System.EventHandler(this.label8_Click);
@@ -199,11 +199,11 @@
             // 
             this.lblDia.AutoSize = true;
             this.lblDia.BackColor = System.Drawing.Color.Transparent;
-            this.lblDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDia.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDia.Location = new System.Drawing.Point(419, 120);
             this.lblDia.Name = "lblDia";
-            this.lblDia.Size = new System.Drawing.Size(142, 25);
+            this.lblDia.Size = new System.Drawing.Size(130, 21);
             this.lblDia.TabIndex = 47;
             this.lblDia.Text = "DIA: 02/08/20";
             this.lblDia.Click += new System.EventHandler(this.label9_Click);
@@ -212,11 +212,11 @@
             // 
             this.lblBoletos.AutoSize = true;
             this.lblBoletos.BackColor = System.Drawing.Color.Transparent;
-            this.lblBoletos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBoletos.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoletos.ForeColor = System.Drawing.SystemColors.Control;
             this.lblBoletos.Location = new System.Drawing.Point(419, 279);
             this.lblBoletos.Name = "lblBoletos";
-            this.lblBoletos.Size = new System.Drawing.Size(135, 25);
+            this.lblBoletos.Size = new System.Drawing.Size(115, 21);
             this.lblBoletos.TabIndex = 46;
             this.lblBoletos.Text = "BOLETOS: 2";
             this.lblBoletos.Click += new System.EventHandler(this.label10_Click);
@@ -225,11 +225,11 @@
             // 
             this.lblSala.AutoSize = true;
             this.lblSala.BackColor = System.Drawing.Color.Transparent;
-            this.lblSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSala.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSala.ForeColor = System.Drawing.SystemColors.Control;
             this.lblSala.Location = new System.Drawing.Point(419, 242);
             this.lblSala.Name = "lblSala";
-            this.lblSala.Size = new System.Drawing.Size(102, 25);
+            this.lblSala.Size = new System.Drawing.Size(87, 21);
             this.lblSala.TabIndex = 45;
             this.lblSala.Text = "SALA: 10";
             this.lblSala.Click += new System.EventHandler(this.label11_Click);
@@ -238,11 +238,11 @@
             // 
             this.lblCine.AutoSize = true;
             this.lblCine.BackColor = System.Drawing.Color.Transparent;
-            this.lblCine.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCine.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCine.Location = new System.Drawing.Point(419, 76);
             this.lblCine.Name = "lblCine";
-            this.lblCine.Size = new System.Drawing.Size(152, 25);
+            this.lblCine.Size = new System.Drawing.Size(139, 21);
             this.lblCine.TabIndex = 44;
             this.lblCine.Text = "CINE: Portales";
             this.lblCine.Click += new System.EventHandler(this.label12_Click);
@@ -251,11 +251,11 @@
             // 
             this.lblDetalles.AutoSize = true;
             this.lblDetalles.BackColor = System.Drawing.Color.Transparent;
-            this.lblDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalles.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetalles.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDetalles.Location = new System.Drawing.Point(418, 22);
             this.lblDetalles.Name = "lblDetalles";
-            this.lblDetalles.Size = new System.Drawing.Size(153, 31);
+            this.lblDetalles.Size = new System.Drawing.Size(130, 27);
             this.lblDetalles.TabIndex = 43;
             this.lblDetalles.Text = "DETALLES";
             // 
@@ -263,11 +263,11 @@
             // 
             this.txtCantPuntos.AutoSize = true;
             this.txtCantPuntos.BackColor = System.Drawing.Color.Transparent;
-            this.txtCantPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantPuntos.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantPuntos.ForeColor = System.Drawing.SystemColors.Control;
             this.txtCantPuntos.Location = new System.Drawing.Point(179, 405);
             this.txtCantPuntos.Name = "txtCantPuntos";
-            this.txtCantPuntos.Size = new System.Drawing.Size(54, 25);
+            this.txtCantPuntos.Size = new System.Drawing.Size(46, 21);
             this.txtCantPuntos.TabIndex = 42;
             this.txtCantPuntos.Text = "3.35";
             this.txtCantPuntos.Click += new System.EventHandler(this.label4_Click);
@@ -276,11 +276,11 @@
             // 
             this.lblPuntos.AutoSize = true;
             this.lblPuntos.BackColor = System.Drawing.Color.Transparent;
-            this.lblPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPuntos.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPuntos.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPuntos.Location = new System.Drawing.Point(17, 405);
             this.lblPuntos.Name = "lblPuntos";
-            this.lblPuntos.Size = new System.Drawing.Size(105, 25);
+            this.lblPuntos.Size = new System.Drawing.Size(90, 21);
             this.lblPuntos.TabIndex = 41;
             this.lblPuntos.Text = "PUNTOS:";
             this.lblPuntos.Click += new System.EventHandler(this.label5_Click);
@@ -289,11 +289,11 @@
             // 
             this.txtCantDescuento.AutoSize = true;
             this.txtCantDescuento.BackColor = System.Drawing.Color.Transparent;
-            this.txtCantDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantDescuento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantDescuento.ForeColor = System.Drawing.SystemColors.Control;
             this.txtCantDescuento.Location = new System.Drawing.Point(179, 365);
             this.txtCantDescuento.Name = "txtCantDescuento";
-            this.txtCantDescuento.Size = new System.Drawing.Size(82, 25);
+            this.txtCantDescuento.Size = new System.Drawing.Size(71, 21);
             this.txtCantDescuento.TabIndex = 40;
             this.txtCantDescuento.Text = "Q  3.00";
             this.txtCantDescuento.Click += new System.EventHandler(this.label2_Click);
@@ -302,21 +302,21 @@
             // 
             this.lblDescuento.AutoSize = true;
             this.lblDescuento.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescuento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescuento.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDescuento.Location = new System.Drawing.Point(17, 365);
             this.lblDescuento.Name = "lblDescuento";
-            this.lblDescuento.Size = new System.Drawing.Size(149, 25);
+            this.lblDescuento.Size = new System.Drawing.Size(131, 21);
             this.lblDescuento.TabIndex = 39;
             this.lblDescuento.Text = "DESCUENTO:";
             this.lblDescuento.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtNoTarjeta
             // 
-            this.txtNoTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoTarjeta.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoTarjeta.Location = new System.Drawing.Point(184, 291);
             this.txtNoTarjeta.Name = "txtNoTarjeta";
-            this.txtNoTarjeta.Size = new System.Drawing.Size(174, 26);
+            this.txtNoTarjeta.Size = new System.Drawing.Size(174, 30);
             this.txtNoTarjeta.TabIndex = 38;
             this.txtNoTarjeta.TextChanged += new System.EventHandler(this.txtNoTarjeta_TextChanged);
             this.txtNoTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoTarjeta_KeyPress);
@@ -325,58 +325,58 @@
             // 
             this.txtCantTotal.AutoSize = true;
             this.txtCantTotal.BackColor = System.Drawing.Color.Transparent;
-            this.txtCantTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantTotal.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantTotal.ForeColor = System.Drawing.SystemColors.Control;
             this.txtCantTotal.Location = new System.Drawing.Point(179, 444);
             this.txtCantTotal.Name = "txtCantTotal";
-            this.txtCantTotal.Size = new System.Drawing.Size(88, 25);
+            this.txtCantTotal.Size = new System.Drawing.Size(76, 21);
             this.txtCantTotal.TabIndex = 37;
             this.txtCantTotal.Text = "Q 67.00";
             this.txtCantTotal.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(184, 251);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(174, 26);
+            this.txtDireccion.Size = new System.Drawing.Size(174, 30);
             this.txtDireccion.TabIndex = 36;
             // 
             // txtApellido
             // 
-            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(184, 161);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(174, 26);
+            this.txtApellido.Size = new System.Drawing.Size(174, 30);
             this.txtApellido.TabIndex = 35;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(184, 121);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(174, 26);
+            this.txtNombre.Size = new System.Drawing.Size(174, 30);
             this.txtNombre.TabIndex = 34;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtNit
             // 
-            this.txtNit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNit.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNit.Location = new System.Drawing.Point(184, 77);
             this.txtNit.Name = "txtNit";
-            this.txtNit.Size = new System.Drawing.Size(174, 26);
+            this.txtNit.Size = new System.Drawing.Size(174, 30);
             this.txtNit.TabIndex = 33;
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.BackColor = System.Drawing.Color.Transparent;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido.ForeColor = System.Drawing.SystemColors.Control;
             this.lblApellido.Location = new System.Drawing.Point(17, 162);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(120, 25);
+            this.lblApellido.Size = new System.Drawing.Size(107, 21);
             this.lblApellido.TabIndex = 31;
             this.lblApellido.Text = "APELLIDO:";
             // 
@@ -384,11 +384,11 @@
             // 
             this.lblFacturacion.AutoSize = true;
             this.lblFacturacion.BackColor = System.Drawing.Color.Transparent;
-            this.lblFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacturacion.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFacturacion.ForeColor = System.Drawing.SystemColors.Control;
             this.lblFacturacion.Location = new System.Drawing.Point(47, 22);
             this.lblFacturacion.Name = "lblFacturacion";
-            this.lblFacturacion.Size = new System.Drawing.Size(213, 31);
+            this.lblFacturacion.Size = new System.Drawing.Size(183, 27);
             this.lblFacturacion.TabIndex = 30;
             this.lblFacturacion.Text = "FACTURACIÓN";
             this.lblFacturacion.Click += new System.EventHandler(this.label18_Click);
@@ -397,11 +397,11 @@
             // 
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.BackColor = System.Drawing.Color.Transparent;
-            this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.SystemColors.Control;
             this.lblDireccion.Location = new System.Drawing.Point(17, 252);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(133, 25);
+            this.lblDireccion.Size = new System.Drawing.Size(122, 21);
             this.lblDireccion.TabIndex = 29;
             this.lblDireccion.Text = "DIRECCION:";
             // 
@@ -409,11 +409,11 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.Control;
             this.lblNombre.Location = new System.Drawing.Point(17, 122);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(110, 25);
+            this.lblNombre.Size = new System.Drawing.Size(96, 21);
             this.lblNombre.TabIndex = 28;
             this.lblNombre.Text = "NOMBRE:";
             // 
@@ -421,11 +421,11 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.Control;
             this.lblTotal.Location = new System.Drawing.Point(17, 444);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(86, 25);
+            this.lblTotal.Size = new System.Drawing.Size(76, 21);
             this.lblTotal.TabIndex = 27;
             this.lblTotal.Text = "TOTAL:";
             this.lblTotal.Click += new System.EventHandler(this.label19_Click);
@@ -434,11 +434,11 @@
             // 
             this.lblNoTarjeta.AutoSize = true;
             this.lblNoTarjeta.BackColor = System.Drawing.Color.Transparent;
-            this.lblNoTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoTarjeta.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoTarjeta.ForeColor = System.Drawing.SystemColors.Control;
             this.lblNoTarjeta.Location = new System.Drawing.Point(17, 290);
             this.lblNoTarjeta.Name = "lblNoTarjeta";
-            this.lblNoTarjeta.Size = new System.Drawing.Size(155, 25);
+            this.lblNoTarjeta.Size = new System.Drawing.Size(133, 21);
             this.lblNoTarjeta.TabIndex = 26;
             this.lblNoTarjeta.Text = "NO. TARJETA:";
             // 
@@ -446,11 +446,11 @@
             // 
             this.lblNit.AutoSize = true;
             this.lblNit.BackColor = System.Drawing.Color.Transparent;
-            this.lblNit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNit.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNit.ForeColor = System.Drawing.SystemColors.Control;
             this.lblNit.Location = new System.Drawing.Point(17, 78);
             this.lblNit.Name = "lblNit";
-            this.lblNit.Size = new System.Drawing.Size(51, 25);
+            this.lblNit.Size = new System.Drawing.Size(47, 21);
             this.lblNit.TabIndex = 25;
             this.lblNit.Text = "NIT:";
             // 
@@ -460,7 +460,7 @@
             this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtras.ForeColor = System.Drawing.SystemColors.Info;
             this.btnAtras.Location = new System.Drawing.Point(182, 581);
             this.btnAtras.Name = "btnAtras";
@@ -475,7 +475,7 @@
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Info;
             this.btnCancelar.Location = new System.Drawing.Point(315, 581);
             this.btnCancelar.Name = "btnCancelar";
@@ -490,7 +490,7 @@
             this.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnPagar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagar.ForeColor = System.Drawing.SystemColors.Info;
             this.btnPagar.Location = new System.Drawing.Point(485, 581);
             this.btnPagar.Name = "btnPagar";
@@ -510,7 +510,7 @@
             this.pnlBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.pnlBarraSuperior.Name = "pnlBarraSuperior";
-            this.pnlBarraSuperior.Size = new System.Drawing.Size(771, 41);
+            this.pnlBarraSuperior.Size = new System.Drawing.Size(772, 41);
             this.pnlBarraSuperior.TabIndex = 45;
             // 
             // btnRestaurar
@@ -518,7 +518,7 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(688, 11);
+            this.btnRestaurar.Location = new System.Drawing.Point(689, 11);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(19, 21);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -531,7 +531,7 @@
             this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(647, 11);
+            this.btnMin.Location = new System.Drawing.Point(648, 11);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(19, 21);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -543,7 +543,7 @@
             this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(688, 11);
+            this.btnMax.Location = new System.Drawing.Point(689, 11);
             this.btnMax.Name = "btnMax";
             this.btnMax.Size = new System.Drawing.Size(19, 21);
             this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -555,7 +555,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(729, 11);
+            this.btnCerrar.Location = new System.Drawing.Point(730, 11);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(19, 21);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -567,7 +567,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(771, 654);
+            this.ClientSize = new System.Drawing.Size(772, 654);
             this.Controls.Add(this.pnlBarraSuperior);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.btnCancelar);
