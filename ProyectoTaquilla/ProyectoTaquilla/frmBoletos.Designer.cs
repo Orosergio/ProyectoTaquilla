@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBoletos));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlBarraSuperior = new System.Windows.Forms.Panel();
+            this.btnRestaurar = new System.Windows.Forms.PictureBox();
+            this.btnMin = new System.Windows.Forms.PictureBox();
+            this.btnMax = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.pnlAsientos = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,71 +51,109 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.btnMin = new System.Windows.Forms.PictureBox();
-            this.btnMax = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.pnlDatosElegidos = new System.Windows.Forms.Panel();
+            this.lblTiempoRestante = new System.Windows.Forms.Label();
+            this.lblPelicula = new System.Windows.Forms.Label();
+            this.lblDatos = new System.Windows.Forms.Label();
+            this.lblFuncion = new System.Windows.Forms.Label();
+            this.lblDia = new System.Windows.Forms.Label();
+            this.lblCantBoletos = new System.Windows.Forms.Label();
+            this.lblSala = new System.Windows.Forms.Label();
+            this.lblCine = new System.Windows.Forms.Label();
+            this.btnAtras = new System.Windows.Forms.Button();
+            this.btnFacturacion = new System.Windows.Forms.Button();
+            this.pnlBarraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.pnlDatosElegidos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlBarraSuperior
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.panel1.Controls.Add(this.btnRestaurar);
-            this.panel1.Controls.Add(this.btnMin);
-            this.panel1.Controls.Add(this.btnMax);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1039, 41);
-            this.panel1.TabIndex = 0;
+            this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.pnlBarraSuperior.Controls.Add(this.btnRestaurar);
+            this.pnlBarraSuperior.Controls.Add(this.btnMin);
+            this.pnlBarraSuperior.Controls.Add(this.btnMax);
+            this.pnlBarraSuperior.Controls.Add(this.btnCerrar);
+            this.pnlBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBarraSuperior.Location = new System.Drawing.Point(0, 0);
+            this.pnlBarraSuperior.Name = "pnlBarraSuperior";
+            this.pnlBarraSuperior.Size = new System.Drawing.Size(1039, 41);
+            this.pnlBarraSuperior.TabIndex = 0;
             // 
-            // panel2
+            // btnRestaurar
             // 
-            this.panel2.Location = new System.Drawing.Point(416, 122);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(593, 309);
-            this.panel2.TabIndex = 1;
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
+            this.btnRestaurar.Location = new System.Drawing.Point(956, 11);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(19, 21);
+            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnRestaurar.TabIndex = 7;
+            this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Visible = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // pictureBox1
+            // btnMin
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(419, 469);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(593, 50);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
+            this.btnMin.Location = new System.Drawing.Point(915, 11);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(19, 21);
+            this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMin.TabIndex = 6;
+            this.btnMin.TabStop = false;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
+            // btnMax
+            // 
+            this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
+            this.btnMax.Location = new System.Drawing.Point(956, 11);
+            this.btnMax.Name = "btnMax";
+            this.btnMax.Size = new System.Drawing.Size(19, 21);
+            this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMax.TabIndex = 5;
+            this.btnMax.TabStop = false;
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(997, 11);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(19, 21);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 4;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pnlAsientos
+            // 
+            this.pnlAsientos.Location = new System.Drawing.Point(416, 122);
+            this.pnlAsientos.Name = "pnlAsientos";
+            this.pnlAsientos.Size = new System.Drawing.Size(593, 309);
+            this.pnlAsientos.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(643, 483);
+            this.label1.Location = new System.Drawing.Point(416, 469);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 25);
+            this.label1.Size = new System.Drawing.Size(593, 39);
             this.label1.TabIndex = 3;
-            this.label1.Text = "PANTALLA";
+            this.label1.Text = "lblPantalla";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -294,201 +335,148 @@
             this.label16.TabIndex = 18;
             this.label16.Text = "10";
             // 
-            // panel3
+            // pnlDatosElegidos
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.panel3.Controls.Add(this.label24);
-            this.panel3.Controls.Add(this.label23);
-            this.panel3.Controls.Add(this.label18);
-            this.panel3.Controls.Add(this.label21);
-            this.panel3.Controls.Add(this.label22);
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Controls.Add(this.label20);
-            this.panel3.Controls.Add(this.label17);
-            this.panel3.Location = new System.Drawing.Point(25, 75);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(313, 367);
-            this.panel3.TabIndex = 25;
+            this.pnlDatosElegidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.pnlDatosElegidos.Controls.Add(this.lblTiempoRestante);
+            this.pnlDatosElegidos.Controls.Add(this.lblPelicula);
+            this.pnlDatosElegidos.Controls.Add(this.lblDatos);
+            this.pnlDatosElegidos.Controls.Add(this.lblFuncion);
+            this.pnlDatosElegidos.Controls.Add(this.lblDia);
+            this.pnlDatosElegidos.Controls.Add(this.lblCantBoletos);
+            this.pnlDatosElegidos.Controls.Add(this.lblSala);
+            this.pnlDatosElegidos.Controls.Add(this.lblCine);
+            this.pnlDatosElegidos.Location = new System.Drawing.Point(25, 75);
+            this.pnlDatosElegidos.Name = "pnlDatosElegidos";
+            this.pnlDatosElegidos.Size = new System.Drawing.Size(313, 367);
+            this.pnlDatosElegidos.TabIndex = 25;
             // 
-            // label18
+            // lblTiempoRestante
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.Control;
-            this.label18.Location = new System.Drawing.Point(85, 29);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(84, 25);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "DATOS";
+            this.lblTiempoRestante.AutoSize = true;
+            this.lblTiempoRestante.BackColor = System.Drawing.Color.Transparent;
+            this.lblTiempoRestante.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempoRestante.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTiempoRestante.Location = new System.Drawing.Point(17, 319);
+            this.lblTiempoRestante.Name = "lblTiempoRestante";
+            this.lblTiempoRestante.Size = new System.Drawing.Size(287, 25);
+            this.lblTiempoRestante.TabIndex = 32;
+            this.lblTiempoRestante.Text = "TIEMPO RESTANTE: 10 seg";
             // 
-            // label21
+            // lblPelicula
             // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.Control;
-            this.label21.Location = new System.Drawing.Point(17, 206);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(210, 25);
-            this.label21.TabIndex = 29;
-            this.label21.Text = "FUNCIÓN: 8:30 P.M.";
+            this.lblPelicula.AutoSize = true;
+            this.lblPelicula.BackColor = System.Drawing.Color.Transparent;
+            this.lblPelicula.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPelicula.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPelicula.Location = new System.Drawing.Point(17, 162);
+            this.lblPelicula.Name = "lblPelicula";
+            this.lblPelicula.Size = new System.Drawing.Size(227, 25);
+            this.lblPelicula.TabIndex = 31;
+            this.lblPelicula.Text = "PELICULA: Iron Man 3";
             // 
-            // label22
+            // lblDatos
             // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.Control;
-            this.label22.Location = new System.Drawing.Point(17, 122);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(142, 25);
-            this.label22.TabIndex = 28;
-            this.label22.Text = "DIA: 02/08/20";
+            this.lblDatos.AutoSize = true;
+            this.lblDatos.BackColor = System.Drawing.Color.Transparent;
+            this.lblDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatos.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDatos.Location = new System.Drawing.Point(85, 29);
+            this.lblDatos.Name = "lblDatos";
+            this.lblDatos.Size = new System.Drawing.Size(84, 25);
+            this.lblDatos.TabIndex = 30;
+            this.lblDatos.Text = "DATOS";
             // 
-            // label19
+            // lblFuncion
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.Control;
-            this.label19.Location = new System.Drawing.Point(17, 281);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(135, 25);
-            this.label19.TabIndex = 27;
-            this.label19.Text = "BOLETOS: 2";
+            this.lblFuncion.AutoSize = true;
+            this.lblFuncion.BackColor = System.Drawing.Color.Transparent;
+            this.lblFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFuncion.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFuncion.Location = new System.Drawing.Point(17, 206);
+            this.lblFuncion.Name = "lblFuncion";
+            this.lblFuncion.Size = new System.Drawing.Size(210, 25);
+            this.lblFuncion.TabIndex = 29;
+            this.lblFuncion.Text = "FUNCIÓN: 8:30 P.M.";
             // 
-            // label20
+            // lblDia
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.Control;
-            this.label20.Location = new System.Drawing.Point(17, 244);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(102, 25);
-            this.label20.TabIndex = 26;
-            this.label20.Text = "SALA: 10";
+            this.lblDia.AutoSize = true;
+            this.lblDia.BackColor = System.Drawing.Color.Transparent;
+            this.lblDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDia.Location = new System.Drawing.Point(17, 122);
+            this.lblDia.Name = "lblDia";
+            this.lblDia.Size = new System.Drawing.Size(142, 25);
+            this.lblDia.TabIndex = 28;
+            this.lblDia.Text = "DIA: 02/08/20";
             // 
-            // label17
+            // lblCantBoletos
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(17, 78);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(152, 25);
-            this.label17.TabIndex = 25;
-            this.label17.Text = "CINE: Portales";
+            this.lblCantBoletos.AutoSize = true;
+            this.lblCantBoletos.BackColor = System.Drawing.Color.Transparent;
+            this.lblCantBoletos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantBoletos.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCantBoletos.Location = new System.Drawing.Point(17, 281);
+            this.lblCantBoletos.Name = "lblCantBoletos";
+            this.lblCantBoletos.Size = new System.Drawing.Size(135, 25);
+            this.lblCantBoletos.TabIndex = 27;
+            this.lblCantBoletos.Text = "BOLETOS: 2";
             // 
-            // button1
+            // lblSala
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Info;
-            this.button1.Location = new System.Drawing.Point(46, 469);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 39);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "ATRAS";
-            this.button1.UseVisualStyleBackColor = false;
+            this.lblSala.AutoSize = true;
+            this.lblSala.BackColor = System.Drawing.Color.Transparent;
+            this.lblSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSala.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSala.Location = new System.Drawing.Point(17, 244);
+            this.lblSala.Name = "lblSala";
+            this.lblSala.Size = new System.Drawing.Size(102, 25);
+            this.lblSala.TabIndex = 26;
+            this.lblSala.Text = "SALA: 10";
             // 
-            // label23
+            // lblCine
             // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.SystemColors.Control;
-            this.label23.Location = new System.Drawing.Point(17, 162);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(227, 25);
-            this.label23.TabIndex = 31;
-            this.label23.Text = "PELICULA: Iron Man 3";
+            this.lblCine.AutoSize = true;
+            this.lblCine.BackColor = System.Drawing.Color.Transparent;
+            this.lblCine.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCine.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblCine.Location = new System.Drawing.Point(17, 78);
+            this.lblCine.Name = "lblCine";
+            this.lblCine.Size = new System.Drawing.Size(152, 25);
+            this.lblCine.TabIndex = 25;
+            this.lblCine.Text = "CINE: Portales";
             // 
-            // label24
+            // btnAtras
             // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.Control;
-            this.label24.Location = new System.Drawing.Point(17, 319);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(287, 25);
-            this.label24.TabIndex = 32;
-            this.label24.Text = "TIEMPO RESTANTE: 10 seg";
+            this.btnAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnAtras.Location = new System.Drawing.Point(46, 469);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(98, 39);
+            this.btnAtras.TabIndex = 26;
+            this.btnAtras.Text = "ATRAS";
+            this.btnAtras.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnFacturacion
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Info;
-            this.button2.Location = new System.Drawing.Point(150, 469);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 39);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "FACTURACION";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(956, 11);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(19, 21);
-            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnRestaurar.TabIndex = 7;
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
-            // 
-            // btnMin
-            // 
-            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(915, 11);
-            this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(19, 21);
-            this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMin.TabIndex = 6;
-            this.btnMin.TabStop = false;
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
-            // 
-            // btnMax
-            // 
-            this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(956, 11);
-            this.btnMax.Name = "btnMax";
-            this.btnMax.Size = new System.Drawing.Size(19, 21);
-            this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMax.TabIndex = 5;
-            this.btnMax.TabStop = false;
-            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(997, 11);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(19, 21);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnClose.TabIndex = 4;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnFacturacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnFacturacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFacturacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFacturacion.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnFacturacion.Location = new System.Drawing.Point(150, 469);
+            this.btnFacturacion.Name = "btnFacturacion";
+            this.btnFacturacion.Size = new System.Drawing.Size(169, 39);
+            this.btnFacturacion.TabIndex = 27;
+            this.btnFacturacion.Text = "FACTURACION";
+            this.btnFacturacion.UseVisualStyleBackColor = false;
+            this.btnFacturacion.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmBoletos
             // 
@@ -496,9 +484,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(1039, 569);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.btnFacturacion);
+            this.Controls.Add(this.btnAtras);
+            this.Controls.Add(this.pnlDatosElegidos);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -515,23 +503,21 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlAsientos);
+            this.Controls.Add(this.pnlBarraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBoletos";
             this.Opacity = 0.96D;
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Transparent;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlBarraSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.pnlDatosElegidos.ResumeLayout(false);
+            this.pnlDatosElegidos.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,9 +525,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pnlBarraSuperior;
+        private System.Windows.Forms.Panel pnlAsientos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -558,21 +543,21 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel pnlDatosElegidos;
+        private System.Windows.Forms.Label lblDatos;
+        private System.Windows.Forms.Label lblFuncion;
+        private System.Windows.Forms.Label lblDia;
+        private System.Windows.Forms.Label lblCantBoletos;
+        private System.Windows.Forms.Label lblSala;
+        private System.Windows.Forms.Label lblCine;
+        private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Label lblTiempoRestante;
+        private System.Windows.Forms.Label lblPelicula;
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.PictureBox btnMin;
         private System.Windows.Forms.PictureBox btnMax;
-        private System.Windows.Forms.PictureBox btnClose;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.Button btnFacturacion;
     }
 }
 

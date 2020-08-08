@@ -38,7 +38,7 @@ namespace ProyectoTaquilla
                 for(int j = 0; j < 5; j++)
                 {
                     pcbAsientos[i,j] = new PictureBox();
-                    this.panel2.Controls.Add(pcbAsientos[i,j]);
+                    this.pnlAsientos.Controls.Add(pcbAsientos[i,j]);
                     pcbAsientos[i,j].Width = 50;
                     pcbAsientos[i,j].Height = 50;
                     pcbAsientos[i,j].Top = 60 * j;
