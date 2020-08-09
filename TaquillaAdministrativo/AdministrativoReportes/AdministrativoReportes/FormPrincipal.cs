@@ -128,7 +128,7 @@ namespace FinalProyecto
         private void Btnreportventa_Click(object sender, EventArgs e)
         {
             Submenurepor.Visible = false;
-            Reporte_Ventas fm = new Reporte_Ventas();
+            frmReporteVentas fm = new frmReporteVentas();
             AbrirFormEnPanel(fm);
             
 
@@ -137,7 +137,7 @@ namespace FinalProyecto
         private void Btnreportcompra_Click(object sender, EventArgs e)
         {
             Submenurepor.Visible = false;
-            Reporte_Compras fm = new Reporte_Compras();
+            frmReporteTaquillera fm = new frmReporteTaquillera();
             AbrirFormEnPanel(fm);
             
         }
@@ -204,7 +204,7 @@ namespace FinalProyecto
         private void Button9_Click(object sender, EventArgs e)
         {
             Submenurepor.Visible = false;
-            Reporte_Inventario fm = new Reporte_Inventario();
+            frmReporteTaquillera fm = new frmReporteTaquillera();
             AbrirFormEnPanel(fm);
         }
 
@@ -288,6 +288,11 @@ namespace FinalProyecto
                 MessageBox.Show(er.Message);
             }*/
             
+        }
+
+        private void Submenurepor_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void TmFechaHora_Tick_1(object sender, EventArgs e)

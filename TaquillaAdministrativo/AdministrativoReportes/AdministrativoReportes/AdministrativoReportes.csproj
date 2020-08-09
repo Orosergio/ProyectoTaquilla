@@ -59,6 +59,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteTaquillera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteTaquillera.Designer.cs">
+      <DependentUpon>frmReporteTaquillera.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,29 +73,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reporte_Compras.cs">
+    <Compile Include="frmReporteVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reporte_Compras.Designer.cs">
-      <DependentUpon>Reporte_Compras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reporte_Inventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporte_Inventario.Designer.cs">
-      <DependentUpon>Reporte_Inventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reporte_Ventas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporte_Ventas.Designer.cs">
-      <DependentUpon>Reporte_Ventas.cs</DependentUpon>
+    <Compile Include="frmReporteVentas.Designer.cs">
+      <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteTaquillera.resx">
+      <DependentUpon>frmReporteTaquillera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -103,14 +100,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reporte_Compras.resx">
-      <DependentUpon>Reporte_Compras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte_Inventario.resx">
-      <DependentUpon>Reporte_Inventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte_Ventas.resx">
-      <DependentUpon>Reporte_Ventas.cs</DependentUpon>
+    <EmbeddedResource Include="frmReporteVentas.resx">
+      <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,6 +115,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

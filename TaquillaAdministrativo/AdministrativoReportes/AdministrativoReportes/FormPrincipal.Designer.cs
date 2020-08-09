@@ -36,19 +36,17 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.Menu = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSLIDE = new System.Windows.Forms.PictureBox();
             this.design = new System.Windows.Forms.Button();
             this.Submenurepor = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
-            this.btnreportcompra = new System.Windows.Forms.Button();
+            this.btnPeliculaTaquilla = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnreportventa = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEmpleado = new System.Windows.Forms.Button();
             this.TituloBarra = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
@@ -56,8 +54,12 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEmpleado = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.PanelContenedor.SuspendLayout();
+            this.Principal.SuspendLayout();
             this.panel4.SuspendLayout();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSLIDE)).BeginInit();
@@ -67,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelContenedor
@@ -85,6 +88,7 @@
             // Principal
             // 
             this.Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.Principal.Controls.Add(this.axWindowsMediaPlayer1);
             this.Principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Principal.Location = new System.Drawing.Point(250, 40);
             this.Principal.Name = "Principal";
@@ -129,6 +133,7 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.Menu.Controls.Add(this.panel2);
             this.Menu.Controls.Add(this.panel11);
             this.Menu.Controls.Add(this.button6);
             this.Menu.Controls.Add(this.panel5);
@@ -143,6 +148,14 @@
             this.Menu.Size = new System.Drawing.Size(250, 760);
             this.Menu.TabIndex = 100;
             this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_Paint);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel11.Location = new System.Drawing.Point(0, 193);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(5, 32);
+            this.panel11.TabIndex = 4;
             // 
             // button6
             // 
@@ -204,30 +217,22 @@
             // 
             // Submenurepor
             // 
-            this.Submenurepor.Controls.Add(this.panel14);
             this.Submenurepor.Controls.Add(this.panel7);
             this.Submenurepor.Controls.Add(this.button9);
-            this.Submenurepor.Controls.Add(this.btnreportcompra);
+            this.Submenurepor.Controls.Add(this.btnPeliculaTaquilla);
             this.Submenurepor.Controls.Add(this.panel6);
             this.Submenurepor.Controls.Add(this.btnreportventa);
             this.Submenurepor.Location = new System.Drawing.Point(41, 293);
             this.Submenurepor.Name = "Submenurepor";
-            this.Submenurepor.Size = new System.Drawing.Size(212, 129);
+            this.Submenurepor.Size = new System.Drawing.Size(212, 214);
             this.Submenurepor.TabIndex = 7;
             this.Submenurepor.Visible = false;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel14.Location = new System.Drawing.Point(0, 97);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(10, 32);
-            this.panel14.TabIndex = 15;
+            this.Submenurepor.Paint += new System.Windows.Forms.PaintEventHandler(this.Submenurepor_Paint);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel7.Location = new System.Drawing.Point(0, 50);
+            this.panel7.Location = new System.Drawing.Point(0, 61);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(10, 32);
             this.panel7.TabIndex = 13;
@@ -242,7 +247,7 @@
             this.button9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(3, 88);
+            this.button9.Location = new System.Drawing.Point(3, 116);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(209, 32);
             this.button9.TabIndex = 14;
@@ -251,24 +256,24 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.Button9_Click);
             // 
-            // btnreportcompra
+            // btnPeliculaTaquilla
             // 
-            this.btnreportcompra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnreportcompra.FlatAppearance.BorderSize = 0;
-            this.btnreportcompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnreportcompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnreportcompra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreportcompra.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnreportcompra.Image = ((System.Drawing.Image)(resources.GetObject("btnreportcompra.Image")));
-            this.btnreportcompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnreportcompra.Location = new System.Drawing.Point(3, 41);
-            this.btnreportcompra.Name = "btnreportcompra";
-            this.btnreportcompra.Size = new System.Drawing.Size(209, 32);
-            this.btnreportcompra.TabIndex = 12;
-            this.btnreportcompra.Text = "Reporte Compras";
-            this.btnreportcompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnreportcompra.UseVisualStyleBackColor = true;
-            this.btnreportcompra.Click += new System.EventHandler(this.Btnreportcompra_Click);
+            this.btnPeliculaTaquilla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPeliculaTaquilla.FlatAppearance.BorderSize = 0;
+            this.btnPeliculaTaquilla.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnPeliculaTaquilla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPeliculaTaquilla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPeliculaTaquilla.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnPeliculaTaquilla.Image = ((System.Drawing.Image)(resources.GetObject("btnPeliculaTaquilla.Image")));
+            this.btnPeliculaTaquilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPeliculaTaquilla.Location = new System.Drawing.Point(3, 41);
+            this.btnPeliculaTaquilla.Name = "btnPeliculaTaquilla";
+            this.btnPeliculaTaquilla.Size = new System.Drawing.Size(209, 69);
+            this.btnPeliculaTaquilla.TabIndex = 12;
+            this.btnPeliculaTaquilla.Text = "Reporte Pelicula más taquillera";
+            this.btnPeliculaTaquilla.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPeliculaTaquilla.UseVisualStyleBackColor = true;
+            this.btnPeliculaTaquilla.Click += new System.EventHandler(this.Btnreportcompra_Click);
             // 
             // panel6
             // 
@@ -297,36 +302,9 @@
             this.btnreportventa.UseVisualStyleBackColor = true;
             this.btnreportventa.Click += new System.EventHandler(this.Btnreportventa_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel1.Location = new System.Drawing.Point(0, 144);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 32);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnEmpleado
-            // 
-            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
-            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(6, 144);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Size = new System.Drawing.Size(263, 43);
-            this.btnEmpleado.TabIndex = 1;
-            this.btnEmpleado.Text = "    EMPLEADO";
-            this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEmpleado.UseVisualStyleBackColor = true;
-            this.btnEmpleado.Click += new System.EventHandler(this.BtnEmpleado_Click);
-            // 
             // TituloBarra
             // 
-            this.TituloBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.TituloBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.TituloBarra.Controls.Add(this.btnRestaurar);
             this.TituloBarra.Controls.Add(this.btnMin);
             this.TituloBarra.Controls.Add(this.btnMax);
@@ -401,13 +379,50 @@
             this.tmContraerMenu.Interval = 15;
             this.tmContraerMenu.Tick += new System.EventHandler(this.TmContraerMenu_Tick);
             // 
-            // panel11
+            // panel2
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel11.Location = new System.Drawing.Point(0, 193);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(5, 32);
-            this.panel11.TabIndex = 4;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel2.Location = new System.Drawing.Point(41, 409);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 32);
+            this.panel2.TabIndex = 14;
+            this.panel2.Visible = false;
+            // 
+            // btnEmpleado
+            // 
+            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
+            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleado.Location = new System.Drawing.Point(6, 144);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Size = new System.Drawing.Size(263, 43);
+            this.btnEmpleado.TabIndex = 1;
+            this.btnEmpleado.Text = "    Empleados";
+            this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmpleado.UseVisualStyleBackColor = true;
+            this.btnEmpleado.Click += new System.EventHandler(this.BtnEmpleado_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel1.Location = new System.Drawing.Point(0, 144);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(5, 32);
+            this.panel1.TabIndex = 2;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(191, 144);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(691, 364);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // FormPrincipal
             // 
@@ -423,6 +438,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.PanelContenedor.ResumeLayout(false);
+            this.Principal.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.Menu.ResumeLayout(false);
@@ -433,6 +449,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -450,11 +467,9 @@
         private System.Windows.Forms.Button design;
         private System.Windows.Forms.Panel Submenurepor;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnreportcompra;
+        private System.Windows.Forms.Button btnPeliculaTaquilla;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnreportventa;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Timer tmFechaHora;
         private System.Windows.Forms.Panel Principal;
         private System.Windows.Forms.Panel panel4;
@@ -462,9 +477,12 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer tmContraerMenu;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel2;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnEmpleado;
     }
 }
 
