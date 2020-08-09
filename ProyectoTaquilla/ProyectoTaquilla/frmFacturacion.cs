@@ -162,5 +162,20 @@ namespace ProyectoTaquilla
                 }
             }
         }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
