@@ -16,7 +16,7 @@ namespace Taquilla
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cartelera());
+            Application.Run(new frmCartelera());
         }
     }
 }

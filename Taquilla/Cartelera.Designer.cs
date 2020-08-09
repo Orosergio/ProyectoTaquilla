@@ -1,6 +1,6 @@
 ﻿namespace Taquilla
 {
-    partial class Cartelera
+    partial class frmCartelera
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cartelera));
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnRegresar = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCartelera));
+            this.pnlCartelera = new System.Windows.Forms.Panel();
             this.btnClasificacion1 = new System.Windows.Forms.Button();
             this.btnClasificacion2 = new System.Windows.Forms.Button();
             this.btnTrailer1 = new System.Windows.Forms.Button();
@@ -41,19 +40,19 @@
             this.lblPelicula3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSinopsis3 = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picPelicula3 = new System.Windows.Forms.PictureBox();
             this.btnFuncion2 = new System.Windows.Forms.Button();
             this.lblPelicula2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSinopsis2 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picPelicula2 = new System.Windows.Forms.PictureBox();
             this.btnFuncion1 = new System.Windows.Forms.Button();
             this.lblPelicula1 = new System.Windows.Forms.Label();
             this.btnSubir = new System.Windows.Forms.Button();
             this.btnBajar4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSinopsis1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picPelicula1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnMax = new System.Windows.Forms.PictureBox();
@@ -64,10 +63,10 @@
             this.cboCine = new System.Windows.Forms.ComboBox();
             this.cboMunicipio = new System.Windows.Forms.ComboBox();
             this.cboDepartamento = new System.Windows.Forms.ComboBox();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlCartelera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPelicula3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPelicula2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPelicula1)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
@@ -75,58 +74,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // pnlCartelera
             // 
-            this.panel2.Controls.Add(this.btnRegresar);
-            this.panel2.Controls.Add(this.btnClasificacion1);
-            this.panel2.Controls.Add(this.btnClasificacion2);
-            this.panel2.Controls.Add(this.btnTrailer1);
-            this.panel2.Controls.Add(this.btnTrailer2);
-            this.panel2.Controls.Add(this.btnTrailer3);
-            this.panel2.Controls.Add(this.btnClasificacion3);
-            this.panel2.Controls.Add(this.btnFuncion3);
-            this.panel2.Controls.Add(this.lblPelicula3);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtSinopsis3);
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.btnFuncion2);
-            this.panel2.Controls.Add(this.lblPelicula2);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtSinopsis2);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.btnFuncion1);
-            this.panel2.Controls.Add(this.lblPelicula1);
-            this.panel2.Controls.Add(this.btnSubir);
-            this.panel2.Controls.Add(this.btnBajar4);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtSinopsis1);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(71, 81);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1055, 921);
-            this.panel2.TabIndex = 96;
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresar.Location = new System.Drawing.Point(86, 845);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(208, 45);
-            this.btnRegresar.TabIndex = 117;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.pnlCartelera.Controls.Add(this.btnClasificacion1);
+            this.pnlCartelera.Controls.Add(this.btnClasificacion2);
+            this.pnlCartelera.Controls.Add(this.btnTrailer1);
+            this.pnlCartelera.Controls.Add(this.btnTrailer2);
+            this.pnlCartelera.Controls.Add(this.btnTrailer3);
+            this.pnlCartelera.Controls.Add(this.btnClasificacion3);
+            this.pnlCartelera.Controls.Add(this.btnFuncion3);
+            this.pnlCartelera.Controls.Add(this.lblPelicula3);
+            this.pnlCartelera.Controls.Add(this.label7);
+            this.pnlCartelera.Controls.Add(this.txtSinopsis3);
+            this.pnlCartelera.Controls.Add(this.picPelicula3);
+            this.pnlCartelera.Controls.Add(this.btnFuncion2);
+            this.pnlCartelera.Controls.Add(this.lblPelicula2);
+            this.pnlCartelera.Controls.Add(this.label5);
+            this.pnlCartelera.Controls.Add(this.txtSinopsis2);
+            this.pnlCartelera.Controls.Add(this.picPelicula2);
+            this.pnlCartelera.Controls.Add(this.btnFuncion1);
+            this.pnlCartelera.Controls.Add(this.lblPelicula1);
+            this.pnlCartelera.Controls.Add(this.btnSubir);
+            this.pnlCartelera.Controls.Add(this.btnBajar4);
+            this.pnlCartelera.Controls.Add(this.label2);
+            this.pnlCartelera.Controls.Add(this.txtSinopsis1);
+            this.pnlCartelera.Controls.Add(this.picPelicula1);
+            this.pnlCartelera.Controls.Add(this.label1);
+            this.pnlCartelera.Location = new System.Drawing.Point(71, 81);
+            this.pnlCartelera.Name = "pnlCartelera";
+            this.pnlCartelera.Size = new System.Drawing.Size(1055, 843);
+            this.pnlCartelera.TabIndex = 96;
+            this.pnlCartelera.Visible = false;
+            this.pnlCartelera.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnClasificacion1
             // 
-            this.btnClasificacion1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnClasificacion1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnClasificacion1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClasificacion1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnClasificacion1.FlatAppearance.BorderSize = 0;
@@ -143,7 +126,7 @@
             // 
             // btnClasificacion2
             // 
-            this.btnClasificacion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnClasificacion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnClasificacion2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClasificacion2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnClasificacion2.FlatAppearance.BorderSize = 0;
@@ -160,7 +143,7 @@
             // 
             // btnTrailer1
             // 
-            this.btnTrailer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnTrailer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnTrailer1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTrailer1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnTrailer1.FlatAppearance.BorderSize = 0;
@@ -179,7 +162,7 @@
             // 
             // btnTrailer2
             // 
-            this.btnTrailer2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnTrailer2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnTrailer2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTrailer2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnTrailer2.FlatAppearance.BorderSize = 0;
@@ -198,7 +181,7 @@
             // 
             // btnTrailer3
             // 
-            this.btnTrailer3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnTrailer3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnTrailer3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTrailer3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnTrailer3.FlatAppearance.BorderSize = 0;
@@ -217,7 +200,7 @@
             // 
             // btnClasificacion3
             // 
-            this.btnClasificacion3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnClasificacion3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnClasificacion3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClasificacion3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnClasificacion3.FlatAppearance.BorderSize = 0;
@@ -234,7 +217,7 @@
             // 
             // btnFuncion3
             // 
-            this.btnFuncion3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnFuncion3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnFuncion3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFuncion3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnFuncion3.FlatAppearance.BorderSize = 0;
@@ -283,23 +266,21 @@
             this.txtSinopsis3.Name = "txtSinopsis3";
             this.txtSinopsis3.Size = new System.Drawing.Size(314, 184);
             this.txtSinopsis3.TabIndex = 107;
-            this.txtSinopsis3.Text = "John Wick, un exasesino a sueldo, se enfrenta al mafioso Viggo Tarazov, quien ofr" +
-    "ece una recompensa a aquel que logre acabar con la vida de Wick.";
+            this.txtSinopsis3.Text = "\r\n";
             // 
-            // pictureBox3
+            // picPelicula3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(41, 572);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(225, 184);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 106;
-            this.pictureBox3.TabStop = false;
+            this.picPelicula3.BackColor = System.Drawing.Color.White;
+            this.picPelicula3.Location = new System.Drawing.Point(41, 572);
+            this.picPelicula3.Name = "picPelicula3";
+            this.picPelicula3.Size = new System.Drawing.Size(225, 184);
+            this.picPelicula3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPelicula3.TabIndex = 106;
+            this.picPelicula3.TabStop = false;
             // 
             // btnFuncion2
             // 
-            this.btnFuncion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnFuncion2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnFuncion2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFuncion2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnFuncion2.FlatAppearance.BorderSize = 0;
@@ -347,22 +328,21 @@
             this.txtSinopsis2.Name = "txtSinopsis2";
             this.txtSinopsis2.Size = new System.Drawing.Size(314, 184);
             this.txtSinopsis2.TabIndex = 102;
-            this.txtSinopsis2.Text = resources.GetString("txtSinopsis2.Text");
+            this.txtSinopsis2.Text = "\r\n";
             // 
-            // pictureBox2
+            // picPelicula2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(41, 317);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(225, 184);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 101;
-            this.pictureBox2.TabStop = false;
+            this.picPelicula2.BackColor = System.Drawing.Color.White;
+            this.picPelicula2.Location = new System.Drawing.Point(41, 317);
+            this.picPelicula2.Name = "picPelicula2";
+            this.picPelicula2.Size = new System.Drawing.Size(225, 184);
+            this.picPelicula2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPelicula2.TabIndex = 101;
+            this.picPelicula2.TabStop = false;
             // 
             // btnFuncion1
             // 
-            this.btnFuncion1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnFuncion1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnFuncion1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFuncion1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnFuncion1.FlatAppearance.BorderSize = 0;
@@ -392,7 +372,7 @@
             // 
             // btnSubir
             // 
-            this.btnSubir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnSubir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnSubir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSubir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnSubir.FlatAppearance.BorderSize = 0;
@@ -409,7 +389,7 @@
             // 
             // btnBajar4
             // 
-            this.btnBajar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnBajar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.btnBajar4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBajar4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnBajar4.FlatAppearance.BorderSize = 0;
@@ -444,33 +424,33 @@
             this.txtSinopsis1.Name = "txtSinopsis1";
             this.txtSinopsis1.Size = new System.Drawing.Size(314, 184);
             this.txtSinopsis1.TabIndex = 95;
-            this.txtSinopsis1.Text = resources.GetString("txtSinopsis1.Text");
+            this.txtSinopsis1.Text = "\r\n";
             // 
-            // pictureBox1
+            // picPelicula1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(41, 66);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 184);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 94;
-            this.pictureBox1.TabStop = false;
+            this.picPelicula1.BackColor = System.Drawing.Color.White;
+            this.picPelicula1.ImageLocation = "";
+            this.picPelicula1.Location = new System.Drawing.Point(41, 66);
+            this.picPelicula1.Name = "picPelicula1";
+            this.picPelicula1.Size = new System.Drawing.Size(225, 184);
+            this.picPelicula1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPelicula1.TabIndex = 94;
+            this.picPelicula1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(427, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 37);
+            this.label1.Size = new System.Drawing.Size(148, 35);
             this.label1.TabIndex = 93;
             this.label1.Text = "Cartelera";
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.panel3.Controls.Add(this.btnMax);
             this.panel3.Controls.Add(this.btnRestaurar);
             this.panel3.Controls.Add(this.btnClose);
@@ -584,6 +564,7 @@
             // 
             // cboDepartamento
             // 
+            this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartamento.FormattingEnabled = true;
             this.cboDepartamento.Items.AddRange(new object[] {
@@ -592,28 +573,27 @@
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(156, 33);
             this.cboDepartamento.TabIndex = 92;
-            this.cboDepartamento.Text = "Departamento";
             // 
-            // Cartelera
+            // frmCartelera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1139, 1001);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1139, 900);
+            this.Controls.Add(this.pnlCartelera);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1139, 1001);
-            this.Name = "Cartelera";
+            this.MinimumSize = new System.Drawing.Size(1139, 900);
+            this.Name = "frmCartelera";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cartelera";
             this.Load += new System.EventHandler(this.Cartelera_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlCartelera.ResumeLayout(false);
+            this.pnlCartelera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPelicula3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPelicula2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPelicula1)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
@@ -625,8 +605,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Panel pnlCartelera;
         private System.Windows.Forms.Button btnClasificacion1;
         private System.Windows.Forms.Button btnClasificacion2;
         private System.Windows.Forms.Button btnTrailer1;
@@ -637,19 +616,19 @@
         private System.Windows.Forms.Label lblPelicula3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSinopsis3;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox picPelicula3;
         private System.Windows.Forms.Button btnFuncion2;
         private System.Windows.Forms.Label lblPelicula2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSinopsis2;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picPelicula2;
         private System.Windows.Forms.Button btnFuncion1;
         private System.Windows.Forms.Label lblPelicula1;
         private System.Windows.Forms.Button btnSubir;
         private System.Windows.Forms.Button btnBajar4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSinopsis1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picPelicula1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox btnMax;

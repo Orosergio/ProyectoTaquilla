@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Taquilla
 {
-    public partial class FuncionesCine : Form
+    public partial class frmFuncionesCine : Form
     {
-        public FuncionesCine()
+        public frmFuncionesCine()
         {
             InitializeComponent();
         }

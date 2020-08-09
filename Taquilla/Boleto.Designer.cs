@@ -1,6 +1,6 @@
 ﻿namespace Taquilla
 {
-    partial class Boletos
+    partial class frmBoletos
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Boletos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBoletos));
             this.lblFormato = new System.Windows.Forms.Label();
             this.lblTerceraEdad = new System.Windows.Forms.Label();
             this.lblAdulto = new System.Windows.Forms.Label();
@@ -41,23 +41,23 @@
             this.lblSubNinos = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblCantidadTotal = new System.Windows.Forms.Label();
-            this.btnbuscar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnMas1 = new System.Windows.Forms.Button();
+            this.btnMas2 = new System.Windows.Forms.Button();
+            this.btnMas3 = new System.Windows.Forms.Button();
+            this.btnMenos1 = new System.Windows.Forms.Button();
+            this.btnMenos2 = new System.Windows.Forms.Button();
+            this.btnMenos3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnMin = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnMin = new System.Windows.Forms.PictureBox();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.lblNombreFormato = new System.Windows.Forms.Label();
+            this.lblPrecioTerceraEdad = new System.Windows.Forms.Label();
+            this.lblPrecioAdulto = new System.Windows.Forms.Label();
+            this.lblPrecioNino = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFormato
@@ -193,159 +193,118 @@
             this.lblCantidadTotal.TabIndex = 17;
             this.lblCantidadTotal.Text = "Q 120";
             // 
-            // btnbuscar
+            // btnMas1
             // 
-            this.btnbuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnbuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnbuscar.FlatAppearance.BorderSize = 0;
-            this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbuscar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbuscar.ForeColor = System.Drawing.Color.White;
-            this.btnbuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnbuscar.Image")));
-            this.btnbuscar.Location = new System.Drawing.Point(563, 178);
-            this.btnbuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(73, 62);
-            this.btnbuscar.TabIndex = 62;
-            this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnMas1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnMas1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMas1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMas1.FlatAppearance.BorderSize = 0;
+            this.btnMas1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMas1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMas1.ForeColor = System.Drawing.Color.White;
+            this.btnMas1.Image = ((System.Drawing.Image)(resources.GetObject("btnMas1.Image")));
+            this.btnMas1.Location = new System.Drawing.Point(563, 178);
+            this.btnMas1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMas1.Name = "btnMas1";
+            this.btnMas1.Size = new System.Drawing.Size(73, 62);
+            this.btnMas1.TabIndex = 62;
+            this.btnMas1.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnMas2
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(563, 258);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 62);
-            this.button1.TabIndex = 63;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnMas2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnMas2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMas2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMas2.FlatAppearance.BorderSize = 0;
+            this.btnMas2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMas2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMas2.ForeColor = System.Drawing.Color.White;
+            this.btnMas2.Image = ((System.Drawing.Image)(resources.GetObject("btnMas2.Image")));
+            this.btnMas2.Location = new System.Drawing.Point(563, 258);
+            this.btnMas2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMas2.Name = "btnMas2";
+            this.btnMas2.Size = new System.Drawing.Size(73, 62);
+            this.btnMas2.TabIndex = 63;
+            this.btnMas2.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnMas3
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(563, 331);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(73, 62);
-            this.button2.TabIndex = 64;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnMas3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnMas3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMas3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMas3.FlatAppearance.BorderSize = 0;
+            this.btnMas3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMas3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMas3.ForeColor = System.Drawing.Color.White;
+            this.btnMas3.Image = ((System.Drawing.Image)(resources.GetObject("btnMas3.Image")));
+            this.btnMas3.Location = new System.Drawing.Point(563, 331);
+            this.btnMas3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMas3.Name = "btnMas3";
+            this.btnMas3.Size = new System.Drawing.Size(73, 62);
+            this.btnMas3.TabIndex = 64;
+            this.btnMas3.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnMenos1
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(365, 178);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(73, 62);
-            this.button3.TabIndex = 65;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnMenos1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnMenos1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenos1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMenos1.FlatAppearance.BorderSize = 0;
+            this.btnMenos1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenos1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenos1.ForeColor = System.Drawing.Color.White;
+            this.btnMenos1.Image = ((System.Drawing.Image)(resources.GetObject("btnMenos1.Image")));
+            this.btnMenos1.Location = new System.Drawing.Point(365, 178);
+            this.btnMenos1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMenos1.Name = "btnMenos1";
+            this.btnMenos1.Size = new System.Drawing.Size(73, 62);
+            this.btnMenos1.TabIndex = 65;
+            this.btnMenos1.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnMenos2
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(365, 258);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(73, 62);
-            this.button4.TabIndex = 66;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnMenos2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnMenos2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenos2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMenos2.FlatAppearance.BorderSize = 0;
+            this.btnMenos2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenos2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenos2.ForeColor = System.Drawing.Color.White;
+            this.btnMenos2.Image = ((System.Drawing.Image)(resources.GetObject("btnMenos2.Image")));
+            this.btnMenos2.Location = new System.Drawing.Point(365, 258);
+            this.btnMenos2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMenos2.Name = "btnMenos2";
+            this.btnMenos2.Size = new System.Drawing.Size(73, 62);
+            this.btnMenos2.TabIndex = 66;
+            this.btnMenos2.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnMenos3
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(365, 331);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(73, 62);
-            this.button5.TabIndex = 67;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnMenos3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnMenos3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenos3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMenos3.FlatAppearance.BorderSize = 0;
+            this.btnMenos3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenos3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenos3.ForeColor = System.Drawing.Color.White;
+            this.btnMenos3.Image = ((System.Drawing.Image)(resources.GetObject("btnMenos3.Image")));
+            this.btnMenos3.Location = new System.Drawing.Point(365, 331);
+            this.btnMenos3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMenos3.Name = "btnMenos3";
+            this.btnMenos3.Size = new System.Drawing.Size(73, 62);
+            this.btnMenos3.TabIndex = 67;
+            this.btnMenos3.UseVisualStyleBackColor = false;
+            this.btnMenos3.Click += new System.EventHandler(this.button5_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnMin);
             this.panel1.Location = new System.Drawing.Point(0, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(761, 77);
             this.panel1.TabIndex = 93;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(527, 504);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(208, 45);
-            this.button7.TabIndex = 117;
-            this.button7.Text = "Siguiente";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(174, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 22);
-            this.label1.TabIndex = 118;
-            this.label1.Text = "IMAX";
-            // 
-            // btnMin
-            // 
-            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(620, 17);
-            this.btnMin.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(47, 43);
-            this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMin.TabIndex = 97;
-            this.btnMin.TabStop = false;
             // 
             // btnClose
             // 
@@ -360,58 +319,99 @@
             this.btnClose.TabIndex = 98;
             this.btnClose.TabStop = false;
             // 
-            // label2
+            // btnMin
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(262, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 22);
-            this.label2.TabIndex = 119;
-            this.label2.Text = "Q30";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
+            this.btnMin.Location = new System.Drawing.Point(620, 17);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(47, 43);
+            this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMin.TabIndex = 97;
+            this.btnMin.TabStop = false;
             // 
-            // label3
+            // btnSiguiente
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(262, 273);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 22);
-            this.label3.TabIndex = 120;
-            this.label3.Text = "Q 18";
+            this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSiguiente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.Location = new System.Drawing.Point(527, 504);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(208, 45);
+            this.btnSiguiente.TabIndex = 117;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // lblNombreFormato
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(262, 344);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 22);
-            this.label4.TabIndex = 121;
-            this.label4.Text = "Q 10";
+            this.lblNombreFormato.AutoSize = true;
+            this.lblNombreFormato.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreFormato.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblNombreFormato.Location = new System.Drawing.Point(174, 96);
+            this.lblNombreFormato.Name = "lblNombreFormato";
+            this.lblNombreFormato.Size = new System.Drawing.Size(61, 22);
+            this.lblNombreFormato.TabIndex = 118;
+            this.lblNombreFormato.Text = "IMAX";
             // 
-            // Boletos
+            // lblPrecioTerceraEdad
+            // 
+            this.lblPrecioTerceraEdad.AutoSize = true;
+            this.lblPrecioTerceraEdad.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioTerceraEdad.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPrecioTerceraEdad.Location = new System.Drawing.Point(262, 201);
+            this.lblPrecioTerceraEdad.Name = "lblPrecioTerceraEdad";
+            this.lblPrecioTerceraEdad.Size = new System.Drawing.Size(48, 22);
+            this.lblPrecioTerceraEdad.TabIndex = 119;
+            this.lblPrecioTerceraEdad.Text = "Q30";
+            this.lblPrecioTerceraEdad.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblPrecioAdulto
+            // 
+            this.lblPrecioAdulto.AutoSize = true;
+            this.lblPrecioAdulto.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioAdulto.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPrecioAdulto.Location = new System.Drawing.Point(262, 273);
+            this.lblPrecioAdulto.Name = "lblPrecioAdulto";
+            this.lblPrecioAdulto.Size = new System.Drawing.Size(53, 22);
+            this.lblPrecioAdulto.TabIndex = 120;
+            this.lblPrecioAdulto.Text = "Q 18";
+            // 
+            // lblPrecioNino
+            // 
+            this.lblPrecioNino.AutoSize = true;
+            this.lblPrecioNino.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioNino.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPrecioNino.Location = new System.Drawing.Point(262, 344);
+            this.lblPrecioNino.Name = "lblPrecioNino";
+            this.lblPrecioNino.Size = new System.Drawing.Size(53, 22);
+            this.lblPrecioNino.TabIndex = 121;
+            this.lblPrecioNino.Text = "Q 10";
+            // 
+            // frmBoletos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(761, 583);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.lblPrecioNino);
+            this.Controls.Add(this.lblPrecioAdulto);
+            this.Controls.Add(this.lblPrecioTerceraEdad);
+            this.Controls.Add(this.lblNombreFormato);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnbuscar);
+            this.Controls.Add(this.btnMenos3);
+            this.Controls.Add(this.btnMenos2);
+            this.Controls.Add(this.btnMenos1);
+            this.Controls.Add(this.btnMas3);
+            this.Controls.Add(this.btnMas2);
+            this.Controls.Add(this.btnMas1);
             this.Controls.Add(this.lblCantidadTotal);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblSubNinos);
@@ -425,14 +425,14 @@
             this.Controls.Add(this.lblTerceraEdad);
             this.Controls.Add(this.lblFormato);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Boletos";
+            this.Name = "frmBoletos";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boletos";
             this.Load += new System.EventHandler(this.Boletos_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,20 +452,20 @@
         private System.Windows.Forms.Label lblSubNinos;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblCantidadTotal;
-        private System.Windows.Forms.Button btnbuscar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnMas1;
+        private System.Windows.Forms.Button btnMas2;
+        private System.Windows.Forms.Button btnMas3;
+        private System.Windows.Forms.Button btnMenos1;
+        private System.Windows.Forms.Button btnMenos2;
+        private System.Windows.Forms.Button btnMenos3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Label lblNombreFormato;
         private System.Windows.Forms.PictureBox btnMin;
         private System.Windows.Forms.PictureBox btnClose;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblPrecioTerceraEdad;
+        private System.Windows.Forms.Label lblPrecioAdulto;
+        private System.Windows.Forms.Label lblPrecioNino;
     }
 }
 

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Taquilla
 {
-    public partial class Cartelera : Form
+    public partial class frmCartelera : Form
     {
         int lx, ly;
         int sw, sh;
-        public Cartelera()
+        public frmCartelera()
         {
             InitializeComponent();
         }
@@ -77,6 +77,11 @@ namespace Taquilla
            /* string a = "a";
             string imagen = @a;
             pictureBox1.Image = Image.FromFile(a);*/
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

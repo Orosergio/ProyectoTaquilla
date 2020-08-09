@@ -9,3 +9,14 @@ C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.exe
 C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.pdb
 C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.Cartelera.resources
 C:\Users\Carlos\source\repos\Taquilla\obj\Debug\Taquilla.FuncionesCine.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\bin\Debug\Taquilla.exe.config
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\bin\Debug\Taquilla.exe
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\bin\Debug\Taquilla.pdb
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.csprojAssemblyReference.cache
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmBoletos.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmCartelera.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmFuncionesCine.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.Properties.Resources.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.csproj.GenerateResource.cache
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.exe
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.pdb
