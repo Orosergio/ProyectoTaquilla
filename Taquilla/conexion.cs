@@ -23,6 +23,17 @@ namespace Taquilla
             }
             return odbcConexion;
         }
+        public void desconexion(OdbcConnection conn)
+        {
+            try
+            {
+                conn.Close();
+            }
+            catch (OdbcException)
+            {
+                Console.WriteLine("No Conectó");
+            }
+        }
 
     }
 }

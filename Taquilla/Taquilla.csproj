@@ -59,12 +59,19 @@
       <DependentUpon>Cartelera.cs</DependentUpon>
     </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="frmTrailer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrailer.Designer.cs">
+      <DependentUpon>frmTrailer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FuncionesCine.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FuncionesCine.Designer.cs">
       <DependentUpon>FuncionesCine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pelicula.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Boleto.resx">
@@ -72,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cartelera.resx">
       <DependentUpon>Cartelera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrailer.resx">
+      <DependentUpon>frmTrailer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FuncionesCine.resx">
       <DependentUpon>FuncionesCine.cs</DependentUpon>
@@ -84,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -97,6 +108,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagenes\calendario.png" />
+    <Content Include="Imagenes\espalda.png" />
+    <Content Include="Imagenes\flecha-apuntando-hacia-abajo.png" />
+    <Content Include="Imagenes\flecha-arriba.png" />
+    <Content Include="Imagenes\flecha.png" />
+    <Content Include="Imagenes\icon_cerrar2.png" />
+    <Content Include="Imagenes\icon_maximizar.png" />
+    <Content Include="Imagenes\icon_minimizar.png" />
+    <Content Include="Imagenes\icon_restaurar.png" />
+    <Content Include="Imagenes\Ironman3-poster.jpg" />
+    <Content Include="Imagenes\johnwick.jpg" />
+    <Content Include="Imagenes\menos %281%29.png" />
+    <Content Include="Imagenes\plus-sign-in-a-black-circle %281%29.png" />
+    <Content Include="Imagenes\video.png" />
+    <Content Include="Imagenes\youname.jpg" />
+    <Content Include="Imagenes\yourname.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

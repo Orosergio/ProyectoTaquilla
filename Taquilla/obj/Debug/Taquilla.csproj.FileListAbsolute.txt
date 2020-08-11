@@ -20,3 +20,4 @@ C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.Pr
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.csproj.GenerateResource.cache
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.exe
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.pdb
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmTrailer.resources
