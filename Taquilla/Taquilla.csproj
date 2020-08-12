@@ -46,45 +46,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boleto.cs">
+    <Compile Include="frmBoletos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boleto.Designer.cs">
-      <DependentUpon>Boleto.cs</DependentUpon>
+    <Compile Include="frmBoletos.Designer.cs">
+      <DependentUpon>frmBoletos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cartelera.cs">
+    <Compile Include="frmCantidadBoletos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cartelera.Designer.cs">
-      <DependentUpon>Cartelera.cs</DependentUpon>
+    <Compile Include="frmCantidadBoletos.Designer.cs">
+      <DependentUpon>frmCantidadBoletos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCartelera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCartelera.Designer.cs">
+      <DependentUpon>frmCartelera.cs</DependentUpon>
     </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="frmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFacturacion.Designer.cs">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTrailer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTrailer.Designer.cs">
       <DependentUpon>frmTrailer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FuncionesCine.cs">
+    <Compile Include="frmFuncionesCine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FuncionesCine.Designer.cs">
-      <DependentUpon>FuncionesCine.cs</DependentUpon>
+    <Compile Include="frmFuncionesCine.Designer.cs">
+      <DependentUpon>frmFuncionesCine.cs</DependentUpon>
     </Compile>
     <Compile Include="Pelicula.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Boleto.resx">
-      <DependentUpon>Boleto.cs</DependentUpon>
+    <EmbeddedResource Include="frmBoletos.resx">
+      <DependentUpon>frmBoletos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cartelera.resx">
-      <DependentUpon>Cartelera.cs</DependentUpon>
+    <EmbeddedResource Include="frmCantidadBoletos.resx">
+      <DependentUpon>frmCantidadBoletos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCartelera.resx">
+      <DependentUpon>frmCartelera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFacturacion.resx">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrailer.resx">
       <DependentUpon>frmTrailer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FuncionesCine.resx">
-      <DependentUpon>FuncionesCine.cs</DependentUpon>
+    <EmbeddedResource Include="frmFuncionesCine.resx">
+      <DependentUpon>frmFuncionesCine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

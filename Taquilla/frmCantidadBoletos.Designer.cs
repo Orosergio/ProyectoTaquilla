@@ -1,6 +1,6 @@
 ﻿namespace Taquilla
 {
-    partial class frmBoletos
+    partial class frmCantidadBoletos
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBoletos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCantidadBoletos));
             this.lblFormato = new System.Windows.Forms.Label();
             this.lblTerceraEdad = new System.Windows.Forms.Label();
             this.lblAdulto = new System.Windows.Forms.Label();
@@ -394,7 +394,7 @@
             this.lblPrecioNino.TabIndex = 121;
             this.lblPrecioNino.Text = "Q 10";
             // 
-            // frmBoletos
+            // frmCantidadBoletos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -425,7 +425,7 @@
             this.Controls.Add(this.lblTerceraEdad);
             this.Controls.Add(this.lblFormato);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmBoletos";
+            this.Name = "frmCantidadBoletos";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boletos";

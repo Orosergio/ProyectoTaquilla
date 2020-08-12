@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Taquilla
 {
-    public partial class frmBoletos : Form
+    public partial class frmCantidadBoletos : Form
     {
-        public frmBoletos()
+        public frmCantidadBoletos()
         {
             InitializeComponent();
         }

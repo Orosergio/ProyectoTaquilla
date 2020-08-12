@@ -21,3 +21,5 @@ C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.cs
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.exe
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.pdb
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmTrailer.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmCantidadBoletos.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmFacturacion.resources
