@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.Principal = new System.Windows.Forms.Panel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.btnPeliculaTaquilla = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnreportventa = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEmpleado = new System.Windows.Forms.Button();
             this.TituloBarra = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
@@ -55,11 +58,9 @@
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEmpleado = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.PanelContenedor.SuspendLayout();
             this.Principal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.panel4.SuspendLayout();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSLIDE)).BeginInit();
@@ -69,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelContenedor
@@ -95,6 +95,15 @@
             this.Principal.Size = new System.Drawing.Size(1050, 680);
             this.Principal.TabIndex = 102;
             this.Principal.Paint += new System.Windows.Forms.PaintEventHandler(this.Principal_Paint);
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(191, 144);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(691, 364);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // panel4
             // 
@@ -133,8 +142,8 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
-            this.Menu.Controls.Add(this.panel2);
             this.Menu.Controls.Add(this.panel11);
+            this.Menu.Controls.Add(this.panel7);
             this.Menu.Controls.Add(this.button6);
             this.Menu.Controls.Add(this.panel5);
             this.Menu.Controls.Add(this.btnSLIDE);
@@ -217,7 +226,7 @@
             // 
             // Submenurepor
             // 
-            this.Submenurepor.Controls.Add(this.panel7);
+            this.Submenurepor.Controls.Add(this.panel2);
             this.Submenurepor.Controls.Add(this.button9);
             this.Submenurepor.Controls.Add(this.btnPeliculaTaquilla);
             this.Submenurepor.Controls.Add(this.panel6);
@@ -232,10 +241,11 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel7.Location = new System.Drawing.Point(0, 61);
+            this.panel7.Location = new System.Drawing.Point(41, 361);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(10, 32);
             this.panel7.TabIndex = 13;
+            this.panel7.Visible = false;
             // 
             // button9
             // 
@@ -247,11 +257,11 @@
             this.button9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(3, 116);
+            this.button9.Location = new System.Drawing.Point(6, 116);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(209, 32);
+            this.button9.Size = new System.Drawing.Size(200, 59);
             this.button9.TabIndex = 14;
-            this.button9.Text = "Reporte Inventario";
+            this.button9.Text = "Reporte de Puntos del Cliente";
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.Button9_Click);
@@ -266,7 +276,7 @@
             this.btnPeliculaTaquilla.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnPeliculaTaquilla.Image = ((System.Drawing.Image)(resources.GetObject("btnPeliculaTaquilla.Image")));
             this.btnPeliculaTaquilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPeliculaTaquilla.Location = new System.Drawing.Point(3, 41);
+            this.btnPeliculaTaquilla.Location = new System.Drawing.Point(3, 51);
             this.btnPeliculaTaquilla.Name = "btnPeliculaTaquilla";
             this.btnPeliculaTaquilla.Size = new System.Drawing.Size(209, 69);
             this.btnPeliculaTaquilla.TabIndex = 12;
@@ -301,6 +311,33 @@
             this.btnreportventa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnreportventa.UseVisualStyleBackColor = true;
             this.btnreportventa.Click += new System.EventHandler(this.Btnreportventa_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel1.Location = new System.Drawing.Point(0, 144);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(5, 32);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnEmpleado
+            // 
+            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
+            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleado.Location = new System.Drawing.Point(6, 144);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Size = new System.Drawing.Size(263, 43);
+            this.btnEmpleado.TabIndex = 1;
+            this.btnEmpleado.Text = "    Empleados";
+            this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmpleado.UseVisualStyleBackColor = true;
+            this.btnEmpleado.Click += new System.EventHandler(this.BtnEmpleado_Click);
             // 
             // TituloBarra
             // 
@@ -382,47 +419,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel2.Location = new System.Drawing.Point(41, 409);
+            this.panel2.Location = new System.Drawing.Point(0, 126);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 32);
             this.panel2.TabIndex = 14;
             this.panel2.Visible = false;
-            // 
-            // btnEmpleado
-            // 
-            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
-            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(6, 144);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Size = new System.Drawing.Size(263, 43);
-            this.btnEmpleado.TabIndex = 1;
-            this.btnEmpleado.Text = "    Empleados";
-            this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEmpleado.UseVisualStyleBackColor = true;
-            this.btnEmpleado.Click += new System.EventHandler(this.BtnEmpleado_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel1.Location = new System.Drawing.Point(0, 144);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 32);
-            this.panel1.TabIndex = 2;
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(191, 144);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(691, 364);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // FormPrincipal
             // 
@@ -439,6 +440,7 @@
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.PanelContenedor.ResumeLayout(false);
             this.Principal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.Menu.ResumeLayout(false);
@@ -449,7 +451,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -479,10 +480,10 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel2;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnEmpleado;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

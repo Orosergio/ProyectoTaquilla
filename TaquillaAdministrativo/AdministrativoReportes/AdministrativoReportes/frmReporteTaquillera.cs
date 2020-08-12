@@ -16,5 +16,10 @@ namespace AdministrativoReportes
         {
             InitializeComponent();
         }
+
+        private void frmReporteTaquillera_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

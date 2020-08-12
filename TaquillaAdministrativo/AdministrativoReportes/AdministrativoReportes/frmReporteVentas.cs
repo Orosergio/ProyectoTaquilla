@@ -21,52 +21,19 @@ namespace WindowsFormsApp1
             InitializeComponent();
             cargarDatos();
             
-            /* try
-             {
-                 Conexion = new MySqlConnection();
-                 Conexion.ConnectionString = sql;
-                 Conexion.Open();
-                 Query.CommandText = "SELECT v.fecha,c.nombre,c.apellido,prod.nombre,dv.cantidad from ventas v," +
-                     "detalleventas dv, producto prod, cliente c where v.nitcliente=c.nit" +
-                     " and dv.idproducto=prod.idproducto order by v.fecha desc";
-                 Query.Connection = Conexion;
-                 consultar = Query.ExecuteReader();
-                 while (consultar.Read())
-                 {
-                     dgvventas.Rows.Add(consultar.GetString(0), consultar.GetString(1) + consultar.GetString(2), consultar.GetString(3), consultar.GetInt32(4).ToString());
-                 }
-                 Conexion.Close();
-             }
-             catch (MySqlException er)
-             {
-                 MessageBox.Show(er.Message);
-             }*/
+            
         }
-        /*public void connection()
-        {
-            try
-            {
-                Conexion = new MySqlConnection();
-                Conexion.ConnectionString = sql;
-                Conexion.Open();
-               // MessageBox.Show("Conectado con éxito");
-                Conexion.Close();
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }*/
+       
 
         void cargarDatos()
         {
             try
             {
-                string cadena = "SELECT * FROM RESERVACIONENCABEZADO;";
+                string cadena = "SELECT RESENC.idReservacionEncabezado,RESENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,RESENC.total,RESENC.descuento FROM CLIENTE C,RESERVACIONENCABEZADO RESENC WHERE RESENC.nitCliente = C.nitCliente AND RESENC.estatus = true;";
                 OdbcCommand cma = new OdbcCommand(cadena,cn.conexion());
                 OdbcDataReader reader = cma.ExecuteReader();
                 while(reader.Read()){
-                    dgvventas.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(6).ToString(), reader.GetInt32(7).ToString(), reader.GetInt32(10).ToString());
+                    dgvventas.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2) +" "+ reader.GetString(3), "Q."+reader.GetDouble(4).ToString(), "Q."+reader.GetDouble(5).ToString());
                 }
                
 
@@ -121,17 +88,17 @@ namespace WindowsFormsApp1
             {
                 dgvventas.Rows.Clear();
                 string texto = cboMes.Text;
-                int gananciames = 0;
+                Double gananciames = 0;
                 lblGeneralData.Text = "REPORTE CORRESPONDIENTE AL MES DE " + texto;
                 try
                 {
-                    string cadena = "SELECT * FROM RESERVACIONENCABEZADO WHERE  MONTH(fecha) = " + mes + ";";
+                    string cadena = "SELECT RESENC.idReservacionEncabezado,RESENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,RESENC.total,RESENC.descuento FROM CLIENTE C,RESERVACIONENCABEZADO RESENC WHERE RESENC.nitCliente = C.nitCliente AND MONTH(fecha) =  " + mes + " AND RESENC.estatus = true;";
                     OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
-                        dgvventas.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(6).ToString(), reader.GetInt32(7).ToString(), reader.GetInt32(10).ToString());
-                        gananciames += reader.GetInt32(6);
+                        dgvventas.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2) + " " + reader.GetString(3), "Q." + reader.GetDouble(4).ToString(), "Q." + reader.GetDouble(5).ToString());
+                        gananciames += reader.GetDouble(4);
                         lblGanancia.Text = "TOTAL DE GANANCIAS: " + gananciames;
                     }
 
@@ -150,16 +117,16 @@ namespace WindowsFormsApp1
                 string fin = dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss");
                 //MessageBox.Show("INICIO: "+inicio);
                 //MessageBox.Show("FIN: "+fin);
-                int ganancia = 0;
+                Double ganancia = 0;
                 try
                 {
-                    string cadena = "SELECT * FROM RESERVACIONENCABEZADO WHERE fecha BETWEEN '"+ dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "';";
+                    string cadena = "SELECT RESENC.idReservacionEncabezado,RESENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,RESENC.total,RESENC.descuento FROM CLIENTE C,RESERVACIONENCABEZADO RESENC WHERE RESENC.nitCliente = C.nitCliente AND fecha BETWEEN '"+ dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND RESENC.estatus = true;";
                     OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
-                        dgvventas.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(6).ToString(), reader.GetInt32(7).ToString(), reader.GetInt32(10).ToString());
-                        ganancia += reader.GetInt32(6);
+                        dgvventas.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2) + " " + reader.GetString(3), "Q." + reader.GetDouble(4).ToString(), "Q." + reader.GetDouble(5).ToString());
+                        ganancia += reader.GetDouble(4);
                         lblGanancia.Text="TOTAL DE GANANCIAS: " +ganancia ;
                     }
 

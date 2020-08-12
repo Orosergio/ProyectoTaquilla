@@ -32,3 +32,4 @@ C:\Users\Yavhé Orozco\Documents\GitHub\ProyectoTaquilla\TaquillaAdministrativo\
 C:\Users\Yavhé Orozco\Documents\GitHub\ProyectoTaquilla\TaquillaAdministrativo\AdministrativoReportes\AdministrativoReportes\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Yavhé Orozco\Documents\GitHub\ProyectoTaquilla\TaquillaAdministrativo\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.csproj.ResolveComReference.cache
 C:\Users\Yavhé Orozco\Documents\GitHub\ProyectoTaquilla\TaquillaAdministrativo\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.frmReporteTaquillera.resources
+C:\Users\Yavhé Orozco\Documents\GitHub\ProyectoTaquilla\TaquillaAdministrativo\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.frmReportePuntos.resources

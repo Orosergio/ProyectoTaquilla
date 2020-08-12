@@ -204,7 +204,7 @@ namespace FinalProyecto
         private void Button9_Click(object sender, EventArgs e)
         {
             Submenurepor.Visible = false;
-            frmReporteTaquillera fm = new frmReporteTaquillera();
+            frmReportePuntos fm = new frmReportePuntos();
             AbrirFormEnPanel(fm);
         }
 

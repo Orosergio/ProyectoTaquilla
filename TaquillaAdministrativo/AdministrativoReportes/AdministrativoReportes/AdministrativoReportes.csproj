@@ -59,6 +59,12 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportePuntos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportePuntos.Designer.cs">
+      <DependentUpon>frmReportePuntos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteTaquillera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportePuntos.resx">
+      <DependentUpon>frmReportePuntos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteTaquillera.resx">
       <DependentUpon>frmReporteTaquillera.cs</DependentUpon>
