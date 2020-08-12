@@ -106,7 +106,7 @@ namespace Taquilla
             listaPelicula.Clear();
               try
               {
-                  string Query = "select p.nombre, p.descripcion, p.linktrailer, p.imagen from pelicula p, proyeccionpelicula pp, sala s, cine c where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine=" + Int32.Parse(cboCodigoCine.SelectedItem.ToString());
+                  string Query = "select p.nombre, p.descripcion, p.linktrailer, p.imagen from pelicula p, proyeccionpelicula pp, sala s, cine c where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine="+Int32.Parse(cboCodigoCine.SelectedItem.ToString())+" and p.estatus=1";
                   OdbcDataReader Datos;
                   OdbcCommand Consulta = new OdbcCommand();
                   Consulta.CommandText = Query;
@@ -127,14 +127,6 @@ namespace Taquilla
                   MessageBox.Show(ex.ToString());
                   throw;
              }
-           /* foreach(Pelicula movie in listaPelicula)
-            {
-                MessageBox.Show(movie.Nombre + movie.Descripcion + movie.Trailer + movie.RutaImagen);
-            }*/
-            /* string a = "a";
-             string imagen = @a;
-             pictureBox1.Image = Image.FromFile(a);*/
-           // picPelicula1.Image = Image.FromFile(@"C://Users//Carlos//Documents//GitHub//ProyectoTaquilla//Taquilla//Imagenes//iron3");
         }
 
         public void procMostrarCartelera()
@@ -142,113 +134,136 @@ namespace Taquilla
             peliculasPasadas = 0;
             if (cantidadPeliculas>=3)
             {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = true;
-                picPelicula3.Visible = true;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = true;
-                lblPelicula3.Visible = true;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = true;
-                txtSinopsis3.Visible = true;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = true;
-                lblSinopsis3.Visible = true;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = true;
-                btnClasificacion3.Visible = true;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = true;
-                btnTrailer3.Visible = true;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = true;
-                btnFuncion3.Visible = true;
+                procPeliculasIniciales(3, 1);
+                procDesbloquearObjetos(1);
                 btnBajar.Visible = true;
-                funcPeliculasIniciales(3,1);
+                btnSubir.Visible = false;
                 peliculasPasadas += 3;
             }
             else if (cantidadPeliculas == 2)
             {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = true;
-                picPelicula3.Visible = false;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = true;
-                lblPelicula3.Visible = false;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = true;
-                txtSinopsis3.Visible = false;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = true;
-                lblSinopsis3.Visible = false;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = true;
-                btnClasificacion3.Visible = false;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = true;
-                btnTrailer3.Visible = false;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = true;
-                btnFuncion3.Visible = false;
+                procPeliculasIniciales(2, 1);
+                procDesbloquearObjetos(2);
                 btnBajar.Visible = false;
-                funcPeliculasIniciales(2,1);
+                btnSubir.Visible = false;
                 peliculasPasadas += 3;
             }
             else if (cantidadPeliculas == 1)
             {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = false;
-                picPelicula3.Visible = false;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = false;
-                lblPelicula3.Visible = false;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = false;
-                txtSinopsis3.Visible = false;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = false;
-                lblSinopsis3.Visible = false;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = false;
-                btnClasificacion3.Visible = false;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = false;
-                btnTrailer3.Visible = false;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = false;
-                btnFuncion3.Visible = false;
+                procPeliculasIniciales(1, 1);
                 btnBajar.Visible = false;
-                funcPeliculasIniciales(1,1);
+                btnSubir.Visible = false;
+                procDesbloquearObjetos(3);
                 peliculasPasadas += 1;
             }
             else if (cantidadPeliculas==0)
             {
-                picPelicula1.Visible = false;
-                picPelicula2.Visible = false;
-                picPelicula3.Visible = false;
-                lblPelicula1.Visible = false;
-                lblPelicula2.Visible = false;
-                lblPelicula3.Visible = false;
-                txtSinopsis1.Visible = false;
-                txtSinopsis2.Visible = false;
-                txtSinopsis3.Visible = false;
-                lblSinopsis1.Visible = false;
-                lblSinopsis2.Visible = false;
-                lblSinopsis3.Visible = false;
-                btnClasificacion1.Visible = false;
-                btnClasificacion2.Visible = false;
-                btnClasificacion3.Visible = false;
-                btnTrailer1.Visible = false;
-                btnTrailer2.Visible = false;
-                btnTrailer3.Visible = false;
-                btnFuncion1.Visible = false;
-                btnFuncion2.Visible = false;
-                btnFuncion3.Visible = false;
+                procDesbloquearObjetos(4);
                 btnBajar.Visible = false;
+                btnSubir.Visible = false;
             }
         }
-
-        public void funcPeliculasIniciales(int cantidadPeliculas, int opcion)
+        public void procDesbloquearObjetos(int opcion)
+        {
+            switch (opcion)
+            {
+                case 1:
+                    picPelicula1.Visible = true;
+                    picPelicula2.Visible = true;
+                    picPelicula3.Visible = true;
+                    lblPelicula1.Visible = true;
+                    lblPelicula2.Visible = true;
+                    lblPelicula3.Visible = true;
+                    txtSinopsis1.Visible = true;
+                    txtSinopsis2.Visible = true;
+                    txtSinopsis3.Visible = true;
+                    lblSinopsis1.Visible = true;
+                    lblSinopsis2.Visible = true;
+                    lblSinopsis3.Visible = true;
+                    btnClasificacion1.Visible = true;
+                    btnClasificacion2.Visible = true;
+                    btnClasificacion3.Visible = true;
+                    btnTrailer1.Visible = true;
+                    btnTrailer2.Visible = true;
+                    btnTrailer3.Visible = true;
+                    btnFuncion1.Visible = true;
+                    btnFuncion2.Visible = true;
+                    btnFuncion3.Visible = true;
+                    break;
+                case 2:
+                    picPelicula1.Visible = true;
+                    picPelicula2.Visible = true;
+                    picPelicula3.Visible = false;
+                    lblPelicula1.Visible = true;
+                    lblPelicula2.Visible = true;
+                    lblPelicula3.Visible = false;
+                    txtSinopsis1.Visible = true;
+                    txtSinopsis2.Visible = true;
+                    txtSinopsis3.Visible = false;
+                    lblSinopsis1.Visible = true;
+                    lblSinopsis2.Visible = true;
+                    lblSinopsis3.Visible = false;
+                    btnClasificacion1.Visible = true;
+                    btnClasificacion2.Visible = true;
+                    btnClasificacion3.Visible = false;
+                    btnTrailer1.Visible = true;
+                    btnTrailer2.Visible = true;
+                    btnTrailer3.Visible = false;
+                    btnFuncion1.Visible = true;
+                    btnFuncion2.Visible = true;
+                    btnFuncion3.Visible = false;
+                    break;
+                case 3:
+                    picPelicula1.Visible = true;
+                    picPelicula2.Visible = false;
+                    picPelicula3.Visible = false;
+                    lblPelicula1.Visible = true;
+                    lblPelicula2.Visible = false;
+                    lblPelicula3.Visible = false;
+                    txtSinopsis1.Visible = true;
+                    txtSinopsis2.Visible = false;
+                    txtSinopsis3.Visible = false;
+                    lblSinopsis1.Visible = true;
+                    lblSinopsis2.Visible = false;
+                    lblSinopsis3.Visible = false;
+                    btnClasificacion1.Visible = true;
+                    btnClasificacion2.Visible = false;
+                    btnClasificacion3.Visible = false;
+                    btnTrailer1.Visible = true;
+                    btnTrailer2.Visible = false;
+                    btnTrailer3.Visible = false;
+                    btnFuncion1.Visible = true;
+                    btnFuncion2.Visible = false;
+                    btnFuncion3.Visible = false;
+                    break;
+                case 4:
+                    picPelicula1.Visible = false;
+                    picPelicula2.Visible = false;
+                    picPelicula3.Visible = false;
+                    lblPelicula1.Visible = false;
+                    lblPelicula2.Visible = false;
+                    lblPelicula3.Visible = false;
+                    txtSinopsis1.Visible = false;
+                    txtSinopsis2.Visible = false;
+                    txtSinopsis3.Visible = false;
+                    lblSinopsis1.Visible = false;
+                    lblSinopsis2.Visible = false;
+                    lblSinopsis3.Visible = false;
+                    btnClasificacion1.Visible = false;
+                    btnClasificacion2.Visible = false;
+                    btnClasificacion3.Visible = false;
+                    btnTrailer1.Visible = false;
+                    btnTrailer2.Visible = false;
+                    btnTrailer3.Visible = false;
+                    btnFuncion1.Visible = false;
+                    btnFuncion2.Visible = false;
+                    btnFuncion3.Visible = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void procPeliculasIniciales(int cantidadPeliculas, int opcion)
         {
             int repeticiones = 1;
             switch (opcion)
@@ -336,6 +351,7 @@ namespace Taquilla
 
         private void cboDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnBuscar.Enabled = false;
             cboCodigoDepartamento.SelectedIndex = cboDepartamento.SelectedIndex;
             cboMunicipio.Items.Clear();
             cboCodigoCine.Items.Clear();
@@ -371,118 +387,27 @@ namespace Taquilla
             //MessageBox.Show(peliculasPasadas.ToString()+"----");
             if (peliculasPasadas > 3)
             {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = true;
-                picPelicula3.Visible = true;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = true;
-                lblPelicula3.Visible = true;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = true;
-                txtSinopsis3.Visible = true;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = true;
-                lblSinopsis3.Visible = true;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = true;
-                btnClasificacion3.Visible = true;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = true;
-                btnTrailer3.Visible = true;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = true;
-                btnFuncion3.Visible = true;
+                procPeliculasIniciales(cantidadPeliculas, 2);
+                procDesbloquearObjetos(1);
                 btnBajar.Visible = true;
                 btnSubir.Visible = true;
-                funcPeliculasIniciales(cantidadPeliculas, 2);
                 peliculasPasadas += 3;
             }else if(peliculasPasadas == 3)
             {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = true;
-                picPelicula3.Visible = true;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = true;
-                lblPelicula3.Visible = true;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = true;
-                txtSinopsis3.Visible = true;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = true;
-                lblSinopsis3.Visible = true;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = true;
-                btnClasificacion3.Visible = true;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = true;
-                btnTrailer3.Visible = true;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = true;
-                btnFuncion3.Visible = true;
+                procPeliculasIniciales(cantidadPeliculas, 2);
+                procDesbloquearObjetos(1);
                 btnBajar.Visible = true;
                 btnSubir.Visible = true;
-                funcPeliculasIniciales(cantidadPeliculas, 2);
                 peliculasPasadas = 3;
             }
             else if (peliculasPasadas < 3)
             {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = true;
-                picPelicula3.Visible = true;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = true;
-                lblPelicula3.Visible = true;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = true;
-                txtSinopsis3.Visible = true;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = true;
-                lblSinopsis3.Visible = true;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = true;
-                btnClasificacion3.Visible = true;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = true;
-                btnTrailer3.Visible = true;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = true;
-                btnFuncion3.Visible = true;
+                procPeliculasIniciales(3, 1);
+                procDesbloquearObjetos(1);
                 btnBajar.Visible = true;
-                btnSubir.Visible = false;
-                funcPeliculasIniciales(3, 1);
+                btnSubir.Visible = false;               
                 peliculasPasadas = 3;
-              //  peliculasPasadas += 3;
             }
-           /* else if (peliculasPasadas == 1)
-            {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = false;
-                picPelicula3.Visible = false;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = false;
-                lblPelicula3.Visible = false;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = false;
-                txtSinopsis3.Visible = false;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = false;
-                lblSinopsis3.Visible = false;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = false;
-                btnClasificacion3.Visible = false;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = false;
-                btnTrailer3.Visible = false;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = false;
-                btnFuncion3.Visible = false;
-                btnBajar.Visible = false;
-                btnSubir.Visible = true;
-                funcPeliculasIniciales(cantidadPeliculas, 2);
-                peliculasPasadas += 1;
-            }*/
-  
-
         }
 
         private void btnBajar_Click(object sender, EventArgs e)
@@ -491,27 +416,8 @@ namespace Taquilla
            // MessageBox.Show(restantePeliculas.ToString()+"--"+peliculasPasadas.ToString());
             if (restantePeliculas >= 3)
             {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = true;
-                picPelicula3.Visible = true;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = true;
-                lblPelicula3.Visible = true;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = true;
-                txtSinopsis3.Visible = true;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = true;
-                lblSinopsis3.Visible = true;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = true;
-                btnClasificacion3.Visible = true;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = true;
-                btnTrailer3.Visible = true;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = true;
-                btnFuncion3.Visible = true;
+                procPeliculasIniciales(cantidadPeliculas, 2);
+                procDesbloquearObjetos(1);
                 btnSubir.Visible = true;
                 if (restantePeliculas > 3)
                 {
@@ -520,93 +426,26 @@ namespace Taquilla
                 else
                 {
                     btnBajar.Visible = false;
-                }
-              
-                funcPeliculasIniciales(cantidadPeliculas, 2);
+                }                  
                 peliculasPasadas += 3;
             }
             else if (restantePeliculas == 2)
-            {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = true;
-                picPelicula3.Visible = false;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = true;
-                lblPelicula3.Visible = false;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = true;
-                txtSinopsis3.Visible = false;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = true;
-                lblSinopsis3.Visible = false;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = true;
-                btnClasificacion3.Visible = false;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = true;
-                btnTrailer3.Visible = false;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = true;
-                btnFuncion3.Visible = false;
+            {                
+                procPeliculasIniciales(cantidadPeliculas, 2);
+                procDesbloquearObjetos(2);
                 btnBajar.Visible = false;
                 btnSubir.Visible = true;
-                funcPeliculasIniciales(cantidadPeliculas, 2);
                 peliculasPasadas += 3;
             }
             else if (restantePeliculas == 1)
-            {
-                picPelicula1.Visible = true;
-                picPelicula2.Visible = false;
-                picPelicula3.Visible = false;
-                lblPelicula1.Visible = true;
-                lblPelicula2.Visible = false;
-                lblPelicula3.Visible = false;
-                txtSinopsis1.Visible = true;
-                txtSinopsis2.Visible = false;
-                txtSinopsis3.Visible = false;
-                lblSinopsis1.Visible = true;
-                lblSinopsis2.Visible = false;
-                lblSinopsis3.Visible = false;
-                btnClasificacion1.Visible = true;
-                btnClasificacion2.Visible = false;
-                btnClasificacion3.Visible = false;
-                btnTrailer1.Visible = true;
-                btnTrailer2.Visible = false;
-                btnTrailer3.Visible = false;
-                btnFuncion1.Visible = true;
-                btnFuncion2.Visible = false;
-                btnFuncion3.Visible = false;
+            {              
+                procPeliculasIniciales(cantidadPeliculas, 2);
+                procDesbloquearObjetos(3);
                 btnBajar.Visible = false;
                 btnSubir.Visible = true;
-                funcPeliculasIniciales(cantidadPeliculas, 2);
                 peliculasPasadas += 3;
             }
-            MessageBox.Show(restantePeliculas.ToString() + "--" + peliculasPasadas.ToString());
-            /* else if (restantePeliculas == 0)
-             {
-                 picPelicula1.Visible = false;
-                 picPelicula2.Visible = false;
-                 picPelicula3.Visible = false;
-                 lblPelicula1.Visible = false;
-                 lblPelicula2.Visible = false;
-                 lblPelicula3.Visible = false;
-                 txtSinopsis1.Visible = false;
-                 txtSinopsis2.Visible = false;
-                 txtSinopsis3.Visible = false;
-                 lblSinopsis1.Visible = false;
-                 lblSinopsis2.Visible = false;
-                 lblSinopsis3.Visible = false;
-                 btnClasificacion1.Visible = false;
-                 btnClasificacion2.Visible = false;
-                 btnClasificacion3.Visible = false;
-                 btnTrailer1.Visible = false;
-                 btnTrailer2.Visible = false;
-                 btnTrailer3.Visible = false;
-                 btnFuncion1.Visible = false;
-                 btnFuncion2.Visible = false;
-                 btnFuncion3.Visible = false;
-                 btnBajar.Visible = false;
-             }*/
+          //  MessageBox.Show(restantePeliculas.ToString() + "--" + peliculasPasadas.ToString());
         }
 
         private void cboCine_SelectedIndexChanged(object sender, EventArgs e)
@@ -636,7 +475,7 @@ namespace Taquilla
 
         private void cboMunicipio_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            btnBuscar.Enabled = false;
             cboCodigoMunicipio.SelectedIndex = cboMunicipio.SelectedIndex;
             cboCine.Items.Clear();
             cboCodigoCine.Items.Clear();
