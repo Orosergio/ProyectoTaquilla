@@ -18,6 +18,7 @@ namespace Taquilla
         List<Pelicula> listaPelicula = new List<Pelicula>();
         int cantidadPeliculas;
         int restantePeliculas = 3, peliculasPasadas=0;
+        int codigoPelicula1, codigoPelicula2, codigoPelicula3;
         conexion conn = new conexion();
         public frmCartelera()
         {
@@ -30,7 +31,7 @@ namespace Taquilla
         {
             try
             {
-                string Query = "SELECT * FROM DEPARTAMENTO";
+                string Query = "SELECT * FROM DEPARTAMENTO  WHERE ESTATUS=1";
                 OdbcDataReader Datos;
                 OdbcCommand Consulta= new OdbcCommand();
                 Consulta.CommandText = Query;
@@ -106,7 +107,7 @@ namespace Taquilla
             listaPelicula.Clear();
               try
               {
-                  string Query = "select p.nombre, p.descripcion, p.linktrailer, p.imagen from pelicula p, proyeccionpelicula pp, sala s, cine c where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine="+Int32.Parse(cboCodigoCine.SelectedItem.ToString())+" and p.estatus=1";
+                  string Query = "select distinct p.nombre, p.descripcion, p.linktrailer, p.imagen, p.idpelicula from pelicula p, proyeccionpelicula pp, sala s, cine c where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine=" + Int32.Parse(cboCodigoCine.SelectedItem.ToString())+ " and p.estatus=1";
                   OdbcDataReader Datos;
                   OdbcCommand Consulta = new OdbcCommand();
                   Consulta.CommandText = Query;
@@ -114,9 +115,9 @@ namespace Taquilla
                   Datos = Consulta.ExecuteReader();
                   while (Datos.Read())
                   {
-                    listaPelicula.Add(new Pelicula(Datos.GetString(0), Datos.GetString(1), Datos.GetString(2), Datos.GetString(3)));                    
-
+                    listaPelicula.Add(new Pelicula(Datos.GetString(0), Datos.GetString(1), Datos.GetString(2), Datos.GetString(3), Int32.Parse(Datos.GetString(4))));                  
                   }
+                
                 pnlCartelera.Visible = true;
                 cantidadPeliculas = listaPelicula.Count();
                 btnSubir.Visible = false;
@@ -281,18 +282,21 @@ namespace Taquilla
                                     lblPelicula1.Text = movie.Nombre;
                                     txtSinopsis1.Text = movie.Descripcion;
                                     lblTrailer1.Text = movie.Trailer;
+                                    codigoPelicula1 = movie.codigoPelicula;//
                                     break;
                                 case 2:
                                     picPelicula2.Image = Image.FromFile(imagen);
                                     lblPelicula2.Text = movie.Nombre;
                                     txtSinopsis2.Text = movie.Descripcion;
                                     lblTrailer2.Text = movie.Trailer;
+                                    codigoPelicula2 = movie.codigoPelicula;//
                                     break;
                                 case 3:
                                     picPelicula3.Image = Image.FromFile(imagen);
                                     lblPelicula3.Text = movie.Nombre;
                                     txtSinopsis3.Text = movie.Descripcion;
                                     lblTrailer3.Text = movie.Trailer;
+                                    codigoPelicula3 = movie.codigoPelicula;//
                                     break;
                                 default:
                                     break;
@@ -316,6 +320,7 @@ namespace Taquilla
                                 lblPelicula1.Text = movie.Nombre;
                                 txtSinopsis1.Text = movie.Descripcion;
                                 lblTrailer1.Text = movie.Trailer;
+                                codigoPelicula1 = movie.codigoPelicula;//
                             }
                             else if (repeticiones == (peliculasPasadas+2))
                             {
@@ -323,6 +328,7 @@ namespace Taquilla
                                 lblPelicula2.Text = movie.Nombre;
                                 txtSinopsis2.Text = movie.Descripcion;
                                 lblTrailer2.Text = movie.Trailer;
+                                codigoPelicula2 = movie.codigoPelicula;//
                             }
                             else if (repeticiones == (peliculasPasadas+3))
                             {
@@ -330,6 +336,7 @@ namespace Taquilla
                                 lblPelicula3.Text = movie.Nombre;
                                 txtSinopsis3.Text = movie.Descripcion;
                                 lblTrailer3.Text = movie.Trailer;
+                                codigoPelicula3 = movie.codigoPelicula;//
                             }                            
                             repeticiones++;
                         }
@@ -360,7 +367,7 @@ namespace Taquilla
             cboMunicipio.Enabled = true;
             try
             {
-                string Query = "SELECT * FROM MUNICIPIO WHERE IDDEPARTAMENTO="+Int32.Parse(cboCodigoDepartamento.SelectedItem.ToString());
+                string Query = "SELECT * FROM MUNICIPIO WHERE IDDEPARTAMENTO="+Int32.Parse(cboCodigoDepartamento.SelectedItem.ToString())+" AND ESTATUS=1";
                 OdbcDataReader Datos;
                 OdbcCommand Consulta = new OdbcCommand();
                 Consulta.CommandText = Query;
@@ -458,19 +465,53 @@ namespace Taquilla
         {
             
             frmTrailer formTrailer = new frmTrailer(lblTrailer1.Text);
-            formTrailer.Show();
+            formTrailer.ShowDialog();
         }
 
         private void btnTrailer2_Click(object sender, EventArgs e)
         {
             frmTrailer formTrailer = new frmTrailer(lblTrailer2.Text);
-            formTrailer.Show();
+            formTrailer.ShowDialog();
         }
 
         private void btnTrailer3_Click(object sender, EventArgs e)
         {
             frmTrailer formTrailer = new frmTrailer(lblTrailer3.Text);
-            formTrailer.Show();
+            formTrailer.ShowDialog();
+        }
+
+        private void btnFuncion1_Click(object sender, EventArgs e)
+        {
+            frmFuncionesCine formFunciones = new frmFuncionesCine(Int32.Parse(cboCodigoCine.SelectedItem.ToString()), codigoPelicula1);
+            formFunciones.lblNombreCine.Text = cboCine.SelectedItem.ToString();
+            formFunciones.lblNombrePelicula.Text = lblPelicula1.Text;
+            formFunciones.picPelicula.Image = picPelicula1.Image;
+            this.Hide();
+            formFunciones.ShowDialog();
+            this.Show();
+            
+        }
+
+        private void btnFuncion2_Click(object sender, EventArgs e)
+        {
+            frmFuncionesCine formFunciones = new frmFuncionesCine(Int32.Parse(cboCodigoCine.SelectedItem.ToString()),codigoPelicula2);
+            formFunciones.lblNombreCine.Text = cboCine.SelectedItem.ToString();
+            formFunciones.lblNombrePelicula.Text = lblPelicula2.Text;
+            formFunciones.picPelicula.Image = picPelicula2.Image;
+            this.Hide();
+            formFunciones.ShowDialog();
+            this.Show();
+        }
+
+        private void btnFuncion3_Click(object sender, EventArgs e)
+        {
+            frmFuncionesCine formFunciones = new frmFuncionesCine(Int32.Parse(cboCodigoCine.SelectedItem.ToString()),codigoPelicula3);
+            formFunciones.lblNombreCine.Text = cboCine.SelectedItem.ToString();
+            formFunciones.lblNombrePelicula.Text = lblPelicula3.Text;
+            formFunciones.picPelicula.Image = picPelicula3.Image;
+            this.Hide();
+            formFunciones.ShowDialog();
+            this.Show();
         }
 
         private void cboMunicipio_SelectedIndexChanged(object sender, EventArgs e)
@@ -482,7 +523,7 @@ namespace Taquilla
             cboCine.Enabled = true;
             try
             {
-                string Query = "SELECT * FROM CINE WHERE IDMUNICIPIO =" + Int32.Parse(cboCodigoMunicipio.SelectedItem.ToString());
+                string Query = "SELECT * FROM cine WHERE IDMUNICIPIO="+Int32.Parse(cboCodigoMunicipio.SelectedItem.ToString())+" AND ESTATUS=1";
                 OdbcDataReader Datos;
                 OdbcCommand Consulta = new OdbcCommand();
                 Consulta.CommandText = Query;

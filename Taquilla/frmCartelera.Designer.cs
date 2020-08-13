@@ -248,6 +248,7 @@
             this.btnFuncion3.Text = "Funciones";
             this.btnFuncion3.UseVisualStyleBackColor = false;
             this.btnFuncion3.Visible = false;
+            this.btnFuncion3.Click += new System.EventHandler(this.btnFuncion3_Click);
             // 
             // lblPelicula3
             // 
@@ -316,6 +317,7 @@
             this.btnFuncion2.Text = "Funciones";
             this.btnFuncion2.UseVisualStyleBackColor = false;
             this.btnFuncion2.Visible = false;
+            this.btnFuncion2.Click += new System.EventHandler(this.btnFuncion2_Click);
             // 
             // lblPelicula2
             // 
@@ -383,6 +385,7 @@
             this.btnFuncion1.Text = "Funciones";
             this.btnFuncion1.UseVisualStyleBackColor = false;
             this.btnFuncion1.Visible = false;
+            this.btnFuncion1.Click += new System.EventHandler(this.btnFuncion1_Click);
             // 
             // lblPelicula1
             // 

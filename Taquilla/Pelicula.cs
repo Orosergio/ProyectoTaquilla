@@ -12,18 +12,21 @@ namespace Taquilla
         private string descripcion;
         private string trailer;
         private string rutaImagen;
+        private int codigoPelicula1;
 
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public string Trailer { get => trailer; set => trailer = value; }
         public string RutaImagen { get => rutaImagen; set => rutaImagen = value; }
 
-        public Pelicula(string nombre, string descripcion, string trailer, string rutaImagen)
+        public int codigoPelicula { get => codigoPelicula1; set => codigoPelicula1 = value; }
+        public Pelicula(string nombre, string descripcion, string trailer, string rutaImagen, int codigoPelicula)
         {
             this.Nombre = nombre;
             this.Descripcion = descripcion;
             this.Trailer = trailer;
             this.RutaImagen = rutaImagen;
+            this.codigoPelicula = codigoPelicula;
         }
     }
 }
