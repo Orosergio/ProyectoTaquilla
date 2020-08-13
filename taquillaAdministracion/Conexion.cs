@@ -15,14 +15,14 @@ namespace taquillaAdministracion
              conectar.Open();
              return conectar;*/
 
-            OdbcConnection con = new OdbcConnection("Dsn=SistemaTaquilla");
+            OdbcConnection con = new OdbcConnection("Dsn=Taquilla");
             try
             {
                 con.Open();
             }
-            catch
+            catch(Exception ex)
             {
-                Console.WriteLine("No conecto");
+                Console.WriteLine("No conecto"+ex);
             }
             return con;
         }

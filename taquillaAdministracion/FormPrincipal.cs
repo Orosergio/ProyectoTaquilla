@@ -177,14 +177,14 @@ namespace taquillaAdministracion
 
         private void BtnSLIDE_Click(object sender, EventArgs e)
         {
-               if (Menu.Width==250)
+               if (Menu.Width==300)
                {
-                   Menu.Width = 60;
+                   Menu.Width = 67;
                }
-               else if(Menu.Width==60)
-               {
-                   Menu.Width = 250;
-               }
+               else 
+               
+                   Menu.Width = 300;
+               
         }
 
         private void TmContraerMenu_Tick(object sender, EventArgs e)
@@ -345,6 +345,46 @@ namespace taquillaAdministracion
         private void TituloBarra_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPelicula_Click(object sender, EventArgs e)
+        {
+            Peliculas fm = new Peliculas();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnFunciones_Click(object sender, EventArgs e)
+        {
+            funciones fm = new funciones();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void BN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPelicula_Click_1(object sender, EventArgs e)
+        {
+            Peliculas fm = new Peliculas();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void bntFunciones_Click(object sender, EventArgs e)
+        {
+            funciones fm = new funciones();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnFuncionesN_Click(object sender, EventArgs e)
+        {
+            funciones fm = new funciones();
+            AbrirFormEnPanel(fm);
         }
 
         private void TmFechaHora_Tick_1(object sender, EventArgs e)

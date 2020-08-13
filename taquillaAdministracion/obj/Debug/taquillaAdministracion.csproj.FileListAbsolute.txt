@@ -27,3 +27,10 @@ C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\bin
 C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\bin\Debug\taquillaAdministracion.exe
 C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\bin\Debug\taquillaAdministracion.pdb
 C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\obj\Debug\taquillaAdministracion.modificarFunciones.resources
+C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\obj\Debug\taquillaAdministracion.ModFunciones.resources
+C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\obj\Debug\taquillaAdministracion.frmMenu.resources
+C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\bin\Debug\Interop.WMPLib.dll
+C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\obj\Debug\Interop.WMPLib.dll
+C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\jose lopez\Documents\GitHub\ProyectoTaquilla\taquillaAdministracion\obj\Debug\taquillaAdministracion.csproj.ResolveComReference.cache

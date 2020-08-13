@@ -32,6 +32,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.cboCodigoF = new System.Windows.Forms.ComboBox();
             this.cboCodigoI = new System.Windows.Forms.ComboBox();
             this.cboCodigoP = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.cboSala = new System.Windows.Forms.ComboBox();
             this.lblSala = new System.Windows.Forms.Label();
@@ -214,7 +214,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1010, 716);
+            this.panel5.Size = new System.Drawing.Size(1010, 736);
             this.panel5.TabIndex = 10;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -260,12 +260,13 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 716);
+            this.panel1.Size = new System.Drawing.Size(1010, 736);
             this.panel1.TabIndex = 55;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.cboCodigoF);
             this.panel2.Controls.Add(this.cboCodigoI);
             this.panel2.Controls.Add(this.cboCodigoP);
@@ -281,7 +282,6 @@
             this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnCancelar);
             this.panel2.Controls.Add(this.btnIngresar);
-            this.panel2.Controls.Add(this.dtpFecha2);
             this.panel2.Controls.Add(this.lblFecha);
             this.panel2.Controls.Add(this.cboSala);
             this.panel2.Controls.Add(this.lblSala);
@@ -300,9 +300,18 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1010, 716);
+            this.panel2.Size = new System.Drawing.Size(1010, 736);
             this.panel2.TabIndex = 55;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:MM";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(310, 422);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(266, 22);
+            this.dateTimePicker2.TabIndex = 73;
             // 
             // cboCodigoF
             // 
@@ -420,7 +429,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
             this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnModificar.FlatAppearance.BorderSize = 0;
@@ -429,7 +438,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(272, 637);
+            this.btnModificar.Location = new System.Drawing.Point(288, 649);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(193, 54);
@@ -440,7 +449,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
@@ -449,7 +458,7 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(725, 637);
+            this.btnEliminar.Location = new System.Drawing.Point(741, 649);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(205, 54);
@@ -460,7 +469,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancelar.FlatAppearance.BorderSize = 0;
@@ -469,7 +478,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(492, 637);
+            this.btnCancelar.Location = new System.Drawing.Point(508, 649);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(204, 54);
@@ -480,7 +489,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
             this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIngresar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnIngresar.FlatAppearance.BorderSize = 0;
@@ -489,7 +498,7 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(53, 637);
+            this.btnIngresar.Location = new System.Drawing.Point(69, 649);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(196, 54);
@@ -497,13 +506,6 @@
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
-            // 
-            // dtpFecha2
-            // 
-            this.dtpFecha2.Location = new System.Drawing.Point(310, 421);
-            this.dtpFecha2.Name = "dtpFecha2";
-            this.dtpFecha2.Size = new System.Drawing.Size(263, 22);
-            this.dtpFecha2.TabIndex = 57;
             // 
             // lblFecha
             // 
@@ -545,6 +547,7 @@
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgtDatos.Location = new System.Drawing.Point(53, 482);
             this.dgtDatos.Name = "dgtDatos";
+            this.dgtDatos.ReadOnly = true;
             this.dgtDatos.RowHeadersWidth = 51;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.Size = new System.Drawing.Size(922, 150);
@@ -1522,7 +1525,7 @@
             this.comboBox21.FormattingEnabled = true;
             this.comboBox21.Location = new System.Drawing.Point(311, 378);
             this.comboBox21.Name = "comboBox21";
-            this.comboBox21.Size = new System.Drawing.Size(263, 24);
+            this.comboBox21.Size = new System.Drawing.Size(263, 25);
             this.comboBox21.TabIndex = 65;
             // 
             // button6
@@ -1584,7 +1587,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 716);
+            this.ClientSize = new System.Drawing.Size(1010, 736);
             this.Controls.Add(this.panel5);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "funciones";
@@ -1718,7 +1721,6 @@
         private System.Windows.Forms.Label lblSala;
         private System.Windows.Forms.DataGridView dgtDatos;
         private System.Windows.Forms.PictureBox ptbImagen;
-        private System.Windows.Forms.DateTimePicker dtpFecha2;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
@@ -1740,5 +1742,6 @@
         private System.Windows.Forms.ComboBox cboCodigoC;
         private System.Windows.Forms.ComboBox cboCodigoM;
         private System.Windows.Forms.ComboBox cboCodigoD;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

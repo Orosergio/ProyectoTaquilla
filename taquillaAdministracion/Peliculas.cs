@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,54 +19,36 @@ namespace taquillaAdministracion
         Validacion validar = new Validacion();
         Conexion cn = new Conexion();
         String Prueba = "prueba";
+        String UbicacionImagen;
+        string Link ;
+        int CodigoImagen;
+        int numero = 0;
+        int codigoA = 0;
         public Peliculas()
         {
             InitializeComponent();
             funcBuscar();
             funcCargar();
-          funcCodigoA();
+            funcCodigoA();
+          
         }
-        
-        int codigoA = 0;
+
+      
 
         void funcEstatus()
         {
 
         }
-        void funcCodigoA()
-        {
-            try
-            {
-               
-                string contador = "SELECT MAX(idPelicula) FROM PELICULA ORDER BY idPelicula ASC";
-                OdbcCommand comando = new OdbcCommand(contador , cn.nuevaConexion());
-                int numero = 0 ;
-                numero = Convert.ToInt32(comando.ExecuteScalar());
-              
-                if (numero == 0)
-                {
-                    codigoA = 1;
-                }
-                else
-                {
-                    codigoA = numero + 1;
-                }
-           //   MessageBox.Show(""+codigoA);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error"+ex);
-            }
-        }
+       
         void funcLimpiar()
         {
             txtNombre.Text = "";
             txtDuracion.Text = "";
             txtDescripcion.Text = "";
             txtMultimedia.Text = "";
-           cboClasificacion.Items.Clear();
-          //  cboCodigoCla.Items.Clear();
-               
+            cboClasificacion.Items.Clear();
+            txtLink.Text = "";
+            pbPelicula.BackgroundImage = null;               
         }
         void funcCargar()
         {
@@ -140,43 +123,7 @@ namespace taquillaAdministracion
         private void button1_Click(object sender, EventArgs e)
         {
             
-            if(cboClasificacion.SelectedItem == null  ||cboClasificacion.SelectedItem == null 
-               || (txtDescripcion.Text == "") || (txtDuracion.Text == "") || (txtMultimedia.Text == "") || (txtNombre.Text == ""))
-            {
-                MessageBox.Show("Necesita llegar todos los campos");
-            }
-             else
-            {
-                funcCodigoA();
-                String Estatus, Fecha;
-                Estatus = cboEstado.SelectedItem.ToString();
-                if (Estatus == "Activo")
-                {
-                    Estatus = "1";
-                }
-                else if (Estatus == "Inactivo")
-                {
-                    Estatus = "0";
-                }
-                Fecha = dtpFecha.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                //  MessageBox.Show("" + Estatus);
-                try
-                {
-                    string Insertar = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaEstreno,estatus,linkTrailer,imagen,duracion) " +
-                          "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtDescripcion.Text + "'," + cboCodigoCla.SelectedItem + ",'" + Fecha + "','" + Estatus + "','" + txtMultimedia.Text + "','" + Prueba + "','" + txtDuracion.Text + "')";
-                    OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
-                    OdbcDataReader mostrarC = comm.ExecuteReader();
-                    MessageBox.Show("Los datos se ingresaron correctamente");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-
-                }
-                funcLimpiar();
-                funcCargar();
-                funcBuscar();
-            }
+           
          
         }
 
@@ -207,13 +154,13 @@ namespace taquillaAdministracion
 
         private void cboFormato_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // cboCodigoForm.SelectedIndex = cboFormato.SelectedIndex;
+           
         
         }
 
         private void cboIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
-         //  cboCodigoIdio.SelectedIndex = cboIdioma.SelectedIndex;
+       
            
         }
 
@@ -224,8 +171,24 @@ namespace taquillaAdministracion
 
         private void btnImagen_Click(object sender, EventArgs e)
         {
-          seleccionarImagenes.ShowDialog();
-            pbPelicula.Image = Image.FromFile(seleccionarImagenes.FileName);
+            if(txtLink.Text != "")
+            {
+            WebRequest request = WebRequest.Create(txtLink.Text);
+            using (var  response = request.GetResponse())
+            {
+                using (var str = response.GetResponseStream())
+                {
+                    pbPelicula.BackgroundImage = Bitmap.FromStream(str);
+                    pbPelicula.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+            }
+            Link = txtLink.Text;
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un link para la imagen");
+            }
+           
 
         }
 
@@ -248,12 +211,103 @@ namespace taquillaAdministracion
         {
 
         }
-       
+      
         private void btnModificar_Click(object sender, EventArgs e)
         {
            
-           ModificarPelicula modificarPelicula = new ModificarPelicula();
-            modificarPelicula.Show();
+          
+            //this.Hide();
+            ModificarPelicula modificarPelicula = new ModificarPelicula();
+            modificarPelicula.ShowDialog();
+            //this.Show();
+
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+
+            if (cboClasificacion.SelectedItem == null || cboClasificacion.SelectedItem == null
+               || (txtDescripcion.Text == "") || (txtDuracion.Text == "") || (txtMultimedia.Text == "") || (txtNombre.Text == ""))
+            {
+                MessageBox.Show("Necesita llegar todos los campos");
+            }
+            else
+            {
+
+                String Estatus, Fecha;
+                Estatus = cboEstado.SelectedItem.ToString();
+                if (Estatus == "Activo")
+                {
+                    Estatus = "1";
+                }
+                else if (Estatus == "Inactivo")
+                {
+                    Estatus = "0";
+                }
+                Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
+                //  MessageBox.Show("" + Estatus);
+                try
+                {
+                    MessageBox.Show(""+codigoA);
+                    //string Insertar = "INSERT INTO pelicula VALUES (@idPelicula,@nombre,@descripcion,@idClasificacion,@fechaestreno,@estatus,@linkTrailer,@imagen,@duracion)";
+                    string Insertar = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) " +
+                          "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtDescripcion.Text + "'," + Int32.Parse(cboCodigoCla.SelectedItem.ToString()) + ",'" + Fecha + "','" + Estatus + "','" + txtMultimedia.Text + "','" + Link + "','" + txtDuracion.Text + "')";
+                    OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
+                    OdbcDataReader mostrarC = comm.ExecuteReader();
+                    MessageBox.Show("Los datos se ingresaron correctamente");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+
+                }
+                funcLimpiar();
+                funcCargar();
+                funcBuscar();
+                funcCodigoA();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+           funcLimpiar();
+            funcBuscar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminarPelicula eliminar = new eliminarPelicula();
+
+            eliminar.Show();
+        }
+
+        private void seleccionarImagenes_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+        void funcCodigoA()
+        {
+            try
+            {
+
+                string contador = "SELECT count(idPelicula) FROM PELICULA ";
+                OdbcCommand comando = new OdbcCommand(contador, cn.nuevaConexion());
+                numero = Convert.ToInt32(comando.ExecuteScalar());
+
+                if (numero == 0)
+                {
+                    codigoA = 1;
+                }
+                else
+                {
+                    codigoA = numero + 1;
+                }
+                //   MessageBox.Show(""+codigoA);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex);
+            }
         }
     }
 }

@@ -99,5 +99,29 @@ namespace taquillaAdministracion
         {
             cboCodigoP.SelectedIndex = cboNombre.SelectedIndex;
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (cboNombre.SelectedItem == null)
+            {
+                MessageBox.Show("Si desea eliminar una pelicula, elija un nombre primero ");
+            }
+            else
+            {
+                try
+                {
+                    string Eliminar = "DELETE FROM PELICULA WHERE idPelicula = " + cboCodigoP.SelectedItem;
+                    OdbcCommand comm = new OdbcCommand(Eliminar, cn.nuevaConexion());
+                    OdbcDataReader mostrarC = comm.ExecuteReader();
+                    MessageBox.Show("Los datos se eliminaron correctamente");
+                    funcCargar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+
+                }
+            }
+        }
     }
 }

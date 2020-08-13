@@ -78,6 +78,7 @@ namespace taquillaAdministracion
                 }
                 cboCodigoPro.Items.Clear();
                 funcCargar();
+                cargarFuncion();
             }
            
         }

@@ -115,7 +115,7 @@ namespace taquillaAdministracion
 
         private void bntBuscar_Click(object sender, EventArgs e)
         {
-            if (txtCodigoF.Text== "")
+            if (txtCodigoF.Text == "")
             {
                 MessageBox.Show("Escriba un codigo de funcion");
             }

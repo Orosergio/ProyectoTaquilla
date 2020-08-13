@@ -150,7 +150,7 @@
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(141, 17);
             this.lblFecha.TabIndex = 8;
-            this.lblFecha.Text = "Fecha y hora neuvas";
+            this.lblFecha.Text = "Fecha y hora nuevas";
             // 
             // cboDepartamento
             // 
@@ -280,7 +280,7 @@
             // 
             this.cboCodigoD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoD.FormattingEnabled = true;
-            this.cboCodigoD.Location = new System.Drawing.Point(464, 241);
+            this.cboCodigoD.Location = new System.Drawing.Point(464, 238);
             this.cboCodigoD.Name = "cboCodigoD";
             this.cboCodigoD.Size = new System.Drawing.Size(65, 24);
             this.cboCodigoD.TabIndex = 22;
@@ -290,7 +290,7 @@
             // 
             this.cboCodigoM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoM.FormattingEnabled = true;
-            this.cboCodigoM.Location = new System.Drawing.Point(464, 275);
+            this.cboCodigoM.Location = new System.Drawing.Point(464, 268);
             this.cboCodigoM.Name = "cboCodigoM";
             this.cboCodigoM.Size = new System.Drawing.Size(65, 24);
             this.cboCodigoM.TabIndex = 23;
@@ -300,7 +300,7 @@
             // 
             this.cboCodigoC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoC.FormattingEnabled = true;
-            this.cboCodigoC.Location = new System.Drawing.Point(464, 304);
+            this.cboCodigoC.Location = new System.Drawing.Point(464, 298);
             this.cboCodigoC.Name = "cboCodigoC";
             this.cboCodigoC.Size = new System.Drawing.Size(65, 24);
             this.cboCodigoC.TabIndex = 24;
@@ -310,7 +310,7 @@
             // 
             this.cboCodigoS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoS.FormattingEnabled = true;
-            this.cboCodigoS.Location = new System.Drawing.Point(464, 333);
+            this.cboCodigoS.Location = new System.Drawing.Point(464, 328);
             this.cboCodigoS.Name = "cboCodigoS";
             this.cboCodigoS.Size = new System.Drawing.Size(65, 24);
             this.cboCodigoS.TabIndex = 25;

@@ -14,6 +14,7 @@ namespace taquillaAdministracion
 {
     public partial class funciones : Form
     {
+     //   private const string Format = "dd-MM-yyyy hh:mm";
         int codigo;
         Conexion cn = new Conexion();
         public funciones()
@@ -332,8 +333,9 @@ namespace taquillaAdministracion
                 else
                     {
                 funcCodigoA();
-                String Fecha = dtpFecha2.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                 try
+
+                String Fecha = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:MM");
+                try
                         {
                             string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion) " +
                                 "VALUES ( "+codigoA+"," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "')";
@@ -362,8 +364,13 @@ namespace taquillaAdministracion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-           modificarFunciones eliminar = new modificarFunciones();
+           ModFunciones eliminar = new ModFunciones();
             eliminar.Show();
+        }
+
+        private void dtpFecha2_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
