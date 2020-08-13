@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                string cadena = "SELECT RESENC.idReservacionEncabezado,RESENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,RESENC.total,RESENC.descuento FROM CLIENTE C,RESERVACIONENCABEZADO RESENC WHERE RESENC.nitCliente = C.nitCliente AND RESENC.estatus = true;";
+                string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND FACENC.estatus = true; ";
                 OdbcCommand cma = new OdbcCommand(cadena,cn.conexion());
                 OdbcDataReader reader = cma.ExecuteReader();
                 while(reader.Read()){
@@ -89,10 +89,11 @@ namespace WindowsFormsApp1
                 dgvventas.Rows.Clear();
                 string texto = cboMes.Text;
                 Double gananciames = 0;
+                lblGanancia.Visible = true;
                 lblGeneralData.Text = "REPORTE CORRESPONDIENTE AL MES DE " + texto;
                 try
                 {
-                    string cadena = "SELECT RESENC.idReservacionEncabezado,RESENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,RESENC.total,RESENC.descuento FROM CLIENTE C,RESERVACIONENCABEZADO RESENC WHERE RESENC.nitCliente = C.nitCliente AND MONTH(fecha) =  " + mes + " AND RESENC.estatus = true;";
+                    string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND MONTH(fecha) = " + mes + " AND FACENC.estatus=true;";
                     OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
@@ -118,9 +119,11 @@ namespace WindowsFormsApp1
                 //MessageBox.Show("INICIO: "+inicio);
                 //MessageBox.Show("FIN: "+fin);
                 Double ganancia = 0;
+                lblGanancia.Visible = true;
+                lblGeneralData.Text = "REPORTE DE SEMANA";
                 try
                 {
-                    string cadena = "SELECT RESENC.idReservacionEncabezado,RESENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,RESENC.total,RESENC.descuento FROM CLIENTE C,RESERVACIONENCABEZADO RESENC WHERE RESENC.nitCliente = C.nitCliente AND fecha BETWEEN '"+ dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND RESENC.estatus = true;";
+                    string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND fecha BETWEEN '"+ dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND FACENC.estatus=true;";
                     OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())

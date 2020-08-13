@@ -25,7 +25,7 @@ namespace AdministrativoReportes
         {
             try
             {
-                string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(ENC.total) AS Cantidad_Recaudada FROM FACTURA F, RESERVACIONENCABEZADO ENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE F.idReservacionEncabezado = ENC.idReservacionEncabezado AND ENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND F.estatus = true group by P.idPelicula ORDER BY Cantidad_Recaudada DESC; ";
+                string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC; ";
                 OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
                 OdbcDataReader reader = cma.ExecuteReader();
                 while (reader.Read())
@@ -80,7 +80,7 @@ namespace AdministrativoReportes
                 lblGeneralData.Text = "REPORTE CORRESPONDIENTE AL MES DE " + texto;
                 try
                 {
-                    string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(ENC.total) AS Cantidad_Recaudada FROM FACTURA F, RESERVACIONENCABEZADO ENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE F.idReservacionEncabezado = ENC.idReservacionEncabezado AND ENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND F.estatus = true AND MONTH(F.fecha) = "+mes+" GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC; ";
+                    string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true AND MONTH(FACENC.fecha) = "+mes+ " GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC; ";
                     OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
@@ -104,10 +104,10 @@ namespace AdministrativoReportes
                 string fin = dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss");
                 //MessageBox.Show("INICIO: "+inicio);
                 //MessageBox.Show("FIN: "+fin);
-               
+                lblGeneralData.Text = "REPORTE DE SEMANA";
                 try
                 {
-                    string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(ENC.total) AS Cantidad_Recaudada FROM FACTURA F, RESERVACIONENCABEZADO ENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE F.idReservacionEncabezado = ENC.idReservacionEncabezado AND ENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND F.estatus = true AND F.fecha BETWEEN'" + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC;";
+                    string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true AND FACENC.fecha BETWEEN'" + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC;";
                     OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
