@@ -46,7 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cliente.Designer.cs">
+      <DependentUpon>cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleado.Designer.cs">
+      <DependentUpon>Empleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +97,18 @@
     <Compile Include="frmReporteVentas.Designer.cs">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario.Designer.cs">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="cliente.resx">
+      <DependentUpon>cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleado.resx">
+      <DependentUpon>Empleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="frmReporteVentas.resx">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario.resx">
+      <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

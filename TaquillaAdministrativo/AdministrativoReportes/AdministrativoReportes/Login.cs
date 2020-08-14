@@ -8,19 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
-
+using EmpleadoPrueba;
+using System.Data.Odbc;
+using System.Reflection;
 
 namespace FinalProyecto
 {
     public partial class Login : Form
     {
-        int codigo, codigo2;
-       /* MySqlCommand Query = new MySqlCommand();
-        MySqlCommand Query2 = new MySqlCommand();
-        MySqlConnection Conexion;
-        MySqlDataReader consultar, consultar2;
-        public string sql = "datasource=127.0.0.1;port=3306;username=root;password=;database=SUPERMERCADO";*/
+        int olvidarPassword=0;
+        Conexion cn = new Conexion();
         public Login()
         {
             InitializeComponent();
@@ -39,42 +36,32 @@ namespace FinalProyecto
             Application.Exit();
         }
 
-        private void Txtuser_Enter(object sender, EventArgs e)
-        {
-            if (txtuser.Text=="USUARIO")
-            {
-                txtuser.Text = "";
-                txtuser.ForeColor = Color.LightGray;
-
-            }
-        }
-
         private void Txtuser_Leave(object sender, EventArgs e)
         {
-            if (txtuser.Text=="")
+            if (txtUser.Text=="")
             {
-                txtuser.Text = "USUARIO";
-                txtuser.ForeColor = Color.DimGray;
+                txtUser.Text = "USUARIO";
+                txtUser.ForeColor = Color.White;
             }
         }
 
         private void Txtpassword_Enter(object sender, EventArgs e)
         {
-            if (txtpassword.Text == "CONTRASEÑA")
+            if (txtPassword.Text == "CONTRASEÑA")
             {
-                txtpassword.Text = "";
-                txtpassword.ForeColor = Color.LightGray;
-                txtpassword.UseSystemPasswordChar = true;
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.LightGray;
+                txtPassword.UseSystemPasswordChar = true;
             }
         }
 
         private void Txtpassword_Leave(object sender, EventArgs e)
         {
-            if (txtpassword.Text == "")
+            if (txtPassword.Text == "")
             {
-                txtpassword.Text = "CONTRASEÑA";
-                txtpassword.ForeColor = Color.DimGray;
-                txtpassword.UseSystemPasswordChar = false;
+                txtPassword.Text = "CONTRASEÑA";
+                txtPassword.ForeColor = Color.DimGray;
+                txtPassword.UseSystemPasswordChar = false;
             }
         }
 
@@ -100,78 +87,187 @@ namespace FinalProyecto
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUser_Enter_1(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "USUARIO")
+            {
+                txtUser.Text = "";
+                txtUser.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void linkpass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            olvidarPassword = 1;
+            btnIngreso.Text = "Enviar Correo";
+            lblOlvidar.Text = "";
+            
+            if (txtUser.Text != "")
+            {
+                lblUser.Visible = true;
+                lblUser.Text = "INGRESE SU CORREO PARA RECIBIR CONTRASEÑA";
+                txtUser.Text = "";
+                txtPassword.Text = "";
+                lblPassword.Text = "";
+            }
+            else
+            {
+              
+            }               
+        }
+
         private void Btning_Click(object sender, EventArgs e)
         {
-            int error = 1;
-            int ver = 1;
-            if (txtuser.Text== "USUARIO" || txtuser.Text == "")
+            if (olvidarPassword==0)
             {
-                error = 0;
-                lus.Text = "Ingrese su usuario";
-                lus.Visible = true;
-            }
-            else
-            {
-                lus.Visible = false;
-            }
-            if (txtpassword.Text== "CONTRASEÑA" || txtpassword.Text == "")
-            {
-                error = 0;
-                lcon.Text = "Ingrese su contraseña ";
-                lcon.Visible = true;
-            }
-            else
-            {
-                lcon.Visible = false;
-            }
-            if (error != 0)
-            {
-            /*    try
+                int error = 1;
+                int ver = 1;
+                if (txtUser.Text == "USUARIO" || txtUser.Text == "")
                 {
-                    Conexion = new MySqlConnection();
-                    Conexion.ConnectionString = sql;
-                    Conexion.Open();
-                    Query.CommandText = "SELECT * FROM USUARIOS";
-                    Query.Connection = Conexion;
-                    consultar = Query.ExecuteReader();
-                    while (consultar.Read())
+                    error = 0;
+                    lblUser.Text = "Ingrese su usuario";
+                    lblUser.Visible = true;
+                }else{
+                    lblUser.Visible = false;
+                }
+                if (txtPassword.Text == "CONTRASEÑA" || txtPassword.Text == "")
+                {
+                    error = 0;
+                    lblPassword.Text = "Ingrese su contraseña ";
+                    lblPassword.Visible = true;
+                }else{
+                    lblPassword.Visible = false;
+                }
+
+                if (error != 0)
+                {
+                    try
                     {
-                        if (txtuser.Text==(Convert.ToString(consultar[1])) && txtpassword.Text == (Convert.ToString(consultar[2])))
+                        string cadena = "SELECT * FROM USUARIO";
+                        OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                        OdbcDataReader reader = cma.ExecuteReader();
+                        while (reader.Read())
                         {
-                            ver = 3;                            
-                            FormPrincipal frm = new FormPrincipal();
-                            frm.Show();
-                            this.Hide();
+                            if (txtUser.Text == (Convert.ToString(reader[4])) && txtPassword.Text == (Convert.ToString(reader[3])))
+                            {
+                                ver = 3;
+                                FormPrincipal frm = new FormPrincipal();
+                                frm.Show();
+                                this.Hide();
+                            }
+
                         }
-
                     }
-                    Conexion.Close();
-
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ERROR AL OBTENER DATOS PARA INGRESO" + ex);
+                    }
                 }
-                catch (MySqlException er)
+                if (ver == 3)
                 {
-                    MessageBox.Show(er.Message);
+                    lblOlvidar.Visible = false;
+                    txtPassword.Text = "";
+                    txtUser.Text = "";
                 }
-            */
-               }
-            if (ver == 3)
-            {
-                lbl.Visible = false;
-                txtpassword.Text = "";
-                txtuser.Text = "";
+                else
+                {
+                    lblOlvidar.Text = "Usuario/Contraseña son incorrectas";
+                    lblOlvidar.Visible = true;
+                }
+
+
+            }else if (olvidarPassword==1){
+
+                int controlEncuento = 0;
+
+
+                try
+                {
+                    string cadena = "SELECT * FROM CORREO";
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcDataReader reader = cma.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (txtUser.Text == (Convert.ToString(reader[1])))
+                        {
+                            controlEncuento = 1;
+                            MessageBox.Show("TU CONTRASEÑA HA SIDO ENVIADA");
+                            try
+                            {
+                                string correoCliente = txtUser.Text;
+                                MessageBox.Show("correoCliente: " +correoCliente);
+                                string cadenaCorreo = "SELECT U.nombreUsuario,U.contrasenia FROM USUARIO U, EMPLEADO E, CORREO C WHERE U.idEmpleado = E.idEmpleado AND E.idEmpleado = C.idEmpleado  AND C.correo = '"+txtUser.Text+"'; ";
+                                OdbcCommand cmaCorreo = new OdbcCommand(cadenaCorreo, cn.conexion());
+                                OdbcDataReader readerCorreo = cmaCorreo.ExecuteReader();
+                                while (readerCorreo.Read())
+                                {
+                                    System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                                    msg.To.Add(txtUser.Text);
+                                    msg.Subject = "CREDENCIALES ZINEPPOLIS";
+                                    msg.SubjectEncoding = System.Text.Encoding.UTF8;
+                                    msg.Bcc.Add("yavhe._.orozco@hotmail.es"); //copia del correo
+                                    msg.Body = "Sus credenciales______ USUARIO: " + (readerCorreo.GetString(0)) + " CONTRASEÑA: "
+                                        + readerCorreo.GetString(1) + ". Sea cuidadoso con sus credenciales";
+                                    msg.BodyEncoding = System.Text.Encoding.UTF8;
+                                    msg.IsBodyHtml = true;
+                                    msg.From = new System.Net.Mail.MailAddress("grupo3sistemaso1@gmail.com");
+
+                                    //CREACION DEL CLIENTE DE CORREO
+                                    System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+                                    cliente.Credentials = new System.Net.NetworkCredential("grupo3sistemaso1@gmail.com", "s1stema$2");
+                                    cliente.Port = 587;
+                                    cliente.EnableSsl = true;
+                                    cliente.Host = "smtp.gmail.com"; //Servidor de salida de GMAIL
+                                    try
+                                    {
+                                        cliente.Send(msg);
+                                        MessageBox.Show("Se han enviado las credenciales,sea cuidadoso");
+                                    }
+                                    catch (Exception error)
+                                    {
+
+                                        MessageBox.Show("ERROR AL ENVIAR" + error);
+                                    }
+
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR AL OBTENER DATOS PARA EL CORREO DE RECUPERACION " + ex);
+                            }
+                            olvidarPassword = 0;
+                            lblPassword.Visible = true;
+                            txtUser.Text = "USUARIO";
+                            txtPassword.Text = "CONTRASEÑA";
+                            lblUser.Text = "Ingrese su usuario";
+                            lblPassword.Text = "Ingrese su contraseña ";
+                            btnIngreso.Text = "ACCEDER";
+                        }
+                    }
+                    if (controlEncuento!=1)
+                    {
+                        MessageBox.Show("CORREO INVÁLIDO");
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR DENTRO DEL FORGET" + ex);
+                }
+
+                               
             }
-            else
-            {
-                lbl.Text = "Usuario/Contraseña son incorrectas";
-					lbl.Visible = true;
-            }
-
-
-
-
-
-
-
         }
     }
 }
