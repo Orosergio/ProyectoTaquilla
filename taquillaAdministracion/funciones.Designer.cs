@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(funciones));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -214,7 +215,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1010, 736);
+            this.panel5.Size = new System.Drawing.Size(1010, 790);
             this.panel5.TabIndex = 10;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -260,7 +261,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 736);
+            this.panel1.Size = new System.Drawing.Size(1010, 790);
             this.panel1.TabIndex = 55;
             // 
             // panel2
@@ -300,7 +301,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1010, 736);
+            this.panel2.Size = new System.Drawing.Size(1010, 790);
             this.panel2.TabIndex = 55;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -308,7 +309,7 @@
             // 
             this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:MM";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(310, 422);
+            this.dateTimePicker2.Location = new System.Drawing.Point(310, 421);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(266, 22);
             this.dateTimePicker2.TabIndex = 73;
@@ -438,7 +439,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(288, 649);
+            this.btnModificar.Location = new System.Drawing.Point(283, 649);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(193, 54);
@@ -458,7 +459,7 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(741, 649);
+            this.btnEliminar.Location = new System.Drawing.Point(736, 649);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(205, 54);
@@ -478,7 +479,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(508, 649);
+            this.btnCancelar.Location = new System.Drawing.Point(503, 649);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(204, 54);
@@ -498,7 +499,7 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(69, 649);
+            this.btnIngresar.Location = new System.Drawing.Point(64, 649);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(196, 54);
@@ -513,7 +514,7 @@
             this.lblFecha.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.White;
             this.lblFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblFecha.Location = new System.Drawing.Point(49, 422);
+            this.lblFecha.Location = new System.Drawing.Point(49, 421);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(126, 22);
@@ -544,22 +545,32 @@
             // 
             // dgtDatos
             // 
+            this.dgtDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgtDatos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgtDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.dgtDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(53, 482);
+            this.dgtDatos.Location = new System.Drawing.Point(48, 482);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
             this.dgtDatos.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgtDatos.RowTemplate.Height = 24;
+            this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgtDatos.Size = new System.Drawing.Size(922, 150);
             this.dgtDatos.TabIndex = 53;
             // 
             // ptbImagen
             // 
-            this.ptbImagen.Image = ((System.Drawing.Image)(resources.GetObject("ptbImagen.Image")));
-            this.ptbImagen.Location = new System.Drawing.Point(749, 130);
+            this.ptbImagen.Location = new System.Drawing.Point(725, 132);
             this.ptbImagen.Margin = new System.Windows.Forms.Padding(4);
             this.ptbImagen.Name = "ptbImagen";
-            this.ptbImagen.Size = new System.Drawing.Size(169, 261);
+            this.ptbImagen.Size = new System.Drawing.Size(205, 270);
             this.ptbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbImagen.TabIndex = 50;
             this.ptbImagen.TabStop = false;
@@ -1587,7 +1598,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 736);
+            this.ClientSize = new System.Drawing.Size(1010, 790);
             this.Controls.Add(this.panel5);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "funciones";

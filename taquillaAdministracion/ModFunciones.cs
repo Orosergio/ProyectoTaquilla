@@ -19,26 +19,7 @@ namespace taquillaAdministracion
             InitializeComponent();
             funcBuscar();
         }
-        void funcCargar()
-        {
-           try
-            {
-               /* int codigoDepartamento = Int32.Parse(cboCodigoD.SelectedItem.ToString());
-                int codigoCine = Int32.Parse(cboCodigoC.SelectedItem.ToString());
-                int codigoMunicipio = Int32.Parse(cboCodigoM.SelectedItem.ToString());*/
-                int codigoPelicula = Int32.Parse(cboCodigoP.SelectedItem.ToString());
-                int codigoSala = Int32.Parse(cboCodigoS.SelectedItem.ToString());
-                string cadena = "SELECT PRO.idProyeccionPelicula, PE.nombre, S.numero, PRO.fechaHoraProyeccion, I.nombre, F.nombre FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = "+codigoSala+" AND PE.idPelicula = "+codigoPelicula+ " AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato  ORDER BY idProyeccionPelicula ASC";
-                OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
-                DataTable dt = new DataTable();
-                datos.Fill(dt);
-                dgtDatos.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("" +ex);
-            }
-        }
+    
         void funcBuscar()
         {
             try
@@ -165,26 +146,29 @@ namespace taquillaAdministracion
 
         private void cboCine_SelectedIndexChanged(object sender, EventArgs e)
         {
-          cboCodigoC.SelectedIndex  = cboCine.SelectedIndex ;
-            cboSala.Items.Clear();
-            try
-            {
-                string Sala = "SELECT * FROM SALA WHERE idCine = " + Int32.Parse(cboCodigoC.SelectedItem.ToString());
-                OdbcCommand comm3 = new OdbcCommand(Sala, cn.nuevaConexion());
-                OdbcDataReader mostrarSala = comm3.ExecuteReader();
-
-                while (mostrarSala.Read())
+           
+                cboCodigoC.SelectedIndex = cboCine.SelectedIndex;
+                cboSala.Items.Clear();
+                try
                 {
-                    cboCodigoS.Items.Add(mostrarSala.GetInt32(0));
-                    cboSala.Items.Add(mostrarSala.GetString(1));
+                    string Sala = "SELECT * FROM SALA WHERE idCine = " + Int32.Parse(cboCodigoC.SelectedItem.ToString());
+                    OdbcCommand comm3 = new OdbcCommand(Sala, cn.nuevaConexion());
+                    OdbcDataReader mostrarSala = comm3.ExecuteReader();
+
+                    while (mostrarSala.Read())
+                    {
+                        cboCodigoS.Items.Add(mostrarSala.GetInt32(0));
+                        cboSala.Items.Add(mostrarSala.GetString(1));
+
+                        cboCodigoN.Items.Add(mostrarSala.GetInt32(0));
+                        cboSalaN.Items.Add(mostrarSala.GetString(1));
+                    }
                 }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde");
-
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde");
+                }
+ 
         }
 
         private void cboSala_SelectedIndexChanged(object sender, EventArgs e)
@@ -209,7 +193,159 @@ namespace taquillaAdministracion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            funcCargar();
+           
+        }
+
+        private void dgtDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgtDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblC.Text = dgtDatos.CurrentRow.Cells[0].Value.ToString();
+            lblP.Text = dgtDatos.CurrentRow.Cells[1].Value.ToString();
+            lblS.Text = dgtDatos.CurrentRow.Cells[2].Value.ToString();
+            lblH.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            lblI.Text = dgtDatos.CurrentRow.Cells[4].Value.ToString();
+            lblF.Text = dgtDatos.CurrentRow.Cells[5].Value.ToString();
+          
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboSala.Items.Clear();
+            try
+            {
+                string Sala = "SELECT * FROM SALA WHERE idCine = " + Int32.Parse(cboCodigoC.SelectedItem.ToString());
+                OdbcCommand comm3 = new OdbcCommand(Sala, cn.nuevaConexion());
+                OdbcDataReader mostrarSala = comm3.ExecuteReader();
+
+                while (mostrarSala.Read())
+                {
+                    cboCodigoS.Items.Add(mostrarSala.GetInt32(0));
+                    cboSala.Items.Add(mostrarSala.GetString(1));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde");
+
+            }
+        }
+
+        private void cboSalaN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+          cboCodigoN.SelectedIndex  = cboSalaN.SelectedIndex  ;
+          cboFormato.Items.Clear();
+            try
+            {
+                string Sala1 = "SELECT F.idFormato,F.nombre FROM formato F, formatosala FS, sala S WHERE S.idSala = FS.idSala AND F.idFormato = FS.idFormato AND S.idSala = " + Int32.Parse(cboCodigoS.SelectedItem.ToString());
+                OdbcCommand comm33 = new OdbcCommand(Sala1, cn.nuevaConexion());
+                OdbcDataReader mostrarSala1 = comm33.ExecuteReader();
+
+                while (mostrarSala1.Read())
+                {
+                    cboCodigoF.Items.Add(mostrarSala1.GetInt32(0));
+                    cboFormato.Items.Add(mostrarSala1.GetString(1));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde");
+
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (cboDepartamento.SelectedItem == null || cboMunicipio.SelectedItem == null || cboCine.SelectedItem == null || cboPelicula.SelectedItem == null || cboSala.SelectedItem == null)
+            {
+                MessageBox.Show("No debe dejar campos vacios");
+            }
+            else
+            {
+                try
+                {
+
+                    int codigoPelicula = Int32.Parse(cboCodigoP.SelectedItem.ToString());
+                    int codigoSala = Int32.Parse(cboCodigoS.SelectedItem.ToString());
+                    string cadena = "SELECT PRO.idProyeccionPelicula, PE.nombre,S.numero, PRO.fechaHoraProyeccion, I.nombre, F.nombre FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato and PE.idPelicula = " + codigoPelicula + " and S.idSala = " + codigoSala + " ";
+                    OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
+                    DataTable dt = new DataTable();
+                    datos.Fill(dt);
+                    dgtDatos.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+                }
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (cboCodigoPN.SelectedItem == null || cboCodigoI.SelectedItem == null|| cboCodigoF.SelectedItem == null ||
+             cboCodigoN.SelectedItem == null || cboEstatus.SelectedItem == null)
+            {
+                MessageBox.Show("No debe dejar campos vacios");
+            }
+            else
+            {
+                String Estatus, Fecha;
+                Estatus = cboEstatus.SelectedItem.ToString();
+                if (Estatus == "Activo")
+                {
+                    Estatus = "1";
+                }
+                else if (Estatus == "Inactivo")
+                {
+                    Estatus = "0";
+                }
+                Fecha = dtpHorario.Value.ToString("yyyy-MM-dd HH:MM");
+                try
+                {
+                   
+                    string Modificar = "UPDATE PROYECCIONPELICULA SET idPelicula = '" + cboCodigoP.SelectedItem + "' , idSala = '" + cboCodigoN.SelectedItem + "', idIdioma= " + cboCodigoI.SelectedItem + ", idFormato = '" + cboCodigoF.SelectedItem + "', fechaHoraProyeccion = '" + Fecha + "', estatus = '" + Estatus + "'  WHERE idProyeccionPelicula=" + lblC.Text;
+                    OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
+                    OdbcDataReader leer = Consulta.ExecuteReader();
+                    MessageBox.Show("Los Datos se actualizaron correctamente");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                }
+                funcLimpiar();
+                funcBuscar();
+             
+            }
+        }
+        void funcLimpiar()
+        {
+            cboDepartamento.Items.Clear();
+            cboMunicipio.Items.Clear();
+            cboPelicula.Items.Clear();
+            cboCine.Items.Clear();
+            cboSala.Items.Clear();
+            cboSalaN.Items.Clear();
+            cboPeliculaNueva.Items.Clear();
+            cboIdioma.Items.Clear();
+            cboFormato.Items.Clear();
+            lblC.Text="";
+            lblP.Text = "";
+            lblS.Text = "";
+            lblH.Text = "";
+            lblI.Text = "";
+            lblF.Text = "";
         }
     }
 }

@@ -20,20 +20,18 @@ namespace taquillaAdministracion
         public funciones()
         {
             InitializeComponent();
-           funcBuscar();
-           funcCargar();
+            funcBuscar();
+            funcCargar();
             funcCodigoA();
-
-
         }
+        String Estatus = "1";
         int codigoA;
         void funcCodigoA()
         {
-           
             try
             {
                 
-                string contador = "SELECT MAX(idProyeccionPelicula) FROM PROYECCIONPELICULA ORDER BY idProyeccionPelicula ASC";
+                string contador = "SELECT count(idProyeccionPelicula) FROM PROYECCIONPELICULA ";
                 OdbcCommand comando = new OdbcCommand(contador, cn.nuevaConexion());
                 int numero = 0;
                 numero = Convert.ToInt32(comando.ExecuteScalar());
@@ -46,7 +44,6 @@ namespace taquillaAdministracion
                 {
                     codigoA = numero + 1;
                 }
-              //   MessageBox.Show(""+codigoA);
             }
             catch (Exception ex)
             {
@@ -57,7 +54,7 @@ namespace taquillaAdministracion
         {
             try
             {
-                string cadena = "SELECT * FROM PROYECCIONPELICULA";
+                string cadena = "SELECT * FROM PROYECCIONPELICULA WHERE estatus = '"+Estatus+"' ";
                 OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                 DataTable dt = new DataTable();
                 datos.Fill(dt);
@@ -150,7 +147,10 @@ namespace taquillaAdministracion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+           
             funcLimpiar();
+            funcCargar();
+            funcBuscar();
 
 
         }
@@ -186,7 +186,7 @@ namespace taquillaAdministracion
                     cboDepartamento.Items.Add(mostrarDep.GetString(1));
                 }
 
-                string Pelicula = "SELECT * FROM PELICULA ";
+                string Pelicula = "SELECT * FROM PELICULA WHERE estatus = '"+Estatus+"' ";
                 OdbcCommand comm1 = new OdbcCommand(Pelicula, cn.nuevaConexion());
                 OdbcDataReader mostrarP = comm1.ExecuteReader();
 
@@ -194,16 +194,6 @@ namespace taquillaAdministracion
                 {
                     cboCodigoP.Items.Add(mostrarP.GetInt32(0));
                     cboPelicula.Items.Add(mostrarP.GetString(1));
-                }
-
-                string Formato = "SELECT * FROM FORMATO ";
-                OdbcCommand comm2 = new OdbcCommand(Formato, cn.nuevaConexion());
-                OdbcDataReader mostrarF = comm2.ExecuteReader();
-
-                while (mostrarF.Read())
-                {
-                    cboCodigoF.Items.Add(mostrarF.GetInt32(0));
-                    cboFormato.Items.Add(mostrarF.GetString(1));
                 }
 
                 string Idioma = "SELECT * FROM IDIOMA ";
@@ -302,6 +292,25 @@ namespace taquillaAdministracion
         private void cboSala_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoS.SelectedIndex = cboSala.SelectedIndex;
+            cboFormato.Items.Clear();
+            try
+            {
+                string Sala1 = "SELECT F.idFormato,F.nombre FROM formato F, formatosala FS, sala S WHERE S.idSala = FS.idSala AND F.idFormato = FS.idFormato AND S.idSala = " + Int32.Parse(cboCodigoS.SelectedItem.ToString());
+                OdbcCommand comm33 = new OdbcCommand(Sala1, cn.nuevaConexion());
+                OdbcDataReader mostrarSala1 = comm33.ExecuteReader();
+
+                while (mostrarSala1.Read())
+                {
+                   cboCodigoF.Items.Add(mostrarSala1.GetInt32(0));
+                   cboFormato.Items.Add(mostrarSala1.GetString(1));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde");
+
+            }
         }
 
         private void cboPelicula_SelectedIndexChanged(object sender, EventArgs e)
@@ -318,8 +327,7 @@ namespace taquillaAdministracion
 
         private void cboFormato_SelectedIndexChanged(object sender, EventArgs e)
         {
-           cboCodigoF.SelectedIndex =  cboFormato.SelectedIndex;
-          
+            cboCodigoF.SelectedIndex =  cboFormato.SelectedIndex;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -333,26 +341,23 @@ namespace taquillaAdministracion
                 else
                     {
                 funcCodigoA();
-
                 String Fecha = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:MM");
                 try
                         {
-                            string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion) " +
-                                "VALUES ( "+codigoA+"," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "')";
+                            string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion,estatus) " +
+                            "VALUES ( "+codigoA+"," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "','"+Estatus+"')";
                             OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                             OdbcDataReader mostrarC = comm.ExecuteReader();
-                           
+                            MessageBox.Show("La funcion se guardo correctamente");
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-
                         }
-                MessageBox.Show("Los mensajes se agregaron correctamente");
-                        funcLimpiar();
-                         funcCargar();
+                funcLimpiar();
+                funcCargar();
                 funcBuscar();
-              //  MessageBox.Show(""+codigoA);
+           
             }
         }
 
