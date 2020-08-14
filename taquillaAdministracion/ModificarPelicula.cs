@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +22,7 @@ namespace taquillaAdministracion
         }
         Validacion validar = new Validacion();
         Conexion cn = new Conexion();
+        String Link;
         void funcLimpiar()
         {
             txtNuevo.Text = "";
@@ -194,8 +196,12 @@ namespace taquillaAdministracion
                         txtNuevo.Text = mostrarDatos.GetString(1);
                         txtDescripcion.Text = mostrarDatos.GetString(2);
                         txtMultimedia.Text = mostrarDatos.GetString(6);
+                        txtLink.Text = mostrarDatos.GetString(7);
                         txtDuracion.Text = mostrarDatos.GetString(8);
                     }
+
+                 
+
                 }
                 catch (Exception ex)
                 {
@@ -206,7 +212,7 @@ namespace taquillaAdministracion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (txtNuevo.Text == "" || txtDescripcion.Text == "" || txtDuracion.Text == "" || txtMultimedia.Text == "" ||
+            if ( txtLink.Text =="" || txtNuevo.Text == "" || txtDescripcion.Text == "" || txtDuracion.Text == "" || txtMultimedia.Text == "" ||
               cboClasificacion.SelectedItem == null || cboEstado.SelectedItem == null)
             {
                 MessageBox.Show("No debe dejar campos vacios");
@@ -227,7 +233,7 @@ namespace taquillaAdministracion
                 try
                 {
                     string prueba = "prueba";
-                    string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + cboCodigoC.SelectedItem + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + prueba + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + cboCodigoP.SelectedItem;
+                    string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + cboCodigoC.SelectedItem + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + Link + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + cboCodigoP.SelectedItem;
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
 
@@ -239,6 +245,30 @@ namespace taquillaAdministracion
                 funcLimpiar();
                 funcBuscar();
                 funcCargar();
+            }
+
+        }
+
+        private void btnImagen_Click(object sender, EventArgs e)
+        {
+            //en este boton funciona a manera de mostrar la imagen en un pictureBox, posteriormente esta el link es
+            //guardado en una variable para ser enviado a la base de datos
+            if (txtLink.Text != "")
+            {
+                WebRequest request = WebRequest.Create(txtLink.Text);
+                using (var response = request.GetResponse())
+                {
+                    using (var str = response.GetResponseStream())
+                    {
+                        pbImagen.BackgroundImage = Bitmap.FromStream(str);
+                        pbImagen.BackgroundImageLayout = ImageLayout.Stretch;
+                    }
+                }
+                Link = txtLink.Text;
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un link para la imagen");
             }
 
         }

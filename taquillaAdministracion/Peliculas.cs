@@ -16,12 +16,10 @@ namespace taquillaAdministracion
 {
     public partial class Peliculas : Form
     {
-        Validacion validar = new Validacion();
-        Conexion cn = new Conexion();
-        String Prueba = "prueba";
-        String UbicacionImagen;
+        Validacion validar = new Validacion(); //variable de la clase validar para ver que se cumplan las restricciones de campos
+        Conexion cn = new Conexion(); //varible de la clase conexion para realizar la conexion a la base de datos
+        String uno = "1";
         string Link ;
-        int CodigoImagen;
         int numero = 0;
         int codigoA = 0;
         public Peliculas()
@@ -42,6 +40,7 @@ namespace taquillaAdministracion
        
         void funcLimpiar()
         {
+            //Esta funcion limpia todos los campos
             txtNombre.Text = "";
             txtDuracion.Text = "";
             txtDescripcion.Text = "";
@@ -52,9 +51,10 @@ namespace taquillaAdministracion
         }
         void funcCargar()
         {
+            //Muestra los datos de la tabla pelicula en el dataGridView llamada dgtDatos
             try
             {
-            string cadena = "SELECT * FROM PELICULA";
+            string cadena = "SELECT * FROM PELICULA WHERE estatus = '" + uno + "' ";
             OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
             DataTable dt = new DataTable();
             datos.Fill(dt);
@@ -68,10 +68,7 @@ namespace taquillaAdministracion
         }
         void funcBuscar()
         {
-          
-            try
-            {
-              
+            //en esta funcion buscar se seleccionaran las clasificacions de las peliculas y se mostraran en el cboClaficicacion
                 try
                 {
                     string Sala = "SELECT * FROM CLASIFICACIONPELICULA";
@@ -87,15 +84,7 @@ namespace taquillaAdministracion
                 catch (Exception ex)
                 {
                     MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde"+ex);
-
                 }
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-
         }
         private void Producto_Load(object sender, EventArgs e)
         {
@@ -171,6 +160,8 @@ namespace taquillaAdministracion
 
         private void btnImagen_Click(object sender, EventArgs e)
         {
+            //en este boton funciona a manera de mostrar la imagen en un pictureBox, posteriormente esta el link es
+            //guardado en una variable para ser enviado a la base de datos
             if(txtLink.Text != "")
             {
             WebRequest request = WebRequest.Create(txtLink.Text);
@@ -225,15 +216,15 @@ namespace taquillaAdministracion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
+            //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
             if (cboClasificacion.SelectedItem == null || cboClasificacion.SelectedItem == null
-               || (txtDescripcion.Text == "") || (txtDuracion.Text == "") || (txtMultimedia.Text == "") || (txtNombre.Text == ""))
+               || (txtDescripcion.Text == "") || (txtDuracion.Text == "") || (txtMultimedia.Text == "") || (txtNombre.Text == "") || (pbPelicula.BackgroundImage == null))
             {
                 MessageBox.Show("Necesita llegar todos los campos");
             }
             else
             {
-
+                //en el string estatus guardo el estatus seleccinado en el cboEstado 
                 String Estatus, Fecha;
                 Estatus = cboEstado.SelectedItem.ToString();
                 if (Estatus == "Activo")
@@ -244,12 +235,12 @@ namespace taquillaAdministracion
                 {
                     Estatus = "0";
                 }
+                //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
                 Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
-                //  MessageBox.Show("" + Estatus);
+               
                 try
                 {
-                    MessageBox.Show(""+codigoA);
-                    //string Insertar = "INSERT INTO pelicula VALUES (@idPelicula,@nombre,@descripcion,@idClasificacion,@fechaestreno,@estatus,@linkTrailer,@imagen,@duracion)";
+                    //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
                     string Insertar = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) " +
                           "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtDescripcion.Text + "'," + Int32.Parse(cboCodigoCla.SelectedItem.ToString()) + ",'" + Fecha + "','" + Estatus + "','" + txtMultimedia.Text + "','" + Link + "','" + txtDuracion.Text + "')";
                     OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
@@ -288,26 +279,32 @@ namespace taquillaAdministracion
         void funcCodigoA()
         {
             try
+                //esta funcion hace un conteo de los datos que se encuentran en la tabla pelicula y almacena ese valor en la variable numero
+               
             {
-
                 string contador = "SELECT count(idPelicula) FROM PELICULA ";
                 OdbcCommand comando = new OdbcCommand(contador, cn.nuevaConexion());
                 numero = Convert.ToInt32(comando.ExecuteScalar());
-
+                //si numero = 0, no encuentra ningun registro convierte el cidigoA en 1 y envia ese codigo para guardado como ID
                 if (numero == 0)
                 {
                     codigoA = 1;
                 }
                 else
                 {
+                    //de lo contrario se ira incrementando + 1 codigoA
                     codigoA = numero + 1;
                 }
-                //   MessageBox.Show(""+codigoA);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error" + ex);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

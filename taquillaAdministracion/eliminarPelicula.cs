@@ -13,6 +13,7 @@ namespace taquillaAdministracion
 {
     public partial class eliminarPelicula : Form
     {
+        String uno = "1";
         public eliminarPelicula()
         {
             InitializeComponent();
@@ -24,7 +25,8 @@ namespace taquillaAdministracion
         {
             try
             {
-                string cadena = "SELECT * FROM PELICULA";
+             
+                string cadena = "SELECT * FROM PELICULA WHERE estatus = '"+uno+"' ";
             OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
             DataTable dt = new DataTable();
             datos.Fill(dt);
@@ -38,8 +40,9 @@ namespace taquillaAdministracion
         {
             try
             {
-             string Sala = "SELECT * FROM PELICULA";
-            OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
+             
+                string Sala = "SELECT * FROM PELICULA WHERE estatus = '" + uno + "' ";
+                OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
             OdbcDataReader mostrarC = comm.ExecuteReader();
 
             while (mostrarC.Read())
@@ -61,28 +64,7 @@ namespace taquillaAdministracion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(cboNombre.SelectedItem == null)
-            {
-                MessageBox.Show("Si desea eliminar una pelicula, elija un nombre primero ");
-            }
-           else
-            {
-                try
-                {
-                    string Eliminar = "DELETE FROM PELICULA WHERE idPelicula = " + cboCodigoP.SelectedItem;
-                    OdbcCommand comm = new OdbcCommand(Eliminar, cn.nuevaConexion());
-                    OdbcDataReader mostrarC = comm.ExecuteReader();
-                    MessageBox.Show("Los datos se eliminaron correctamente");
-                    funcCargar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-
-                }
-            }
-
-
+          
         }
 
         private void eliminarPelicula_Load(object sender, EventArgs e)
@@ -110,18 +92,22 @@ namespace taquillaAdministracion
             {
                 try
                 {
-                    string Eliminar = "DELETE FROM PELICULA WHERE idPelicula = " + cboCodigoP.SelectedItem;
-                    OdbcCommand comm = new OdbcCommand(Eliminar, cn.nuevaConexion());
-                    OdbcDataReader mostrarC = comm.ExecuteReader();
-                    MessageBox.Show("Los datos se eliminaron correctamente");
-                    funcCargar();
+                    string Estatus = "0";
+                    string Modificar = "UPDATE PELICULA SET estatus = '"+Estatus+"' WHERE idPelicula=" + cboCodigoP.SelectedItem;
+                    OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
+                    OdbcDataReader leer = Consulta.ExecuteReader();
+                    MessageBox.Show("El estatus de la pelicula fue modificado a inactivo");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-
                 }
+               
+                cboNombre.Items.Clear();
+                cargar(); 
+                funcCargar();
             }
         }
+        }
     }
-}
+

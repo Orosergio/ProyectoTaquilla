@@ -51,7 +51,12 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.txtLink = new System.Windows.Forms.TextBox();
+            this.lblLink = new System.Windows.Forms.Label();
+            this.btnImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -106,10 +111,11 @@
             // 
             this.cboCodigoC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoC.FormattingEnabled = true;
-            this.cboCodigoC.Location = new System.Drawing.Point(553, 331);
+            this.cboCodigoC.Location = new System.Drawing.Point(816, 331);
             this.cboCodigoC.Name = "cboCodigoC";
-            this.cboCodigoC.Size = new System.Drawing.Size(66, 24);
+            this.cboCodigoC.Size = new System.Drawing.Size(60, 24);
             this.cboCodigoC.TabIndex = 8;
+            this.cboCodigoC.Visible = false;
             // 
             // dtpFecha
             // 
@@ -207,10 +213,11 @@
             // 
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(579, 39);
+            this.cboCodigoP.Location = new System.Drawing.Point(816, 39);
             this.cboCodigoP.Name = "cboCodigoP";
-            this.cboCodigoP.Size = new System.Drawing.Size(79, 24);
+            this.cboCodigoP.Size = new System.Drawing.Size(60, 24);
             this.cboCodigoP.TabIndex = 2;
+            this.cboCodigoP.Visible = false;
             this.cboCodigoP.SelectedIndexChanged += new System.EventHandler(this.cboCodigoP_SelectedIndexChanged);
             // 
             // cboPelicula
@@ -260,7 +267,7 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(579, 80);
+            this.btnBuscar.Location = new System.Drawing.Point(763, 503);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(165, 61);
             this.btnBuscar.TabIndex = 26;
@@ -276,7 +283,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(579, 161);
+            this.btnModificar.Location = new System.Drawing.Point(763, 584);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(165, 62);
             this.btnModificar.TabIndex = 27;
@@ -284,12 +291,58 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // pbImagen
+            // 
+            this.pbImagen.Location = new System.Drawing.Point(569, 39);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(228, 237);
+            this.pbImagen.TabIndex = 28;
+            this.pbImagen.TabStop = false;
+            // 
+            // txtLink
+            // 
+            this.txtLink.Location = new System.Drawing.Point(569, 333);
+            this.txtLink.Name = "txtLink";
+            this.txtLink.Size = new System.Drawing.Size(241, 23);
+            this.txtLink.TabIndex = 30;
+            // 
+            // lblLink
+            // 
+            this.lblLink.AutoSize = true;
+            this.lblLink.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLink.ForeColor = System.Drawing.Color.White;
+            this.lblLink.Location = new System.Drawing.Point(597, 291);
+            this.lblLink.Name = "lblLink";
+            this.lblLink.Size = new System.Drawing.Size(173, 22);
+            this.lblLink.TabIndex = 31;
+            this.lblLink.Text = "Link de la imagen";
+            // 
+            // btnImagen
+            // 
+            this.btnImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
+            this.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImagen.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImagen.ForeColor = System.Drawing.Color.White;
+            this.btnImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnImagen.Image")));
+            this.btnImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImagen.Location = new System.Drawing.Point(569, 377);
+            this.btnImagen.Name = "btnImagen";
+            this.btnImagen.Size = new System.Drawing.Size(241, 61);
+            this.btnImagen.TabIndex = 32;
+            this.btnImagen.Text = "Ver imagen";
+            this.btnImagen.UseVisualStyleBackColor = false;
+            this.btnImagen.Click += new System.EventHandler(this.btnImagen_Click);
+            // 
             // ModificarPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(766, 705);
+            this.ClientSize = new System.Drawing.Size(940, 705);
+            this.Controls.Add(this.btnImagen);
+            this.Controls.Add(this.lblLink);
+            this.Controls.Add(this.txtLink);
+            this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblTitulo);
@@ -319,6 +372,7 @@
             this.Text = "ModificarPelicula";
             this.Load += new System.EventHandler(this.ModificarPelicula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +402,9 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.TextBox txtLink;
+        private System.Windows.Forms.Label lblLink;
+        private System.Windows.Forms.Button btnImagen;
     }
 }
