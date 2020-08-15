@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Taquilla
 {
-    static class Program
+    static class clsProgram
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.

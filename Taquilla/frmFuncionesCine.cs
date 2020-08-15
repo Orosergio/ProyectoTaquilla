@@ -13,7 +13,7 @@ namespace Taquilla
 {
     public partial class frmFuncionesCine : Form
     {
-        conexion conn = new conexion();
+        clsConexion conn = new clsConexion();
         int codigoCine, codigoPelicula;
         public frmFuncionesCine(int idCine, int idPelicula)
         {
@@ -34,13 +34,17 @@ namespace Taquilla
         {
             this.Close();
             this.Dispose();
+            
        
         }
         public void procFechaFunciones()
         {
             try
             {
-                string Query = "select distinct date_format(pp.fechahoraproyeccion, '%d - %m - %Y'),  date_format(pp.fechahoraproyeccion, '%Y-%m-%d') from pelicula p, proyeccionpelicula pp, sala s, cine c where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine=" + codigoCine+"  AND P.IDPELICULA="+codigoPelicula;
+                string Query = "select distinct date_format(pp.fechahoraproyeccion, '%d - %m - %Y'),  date_format(pp.fechahoraproyeccion, '%Y-%m-%d') ";
+                Query += "from pelicula p, proyeccionpelicula pp, sala s, cine c ";
+                Query += "where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine=" + codigoCine + "  and pp.estatus=1 and p.estatus=1 ";
+                Query += "and s.estatus=1 and pp.fechahoraproyeccion >= sysdate() AND P.IDPELICULA=" + codigoPelicula;
                 OdbcDataReader Datos;
                 OdbcCommand Consulta = new OdbcCommand();
                 Consulta.CommandText = Query;
@@ -106,26 +110,75 @@ namespace Taquilla
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-           
-            try
+            if (cboFormato.Text=="")
             {
-                string Query = "select date_format(pp.fechahoraproyeccion, '%h:%i %p'), s.numero, pp.idproyeccionpelicula, s.idsala from proyeccionpelicula pp, idioma i, formato f, sala s, pelicula p where s.idsala=pp.idsala and pp.ididioma=i.ididioma and pp.idformato=f.idformato and pp.idpelicula=p.idpelicula and i.ididioma="+Int32.Parse(cboCodigoIdioma.SelectedItem.ToString())+" and f.idformato="+Int32.Parse(cboCodigoFormato.SelectedItem.ToString())+ " and p.idpelicula="+codigoPelicula+ " and cast(pp.fechahoraproyeccion as date) ='" + cboFechasFun.SelectedItem.ToString()+"'";
-                OdbcDataReader Datos;
-                OdbcCommand Consulta = new OdbcCommand();
-                Consulta.CommandText = Query;
-                Consulta.Connection = conn.Conexion();
-                Datos = Consulta.ExecuteReader();                
-                while (Datos.Read()){
-                    dgvFunciones.Rows.Add(Datos.GetString(1), Datos.GetString(0), Datos.GetString(2), Datos.GetString(3));
+                MessageBox.Show("Debe elegir un formato para la pelicula");
+            }
+            else if (cboIdioma.Text=="")
+            {
+                MessageBox.Show("Debe elegir un idioma para la pelicula");
+            }
+            else if (cboFechaFunciones.Text=="")
+            {
+                MessageBox.Show("Debe elegir una fecha para la pelicula");
+            }
+            else
+            {
+                dgvFunciones.Rows.Clear();
+                try
+                {
+                    string Query;
+                    string horaactual = DateTime.Now.ToString("%h:%i %p");
+                    string fechaActual = DateTime.Now.ToString("yyyy-MM-dd");
+                    if (cboFechasFun.SelectedItem.ToString()!=fechaActual)
+                    {
+                        Query = "select date_format(pp.fechahoraproyeccion, '%h:%i %p'), s.numero, pp.idproyeccionpelicula, s.idsala from proyeccionpelicula pp,";
+                        Query += "idioma i, formato f, sala s, pelicula p, cine c where c.idcine=s.idcine and s.idsala=pp.idsala and pp.ididioma=i.ididioma ";
+                        Query += "and pp.idformato=f.idformato and pp.idpelicula=p.idpelicula and i.ididioma=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
+                        Query += "and f.idformato=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " and c.idcine=" + codigoCine + " and p.idpelicula=" + codigoPelicula + " ";
+                        Query += "and cast(pp.fechahoraproyeccion as date) ='" + cboFechasFun.SelectedItem.ToString() + "' and pp.estatus=1 and p.estatus=1 and s.estatus=1 ";
+                        Query += "and pp.fechahoraproyeccion >= sysdate()";
+                    }
+                    else
+                    {
+                        Query = "select date_format(pp.fechahoraproyeccion, '%h:%i %p'), s.numero, pp.idproyeccionpelicula, s.idsala from proyeccionpelicula pp,";
+                        Query += "idioma i, formato f, sala s, pelicula p, cine c where c.idcine=s.idcine and s.idsala=pp.idsala and pp.ididioma=i.ididioma ";
+                        Query += "and pp.idformato=f.idformato and pp.idpelicula=p.idpelicula and i.ididioma=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
+                        Query += "and f.idformato=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " and c.idcine=" + codigoCine + " and p.idpelicula=" + codigoPelicula + " ";
+                        Query += "and cast(pp.fechahoraproyeccion as date) ='" + cboFechasFun.SelectedItem.ToString() + "' and pp.estatus=1 and p.estatus=1 and s.estatus=1 ";
+                        Query += "and cast(pp.fechahoraproyeccion as time) between curTime() and '23:59:59'";
+                    }
+                    
+                    OdbcDataReader Datos;
+                    OdbcCommand Consulta = new OdbcCommand();
+                    Consulta.CommandText = Query;
+                    Consulta.Connection = conn.Conexion();
+                    Datos = Consulta.ExecuteReader();
+                    if (Datos.Read())
+                    {
+                        dgvFunciones.Rows.Add(Datos.GetString(1), Datos.GetString(0), Datos.GetString(2), Datos.GetString(3));
+                        while (Datos.Read())
+                        {
+                            dgvFunciones.Rows.Add(Datos.GetString(1), Datos.GetString(0), Datos.GetString(2), Datos.GetString(3));
+                        }
+                        btnSIguiente.Enabled = true;
+                    }
+                    else
+                    {
+                        btnSIguiente.Enabled = false;
+                    }
+                   
+                  
+
                 }
-
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    throw;
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                throw;
-            }
+           
+           
         }
 
         private void cboFechaFunciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +189,7 @@ namespace Taquilla
         private void cboFormato_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoFormato.SelectedIndex = cboFormato.SelectedIndex;
+
         }
 
         private void cboIdioma_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,11 +204,11 @@ namespace Taquilla
 
         private void btnSIguiente_Click(object sender, EventArgs e)
         {
+
             int fila, idSala, idProyeccion;
             fila = dgvFunciones.CurrentRow.Index;
             idSala = Int32.Parse(dgvFunciones.Rows[fila].Cells[3].Value.ToString());
             idProyeccion = Int32.Parse(dgvFunciones.Rows[fila].Cells[2].Value.ToString());
-            MessageBox.Show(idSala.ToString());
             frmCantidadBoletos cantidad = new frmCantidadBoletos(lblNombrePelicula.Text, lblNombreCine.Text, codigoCine, idSala, idProyeccion, cboFechaFunciones.SelectedItem.ToString(), Int32.Parse(cboCodigoFormato.SelectedItem.ToString()));
             cantidad.lblHora.Text = dgvFunciones.Rows[fila].Cells[1].Value.ToString();
             cantidad.lblIdioma.Text = cboIdioma.SelectedItem.ToString();
@@ -162,8 +216,29 @@ namespace Taquilla
             cantidad.lblSala.Text = dgvFunciones.Rows[fila].Cells[0].Value.ToString();
             this.Hide();
             cantidad.ShowDialog();
-            this.Show();
-            ;
+            try
+            {
+                this.Show();
+            }
+            catch (Exception)
+            {
+                Application.Exit();
+
+            }
+            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("\t           Cerrando...\n\n\tSeguro que desea cerrar?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void frmFuncionesCine_Load(object sender, EventArgs e)

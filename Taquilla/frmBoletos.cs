@@ -14,26 +14,37 @@ namespace Taquilla
 {
     public partial class frmBoletos : Form
     {
-        int boletos,tiempo=80,idProyeccionPelicula=1,idSala=1;
-        conexion cn = new conexion();
-        public frmBoletos()
+        int boletos,tiempo,idProyeccionPelicula,idSala,idCine;
+        double totalCompra;
+        List<clsBoletos> infoBoletosComprados = new List<clsBoletos>();
+        List<clsBoletos> infoAsientosElegidos = new List<clsBoletos>();
+        PictureBox[,] pcbAsientos = new PictureBox[10, 10];
+        clsConexion cn = new clsConexion();
+        public frmBoletos(double total, int cine, int sala, List<clsBoletos> infoBoletos, int proyeccion)
         {
             InitializeComponent();
-            boletos = int.Parse(lblCantBoletos.Text.ToString());
+            idSala = sala;
+            idCine = cine;
+            idProyeccionPelicula = proyeccion;
+            totalCompra = total;
+            infoBoletosComprados = infoBoletos;
             procAgregarImgAs();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            tiempo = funcObtenerTiempoCompra();
             tmrTiempo.Enabled = true;
             procAsientosOcupados();
+            lblCantBoletosRes.Text = lblCantBoletos.Text.ToString();
+            boletos = int.Parse(lblCantBoletosRes.Text.ToString());
         }
-        
+
         private void procAsientosOcupados()
         {
             try
             {
-                string consulta = "SELECT FILA,NUMERO FROM ASIENTO WHERE IDPROYECCIONPELICULA= " + idProyeccionPelicula;
+                string consulta = "SELECT A.FILA, A.NUMERO FROM ASIENTOVENDIDO A, FACTURAENCABEZADO F WHERE F.IDFACTURAENCABEZADO=A.IDFACTURAENCABEZADO AND F.IDPROYECCIONPELICULA= " + idProyeccionPelicula;
                 OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
                 OdbcDataReader asientosOcupados = comm.ExecuteReader();
                 while (asientosOcupados.Read())
@@ -41,13 +52,29 @@ namespace Taquilla
                     pcbAsientos[asientosOcupados.GetInt32(1) - 1, asientosOcupados.GetInt32(0) - 1].Load("Imagenes/asientorojo.png");
                     pcbAsientos[asientosOcupados.GetInt32(1) - 1, asientosOcupados.GetInt32(0) - 1].Tag = "asientorojo.png";
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            try
+            {
+                string consulta = "SELECT A.FILA, A.NUMERO FROM ASIENTORESERVADO A, RESERVACIONENCABEZADO F WHERE F.IDRESERVACIONENCABEZADO=A.IDRESERVACIONENCABEZADO AND F.IDPROYECCIONPELICULA= " + idProyeccionPelicula;
+                OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
+                OdbcDataReader asientosOcupados = comm.ExecuteReader();
+                while (asientosOcupados.Read())
+                {
+                    pcbAsientos[asientosOcupados.GetInt32(1) - 1, asientosOcupados.GetInt32(0) - 1].Load("Imagenes/asientorojo.png");
+                    pcbAsientos[asientosOcupados.GetInt32(1) - 1, asientosOcupados.GetInt32(0) - 1].Tag = "asientorojo.png";
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
 
-        PictureBox[,] pcbAsientos = new PictureBox[10, 10];
+
         public void procAgregarImgAs()
         {
             int tamano = funcObtenerTamano();
@@ -84,6 +111,27 @@ namespace Taquilla
             }
         }
 
+        private int funcObtenerTiempoCompra()
+        {
+            int tiempo = 0;
+            try
+            {
+                MessageBox.Show(idCine.ToString());
+                string consulta = "SELECT TIEMPOCOMPRA FROM CINE WHERE IDCINE= " + idCine;
+                OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
+                OdbcDataReader tiempoCompra = comm.ExecuteReader();
+                if (tiempoCompra.Read())
+                {
+                    tiempo = tiempoCompra.GetInt32(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return tiempo;
+        }
+
         private int funcObtenerTamano()
         {
             int tamano=0;
@@ -111,21 +159,50 @@ namespace Taquilla
             string nombre = Path.GetFileName(pic.Tag.ToString());
             if (Path.GetFileName(pic.Tag.ToString()) != "asientorojo.png")
             {
+                string nombreImagen = pic.Name.ToString();
+                string[] nombreDividido = nombreImagen.Split(',');
+                int contador = 0, fila = 0, columna = 0;
+                foreach (var campo in nombreDividido)
+                {
+                    if (contador == 1)
+                    {
+                        fila = int.Parse(campo.ToString())+1;
+                    }
+                    else if (contador == 2)
+                    {
+                        columna = int.Parse(campo.ToString())+1;
+                    }
+                    contador++;
+                }
                 if (Path.GetFileName(pic.Tag.ToString()) == "asientoazul.png")
                 {
                     pic.Load("Imagenes/asientoverde.png");
                     pic.Tag = "asientoverde.png";
                     boletos++;
                     lblCantBoletosRes.Text = boletos.ToString();
+                    //infoAsientosElegidos.Remove(new clsBoletos(fila,columna));
+                    infoAsientosElegidos.Remove(infoAsientosElegidos.Single(x => x.idBoletos == fila && x.cantidadBoletos==columna));
                 }
                 else if (boletos > 0)
                 {
                     if (Path.GetFileName(pic.Tag.ToString()) == "asientoverde.png")
                     {
+                        foreach(var campo in nombreDividido)
+                        {
+                            if (contador == 1)
+                            {
+                                fila = int.Parse(campo.ToString());
+                            }else if (contador == 2)
+                            {
+                                columna = int.Parse(campo.ToString());
+                            }
+                            contador++;
+                        }
                         pic.Load("Imagenes/asientoazul.png");
                         pic.Tag = "asientoazul.png";
                         boletos--;
                         lblCantBoletosRes.Text = boletos.ToString();
+                        infoAsientosElegidos.Add(new clsBoletos(fila, columna));
                     }
                 }
                 else
@@ -167,6 +244,12 @@ namespace Taquilla
             }
         }
 
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
         private void pnlBarraSuperior_MouseDown(object sender, MouseEventArgs e)
         {
             
@@ -174,25 +257,57 @@ namespace Taquilla
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmFacturacion fac = new frmFacturacion();
-            this.Hide();
-            fac.Show();
+            if (int.Parse(lblCantBoletosRes.Text.ToString()) == 0)
+            {
+                /*foreach (clsBoletos asiento in infoAsientosElegidos)
+                {
+                    MessageBox.Show(asiento.ToString());
+
+                }*/
+                frmFacturacion facturacion = new frmFacturacion(infoBoletosComprados, infoAsientosElegidos,idSala,idCine,idProyeccionPelicula);
+                facturacion.lblNombrePelicula.Text = lblNombrePelicula.Text.ToString();
+                facturacion.lblCineElegido.Text = lblCineElegido.Text.ToString();
+                facturacion.lblNoSala.Text = lblNoSala.Text.ToString();
+                facturacion.lblFormatoPelicula.Text = lblFormatoPelicula.Text.ToString();
+                facturacion.lblIdiomaPelicula.Text = lblIdiomaPelicula.Text.ToString();
+                facturacion.lblHoraFuncion.Text = lblHoraFuncion.Text.ToString();
+                facturacion.lblDiaFuncion.Text = lblDiaFuncion.Text.ToString();
+                facturacion.lblCantSubTotal.Text = totalCompra.ToString();
+                facturacion.lblCantTotal.Text = totalCompra.ToString();
+                facturacion.lblCantTiempoRestante.Text = lblCantTiempoRestante.Text.ToString();
+                tiempo=tiempo+4;
+                this.Hide();
+                facturacion.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Aún cuenta con boletos disponibles por escoger.", "BOLETOS DISPONIBLES", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+           
         }
 
         private void pnlAsientos_MouseClick(object sender, MouseEventArgs e)
         {
-            /*int x = MousePosition.X;
-            int y = MousePosition.Y;
-            MessageBox.Show("x: " + x + " y: " + y); */
+            
         }
 
         private void tmrTiempo_Tick(object sender, EventArgs e)
         {
             tiempo--;
-            lblCantTiempoRestante.Text = tiempo.ToString() + " Segundo(s)";
+            lblCantTiempoRestante.Text = tiempo.ToString();
             if (tiempo == 0)
             {
-                this.Close();
+                tmrTiempo.Stop();
+                
+                if (MessageBox.Show("Se terminó el tiempo de compra establecido.", "TIEMPO FINALIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    frmCartelera cartelera = new frmCartelera();
+                    this.Hide();
+                    cartelera.ShowDialog();
+                    this.Show();
+                }  
             }
         }
     }

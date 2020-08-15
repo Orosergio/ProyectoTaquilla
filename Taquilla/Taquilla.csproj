@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boletos.cs" />
+    <Compile Include="clsBoletos.cs" />
     <Compile Include="frmBoletos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,12 +65,18 @@
     <Compile Include="frmCartelera.Designer.cs">
       <DependentUpon>frmCartelera.cs</DependentUpon>
     </Compile>
-    <Compile Include="conexion.cs" />
+    <Compile Include="clsConexion.cs" />
     <Compile Include="frmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFacturacion.Designer.cs">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPagoTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPagoTarjeta.Designer.cs">
+      <DependentUpon>frmPagoTarjeta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTrailer.cs">
       <SubType>Form</SubType>
@@ -84,8 +90,8 @@
     <Compile Include="frmFuncionesCine.Designer.cs">
       <DependentUpon>frmFuncionesCine.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pelicula.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="clsPelicula.cs" />
+    <Compile Include="clsProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBoletos.resx">
       <DependentUpon>frmBoletos.cs</DependentUpon>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPagoTarjeta.resx">
+      <DependentUpon>frmPagoTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrailer.resx">
       <DependentUpon>frmTrailer.cs</DependentUpon>
@@ -129,6 +138,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Imagenes\logo.jpeg" />
     <Content Include="Imagenes\calendario.png" />
     <Content Include="Imagenes\espalda.png" />
     <Content Include="Imagenes\flecha-apuntando-hacia-abajo.png" />

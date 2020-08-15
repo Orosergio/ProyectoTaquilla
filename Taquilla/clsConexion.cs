@@ -7,7 +7,7 @@ using System.Data.Odbc;
 
 namespace Taquilla
 {
-    class conexion
+    class clsConexion
     {
         public OdbcConnection Conexion()
         {
