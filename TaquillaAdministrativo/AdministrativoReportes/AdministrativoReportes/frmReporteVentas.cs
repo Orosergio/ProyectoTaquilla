@@ -11,6 +11,14 @@ using System.Windows.Forms;
 using System.Data.Odbc;
 using Microsoft.SqlServer.Server;
 using AdministrativoReportes;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Kernel.Geom;
+using iText.Kernel.Font;
+using iText.IO.Font.Constants;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.IO.Image;
 
 namespace WindowsFormsApp1
 {
@@ -84,6 +92,7 @@ namespace WindowsFormsApp1
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            btnPdf.Visible = true;
             int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
             if (cboEleccion.SelectedIndex == 0)
             {
@@ -158,5 +167,162 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void btnPdf_Click(object sender, EventArgs e)
+        {
+            funcCrearPdf();
+        }
+
+        private void funcCrearPdf()
+        {
+            //CREACION DEL DOCUMENTO
+            string nameRepo = "";
+            nameRepo = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el nombre del archivo:", "Registro", "Orosergio", 500, 500);
+            PdfWriter pdfWriter = new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf");
+            PdfDocument pdf = new PdfDocument(pdfWriter);
+            Document documento = new Document(pdf, PageSize.LETTER);
+            documento.SetMargins(200, 20, 55, 20);
+            //var parrafo = new Paragraph("Hello PDF World");
+            //documento.Add(parrafo);
+            PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.TIMES_BOLD);
+            //CONTENIDO
+            PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.TIMES_ROMAN);
+
+            string[] columnas = { "idReservacion", "Fecha y Hora", "Nombre","Apellido", "Total", "Descuento"};
+
+            //crear tabla para mostrar los datos
+            float[] tamanios = { 1, 4, 4, 4, 3, 3};
+            Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
+            tabla.SetWidth(UnitValue.CreatePercentValue(100));
+
+            foreach (string columna in columnas)
+            {
+                tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas))); //PARA ENCABEZADO DE TABLA
+            }
+
+            if (cboEleccion.SelectedIndex == 0)
+            {
+                clsBitacora bitacora = new clsBitacora();
+                string proceso = "GENERACION REPORTE PDF DE GANANCIAS POR MES";
+                string tablaEnvio = "CLIENTE,FACTURAENCABEZADO";
+                bitacora.GuardarBitacora(proceso, tablaEnvio);
+                Double ganancia = 0;
+                try
+                {
+                    int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
+                    string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND MONTH(fecha) = " + mes + " AND FACENC.estatus=true;";
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcDataReader reader = cma.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[0].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[1].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[2].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[3].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph("Q. "+reader[4].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph("Q. "+reader[5].ToString()).SetFont(fontContenido)));
+                        ganancia += reader.GetDouble(4);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR AL OBTENER DATOS PARA INGRESO" + ex);
+                }
+                documento.Add(tabla);
+                documento.Close();
+
+                var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
+                var plogo = new Paragraph("").Add(logo);
+                var titulo = new Paragraph("REPORTE DE GANANCIAS");
+                titulo.SetTextAlignment(TextAlignment.CENTER);
+                titulo.SetFontSize(15);
+
+                var dfecha = DateTime.Now.ToString("dd-MM-yyyy");
+                var dhora = DateTime.Now.ToString("hh:mm:ss");
+                var fecha = new Paragraph("Fecha de Creación: " + dfecha + "\nHora de Creación: " + dhora + "\nGanacia: " + ganancia + "\n" + lblGeneralData.Text);
+                fecha.SetFontSize(12);
+
+                PdfDocument pdfDoc = new PdfDocument(new PdfReader("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf"), new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/'" + nameRepo + "'.pdf"));
+                Document doc = new Document(pdfDoc);
+
+                int numeros = pdfDoc.GetNumberOfPages();
+
+                for (int i = 1; i <= numeros; i++)
+                {
+                    PdfPage pagina = pdfDoc.GetPage(i);
+                    float y = (pdfDoc.GetPage(i).GetPageSize().GetTop() - 15);
+                    doc.ShowTextAligned(plogo, 40, y, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                    doc.ShowTextAligned(titulo, 300, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                    doc.ShowTextAligned(fecha, 25, y - 70, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
+                    doc.ShowTextAligned(new Paragraph(String.Format("Página {0} de {1}", i, numeros)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() / 2 - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+
+                }
+                doc.Close();
+            }
+            else if (cboEleccion.SelectedIndex == 1)
+            {
+                clsBitacora bitacora = new clsBitacora();
+                string proceso = "GENERACION REPORTE PDF DE GANANCIAS POR SEMANA";
+                string tablaEnvio = "CLIENTE,FACTURAENCABEZADO";
+                bitacora.GuardarBitacora(proceso, tablaEnvio);
+                Double ganancia = 0;
+                try
+                {
+                    
+                    string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND fecha BETWEEN '" + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND FACENC.estatus=true;";
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcDataReader reader = cma.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[0].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[1].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[2].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph(reader[3].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph("Q. "+reader[4].ToString()).SetFont(fontContenido)));
+                        tabla.AddCell(new Cell().Add(new Paragraph("Q." +reader[5].ToString()).SetFont(fontContenido)));
+
+                        ganancia += reader.GetDouble(4);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR AL OBTENER DATOS PARA INGRESO" + ex);
+                }
+                documento.Add(tabla);
+                documento.Close();
+
+                var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
+                var plogo = new Paragraph("").Add(logo);
+                var titulo = new Paragraph("REPORTE DE GANANCIAS");
+                titulo.SetTextAlignment(TextAlignment.CENTER);
+                titulo.SetFontSize(15);
+
+                var dfecha = DateTime.Now.ToString("dd-MM-yyyy");
+                var dhora = DateTime.Now.ToString("hh:mm:ss");
+                var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora + "\nGanancia: " + ganancia + "\n" + lblGeneralData.Text + " DEL " + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") +"  AL  "+ dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss"));
+                fecha.SetFontSize(12);
+
+                PdfDocument pdfDoc = new PdfDocument(new PdfReader("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf"), new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/'" + nameRepo + "'.pdf"));
+                Document doc = new Document(pdfDoc);
+
+                int numeros = pdfDoc.GetNumberOfPages();
+
+                for (int i = 1; i <= numeros; i++)
+                {
+                    PdfPage pagina = pdfDoc.GetPage(i);
+                    float y = (pdfDoc.GetPage(i).GetPageSize().GetTop() - 15);
+                    doc.ShowTextAligned(plogo, 40, y, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                    doc.ShowTextAligned(titulo, 300, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                    doc.ShowTextAligned(fecha, 25, y - 70, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
+                    
+                    doc.ShowTextAligned(new Paragraph(String.Format("Página {0} de {1}", i, numeros)), pdfDoc.GetPage(i).GetPageSize().GetWidth() / 2, pdfDoc.GetPage(i).GetPageSize().GetBottom() / 2 - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+
+                }
+                doc.Close();
+            }
+
+
+        }
+
     }
 }

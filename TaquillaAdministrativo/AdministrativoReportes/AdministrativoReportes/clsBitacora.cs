@@ -64,7 +64,7 @@ namespace AdministrativoReportes
         public void GuardarBitacora(string proceso, string tabla)
         {
             
-            MessageBox.Show(idUsuario);
+            //MessageBox.Show(idUsuario);
             ipAddress = GetLocalIPAddress();
             string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             procCodigoUser();
@@ -76,7 +76,7 @@ namespace AdministrativoReportes
 
         public void obtenerIdUsuario(string id)
         {
-            MessageBox.Show("ID USUARIO bitacora: " +id);
+           // MessageBox.Show("ID USUARIO bitacora: " +id);
             idUsuario = id;            
         }
 

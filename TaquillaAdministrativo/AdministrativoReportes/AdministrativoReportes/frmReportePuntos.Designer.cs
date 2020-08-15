@@ -35,13 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboTipoReporte = new System.Windows.Forms.ComboBox();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
-            this.lblMayor = new System.Windows.Forms.Label();
-            this.btnGenerar = new System.Windows.Forms.Button();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblMayor = new System.Windows.Forms.Label();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnPdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +126,31 @@
             this.dgvCliente.Size = new System.Drawing.Size(1006, 274);
             this.dgvCliente.TabIndex = 8;
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "NitCliente";
+            this.Column5.Name = "Column5";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre Completo";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "No.Tarjeta";
+            this.Column3.Name = "Column3";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "PuntosCliente";
+            this.Column1.Name = "Column1";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "CorreoCliente";
+            this.Column4.Name = "Column4";
+            // 
             // lblMayor
             // 
             this.lblMayor.AutoSize = true;
@@ -152,30 +178,21 @@
             this.btnGenerar.UseVisualStyleBackColor = false;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // Column5
+            // btnPdf
             // 
-            this.Column5.HeaderText = "NitCliente";
-            this.Column5.Name = "Column5";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre Completo";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "No.Tarjeta";
-            this.Column3.Name = "Column3";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "PuntosCliente";
-            this.Column1.Name = "Column1";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "CorreoCliente";
-            this.Column4.Name = "Column4";
+            this.btnPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.btnPdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPdf.FlatAppearance.BorderSize = 0;
+            this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPdf.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPdf.Location = new System.Drawing.Point(904, 91);
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.Size = new System.Drawing.Size(179, 63);
+            this.btnPdf.TabIndex = 11;
+            this.btnPdf.Text = "Generar PDF";
+            this.btnPdf.UseVisualStyleBackColor = false;
+            this.btnPdf.Visible = false;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
             // 
             // frmReportePuntos
             // 
@@ -183,6 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1128, 638);
+            this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.lblMayor);
             this.Controls.Add(this.dgvCliente);
@@ -210,5 +228,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnPdf;
     }
 }

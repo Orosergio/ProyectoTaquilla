@@ -36,8 +36,9 @@ namespace AdministrativoReportes
         private void funcCrearPdf()
         {
             //CREACION DEL DOCUMENTO
-            string nameRepo = "reportePruebaName";
-            PdfWriter pdfWriter = new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/'" + nameRepo + "'.pdf");
+            string nameRepo = "";
+            nameRepo = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el nombre del archivo:","Registro","Orosergio",100,0);
+            PdfWriter pdfWriter = new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf");
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf,PageSize.LETTER);
 
@@ -92,7 +93,7 @@ namespace AdministrativoReportes
             var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora);
             fecha.SetFontSize(12);
 
-            PdfDocument pdfDoc = new PdfDocument(new PdfReader("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/reporte.pdf"), new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/reporteP.pdf"));
+            PdfDocument pdfDoc = new PdfDocument(new PdfReader("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf"), new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/'" + nameRepo + "'.pdf"));
             Document doc = new Document(pdfDoc);
 
             int numeros = pdfDoc.GetNumberOfPages();
@@ -113,8 +114,7 @@ namespace AdministrativoReportes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            clsBitacora bitacora = new clsBitacora();
-           
+            clsBitacora bitacora = new clsBitacora();           
             string proceso = "PRINCIPAL";
             string tabla = "NOSE";
             bitacora.GuardarBitacora(proceso, tabla);
