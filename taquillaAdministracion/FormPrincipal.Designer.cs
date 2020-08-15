@@ -36,6 +36,14 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.Menu = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnPuesto = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRol = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEmpleado = new System.Windows.Forms.Button();
+            this.btnFuncionesN = new System.Windows.Forms.Button();
+            this.btnPelicula = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
@@ -60,8 +68,6 @@
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnPelicula = new System.Windows.Forms.Button();
-            this.btnFuncionesN = new System.Windows.Forms.Button();
             this.PanelContenedor.SuspendLayout();
             this.panel4.SuspendLayout();
             this.Menu.SuspendLayout();
@@ -141,6 +147,12 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.Menu.Controls.Add(this.panel3);
+            this.Menu.Controls.Add(this.btnPuesto);
+            this.Menu.Controls.Add(this.panel2);
+            this.Menu.Controls.Add(this.btnRol);
+            this.Menu.Controls.Add(this.panel1);
+            this.Menu.Controls.Add(this.btnEmpleado);
             this.Menu.Controls.Add(this.btnFuncionesN);
             this.Menu.Controls.Add(this.btnPelicula);
             this.Menu.Controls.Add(this.panel13);
@@ -160,6 +172,134 @@
             this.Menu.Size = new System.Drawing.Size(375, 936);
             this.Menu.TabIndex = 100;
             this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel3.Location = new System.Drawing.Point(3, 482);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(7, 39);
+            this.panel3.TabIndex = 14;
+            // 
+            // btnPuesto
+            // 
+            this.btnPuesto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPuesto.FlatAppearance.BorderSize = 0;
+            this.btnPuesto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnPuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPuesto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPuesto.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnPuesto.Image = ((System.Drawing.Image)(resources.GetObject("btnPuesto.Image")));
+            this.btnPuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPuesto.Location = new System.Drawing.Point(13, 482);
+            this.btnPuesto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPuesto.Name = "btnPuesto";
+            this.btnPuesto.Size = new System.Drawing.Size(189, 39);
+            this.btnPuesto.TabIndex = 15;
+            this.btnPuesto.Text = "    Puesto";
+            this.btnPuesto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPuesto.UseVisualStyleBackColor = true;
+            this.btnPuesto.Click += new System.EventHandler(this.btnPuesto_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel2.Location = new System.Drawing.Point(3, 415);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(7, 39);
+            this.panel2.TabIndex = 12;
+            // 
+            // btnRol
+            // 
+            this.btnRol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRol.FlatAppearance.BorderSize = 0;
+            this.btnRol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRol.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRol.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnRol.Image = ((System.Drawing.Image)(resources.GetObject("btnRol.Image")));
+            this.btnRol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRol.Location = new System.Drawing.Point(13, 415);
+            this.btnRol.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRol.Name = "btnRol";
+            this.btnRol.Size = new System.Drawing.Size(189, 39);
+            this.btnRol.TabIndex = 13;
+            this.btnRol.Text = "    Rol";
+            this.btnRol.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRol.UseVisualStyleBackColor = true;
+            this.btnRol.Click += new System.EventHandler(this.btnRol_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel1.Location = new System.Drawing.Point(3, 346);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(7, 39);
+            this.panel1.TabIndex = 10;
+            // 
+            // btnEmpleado
+            // 
+            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
+            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleado.Location = new System.Drawing.Point(13, 337);
+            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Size = new System.Drawing.Size(204, 61);
+            this.btnEmpleado.TabIndex = 11;
+            this.btnEmpleado.Text = "    Empleado";
+            this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmpleado.UseVisualStyleBackColor = true;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click_1);
+            // 
+            // btnFuncionesN
+            // 
+            this.btnFuncionesN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFuncionesN.FlatAppearance.BorderSize = 0;
+            this.btnFuncionesN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnFuncionesN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFuncionesN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionesN.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnFuncionesN.Image = ((System.Drawing.Image)(resources.GetObject("btnFuncionesN.Image")));
+            this.btnFuncionesN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFuncionesN.Location = new System.Drawing.Point(13, 118);
+            this.btnFuncionesN.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFuncionesN.Name = "btnFuncionesN";
+            this.btnFuncionesN.Size = new System.Drawing.Size(204, 60);
+            this.btnFuncionesN.TabIndex = 9;
+            this.btnFuncionesN.Text = "    Funciones";
+            this.btnFuncionesN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFuncionesN.UseVisualStyleBackColor = true;
+            this.btnFuncionesN.Click += new System.EventHandler(this.btnFuncionesN_Click);
+            // 
+            // btnPelicula
+            // 
+            this.btnPelicula.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPelicula.FlatAppearance.BorderSize = 0;
+            this.btnPelicula.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnPelicula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPelicula.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPelicula.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnPelicula.Image = ((System.Drawing.Image)(resources.GetObject("btnPelicula.Image")));
+            this.btnPelicula.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPelicula.Location = new System.Drawing.Point(13, 62);
+            this.btnPelicula.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPelicula.Name = "btnPelicula";
+            this.btnPelicula.Size = new System.Drawing.Size(196, 39);
+            this.btnPelicula.TabIndex = 8;
+            this.btnPelicula.Text = "    Peliculas";
+            this.btnPelicula.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPelicula.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPelicula.UseVisualStyleBackColor = true;
+            this.btnPelicula.Click += new System.EventHandler(this.btnPelicula_Click_1);
             // 
             // panel13
             // 
@@ -253,7 +393,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel5.Location = new System.Drawing.Point(4, 338);
+            this.panel5.Location = new System.Drawing.Point(4, 561);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(7, 39);
@@ -269,7 +409,7 @@
             this.design.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.design.Image = ((System.Drawing.Image)(resources.GetObject("design.Image")));
             this.design.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.design.Location = new System.Drawing.Point(13, 338);
+            this.design.Location = new System.Drawing.Point(13, 561);
             this.design.Margin = new System.Windows.Forms.Padding(4);
             this.design.Name = "design";
             this.design.Size = new System.Drawing.Size(189, 43);
@@ -287,7 +427,7 @@
             this.Submenurepor.Controls.Add(this.panel6);
             this.Submenurepor.Controls.Add(this.btnreportventa);
             this.Submenurepor.Controls.Add(this.btnreportcompra);
-            this.Submenurepor.Location = new System.Drawing.Point(104, 389);
+            this.Submenurepor.Location = new System.Drawing.Point(104, 612);
             this.Submenurepor.Margin = new System.Windows.Forms.Padding(4);
             this.Submenurepor.Name = "Submenurepor";
             this.Submenurepor.Size = new System.Drawing.Size(283, 159);
@@ -468,47 +608,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // btnPelicula
-            // 
-            this.btnPelicula.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPelicula.FlatAppearance.BorderSize = 0;
-            this.btnPelicula.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnPelicula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPelicula.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPelicula.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnPelicula.Image = ((System.Drawing.Image)(resources.GetObject("btnPelicula.Image")));
-            this.btnPelicula.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPelicula.Location = new System.Drawing.Point(13, 62);
-            this.btnPelicula.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPelicula.Name = "btnPelicula";
-            this.btnPelicula.Size = new System.Drawing.Size(196, 39);
-            this.btnPelicula.TabIndex = 8;
-            this.btnPelicula.Text = "    Peliculas";
-            this.btnPelicula.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPelicula.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPelicula.UseVisualStyleBackColor = true;
-            this.btnPelicula.Click += new System.EventHandler(this.btnPelicula_Click_1);
-            // 
-            // btnFuncionesN
-            // 
-            this.btnFuncionesN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFuncionesN.FlatAppearance.BorderSize = 0;
-            this.btnFuncionesN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnFuncionesN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuncionesN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncionesN.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnFuncionesN.Image = ((System.Drawing.Image)(resources.GetObject("btnFuncionesN.Image")));
-            this.btnFuncionesN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionesN.Location = new System.Drawing.Point(13, 118);
-            this.btnFuncionesN.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFuncionesN.Name = "btnFuncionesN";
-            this.btnFuncionesN.Size = new System.Drawing.Size(204, 60);
-            this.btnFuncionesN.TabIndex = 9;
-            this.btnFuncionesN.Text = "    Funciones";
-            this.btnFuncionesN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFuncionesN.UseVisualStyleBackColor = true;
-            this.btnFuncionesN.Click += new System.EventHandler(this.btnFuncionesN_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -572,6 +671,12 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnPelicula;
         private System.Windows.Forms.Button btnFuncionesN;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnPuesto;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnRol;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnEmpleado;
     }
 }
 

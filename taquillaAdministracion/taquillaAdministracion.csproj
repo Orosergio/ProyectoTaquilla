@@ -52,30 +52,102 @@
     <Compile Include="Boletos.Designer.cs">
       <DependentUpon>Boletos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Conexion.cs" />
-    <Compile Include="eliminarFuncion.cs">
+    <Compile Include="clsConexion.cs" />
+    <Compile Include="frmEliminarFuncion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="eliminarFuncion.Designer.cs">
-      <DependentUpon>eliminarFuncion.cs</DependentUpon>
+    <Compile Include="frmEliminarFuncion.Designer.cs">
+      <DependentUpon>frmEliminarFuncion.cs</DependentUpon>
     </Compile>
-    <Compile Include="eliminarPelicula.cs">
+    <Compile Include="frmEliminarPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="eliminarPelicula.Designer.cs">
-      <DependentUpon>eliminarPelicula.cs</DependentUpon>
+    <Compile Include="frmEliminarPelicula.Designer.cs">
+      <DependentUpon>frmEliminarPelicula.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenu.cs">
+    <Compile Include="frmCorreo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenu.Designer.cs">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <Compile Include="frmCorreo.Designer.cs">
+      <DependentUpon>frmCorreo.cs</DependentUpon>
     </Compile>
-    <Compile Include="funciones.cs">
+    <Compile Include="frmEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="funciones.Designer.cs">
-      <DependentUpon>funciones.cs</DependentUpon>
+    <Compile Include="frmEmpleado.Designer.cs">
+      <DependentUpon>frmEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarCorreo.Designer.cs">
+      <DependentUpon>frmModificarCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarEmpleado.Designer.cs">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarPuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarPuesto.Designer.cs">
+      <DependentUpon>frmModificarPuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarRol.Designer.cs">
+      <DependentUpon>frmModificarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarTelefono.Designer.cs">
+      <DependentUpon>frmModificarTelefono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarUsuario.Designer.cs">
+      <DependentUpon>frmModificarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPuesto.Designer.cs">
+      <DependentUpon>frmPuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRol.Designer.cs">
+      <DependentUpon>frmRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTelefono.Designer.cs">
+      <DependentUpon>frmTelefono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerEmpleados.Designer.cs">
+      <DependentUpon>frmVerEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFunciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFunciones.Designer.cs">
+      <DependentUpon>frmFunciones.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -83,65 +155,92 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModFunciones.cs">
+    <Compile Include="frmModFunciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModFunciones.Designer.cs">
-      <DependentUpon>ModFunciones.cs</DependentUpon>
+    <Compile Include="frmModFunciones.Designer.cs">
+      <DependentUpon>frmModFunciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="modificarFunciones.cs">
+    <Compile Include="frmModificarPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modificarFunciones.Designer.cs">
-      <DependentUpon>modificarFunciones.cs</DependentUpon>
+    <Compile Include="frmModificarPelicula.Designer.cs">
+      <DependentUpon>frmModificarPelicula.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificarPelicula.cs">
+    <Compile Include="frmPeliculas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModificarPelicula.Designer.cs">
-      <DependentUpon>ModificarPelicula.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Peliculas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Peliculas.Designer.cs">
-      <DependentUpon>Peliculas.cs</DependentUpon>
+    <Compile Include="frmPeliculas.Designer.cs">
+      <DependentUpon>frmPeliculas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sucursal.cs">
+    <Compile Include="frmSucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sucursal.Designer.cs">
-      <DependentUpon>Sucursal.cs</DependentUpon>
+    <Compile Include="frmSucursal.Designer.cs">
+      <DependentUpon>frmSucursal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Validacion.cs" />
-    <EmbeddedResource Include="eliminarFuncion.resx">
-      <DependentUpon>eliminarFuncion.cs</DependentUpon>
+    <Compile Include="clsValidacion.cs" />
+    <EmbeddedResource Include="frmEliminarFuncion.resx">
+      <DependentUpon>frmEliminarFuncion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="eliminarPelicula.resx">
-      <DependentUpon>eliminarPelicula.cs</DependentUpon>
+    <EmbeddedResource Include="frmEliminarPelicula.resx">
+      <DependentUpon>frmEliminarPelicula.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenu.resx">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <EmbeddedResource Include="frmCorreo.resx">
+      <DependentUpon>frmCorreo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="funciones.resx">
-      <DependentUpon>funciones.cs</DependentUpon>
+    <EmbeddedResource Include="frmEmpleado.resx">
+      <DependentUpon>frmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarCorreo.resx">
+      <DependentUpon>frmModificarCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarEmpleado.resx">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarPuesto.resx">
+      <DependentUpon>frmModificarPuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarRol.resx">
+      <DependentUpon>frmModificarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarTelefono.resx">
+      <DependentUpon>frmModificarTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarUsuario.resx">
+      <DependentUpon>frmModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPuesto.resx">
+      <DependentUpon>frmPuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRol.resx">
+      <DependentUpon>frmRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTelefono.resx">
+      <DependentUpon>frmTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerEmpleados.resx">
+      <DependentUpon>frmVerEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFunciones.resx">
+      <DependentUpon>frmFunciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModFunciones.resx">
-      <DependentUpon>ModFunciones.cs</DependentUpon>
+    <EmbeddedResource Include="frmModFunciones.resx">
+      <DependentUpon>frmModFunciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modificarFunciones.resx">
-      <DependentUpon>modificarFunciones.cs</DependentUpon>
+    <EmbeddedResource Include="frmModificarPelicula.resx">
+      <DependentUpon>frmModificarPelicula.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificarPelicula.resx">
-      <DependentUpon>ModificarPelicula.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Peliculas.resx">
-      <DependentUpon>Peliculas.cs</DependentUpon>
+    <EmbeddedResource Include="frmPeliculas.resx">
+      <DependentUpon>frmPeliculas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

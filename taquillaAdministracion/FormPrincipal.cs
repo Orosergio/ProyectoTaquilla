@@ -17,11 +17,9 @@ namespace taquillaAdministracion
 {
     public partial class FormPrincipal : Form
     {
-        int codigo;
-     /*   MySqlCommand Query = new MySqlCommand();
-        MySqlConnection Conexion;
-        MySqlDataReader consultar;*/
-        public string sql = "datasource=127.0.0.1;port=3306;username=root;password=;database=SUPERMERCADO";
+        
+     
+       
         public FormPrincipal()
         {
             InitializeComponent();
@@ -214,7 +212,7 @@ namespace taquillaAdministracion
 
         private void Button4_Click_1(object sender, EventArgs e)
         {
-            Peliculas fm = new Peliculas();
+            frmPeliculas fm = new frmPeliculas();
             AbrirFormEnPanel(fm);
         }
 
@@ -237,7 +235,7 @@ namespace taquillaAdministracion
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            funciones fm = new funciones();
+            frmFunciones fm = new frmFunciones();
             AbrirFormEnPanel(fm);
         }
 
@@ -249,8 +247,8 @@ namespace taquillaAdministracion
 
         private void Button6_Click(object sender, EventArgs e)
         {
-           // Usuario fm = new Usuario();
-//AbrirFormEnPanel(fm);
+           frmUsuarios fm = new frmUsuarios();
+            AbrirFormEnPanel(fm);
         }
 
         private void Button9_Click(object sender, EventArgs e)
@@ -354,13 +352,13 @@ namespace taquillaAdministracion
 
         private void btnPelicula_Click(object sender, EventArgs e)
         {
-            Peliculas fm = new Peliculas();
+            frmPeliculas fm = new frmPeliculas();
             AbrirFormEnPanel(fm);
         }
 
         private void btnFunciones_Click(object sender, EventArgs e)
         {
-            funciones fm = new funciones();
+            frmFunciones fm = new frmFunciones();
             AbrirFormEnPanel(fm);
         }
 
@@ -371,19 +369,37 @@ namespace taquillaAdministracion
 
         private void btnPelicula_Click_1(object sender, EventArgs e)
         {
-            Peliculas fm = new Peliculas();
+            frmPeliculas fm = new frmPeliculas();
             AbrirFormEnPanel(fm);
         }
 
         private void bntFunciones_Click(object sender, EventArgs e)
         {
-            funciones fm = new funciones();
+            frmFunciones fm = new frmFunciones();
             AbrirFormEnPanel(fm);
         }
 
         private void btnFuncionesN_Click(object sender, EventArgs e)
         {
-            funciones fm = new funciones();
+            frmFunciones fm = new frmFunciones();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnRol_Click(object sender, EventArgs e)
+        {
+            frmRol fm = new frmRol();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnPuesto_Click(object sender, EventArgs e)
+        {
+            frmPuesto fm = new frmPuesto();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnEmpleado_Click_1(object sender, EventArgs e)
+        {
+            frmEmpleado fm = new frmEmpleado();
             AbrirFormEnPanel(fm);
         }
 
