@@ -150,7 +150,7 @@ namespace FinalProyecto
 
         private void BtnEmpleado_Click(object sender, EventArgs e)
         {
-            Form1 fm = new Form1();
+            frmPdf fm = new frmPdf();
             //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

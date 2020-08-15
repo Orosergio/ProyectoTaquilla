@@ -11,6 +11,10 @@ using System.Runtime.InteropServices;
 using EmpleadoPrueba;
 using System.Data.Odbc;
 using System.Reflection;
+using AdministrativoReportes;
+using System.Net;
+using System.Net.Sockets;
+using iText.Layout.Element;
 
 namespace FinalProyecto
 {
@@ -126,6 +130,8 @@ namespace FinalProyecto
             }               
         }
 
+        
+
         private void Btning_Click(object sender, EventArgs e)
         {
             if (olvidarPassword==0)
@@ -160,6 +166,12 @@ namespace FinalProyecto
                         {
                             if (txtUser.Text == (Convert.ToString(reader[4])) && txtPassword.Text == (Convert.ToString(reader[3])))
                             {
+                                clsBitacora bitacora = new clsBitacora();
+                                
+                                bitacora.obtenerIdUsuario(reader[0].ToString());
+                                string proceso = "LOGIN";
+                                string tabla = "USUARIO";
+                                bitacora.GuardarBitacora(proceso,tabla);
                                 ver = 3;
                                 FormPrincipal frm = new FormPrincipal();
                                 frm.Show();
@@ -240,6 +252,11 @@ namespace FinalProyecto
                                     }
 
                                 }
+                                //ADICION A LA BITACORA
+                                clsBitacora bitacora = new clsBitacora();
+                                string proceso = "Reporte de envio de credenciales";
+                                string tabla = "USUARIO";
+                                bitacora.GuardarBitacora(proceso, tabla);
                             }
                             catch (Exception ex)
                             {

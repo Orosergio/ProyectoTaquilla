@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using Microsoft.SqlServer.Server;
+using AdministrativoReportes;
 
 namespace WindowsFormsApp1
 {
@@ -102,7 +103,10 @@ namespace WindowsFormsApp1
                         gananciames += reader.GetDouble(4);
                         lblGanancia.Text = "TOTAL DE GANANCIAS: " + gananciames;
                     }
-
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Reporte de ganancias por mes";
+                    string tabla = "CLIENTE,FACTURAENCABEZADO";
+                    bitacora.GuardarBitacora(proceso, tabla);
 
                 }
                 catch (Exception ex)
@@ -132,7 +136,10 @@ namespace WindowsFormsApp1
                         ganancia += reader.GetDouble(4);
                         lblGanancia.Text="TOTAL DE GANANCIAS: " +ganancia ;
                     }
-
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Reporte de ganancias por semana";
+                    string tabla = "CLIENTE,FACTURAENCABEZADO";
+                    bitacora.GuardarBitacora(proceso, tabla);
 
                 }
                 catch (Exception ex)

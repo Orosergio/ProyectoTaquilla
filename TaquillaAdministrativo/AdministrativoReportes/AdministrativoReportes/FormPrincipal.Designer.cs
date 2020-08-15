@@ -38,12 +38,13 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.Menu = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSLIDE = new System.Windows.Forms.PictureBox();
             this.design = new System.Windows.Forms.Button();
             this.Submenurepor = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.btnPeliculaTaquilla = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -57,7 +58,6 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             this.PanelContenedor.SuspendLayout();
             this.Principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -166,6 +166,15 @@
             this.panel11.Size = new System.Drawing.Size(5, 32);
             this.panel11.TabIndex = 4;
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel7.Location = new System.Drawing.Point(41, 361);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 32);
+            this.panel7.TabIndex = 13;
+            this.panel7.Visible = false;
+            // 
             // button6
             // 
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -238,14 +247,14 @@
             this.Submenurepor.Visible = false;
             this.Submenurepor.Paint += new System.Windows.Forms.PaintEventHandler(this.Submenurepor_Paint);
             // 
-            // panel7
+            // panel2
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel7.Location = new System.Drawing.Point(41, 361);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(10, 32);
-            this.panel7.TabIndex = 13;
-            this.panel7.Visible = false;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel2.Location = new System.Drawing.Point(0, 126);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 32);
+            this.panel2.TabIndex = 14;
+            this.panel2.Visible = false;
             // 
             // button9
             // 
@@ -415,15 +424,6 @@
             // 
             this.tmContraerMenu.Interval = 15;
             this.tmContraerMenu.Tick += new System.EventHandler(this.TmContraerMenu_Tick);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel2.Location = new System.Drawing.Point(0, 126);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 32);
-            this.panel2.TabIndex = 14;
-            this.panel2.Visible = false;
             // 
             // FormPrincipal
             // 

@@ -58,7 +58,10 @@ namespace AdministrativoReportes
                     {
                         dgvCliente.Rows.Add(reader.GetString(0), reader.GetString(1) + " " + reader.GetString(2), reader.GetString(3), reader.GetDouble(4), reader.GetString(5));
                     }
-
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Reporte de clientes con mayor cantidad de puntos";
+                    string tabla = "CLIENTE,TARJETA,CORREOCLIENTE";
+                    bitacora.GuardarBitacora(proceso, tabla);
 
                 }
                 catch (Exception ex)
@@ -82,7 +85,10 @@ namespace AdministrativoReportes
                         dgvCliente.Rows.Add(reader.GetString(0), reader.GetString(1) + " " + reader.GetString(2), reader.GetString(3), reader.GetDouble(4), reader.GetString(5));
                     }
 
-
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Reporte de clientes con menos cantidad de puntos";
+                    string tabla = "CLIENTE,TARJETA,CORREOCLIENTE";
+                    bitacora.GuardarBitacora(proceso, tabla);
                 }
                 catch (Exception ex)
                 {
