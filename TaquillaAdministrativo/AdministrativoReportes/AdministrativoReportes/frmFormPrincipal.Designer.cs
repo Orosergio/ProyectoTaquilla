@@ -38,13 +38,13 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.Menu = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSLIDE = new System.Windows.Forms.PictureBox();
             this.design = new System.Windows.Forms.Button();
             this.Submenurepor = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.btnPeliculaTaquilla = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -98,11 +98,14 @@
             // 
             // axWindowsMediaPlayer1
             // 
+            this.axWindowsMediaPlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(191, 144);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(349, 144);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(691, 364);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(432, 432);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // panel4
@@ -143,7 +146,6 @@
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
             this.Menu.Controls.Add(this.panel11);
-            this.Menu.Controls.Add(this.panel7);
             this.Menu.Controls.Add(this.button6);
             this.Menu.Controls.Add(this.panel5);
             this.Menu.Controls.Add(this.btnSLIDE);
@@ -166,15 +168,6 @@
             this.panel11.Size = new System.Drawing.Size(5, 32);
             this.panel11.TabIndex = 4;
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel7.Location = new System.Drawing.Point(41, 361);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(10, 32);
-            this.panel7.TabIndex = 13;
-            this.panel7.Visible = false;
-            // 
             // button6
             // 
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -185,9 +178,9 @@
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(6, 193);
+            this.button6.Location = new System.Drawing.Point(-6, 182);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(247, 41);
+            this.button6.Size = new System.Drawing.Size(250, 41);
             this.button6.TabIndex = 5;
             this.button6.Text = "    Usuario";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -197,7 +190,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel5.Location = new System.Drawing.Point(3, 239);
+            this.panel5.Location = new System.Drawing.Point(1, 239);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(5, 32);
             this.panel5.TabIndex = 9;
@@ -236,13 +229,14 @@
             // Submenurepor
             // 
             this.Submenurepor.Controls.Add(this.panel2);
+            this.Submenurepor.Controls.Add(this.panel7);
             this.Submenurepor.Controls.Add(this.button9);
             this.Submenurepor.Controls.Add(this.btnPeliculaTaquilla);
             this.Submenurepor.Controls.Add(this.panel6);
             this.Submenurepor.Controls.Add(this.btnreportventa);
-            this.Submenurepor.Location = new System.Drawing.Point(41, 293);
+            this.Submenurepor.Location = new System.Drawing.Point(25, 293);
             this.Submenurepor.Name = "Submenurepor";
-            this.Submenurepor.Size = new System.Drawing.Size(212, 214);
+            this.Submenurepor.Size = new System.Drawing.Size(228, 215);
             this.Submenurepor.TabIndex = 7;
             this.Submenurepor.Visible = false;
             this.Submenurepor.Paint += new System.Windows.Forms.PaintEventHandler(this.Submenurepor_Paint);
@@ -256,6 +250,15 @@
             this.panel2.TabIndex = 14;
             this.panel2.Visible = false;
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel7.Location = new System.Drawing.Point(0, 67);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 32);
+            this.panel7.TabIndex = 13;
+            this.panel7.Visible = false;
+            // 
             // button9
             // 
             this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -268,7 +271,7 @@
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.Location = new System.Drawing.Point(6, 116);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(200, 59);
+            this.button9.Size = new System.Drawing.Size(216, 62);
             this.button9.TabIndex = 14;
             this.button9.Text = "Reporte de Puntos del Cliente";
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -312,12 +315,11 @@
             this.btnreportventa.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnreportventa.Image = ((System.Drawing.Image)(resources.GetObject("btnreportventa.Image")));
             this.btnreportventa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnreportventa.Location = new System.Drawing.Point(3, 3);
+            this.btnreportventa.Location = new System.Drawing.Point(9, 3);
             this.btnreportventa.Name = "btnreportventa";
             this.btnreportventa.Size = new System.Drawing.Size(209, 32);
             this.btnreportventa.TabIndex = 10;
             this.btnreportventa.Text = "Reporte Ventas";
-            this.btnreportventa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnreportventa.UseVisualStyleBackColor = true;
             this.btnreportventa.Click += new System.EventHandler(this.Btnreportventa_Click);
             // 
@@ -339,7 +341,7 @@
             this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(6, 144);
+            this.btnEmpleado.Location = new System.Drawing.Point(3, 144);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Size = new System.Drawing.Size(263, 43);
             this.btnEmpleado.TabIndex = 1;

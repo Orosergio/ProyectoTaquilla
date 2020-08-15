@@ -83,25 +83,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="cliente.Designer.cs">
-      <DependentUpon>cliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="clsBitacora.cs" />
-    <Compile Include="Conexion.cs" />
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="clsConexion.cs" />
+    <Compile Include="frmFormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
-      <DependentUpon>FormPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPdf.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPdf.Designer.cs">
-      <DependentUpon>frmPdf.cs</DependentUpon>
+    <Compile Include="frmFormPrincipal.Designer.cs">
+      <DependentUpon>frmFormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReportePuntos.cs">
       <SubType>Form</SubType>
@@ -115,11 +103,11 @@
     <Compile Include="frmReporteTaquillera.Designer.cs">
       <DependentUpon>frmReporteTaquillera.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,20 +117,8 @@
     <Compile Include="frmReporteVentas.Designer.cs">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuario.Designer.cs">
-      <DependentUpon>Usuario.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="cliente.resx">
-      <DependentUpon>cliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPrincipal.resx">
-      <DependentUpon>FormPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPdf.resx">
-      <DependentUpon>frmPdf.cs</DependentUpon>
+    <EmbeddedResource Include="frmFormPrincipal.resx">
+      <DependentUpon>frmFormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportePuntos.resx">
       <DependentUpon>frmReportePuntos.cs</DependentUpon>
@@ -150,8 +126,8 @@
     <EmbeddedResource Include="frmReporteTaquillera.resx">
       <DependentUpon>frmReporteTaquillera.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,9 +140,6 @@
     </Compile>
     <EmbeddedResource Include="frmReporteVentas.resx">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usuario.resx">
-      <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

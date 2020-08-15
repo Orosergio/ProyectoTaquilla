@@ -1,5 +1,4 @@
-﻿using EmpleadoPrueba;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,19 +21,19 @@ namespace AdministrativoReportes
 {
     public partial class frmReporteTaquillera : Form
     {
-        Conexion cn = new Conexion();
+        clsConexion cn = new clsConexion();
         public frmReporteTaquillera()
         {
             InitializeComponent();
             funcCargarDatos();
         }
-
+        //Realiza la consulta y carga datos sin filtros
         void funcCargarDatos()
         {
             try
             {
                 string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC; ";
-                OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                 OdbcDataReader reader = cma.ExecuteReader();
                 while (reader.Read())
                 {
@@ -56,6 +55,7 @@ namespace AdministrativoReportes
 
         private void cboTipoReporte_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Administración de objetos
             if (cboTipoReporte.SelectedIndex == 0)
             {
                 lblTexto.Visible = true;
@@ -82,22 +82,25 @@ namespace AdministrativoReportes
         {
             int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
             btnPdf.Visible = true;
+            //Si selecciona la opcion de por mes
             if (cboTipoReporte.SelectedIndex == 0)
             {
                 dgvPeliculaTaquillera.Rows.Clear();
                 string texto = cboMes.Text;
              
                 lblGeneralData.Text = "REPORTE CORRESPONDIENTE AL MES DE " + texto;
+                //Realiza la consulta y lo agrega al DataGridView
                 try
                 {
                     string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true AND MONTH(FACENC.fecha) = "+mes+ " GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC; ";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
                         dgvPeliculaTaquillera.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), "Q." + reader.GetDouble(3).ToString());
 
                     }
+                    //Adición de la bitácora
                     clsBitacora bitacora = new clsBitacora();
                     string proceso = "Reporte de película más taquillera por mes";
                     string tabla = "FACTURAENCABEZADO,PROYECCIONPELICULA,PELICULA,CLASIFICACIONPELICULA";
@@ -109,25 +112,23 @@ namespace AdministrativoReportes
                     MessageBox.Show("ERROR AL MOSTRAR DATOS AL DATAGRIDVIEW " + ex);
                 }
 
-            }
+            }//Si selecciona la opcion de reporte por semana
             else if (cboTipoReporte.SelectedIndex == 1)
             {
                 dgvPeliculaTaquillera.Rows.Clear();
-                string inicio = dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string fin = dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                //MessageBox.Show("INICIO: "+inicio);
-                //MessageBox.Show("FIN: "+fin);
                 lblGeneralData.Text = "REPORTE DE SEMANA";
+                //Realiza la consulta y actualiza el DataGridView
                 try
                 {
                     string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true AND FACENC.fecha BETWEEN'" + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
                         dgvPeliculaTaquillera.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), "Q." + reader.GetDouble(3).ToString());
 
                     }
+                    //Adición de la bitácora
                     clsBitacora bitacora = new clsBitacora();
                     string proceso = "Reporte de película más taquillera por semana";
                     string tabla = "FACTURAENCABEZADO,PROYECCIONPELICULA,PELICULA,CLASIFICACIONPELICULA";
@@ -154,13 +155,11 @@ namespace AdministrativoReportes
             PdfWriter pdfWriter = new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf");
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf, PageSize.LETTER);
-            documento.SetMargins(200, 20, 55, 20);
-            //var parrafo = new Paragraph("Hello PDF World");
-            //documento.Add(parrafo);
+            documento.SetMargins(200, 20, 55, 20);     
             PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.TIMES_BOLD);
             //CONTENIDO
             PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.TIMES_ROMAN);
-
+            //Especificación de encabezados en el DataGridView
             string[] columnas = { "Nombre", "Clasificación", "Duración", "Cantidad Recaudada" };
 
             //crear tabla para mostrar los datos
@@ -172,18 +171,20 @@ namespace AdministrativoReportes
             {
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas))); //PARA ENCABEZADO DE TABLA
             }
-
+            //Si el reporte será por mes
             if (cboTipoReporte.SelectedIndex == 0)
             {
+                //Adición de la bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF MÁS TAQUILLERA POR MES";
                 string tablaEnvio = "FACTURAENCABEZADO, PROYECCIONPELICULA,PELICULA,CLASIFICACIONPELICULA";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
+                //Realiza la consulta y actualiza el DataGridView
                 try
                 {
                     int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
                     string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true AND MONTH(FACENC.fecha) = " + mes + " GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC; ";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -200,7 +201,7 @@ namespace AdministrativoReportes
                 }
                 documento.Add(tabla);
                 documento.Close();
-
+                //Adicion de diseño al PDF
                 var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE");
@@ -216,7 +217,7 @@ namespace AdministrativoReportes
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
-
+                //Adicion de posicionamiento al diseño
                 for (int i = 1; i <= numeros; i++)
                 {
                     PdfPage pagina = pdfDoc.GetPage(i);
@@ -229,17 +230,19 @@ namespace AdministrativoReportes
 
                 }
                 doc.Close();
-            }
+            }//Si se selecciona por semana
             else if (cboTipoReporte.SelectedIndex == 1)
             {
+                //Adición de la bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF MÁS TAQUILLERA POR SEMANA";
                 string tablaEnvio = "FACTURAENCABEZADO, PROYECCIONPELICULA,PELICULA,CLASIFICACIONPELICULA";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
+                //Realiza la consulta y lo agrega al DataGridView
                 try
                 {
                     string cadena = "SELECT P.nombre, CLAS.nombre, P.duracion, SUM(FACENC.total) AS Cantidad_Recaudada FROM FACTURAENCABEZADO FACENC, PROYECCIONPELICULA PP, PELICULA P, CLASIFICACIONPELICULA CLAS WHERE FACENC.idProyeccionPelicula = PP.idProyeccionPelicula AND PP.idPelicula = P.idPelicula AND P.idClasificacion = CLAS.idClasificacionPelicula AND FACENC.estatus = true AND FACENC.fecha BETWEEN'" + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' GROUP BY P.idPelicula ORDER BY Cantidad_Recaudada DESC;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -256,7 +259,7 @@ namespace AdministrativoReportes
                 }
                 documento.Add(tabla);
                 documento.Close();
-
+                //Adición de diseño
                 var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE");
@@ -272,7 +275,7 @@ namespace AdministrativoReportes
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
-
+                //Adicion de posicionamiento al diseño
                 for (int i = 1; i <= numeros; i++)
                 {
                     PdfPage pagina = pdfDoc.GetPage(i);

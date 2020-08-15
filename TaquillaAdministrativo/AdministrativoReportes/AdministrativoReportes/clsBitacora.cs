@@ -1,5 +1,4 @@
-﻿using EmpleadoPrueba;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Odbc;
 using System.Linq;
@@ -19,7 +18,8 @@ namespace AdministrativoReportes
        public string proceso;
        public string tabla;
 
-        Conexion cn = new Conexion();
+        clsConexion cn = new clsConexion();
+        //Variable que lleva el control del registro automático
         int codigoA;
         void procCodigoUser()
         {
@@ -29,7 +29,7 @@ namespace AdministrativoReportes
 
             {
                 string contador = "SELECT count(idUsuario) FROM BITACORA ";
-                OdbcCommand comando = new OdbcCommand(contador, cn.conexion());
+                OdbcCommand comando = new OdbcCommand(contador, cn.nuevaConexion());
                 numero = Convert.ToInt32(comando.ExecuteScalar());
                 //si numero = 0, no encuentra ningun registro convierte el cidigoA en 1 y envia ese codigo para guardado como ID
                 if (numero == 0)
@@ -48,7 +48,8 @@ namespace AdministrativoReportes
             }
         }
 
-        public static string GetLocalIPAddress()
+        //Esta función sirve para tomar la ip de la máquina
+        public static string getLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (var ip in host.AddressList)
@@ -61,23 +62,27 @@ namespace AdministrativoReportes
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
+        //Recibo parámetros para enviarlo a la tabla de Bitácora
         public void GuardarBitacora(string proceso, string tabla)
         {
-            
-            //MessageBox.Show(idUsuario);
-            ipAddress = GetLocalIPAddress();
+            //agrego a la variable ipAddress el método
+            ipAddress = getLocalIPAddress();
             string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             procCodigoUser();
             string cadena = "INSERT INTO BITACORA (idBitacora, fecha, idUsuario,ipAddress,proceso,tabla) VALUES (" +codigoA+",'" + fecha +"',"+int.Parse(idUsuario)+",'" + ipAddress + "','" +proceso+ "','"+tabla+"');";
-            OdbcCommand consulta = new OdbcCommand(cadena, cn.conexion());
+            OdbcCommand consulta = new OdbcCommand(cadena, cn.nuevaConexion());
             consulta.ExecuteNonQuery();
-
         }
 
         public void obtenerIdUsuario(string id)
         {
-           // MessageBox.Show("ID USUARIO bitacora: " +id);
+           //Obtiene el id del usuario que inicie sesión
             idUsuario = id;            
+        }
+
+        public string retornoIdUsuario()
+        {
+            return idUsuario;
         }
 
     }

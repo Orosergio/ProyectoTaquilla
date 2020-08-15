@@ -1,5 +1,4 @@
-﻿using EmpleadoPrueba;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,22 +23,20 @@ namespace WindowsFormsApp1
 {
     public partial class frmReporteVentas : Form
     {
-        Conexion cn = new Conexion();
+        clsConexion cn = new clsConexion();
         public frmReporteVentas()
         {
             InitializeComponent();
-            cargarDatos();
-            
-            
+            cargarDatos();        
         }
-       
-
+      
+        //Realiza la consulta sin aplicar ningun filtro y lo agrega al DataGridView
         void cargarDatos()
         {
             try
             {
                 string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND FACENC.estatus = true; ";
-                OdbcCommand cma = new OdbcCommand(cadena,cn.conexion());
+                OdbcCommand cma = new OdbcCommand(cadena,cn.nuevaConexion());
                 OdbcDataReader reader = cma.ExecuteReader();
                 while(reader.Read()){
                     dgvventas.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2) +" "+ reader.GetString(3), "Q."+reader.GetDouble(4).ToString(), "Q."+reader.GetDouble(5).ToString());
@@ -70,6 +67,7 @@ namespace WindowsFormsApp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Administración de objetos
             if (cboEleccion.SelectedIndex == 0)
             {                
                 lblTexto.Visible = true;
@@ -94,6 +92,7 @@ namespace WindowsFormsApp1
         {
             btnPdf.Visible = true;
             int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
+            //Si selecciona la opción de mes
             if (cboEleccion.SelectedIndex == 0)
             {
                 dgvventas.Rows.Clear();
@@ -101,10 +100,11 @@ namespace WindowsFormsApp1
                 Double gananciames = 0;
                 lblGanancia.Visible = true;
                 lblGeneralData.Text = "REPORTE CORRESPONDIENTE AL MES DE " + texto;
+                //Realiza la consulta y actualiza el DataGridView
                 try
                 {
                     string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND MONTH(fecha) = " + mes + " AND FACENC.estatus=true;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -123,21 +123,20 @@ namespace WindowsFormsApp1
                     MessageBox.Show("ERROR AL MOSTRAR DATOS AL DATAGRIDVIEW " + ex);
                 }
 
-            }
+            }//Si selecciona la opcino de semana
             else if (cboEleccion.SelectedIndex == 1)
             {
                 dgvventas.Rows.Clear();
                 string inicio = dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                string fin = dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                //MessageBox.Show("INICIO: "+inicio);
-                //MessageBox.Show("FIN: "+fin);
+                string fin = dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss");   
                 Double ganancia = 0;
                 lblGanancia.Visible = true;
                 lblGeneralData.Text = "REPORTE DE SEMANA";
+                //Realiza la consulta y actualiza el DataGridView
                 try
                 {
                     string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND fecha BETWEEN '"+ dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND FACENC.estatus=true;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -155,21 +154,16 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("ERROR AL MOSTRAR DATOS AL DATAGRIDVIEW " + ex);
                 }
-            }
-
-            
-           
+            }          
         }
-       
-
-      
+            
         private void dtpInicio_ValueChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnPdf_Click(object sender, EventArgs e)
         {
+            //Llama a la funcion
             funcCrearPdf();
         }
 
@@ -187,7 +181,7 @@ namespace WindowsFormsApp1
             PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.TIMES_BOLD);
             //CONTENIDO
             PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.TIMES_ROMAN);
-
+            //Definicion de los encabezados del DataGridView
             string[] columnas = { "idReservacion", "Fecha y Hora", "Nombre","Apellido", "Total", "Descuento"};
 
             //crear tabla para mostrar los datos
@@ -199,19 +193,21 @@ namespace WindowsFormsApp1
             {
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas))); //PARA ENCABEZADO DE TABLA
             }
-
+            //Si selecciona la opcion por mes 
             if (cboEleccion.SelectedIndex == 0)
             {
+                //Adición a la Bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF DE GANANCIAS POR MES";
                 string tablaEnvio = "CLIENTE,FACTURAENCABEZADO";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
                 Double ganancia = 0;
+                //Realizar la consulta y actualiza el DataGridView
                 try
                 {
                     int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
                     string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND MONTH(fecha) = " + mes + " AND FACENC.estatus=true;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -230,7 +226,7 @@ namespace WindowsFormsApp1
                 }
                 documento.Add(tabla);
                 documento.Close();
-
+                //Adicion de diseño
                 var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE DE GANANCIAS");
@@ -246,7 +242,7 @@ namespace WindowsFormsApp1
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
-
+                //Adicion de posicionamiento del diseño
                 for (int i = 1; i <= numeros; i++)
                 {
                     PdfPage pagina = pdfDoc.GetPage(i);
@@ -258,19 +254,21 @@ namespace WindowsFormsApp1
 
                 }
                 doc.Close();
-            }
+            }//Si selecciona el reporte por semana
             else if (cboEleccion.SelectedIndex == 1)
             {
+                //Adición de la bitacora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF DE GANANCIAS POR SEMANA";
                 string tablaEnvio = "CLIENTE,FACTURAENCABEZADO";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
                 Double ganancia = 0;
+                //Realiza la consulta y actualiza el DataGridView
                 try
                 {
                     
                     string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND fecha BETWEEN '" + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND FACENC.estatus=true;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -290,7 +288,7 @@ namespace WindowsFormsApp1
                 }
                 documento.Add(tabla);
                 documento.Close();
-
+                //Adición del diseño
                 var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE DE GANANCIAS");
@@ -306,7 +304,7 @@ namespace WindowsFormsApp1
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
-
+                //Adición de posicionamiento al diseño
                 for (int i = 1; i <= numeros; i++)
                 {
                     PdfPage pagina = pdfDoc.GetPage(i);

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using EmpleadoPrueba;
 using System.Data.Odbc;
 using System.Reflection;
 using AdministrativoReportes;
@@ -20,26 +19,27 @@ namespace FinalProyecto
 {
     public partial class Login : Form
     {
+        //Variable para controlar si ha olvidado la contraseña
         int olvidarPassword=0;
-        Conexion cn = new Conexion();
+        clsConexion cn = new clsConexion();
         public Login()
         {
             InitializeComponent();
           
         }
-
+        //Librerías para controlar el posicionamiento
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        int iCodigo = 0;
+        
       
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        //Control del textBox
         private void Txtuser_Leave(object sender, EventArgs e)
         {
             if (txtUser.Text=="")
@@ -109,7 +109,7 @@ namespace FinalProyecto
                 txtUser.ForeColor = Color.LightGray;
             }
         }
-
+        //Esta funcion se realiza al olvidar las credenciales, activa una bandera
         private void linkpass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             olvidarPassword = 1;
@@ -134,8 +134,10 @@ namespace FinalProyecto
 
         private void Btning_Click(object sender, EventArgs e)
         {
+            //Si la bandera de olvidar credenciales no se ha activado
             if (olvidarPassword==0)
             {
+                //Verificacion del llenado de los textBox
                 int error = 1;
                 int ver = 1;
                 if (txtUser.Text == "USUARIO" || txtUser.Text == "")
@@ -154,13 +156,14 @@ namespace FinalProyecto
                 }else{
                     lblPassword.Visible = false;
                 }
-
+                //Si los datos no son vacios en los textBox
                 if (error != 0)
                 {
+                    //Realiza la consulta para verificar las credenciale y si son correctas se procede con el sistema
                     try
                     {
                         string cadena = "SELECT * FROM USUARIO";
-                        OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                        OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                         OdbcDataReader reader = cma.ExecuteReader();
                         while (reader.Read())
                         {
@@ -191,6 +194,7 @@ namespace FinalProyecto
                     txtPassword.Text = "";
                     txtUser.Text = "";
                 }
+                //Si se ha fallado en las credenciales
                 else
                 {
                     lblOlvidar.Text = "Usuario/Contraseña son incorrectas";
@@ -198,28 +202,30 @@ namespace FinalProyecto
                 }
 
 
-            }else if (olvidarPassword==1){
-
+            }//Si la bandera de olvidar credenciales se ha activado
+            else if (olvidarPassword==1){
                 int controlEncuento = 0;
-
-
+                
+                //Realiza la consulta para verificar si el correo para restaurar credenciales es válido
                 try
                 {
                     string cadena = "SELECT * FROM CORREO";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
-                    {
+                    {//Si el correo es válido
                         if (txtUser.Text == (Convert.ToString(reader[1])))
                         {
                             controlEncuento = 1;
                             MessageBox.Show("TU CONTRASEÑA HA SIDO ENVIADA");
+                            //Se envian las credenciales al correo válido
+                            
                             try
                             {
                                 string correoCliente = txtUser.Text;
                                 MessageBox.Show("correoCliente: " +correoCliente);
                                 string cadenaCorreo = "SELECT U.nombreUsuario,U.contrasenia FROM USUARIO U, EMPLEADO E, CORREO C WHERE U.idEmpleado = E.idEmpleado AND E.idEmpleado = C.idEmpleado  AND C.correo = '"+txtUser.Text+"'; ";
-                                OdbcCommand cmaCorreo = new OdbcCommand(cadenaCorreo, cn.conexion());
+                                OdbcCommand cmaCorreo = new OdbcCommand(cadenaCorreo, cn.nuevaConexion());
                                 OdbcDataReader readerCorreo = cmaCorreo.ExecuteReader();
                                 while (readerCorreo.Read())
                                 {
@@ -228,8 +234,8 @@ namespace FinalProyecto
                                     msg.Subject = "CREDENCIALES ZINEPPOLIS";
                                     msg.SubjectEncoding = System.Text.Encoding.UTF8;
                                     msg.Bcc.Add("yavhe._.orozco@hotmail.es"); //copia del correo
-                                    msg.Body = "Sus credenciales______ USUARIO: " + (readerCorreo.GetString(0)) + " CONTRASEÑA: "
-                                        + readerCorreo.GetString(1) + ". Sea cuidadoso con sus credenciales";
+                                    msg.Body = "Ha recibido este correo para restaurar credenciales  <br/> USUARIO: " + (readerCorreo.GetString(0)) + " <br/> CONTRASEÑA: "
+                                        + readerCorreo.GetString(1) + ". <br/> Sea cuidadoso con sus credenciales";
                                     msg.BodyEncoding = System.Text.Encoding.UTF8;
                                     msg.IsBodyHtml = true;
                                     msg.From = new System.Net.Mail.MailAddress("grupo3sistemaso1@gmail.com");
@@ -252,11 +258,7 @@ namespace FinalProyecto
                                     }
 
                                 }
-                                //ADICION A LA BITACORA
-                                clsBitacora bitacora = new clsBitacora();
-                                string proceso = "Reporte de envio de credenciales";
-                                string tabla = "USUARIO";
-                                bitacora.GuardarBitacora(proceso, tabla);
+                               
                             }
                             catch (Exception ex)
                             {

@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Odbc;
 
-namespace EmpleadoPrueba
+namespace AdministrativoReportes
 {
 
-    class Conexion
+    class clsConexion
     {
         //Clase de conexion --------------
 
-        public OdbcConnection conexion()
+        public OdbcConnection nuevaConexion()
         {
             //creacion de la conexion via ODBC
             OdbcConnection conn = new OdbcConnection("DSN=TaquillaReporte");

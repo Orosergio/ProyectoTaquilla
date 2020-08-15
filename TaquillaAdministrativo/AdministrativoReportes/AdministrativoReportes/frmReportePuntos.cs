@@ -1,5 +1,4 @@
-﻿using EmpleadoPrueba;
-using iText.IO.Font.Constants;
+﻿using iText.IO.Font.Constants;
 using iText.IO.Image;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
@@ -22,19 +21,19 @@ namespace AdministrativoReportes
 {
     public partial class frmReportePuntos : Form
     {
-        Conexion cn = new Conexion();
+        clsConexion cn = new clsConexion();
         public frmReportePuntos()
         {
             InitializeComponent();
             funcCargarDatos();
         }
-
+        //Carga todos los datos al inicio sin filtro
         void funcCargarDatos()
         {
             try
             {
                 string cadena = "SELECT C.nitCliente, C.nombreClienteTarjeta, C.apellidoClienteTarjeta,T.noTarjeta,T.puntos,CC.correo FROM CLIENTE C, TARJETA T, CORREOCLIENTE CC WHERE C.nitCliente = T.nitCliente AND C.nitCliente = CC.nitCliente; ";
-                OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                 OdbcDataReader reader = cma.ExecuteReader();
                 while (reader.Read())
                 {
@@ -53,19 +52,21 @@ namespace AdministrativoReportes
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             btnPdf.Visible=true;
+            //Si se selecciona un reporte por mes
             if (cboTipoReporte.SelectedIndex == 0)
             {
                 dgvCliente.Rows.Clear();
-               
+               //realiza la consulta y agrega datos al datagridview
                 try
                 {
                     string cadena = "SELECT C.nitCliente, C.nombreClienteTarjeta, C.apellidoClienteTarjeta,T.noTarjeta,T.puntos,CC.correo FROM CLIENTE C, TARJETA T, CORREOCLIENTE CC WHERE C.nitCliente = T.nitCliente AND C.nitCliente = CC.nitCliente ORDER BY puntos DESC; ";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
                         dgvCliente.Rows.Add(reader.GetString(0), reader.GetString(1) + " " + reader.GetString(2), reader.GetString(3), reader.GetDouble(4), reader.GetString(5));
                     }
+                    //Agrega los datos a la bitácora
                     clsBitacora bitacora = new clsBitacora();
                     string proceso = "Reporte de clientes con mayor cantidad de puntos";
                     string tabla = "CLIENTE,TARJETA,CORREOCLIENTE";
@@ -77,22 +78,22 @@ namespace AdministrativoReportes
                     MessageBox.Show("ERROR AL MOSTRAR DATOS AL DATAGRIDVIEW " + ex);
                 }
 
-            }
+            }//Si se selecciona el filtro de semana
             else if (cboTipoReporte.SelectedIndex == 1)
             {
                 dgvCliente.Rows.Clear();
                 
-                
+                //Realiza la consulta y agrega datos al DataGridView
                 try
                 {
                     string cadena = "SELECT C.nitCliente, C.nombreClienteTarjeta, C.apellidoClienteTarjeta,T.noTarjeta,T.puntos,CC.correo FROM CLIENTE C, TARJETA T, CORREOCLIENTE CC WHERE C.nitCliente = T.nitCliente AND C.nitCliente = CC.nitCliente ORDER BY puntos ASC;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
                         dgvCliente.Rows.Add(reader.GetString(0), reader.GetString(1) + " " + reader.GetString(2), reader.GetString(3), reader.GetDouble(4), reader.GetString(5));
                     }
-
+                    //Agrega los datos a la bitácora
                     clsBitacora bitacora = new clsBitacora();
                     string proceso = "Reporte de clientes con menos cantidad de puntos";
                     string tabla = "CLIENTE,TARJETA,CORREOCLIENTE";
@@ -107,6 +108,7 @@ namespace AdministrativoReportes
 
         private void btnPdf_Click(object sender, EventArgs e)
         {
+            //Llama a la funcion
             funcCrearPdf();
         }
 
@@ -119,12 +121,10 @@ namespace AdministrativoReportes
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf, PageSize.LETTER);
             documento.SetMargins(180, 20, 55, 20);
-            //var parrafo = new Paragraph("Hello PDF World");
-            //documento.Add(parrafo);
             PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.TIMES_BOLD);
             //CONTENIDO
             PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.TIMES_ROMAN);
-
+            //Encabezados del DataGridView
             string[] columnas = { "NitCliente", "Nombre", "Apellido", "No. Tarjeta","Puntos Cliente","Correo Cliente"};
 
             //crear tabla para mostrar los datos
@@ -136,17 +136,19 @@ namespace AdministrativoReportes
             {
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(fontColumnas))); //PARA ENCABEZADO DE TABLA
             }
-
+            //Si los reportes son por mayoria de puntos
             if (cboTipoReporte.SelectedIndex == 0)
             {
+                //Agrega los datos a la bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF MAYORÍA DE PUNTOS";
                 string tablaEnvio = "CLIENTE, TARJETA, CORREOCLIENTE";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
+                //Realiza la consulta y llena el DataGridView
                 try
                 {
                     string cadena = "SELECT C.nitCliente, C.nombreClienteTarjeta, C.apellidoClienteTarjeta,T.noTarjeta,T.puntos,CC.correo FROM CLIENTE C, TARJETA T, CORREOCLIENTE CC WHERE C.nitCliente = T.nitCliente AND C.nitCliente = CC.nitCliente ORDER BY puntos DESC; ";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -165,7 +167,7 @@ namespace AdministrativoReportes
                 }
                 documento.Add(tabla);
                 documento.Close();
-
+                //Adición de diseño al PDF
                 var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE DE PUNTOS");
@@ -181,7 +183,7 @@ namespace AdministrativoReportes
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
-
+                //Posicionamiento de los elementos
                 for (int i = 1; i <= numeros; i++)
                 {
                     PdfPage pagina = pdfDoc.GetPage(i);
@@ -194,17 +196,19 @@ namespace AdministrativoReportes
 
                 }
                 doc.Close();
-            }
+            }//Si los reportes son por minoria de puntos
             else if (cboTipoReporte.SelectedIndex == 1)
             {
+                //Agrega la bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF MINORÍA DE PUNTOS";
                 string tablaEnvio = "CLIENTE, TARJETA, CORREOCLIENTE";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
+                //Realiza consulta y agrega al DataGridView
                 try
                 {
                     string cadena = "SELECT C.nitCliente, C.nombreClienteTarjeta, C.apellidoClienteTarjeta,T.noTarjeta,T.puntos,CC.correo FROM CLIENTE C, TARJETA T, CORREOCLIENTE CC WHERE C.nitCliente = T.nitCliente AND C.nitCliente = CC.nitCliente ORDER BY puntos ASC;";
-                    OdbcCommand cma = new OdbcCommand(cadena, cn.conexion());
+                    OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
                     while (reader.Read())
                     {
@@ -223,7 +227,7 @@ namespace AdministrativoReportes
                 }
                 documento.Add(tabla);
                 documento.Close();
-
+                //Adición del diseño
                 var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE");
@@ -239,7 +243,7 @@ namespace AdministrativoReportes
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
-
+                //Adicion de posicionamiento
                 for (int i = 1; i <= numeros; i++)
                 {
                     PdfPage pagina = pdfDoc.GetPage(i);

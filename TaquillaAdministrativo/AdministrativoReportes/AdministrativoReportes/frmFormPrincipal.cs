@@ -9,20 +9,48 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using WindowsFormsApp1;
-using EmpleadoPrueba;
 using AdministrativoReportes;
+using System.Data.Odbc;
 
 namespace FinalProyecto
 {
     public partial class FormPrincipal : Form
     {
-        int codigo;
+        
         
         public FormPrincipal()
         {
             InitializeComponent();
-            Conexion cn = new Conexion();
-                        
+            estadoRol();
+                                    
+        }
+        clsConexion cn = new clsConexion();
+        public void estadoRol()
+        {
+            clsBitacora bitacora = new clsBitacora();
+            string idUser = bitacora.retornoIdUsuario();
+            try
+            {
+                string cadena = " SELECT R.idRol, R.nombre FROM ROL R, USUARIO U WHERE U.idRol = R.idRol AND U.idUsuario = '"+int.Parse(idUser)+"';";
+                OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
+                OdbcDataReader reader = cma.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader[0].ToString()!="1")
+                    {
+                        design.Visible = false;
+                        Submenurepor.Visible = false;
+                    }
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL ENCONTRAR ROL" + ex);
+            }
+
+           
         }
 
         #region FormularioFuncion
@@ -30,7 +58,7 @@ namespace FinalProyecto
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
         private Rectangle sizeGripRectangle;
-  
+        //Obtencion de coordenadas
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -103,7 +131,7 @@ namespace FinalProyecto
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        //Librerias para las coordenadas
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -150,13 +178,11 @@ namespace FinalProyecto
 
         private void BtnEmpleado_Click(object sender, EventArgs e)
         {
-            frmPdf fm = new frmPdf();
-            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
+            
         }
 
        
-
+        //Activación del slide
         private void BtnSLIDE_Click(object sender, EventArgs e)
         {
                if (Menu.Width==250)
@@ -168,7 +194,7 @@ namespace FinalProyecto
                    Menu.Width = 250;
                }
         }
-
+        //Contracción del slide
         private void TmContraerMenu_Tick(object sender, EventArgs e)
         {
             if (Menu.Width <= 55)
@@ -184,16 +210,10 @@ namespace FinalProyecto
 
         }
 
-     
-
         private void Menu_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
-      
-
-      
 
         private void Button6_Click(object sender, EventArgs e)
         {
@@ -209,98 +229,21 @@ namespace FinalProyecto
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-            string fecha = "";
-           /* try
-            {
-                Conexion = new MySqlConnection();
-                Conexion.ConnectionString = sql;
-                Conexion.Open();
-                Query.CommandText = "SELECT fechainventario FROM inventario order by fechainventario";
-                Query.Connection = Conexion;
-                consultar = Query.ExecuteReader();
-                while (consultar.Read())
-                {
-                    fecha = consultar.GetString(0);
-
-                }
-                Conexion.Close();
-            }
-            catch (MySqlException er)
-            {
-                MessageBox.Show(er.Message);
-            }
-            try
-            {
-                Conexion = new MySqlConnection();
-                Conexion.ConnectionString = sql;
-                Conexion.Open();
-                Query.CommandText = "SELECT id.cantidad, prod.nombre, prov.nombre,i.fechainventario from inventariodetalle id, inventario i," +
-                    "producto prod, proveedor prov where prod.idproveedor=prov.idproveedor and id.idproducto=prod.idproducto" +
-                    " and i.idinventario=id.idinventario";
-                Query.Connection = Conexion;
-                consultar = Query.ExecuteReader();
-                while (consultar.Read())
-                {
-                    if (consultar.GetString(3) == fecha)
-                    {
-                        if (consultar.GetInt32(0) <= 20)
-                        {
-                            MessageBox.Show("Se debe de tomar en cuenta que de el producto " + consultar.GetString(1) +
-                           " solo se cuenta con " + consultar.GetInt32(0) + ", y está debajo del límite establecido. LLamar" +
-                           " al proveedor " + consultar.GetString(2));
-                            if (consultar.GetInt32(0) <= 5)
-                            {
-                                System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
-                                msg.To.Add("bryanorlando-98@hotmail.com");
-                                msg.Subject = "Pedido de producto URGENTE";
-                                msg.SubjectEncoding = System.Text.Encoding.UTF8;
-                                msg.Bcc.Add("grupo3sistemaso1@gmail.com");
-                                msg.Body = "Necesitamos " + (100 - consultar.GetInt32(0)).ToString() + " unidades de "
-                                    + consultar.GetString(1) + " urgentemente";
-                                msg.BodyEncoding = System.Text.Encoding.UTF8;
-                                msg.IsBodyHtml = true;
-                                msg.From = new System.Net.Mail.MailAddress("grupo3sistemaso1@gmail.com");
-                                System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
-                                cliente.Credentials = new System.Net.NetworkCredential("grupo3sistemaso1@gmail.com", "s1stema$2");
-                                cliente.Port = 587;
-                                cliente.EnableSsl = true;
-                                cliente.Host = "smtp.gmail.com";
-                                try
-                                {
-                                    cliente.Send(msg);
-                                    MessageBox.Show("Se contacto al proveedor " + consultar.GetString(2) + " debido a la escasez del producto " +
-                                        consultar.GetString(1));
-                                }
-                                catch (Exception error)
-                                {
-
-                                    MessageBox.Show(error.ToString());
-                                }
-                            }
-                        }
-                    }
-                }
-                Conexion.Close();
-            }
-            catch (MySqlException er)
-            {
-                MessageBox.Show(er.Message);
-            }*/
-            
+        {         
         }
 
         private void Submenurepor_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
+        //Utilizar la hora del sistema en el programa
         private void TmFechaHora_Tick_1(object sender, EventArgs e)
         {
             lbFecha.Text = DateTime.Now.ToLongDateString();
             lblHora.Text = DateTime.Now.ToString("HH:mm:ssss");
         }
 
+        //Abrir los diferentes forms dentro del panel
         private void AbrirFormEnPanel(object formHijo)
         {
             if (this.Principal.Controls.Count > 0)
