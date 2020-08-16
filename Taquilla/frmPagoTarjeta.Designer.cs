@@ -53,9 +53,10 @@
             this.lblCantTiempoRestante.BackColor = System.Drawing.Color.Transparent;
             this.lblCantTiempoRestante.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantTiempoRestante.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCantTiempoRestante.Location = new System.Drawing.Point(345, 314);
+            this.lblCantTiempoRestante.Location = new System.Drawing.Point(460, 386);
+            this.lblCantTiempoRestante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantTiempoRestante.Name = "lblCantTiempoRestante";
-            this.lblCantTiempoRestante.Size = new System.Drawing.Size(0, 21);
+            this.lblCantTiempoRestante.Size = new System.Drawing.Size(0, 27);
             this.lblCantTiempoRestante.TabIndex = 64;
             // 
             // lblTiempoRestante
@@ -64,9 +65,10 @@
             this.lblTiempoRestante.BackColor = System.Drawing.Color.Transparent;
             this.lblTiempoRestante.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoRestante.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTiempoRestante.Location = new System.Drawing.Point(96, 314);
+            this.lblTiempoRestante.Location = new System.Drawing.Point(128, 386);
+            this.lblTiempoRestante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTiempoRestante.Name = "lblTiempoRestante";
-            this.lblTiempoRestante.Size = new System.Drawing.Size(243, 21);
+            this.lblTiempoRestante.Size = new System.Drawing.Size(305, 27);
             this.lblTiempoRestante.TabIndex = 63;
             this.lblTiempoRestante.Text = "TIEMPO RESTANTE (seg): ";
             // 
@@ -84,9 +86,10 @@
             this.pnlDatosTarjeta.Controls.Add(this.lblDatos);
             this.pnlDatosTarjeta.Controls.Add(this.txtNombre);
             this.pnlDatosTarjeta.Controls.Add(this.lblNombre);
-            this.pnlDatosTarjeta.Location = new System.Drawing.Point(12, 32);
+            this.pnlDatosTarjeta.Location = new System.Drawing.Point(16, 39);
+            this.pnlDatosTarjeta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDatosTarjeta.Name = "pnlDatosTarjeta";
-            this.pnlDatosTarjeta.Size = new System.Drawing.Size(577, 270);
+            this.pnlDatosTarjeta.Size = new System.Drawing.Size(769, 332);
             this.pnlDatosTarjeta.TabIndex = 65;
             // 
             // btnConfirmar
@@ -97,21 +100,24 @@
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnConfirmar.Location = new System.Drawing.Point(378, 217);
+            this.btnConfirmar.Location = new System.Drawing.Point(504, 267);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(169, 39);
+            this.btnConfirmar.Size = new System.Drawing.Size(225, 48);
             this.btnConfirmar.TabIndex = 55;
             this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = false;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // txtNumero
             // 
             this.txtNumero.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero.Location = new System.Drawing.Point(127, 110);
+            this.txtNumero.Location = new System.Drawing.Point(169, 135);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(420, 30);
+            this.txtNumero.Size = new System.Drawing.Size(559, 35);
             this.txtNumero.TabIndex = 54;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // lblNumero
             // 
@@ -119,9 +125,10 @@
             this.lblNumero.BackColor = System.Drawing.Color.Transparent;
             this.lblNumero.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumero.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNumero.Location = new System.Drawing.Point(25, 119);
+            this.lblNumero.Location = new System.Drawing.Point(33, 146);
+            this.lblNumero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(98, 21);
+            this.lblNumero.Size = new System.Drawing.Size(122, 27);
             this.lblNumero.TabIndex = 53;
             this.lblNumero.Text = "NÚMERO:";
             // 
@@ -131,36 +138,43 @@
             this.lblCVV.BackColor = System.Drawing.Color.Transparent;
             this.lblCVV.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCVV.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCVV.Location = new System.Drawing.Point(25, 226);
+            this.lblCVV.Location = new System.Drawing.Point(33, 278);
+            this.lblCVV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCVV.Name = "lblCVV";
-            this.lblCVV.Size = new System.Drawing.Size(56, 21);
+            this.lblCVV.Size = new System.Drawing.Size(71, 27);
             this.lblCVV.TabIndex = 52;
             this.lblCVV.Text = "CVV:";
             // 
             // txtCVV
             // 
             this.txtCVV.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCVV.Location = new System.Drawing.Point(127, 223);
+            this.txtCVV.Location = new System.Drawing.Point(169, 274);
+            this.txtCVV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCVV.Name = "txtCVV";
-            this.txtCVV.Size = new System.Drawing.Size(100, 30);
+            this.txtCVV.Size = new System.Drawing.Size(132, 35);
             this.txtCVV.TabIndex = 51;
+            this.txtCVV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCVV_KeyPress);
             // 
             // cboAño
             // 
+            this.cboAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAño.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboAño.FormattingEnabled = true;
-            this.cboAño.Location = new System.Drawing.Point(426, 164);
+            this.cboAño.Location = new System.Drawing.Point(568, 202);
+            this.cboAño.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboAño.Name = "cboAño";
-            this.cboAño.Size = new System.Drawing.Size(121, 29);
+            this.cboAño.Size = new System.Drawing.Size(160, 35);
             this.cboAño.TabIndex = 50;
             // 
             // cboMes
             // 
+            this.cboMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMes.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMes.FormattingEnabled = true;
-            this.cboMes.Location = new System.Drawing.Point(284, 164);
+            this.cboMes.Location = new System.Drawing.Point(379, 202);
+            this.cboMes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboMes.Name = "cboMes";
-            this.cboMes.Size = new System.Drawing.Size(121, 29);
+            this.cboMes.Size = new System.Drawing.Size(160, 35);
             this.cboMes.TabIndex = 49;
             // 
             // lblFechaVencimiento
@@ -169,9 +183,10 @@
             this.lblFechaVencimiento.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaVencimiento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaVencimiento.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFechaVencimiento.Location = new System.Drawing.Point(25, 167);
+            this.lblFechaVencimiento.Location = new System.Drawing.Point(33, 206);
+            this.lblFechaVencimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaVencimiento.Name = "lblFechaVencimiento";
-            this.lblFechaVencimiento.Size = new System.Drawing.Size(253, 21);
+            this.lblFechaVencimiento.Size = new System.Drawing.Size(317, 27);
             this.lblFechaVencimiento.TabIndex = 48;
             this.lblFechaVencimiento.Text = "FECHA DE VENCIMIENTO: ";
             // 
@@ -181,19 +196,22 @@
             this.lblDatos.BackColor = System.Drawing.Color.Transparent;
             this.lblDatos.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatos.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDatos.Location = new System.Drawing.Point(165, 15);
+            this.lblDatos.Location = new System.Drawing.Point(220, 18);
+            this.lblDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatos.Name = "lblDatos";
-            this.lblDatos.Size = new System.Drawing.Size(237, 27);
+            this.lblDatos.Size = new System.Drawing.Size(294, 35);
             this.lblDatos.TabIndex = 47;
             this.lblDatos.Text = "DATOS DE TARJETA";
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(127, 60);
+            this.txtNombre.Location = new System.Drawing.Point(169, 74);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(420, 30);
+            this.txtNombre.Size = new System.Drawing.Size(559, 35);
             this.txtNombre.TabIndex = 46;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
             // 
@@ -201,9 +219,10 @@
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNombre.Location = new System.Drawing.Point(25, 69);
+            this.lblNombre.Location = new System.Drawing.Point(33, 85);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(96, 21);
+            this.lblNombre.Size = new System.Drawing.Size(120, 27);
             this.lblNombre.TabIndex = 45;
             this.lblNombre.Text = "NOMBRE:";
             // 
@@ -214,14 +233,15 @@
             // 
             // frmPagoTarjeta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(615, 353);
+            this.ClientSize = new System.Drawing.Size(820, 434);
             this.Controls.Add(this.pnlDatosTarjeta);
             this.Controls.Add(this.lblCantTiempoRestante);
             this.Controls.Add(this.lblTiempoRestante);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmPagoTarjeta";
             this.Opacity = 0.94D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

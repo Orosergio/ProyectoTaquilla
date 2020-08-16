@@ -13,9 +13,11 @@ namespace Taquilla
         List<clsBoletos> infoBoletosComprados = new List<clsBoletos>();
         List<clsBoletos> infoAsientosElegidos = new List<clsBoletos>();
         clsConexion cn = new clsConexion();
-        public frmFacturacion(List<clsBoletos>infoBoletos, List<clsBoletos> infoAsientos, int sala, int cine, int proyeccion)
+        //esto sirve para que el form de facturación pueda recibir los datos enviados por el form de boletos.
+        public frmFacturacion(List<clsBoletos> infoBoletos, List<clsBoletos> infoAsientos, int sala, int cine, int proyeccion)
         {
             InitializeComponent();
+            //se copian las variables recibidas a variables globales
             idSala = sala;
             idCine = cine;
             idProyeccionPelicula = proyeccion;
@@ -23,91 +25,26 @@ namespace Taquilla
             infoAsientosElegidos = infoAsientos;
         }
 
-        private void label18_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNoTarjeta_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(procEsEmailValido(txtCorreo.Text).ToString());
+            //si hay datos del cliente
             if (lblApellidoCliente.Text != "")
             {
+                //si el pago esta elegido
                 if (chkPago.Checked)
                 {
                     int codigoEnc = 1;
                     try
                     {
+                        //consulta para obtener el codigo máximo en la tabla de factura encabezado
                         string consulta = "SELECT MAX(IDFACTURAENCABEZADO) FROM FACTURAENCABEZADO ";
                         OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
                         OdbcDataReader codFacturaEnc = comm.ExecuteReader();
                         if (codFacturaEnc.Read())
                         {
+                            //se suma 1 al código obtenido
                             codigoEnc = codFacturaEnc.GetInt32(0) + 1;
                         }
                     }
@@ -115,18 +52,22 @@ namespace Taquilla
                     {
                         MessageBox.Show(ex.ToString());
                     }
+                    //se obtiene la fecha y hora actual del sistema
                     DateTime fechaActual = DateTime.Now;
                     try
                     {
+                        //consulta para insertar los datos en la tabla de factura encabezado
                         string insertarEncabezado = "INSERT INTO FACTURAENCABEZADO (IDFACTURAENCABEZADO,SERIE,FECHA,NITCLIENTE,TOTAL,DESCUENTO,IDPROYECCIONPELICULA,ESTATUS) " +
-                            "VALUES(" + codigoEnc + ",'" + "BGCLC-"+codigoEnc + "',?," + int.Parse(txtNit.Text.ToString()) + "," + decimal.Parse(lblCantTotal.Text.ToString()) + "," + decimal.Parse(lblCantDescuento.Text.ToString()) + "," + idProyeccionPelicula + "," + 1 + ")";
+                            "VALUES(" + codigoEnc + ",'" + "BGCLC-" + codigoEnc + "',?," + txtNit.Text.ToString() + "," + decimal.Parse(lblCantTotal.Text.ToString()) + "," + decimal.Parse(lblCantDescuento.Text.ToString()) + "," + idProyeccionPelicula + "," + 1 + ")";
                         OdbcCommand comm = new OdbcCommand(insertarEncabezado, cn.Conexion());
                         comm.Parameters.Add("@FECHA", OdbcType.DateTime).Value = fechaActual;
                         comm.ExecuteNonQuery();
+                        //se recorre la lista de boletos para que se guarden
                         for (int i = 0; i < infoBoletosComprados.Count; i++)
                         {
                             try
                             {
+                                //consulta para guardar los detalles en factura detalle
                                 string insertarDetalle = "INSERT INTO FACTURADETALLE (IDBOLETO,IDFACTURAENCABEZADO,CANTIDAD) " +
                                     "VALUES ( " + infoBoletosComprados.ElementAt(i).idBoletos + ", " + codigoEnc + "," + infoBoletosComprados.ElementAt(i).cantidadBoletos + ")";
                                 OdbcCommand comm2 = new OdbcCommand(insertarDetalle, cn.Conexion());
@@ -137,12 +78,14 @@ namespace Taquilla
                                 MessageBox.Show(ex2.ToString());
                             }
                         }
+                        //se recorre la lista de asientos para que se guarden
                         for (int i = 0; i < infoAsientosElegidos.Count; i++)
                         {
                             try
                             {
+                                //consulta para guardar los asientos en factura asientovendido
                                 string insertarAsiento = "INSERT INTO ASIENTOVENDIDO (FILA,NUMERO,IDFACTURAENCABEZADO) " +
-                                    "VALUES ( " + infoAsientosElegidos.ElementAt(i).cantidadBoletos + ", " + infoAsientosElegidos.ElementAt(i).idBoletos + "," + codigoEnc + ")";
+                                    "VALUES ( " + infoAsientosElegidos.ElementAt(i).idBoletos + ", " + infoAsientosElegidos.ElementAt(i).cantidadBoletos + "," + codigoEnc + ")";
                                 OdbcCommand comm2 = new OdbcCommand(insertarAsiento, cn.Conexion());
                                 comm2.ExecuteNonQuery();
                             }
@@ -151,8 +94,24 @@ namespace Taquilla
                                 MessageBox.Show(ex3.ToString());
                             }
                         }
+                        //se llama el proceso de enviar correo y se manda como parámetro que es una compra.
                         procCorreoConfirmacion("Compra");
-                        MessageBox.Show("Compra exitosa, recibirá un correo de confirmación.", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if ((MessageBox.Show("Compra exitosa, recibirá un correo de confirmación.", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information)) == DialogResult.OK)
+                        {
+                            frmCartelera cartelera = new frmCartelera();
+                            this.Hide();
+                            cartelera.ShowDialog();
+                            try
+                            {
+                                this.Show();
+                            }
+                            catch (Exception)
+                            {
+
+                                Application.Exit();
+                            }
+                           
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -161,39 +120,43 @@ namespace Taquilla
                 }
                 else
                 {
-                    int codigoEnc=1;
+                    int codigoEnc = 1;
                     try
                     {
+                        //consulta para obtener el codigo máximo en la tabla de reservación encabezado
                         string consulta = "SELECT MAX(IDRESERVACIONENCABEZADO) FROM RESERVACIONENCABEZADO ";
                         OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
                         OdbcDataReader codResEnc = comm.ExecuteReader();
                         if (codResEnc.Read())
                         {
-                            codigoEnc = codResEnc.GetInt32(0)+1;
+                            codigoEnc = codResEnc.GetInt32(0) + 1;
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                     }
+                    //se obtiene la fecha y hora actual del sistema
                     DateTime fechaActual = DateTime.Now;
                     try
                     {
+                        //consulta para insertar los datos en la tabla de reservación encabezado
                         string insertarEncabezado = "INSERT INTO RESERVACIONENCABEZADO (IDRESERVACIONENCABEZADO,FECHA,NITCLIENTE,TOTAL,DESCUENTO,IDPROYECCIONPELICULA,ESTATUS) " +
-                            "VALUES(?,?,?,?,?,?,?)";
+                            "VALUES(?,?,'" + txtNit.Text.ToString() + "',?,?,?,?)";
                         OdbcCommand comm = new OdbcCommand(insertarEncabezado, cn.Conexion());
                         comm.Parameters.Add("@IDRESERVACIONENCABEZADO", OdbcType.Int).Value = codigoEnc;
                         comm.Parameters.Add("@FECHA", OdbcType.DateTime).Value = fechaActual;
-                        comm.Parameters.Add("@NITCLIENTE", OdbcType.Int).Value = int.Parse(txtNit.Text.ToString());
                         comm.Parameters.Add("@TOTAL", OdbcType.Decimal).Value = decimal.Parse(lblCantTotal.Text.ToString());
                         comm.Parameters.Add("@DESCUENTO", OdbcType.Decimal).Value = decimal.Parse(lblCantDescuento.Text.ToString());
                         comm.Parameters.Add("@IDPROYECCIONPELICULA", OdbcType.Int).Value = idProyeccionPelicula;
                         comm.Parameters.Add("@ESTATUS", OdbcType.TinyInt).Value = 1;
                         OdbcDataReader insEnc = comm.ExecuteReader();
+                        //se recorre la lista de boletos para que se guarden
                         for (int i = 0; i < infoBoletosComprados.Count; i++)
                         {
                             try
                             {
+                                //consulta para guardar los detalles en reservación detalle
                                 string insertarDetalle = "INSERT INTO RESERVACIONDETALLE (IDBOLETO,IDRESERVACIONENCABEZADO,CANTIDAD) " +
                                    "VALUES ( " + infoBoletosComprados.ElementAt(i).idBoletos + ", " + codigoEnc + "," + infoBoletosComprados.ElementAt(i).cantidadBoletos + ")";
                                 OdbcCommand comm2 = new OdbcCommand(insertarDetalle, cn.Conexion());
@@ -204,12 +167,14 @@ namespace Taquilla
                                 MessageBox.Show(ex2.ToString());
                             }
                         }
+                        //se recorre la lista de asientos para que se guarden
                         for (int i = 0; i < infoAsientosElegidos.Count; i++)
                         {
                             try
                             {
+                                //consulta para guardar los asientos en factura asientoreservado
                                 string insertarAsiento = "INSERT INTO ASIENTORESERVADO (FILA,NUMERO,IDRESERVACIONENCABEZADO) " +
-                                   "VALUES ( " + infoAsientosElegidos.ElementAt(i).cantidadBoletos + ", " + infoAsientosElegidos.ElementAt(i).idBoletos + "," + codigoEnc + ")";
+                                   "VALUES ( " + infoAsientosElegidos.ElementAt(i).idBoletos + ", " + infoAsientosElegidos.ElementAt(i).cantidadBoletos + "," + codigoEnc + ")";
                                 OdbcCommand comm2 = new OdbcCommand(insertarAsiento, cn.Conexion());
                                 insEnc = comm2.ExecuteReader();
                             }
@@ -218,8 +183,16 @@ namespace Taquilla
                                 MessageBox.Show(ex3.ToString());
                             }
                         }
+                        //se llama el proceso de enviar correo y se manda como parámetro que es una reserva.
                         procCorreoConfirmacion("Reserva");
-                        MessageBox.Show("Reservación exitosa, recibirá un correo de confirmación.","ÉXITO",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        if ((MessageBox.Show("Reservación exitosa, recibirá un correo de confirmación.", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information)) == DialogResult.OK)
+                        {
+                            frmCartelera cartelera = new frmCartelera();
+                            this.Hide();
+                            cartelera.ShowDialog();
+                            this.Show();
+                        }
+
                     }
                     catch (Exception ex)
                     {
@@ -229,27 +202,32 @@ namespace Taquilla
             }
             else
             {
-                MessageBox.Show("Debe de ingresar un cliente para los datos de facturación","FALTA DE DATOS",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Debe de ingresar un cliente para los datos de facturación", "FALTA DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        //proceso de enviar correo al cliente
         public void procCorreoConfirmacion(string tipo)
         {
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+            //se agrega el destinatario
             msg.To.Add(lblCorreoCliente.Text.ToString());
+            //se agrega el asunto del mensaje
             msg.Subject = "Confirmación de " + tipo;
             msg.SubjectEncoding = System.Text.Encoding.UTF8;
-            msg.Bcc.Add("bryanorlando-98@hotmail.com"); //copia del correo
-            string asientos="Asientos: <br/>";
-            for (int i = 0; i < infoBoletosComprados.Count; i++)
+            //copia del correo
+            msg.Bcc.Add("bryanorlando-98@hotmail.com");
+            string asientos = "Asientos: <br/>";
+            //recorre la lista de asientos elegidos y los concatena en un string
+            for (int i = 0; i < infoAsientosElegidos.Count; i++)
             {
                 asientos += "       Fila: " + infoAsientosElegidos.ElementAt(i).idBoletos.ToString() + " Columna:" + infoAsientosElegidos.ElementAt(i).cantidadBoletos.ToString() + " <br/>";
             }
+            //se guarda en un mensaje todos los datos que se van a enviar al cliente
             msg.Body = "Sus datos de " + tipo + " son: <br/><br/> DATOS PERSONALES <br/><br/> Nombre: " + lblNombreCliente.Text.ToString() + " <br/>" +
-                "Apellido: " + lblApellidoCliente.Text.ToString()+ "<br/><br/> DATOS ELEGIDOS <br/><br/> Pelicula: "+ lblNombrePelicula.Text.ToString()+ "<br/> Día:" +
-                " "+lblDiaFuncion.Text.ToString() + "<br/> Hora: "+lblHoraFuncion.Text.ToString()+ "<br/> Sala: "+lblNoSala.Text.ToString()+ "<br/> " + asientos+ "<br/> " +
-                "Descuento Realizado: " + lblCantDescuento.Text.ToString()+ "<br/> " +
-                "Total: "+lblCantTotal.Text.ToString()+ "<br/> Puntos Obtenidos: " + lblCantPuntos.Text.ToString();
+                "Apellido: " + lblApellidoCliente.Text.ToString() + "<br/><br/> DATOS ELEGIDOS <br/><br/> Pelicula: " + lblNombrePelicula.Text.ToString() + "<br/> Día:" +
+                " " + lblDiaFuncion.Text.ToString() + "<br/> Hora: " + lblHoraFuncion.Text.ToString() + "<br/> Sala: " + lblNoSala.Text.ToString() + "<br/> " + asientos + "<br/> " +
+                "Descuento Realizado: " + lblCantDescuento.Text.ToString() + "<br/> " +
+                "Total: " + lblCantTotal.Text.ToString() + "<br/> Puntos Obtenidos: " + lblCantPuntos.Text.ToString();
             msg.BodyEncoding = System.Text.Encoding.UTF8;
             msg.IsBodyHtml = true;
             msg.From = new System.Net.Mail.MailAddress("grupo3sistemaso1@gmail.com");
@@ -262,6 +240,7 @@ namespace Taquilla
             cliente.Host = "smtp.gmail.com"; //Servidor de salida de GMAIL
             try
             {
+                //se envía el correo
                 cliente.Send(msg);
             }
             catch (Exception error)
@@ -270,7 +249,7 @@ namespace Taquilla
             }
         }
 
-        bool procEsEmailValido(string email)
+        /*bool procEsEmailValido(string email)
         {
             try
             {
@@ -281,83 +260,17 @@ namespace Taquilla
             {
                 return false;
             }
-        }
-
-        private void txtNoTarjeta_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                if (Char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-            }
-                
-        }
-
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsLetter(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                if (Char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsLetter(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                if (Char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void btnMin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
-
-        }
+        }*/
 
         private void txtNit_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //si presiona la tecla enter busca el nit ingresado
             if (e.KeyChar == 13)
             {
                 try
                 {
-                    string consulta = "SELECT C.NOMBRECLIENTETARJETA, C.APELLIDOCLIENTETARJETA, CO.CORREO, T.NOTARJETA FROM CLIENTE C, CORREOCLIENTE CO, TARJETA T WHERE C.NITCLIENTE= " + int.Parse(txtNit.Text.ToString());
+                    //consulta para buscar los datos del nit ingresado 
+                    string consulta = "SELECT C.NOMBRECLIENTETARJETA, C.APELLIDOCLIENTETARJETA, CO.CORREO, T.NOTARJETA FROM CLIENTE C, CORREOCLIENTE CO, TARJETA T WHERE C.NITCLIENTE= '" + txtNit.Text.ToString() + "'";
                     OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
                     OdbcDataReader datosCliente = comm.ExecuteReader();
                     if (datosCliente.Read())
@@ -370,9 +283,10 @@ namespace Taquilla
                     }
                     else
                     {
+                        //no encontro el nit ingresado
                         MessageBox.Show("El NIT ingresado no fue encontrado", "NIT NO ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                   
+
                 }
                 catch (Exception ex)
                 {
@@ -381,41 +295,29 @@ namespace Taquilla
             }
         }
 
-        private void pnlDatosDetalles_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnAtras_Click(object sender, EventArgs e)
         {
+            //regresa al form anterior
             this.Close();
             this.Dispose();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void chkPago_CheckedChanged(object sender, EventArgs e)
         {
+            //si se marca el pago
             if (chkPago.Checked)
             {
-                
+                //muestra el form de tarjeta para ingresar datos   
                 frmPagoTarjeta tarjeta = new frmPagoTarjeta();
                 tarjeta.lblCantTiempoRestante.Text = lblCantTiempoRestante.Text.ToString();
-                tiempo=tiempo+2;
+                tiempo = tiempo + 2;
                 this.Hide();
                 tarjeta.ShowDialog();
                 this.Show();
             }
         }
 
+        //pregunta al usuario si quiere cerrar cuando se presione la x, si si se cierra, de lo contrario no
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("\t           Cerrando...\n\n\tSeguro que desea cerrar?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -424,35 +326,53 @@ namespace Taquilla
             }
         }
 
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDescripcion_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void frmFacturacion_Load(object sender, EventArgs e)
         {
             tiempo = int.Parse(lblCantTiempoRestante.Text.ToString());
+            //se activa la cuenta de tiempo
             tmrTiempo.Enabled = true;
+            //se llama el procediemiento de obtener el decuento
             procObtenerDescuento();
+            //se muestran los puntos obtenidos
             lblCantPuntos.Text = (double.Parse(lblCantTotal.Text.ToString()) * 0.30).ToString();
         }
 
+        //procedimiento para obtener el decuento
         private void procObtenerDescuento()
         {
-            DateTime fechaActual = DateTime.Today;
-            for(int i=0; i<infoBoletosComprados.Count; i++)
+            //se obtiene la fecha y tiemmpo actual
+            DateTime fechaActual = DateTime.Now;
+            //ciclo para buscar las promociones de los distintos tipos de boletos
+            for (int i = 0; i < infoBoletosComprados.Count; i++)
             {
                 try
                 {
+                    //se obtienen los datos para calcular el descuento si tiene
                     string consulta = "SELECT P.CANTIDADDESCUENTO,P.FECHAINICIO, P.FECHAFINAL, B.PRECIO FROM PROMOCION P, BOLETO B WHERE B.IDBOLETO=P.IDBOLETO AND B.IDBOLETO= " + infoBoletosComprados.ElementAt(i).idBoletos.ToString();
                     OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
                     OdbcDataReader asientosOcupados = comm.ExecuteReader();
                     if (asientosOcupados.Read())
                     {
-                        
+                        //si se encuentra se busca que la fecha actual esté entre el rango de la promoción
                         if (DateTime.Compare(fechaActual, asientosOcupados.GetDateTime(1)) > 0 && DateTime.Compare(fechaActual, asientosOcupados.GetDateTime(2)) < 0)
                         {
+                            //si si está dentro del rango se calcula el descuento
                             double total = asientosOcupados.GetDouble(3) * infoBoletosComprados.ElementAt(i).cantidadBoletos;
                             lblCantDescuento.Text = (total * asientosOcupados.GetDouble(0)).ToString();
-                            lblCantTotal.Text = (double.Parse(lblCantSubTotal.Text.ToString())- double.Parse(lblCantDescuento.Text.ToString())).ToString();
+                            lblCantTotal.Text = (double.Parse(lblCantSubTotal.Text.ToString()) - double.Parse(lblCantDescuento.Text.ToString())).ToString();
                         }
-                        
-                    }                    
+
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -461,19 +381,19 @@ namespace Taquilla
             }
         }
 
+        //por cada segundo que pase se resta el tiempo y se muestra
         private void tmrTiempoCompra_Tick(object sender, EventArgs e)
         {
             tiempo--;
             lblCantTiempoRestante.Text = tiempo.ToString();
-            frmPagoTarjeta tarjeta = new frmPagoTarjeta();
-            
+            //si el tiempo es 0 este form se cierra
             if (tiempo == 0)
             {
                 tmrTiempo.Stop();
                 this.Close();
                 this.Dispose();
             }
-            
+
         }
     }
 }

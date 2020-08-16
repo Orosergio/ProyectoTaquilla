@@ -38,6 +38,8 @@ namespace Taquilla
        
         }
         public void procFechaFunciones()
+        /*Procedimiento para mostrar las fechas de las funciones disponibles desde la hora que esta consultando hasta los siguientes dias
+      ,dias anteriores o horas anteriores no los consulta*/
         {
             try
             {
@@ -63,6 +65,7 @@ namespace Taquilla
             }
         }
         public void procIdioma()
+        /*Procedimiento para mostrar todos los idiomas*/
         {
             try
             {
@@ -86,6 +89,7 @@ namespace Taquilla
         }
 
         public void procFormato()
+        /*Procedimiento para mostrar todos los formatos en los combobox*/
         {
             try
             {
@@ -109,6 +113,8 @@ namespace Taquilla
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
+        /*Boton que filtra las horas de las proyecciones y muestra las salas segun el formato, el idioma y la fecha de la
+        proyeccion de la pelicula*/
         {
             if (cboFormato.Text=="")
             {
@@ -203,6 +209,8 @@ namespace Taquilla
         }
 
         private void btnSIguiente_Click(object sender, EventArgs e)
+        /*Se obtienen los datos para lso parametros que necesita el siguiente frm y se cambia
+       de form para continuar con la compra o la reservación*/
         {
 
             int fila, idSala, idProyeccion;
@@ -229,6 +237,7 @@ namespace Taquilla
         }
 
         private void btnClose_Click(object sender, EventArgs e)
+        /*Boton para cerrar la aplicación*/
         {
             if (MessageBox.Show("\t           Cerrando...\n\n\tSeguro que desea cerrar?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {

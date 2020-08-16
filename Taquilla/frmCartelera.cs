@@ -275,7 +275,7 @@ namespace Taquilla
             }
         }
         public void procPeliculasIniciales(int cantidadPeliculas, int opcion)
-            /**/
+        /*Dependiendo de la cantidad de peliculas que ya se mostraron se mostraran las siguientes 3 si es que existen gaurdadas en la lista*/
         {
             int repeticiones = 1;
             switch (opcion)
@@ -283,6 +283,7 @@ namespace Taquilla
                 case 1:
                     foreach (clsPelicula movie in listaPelicula)
                     {
+                        /*Muestras la primeras peliculas en la cartelera*/
                         if (repeticiones <= cantidadPeliculas)
                         {
                             string imagen = movie.RutaImagen;
@@ -294,7 +295,7 @@ namespace Taquilla
                                     txtSinopsis1.Text = movie.Descripcion;
                                     lblTrailer1.Text = movie.Trailer;
                                     codigoPelicula1 = movie.codigoPelicula;//
-                                    this.toolTip1.SetToolTip(btnClasificacion1, movie.Clasificacion +"-"+movie.DescripcionClasificacion);
+                                    this.ttpClasificacion.SetToolTip(btnClasificacion1, movie.Clasificacion +"-"+movie.DescripcionClasificacion);
                                     break;
                                 case 2:
                                     procImagenenesInternet(imagen, 2);
@@ -302,7 +303,7 @@ namespace Taquilla
                                     txtSinopsis2.Text = movie.Descripcion;
                                     lblTrailer2.Text = movie.Trailer;
                                     codigoPelicula2 = movie.codigoPelicula;//
-                                    this.toolTip1.SetToolTip(btnClasificacion2, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
+                                    this.ttpClasificacion.SetToolTip(btnClasificacion2, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
                                     break;
                                 case 3:
                                     procImagenenesInternet(imagen, 3);
@@ -310,7 +311,7 @@ namespace Taquilla
                                     txtSinopsis3.Text = movie.Descripcion;
                                     lblTrailer3.Text = movie.Trailer;
                                     codigoPelicula3 = movie.codigoPelicula;//
-                                    this.toolTip1.SetToolTip(btnClasificacion3, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
+                                    this.ttpClasificacion.SetToolTip(btnClasificacion3, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
                                     break;
                                 default:
                                     break;
@@ -319,23 +320,22 @@ namespace Taquilla
                         }
                     }
                     break;
-                case 2:
-                    //MessageBox.Show(cantidadPeliculas.ToString() + " -+++--");
+                case 2:                 
                     foreach (clsPelicula movie in listaPelicula)
                     {                       
                         if ((repeticiones > peliculasPasadas) && (repeticiones <= cantidadPeliculas))
                         {                            
                             string imagen = movie.RutaImagen;
-
+                            /*Segun el numero de la repetición y las peliculas que paso muestra las peliculas en los objetos*/
                             if (repeticiones==(peliculasPasadas+1))
                             {
-                                // MessageBox.Show(repeticiones.ToString()+" ---" );
+                              
                                 procImagenenesInternet(imagen, 1);
                                 lblPelicula1.Text = movie.Nombre;
                                 txtSinopsis1.Text = movie.Descripcion;
                                 lblTrailer1.Text = movie.Trailer;
                                 codigoPelicula1 = movie.codigoPelicula;//
-                                this.toolTip1.SetToolTip(btnClasificacion1, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
+                                this.ttpClasificacion.SetToolTip(btnClasificacion1, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
                             }
                             else if (repeticiones == (peliculasPasadas+2))
                             {
@@ -344,7 +344,7 @@ namespace Taquilla
                                 txtSinopsis2.Text = movie.Descripcion;
                                 lblTrailer2.Text = movie.Trailer;
                                 codigoPelicula2 = movie.codigoPelicula;//
-                                this.toolTip1.SetToolTip(btnClasificacion2, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
+                                this.ttpClasificacion.SetToolTip(btnClasificacion2, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
                             }
                             else if (repeticiones == (peliculasPasadas+3))
                             {
@@ -353,7 +353,7 @@ namespace Taquilla
                                 txtSinopsis3.Text = movie.Descripcion;
                                 lblTrailer3.Text = movie.Trailer;
                                 codigoPelicula3 = movie.codigoPelicula;//
-                                this.toolTip1.SetToolTip(btnClasificacion3, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
+                                this.ttpClasificacion.SetToolTip(btnClasificacion3, movie.Clasificacion + "-" + movie.DescripcionClasificacion);
                             }                            
                             repeticiones++;
                         }
@@ -404,6 +404,7 @@ namespace Taquilla
         }
 
         private void btnSubir_Click(object sender, EventArgs e)
+        /*Boton para regresar a las 3 peliculas anteriores si es que ya se bajo una o mas veces en la cartelera*/
         {
             int peliculasPasadasArriba = peliculasPasadas;
             peliculasPasadas -= 6;
@@ -433,6 +434,7 @@ namespace Taquilla
         }
 
         private void btnBajar_Click(object sender, EventArgs e)
+        /*Boton para  desplazarnos por la cartelera hacia abajo si es que existen mas peliculas*/
         {
             restantePeliculas = cantidadPeliculas - peliculasPasadas;
             if (restantePeliculas >= 3)
@@ -474,7 +476,7 @@ namespace Taquilla
              el codigo del cine*/
         {
             cboCodigoCine.SelectedIndex = cboCine.SelectedIndex;
-            picLogo.Visible = false;//Oculta el logo de cinepolis
+            wmpLogo.Visible = false;//Oculta el logo de cinepolis
             listaPelicula.Clear();//limpiamos la lista donde se almacenan las peliculas del cine
             try
             {
@@ -492,7 +494,7 @@ namespace Taquilla
                     //Se agregan todos los datos obtenidos por la consulta a la lista
                     listaPelicula.Add(new clsPelicula(Datos.GetString(0), Datos.GetString(1), Datos.GetString(2), Datos.GetString(3), Int32.Parse(Datos.GetString(4)), Datos.GetString(5), Datos.GetString(6)));
                 }
-
+  
                 pnlCartelera.Visible = true; //Muestra el panel
                 cantidadPeliculas = listaPelicula.Count(); //Se obtienen cuantas peliculas se obtuvieron de la consulta
                 btnSubir.Visible = false; //El boton de subir se vuelve invisible

@@ -31,9 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBoletos));
             this.pnlBarraSuperior = new System.Windows.Forms.Panel();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
-            this.btnMax = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pnlAsientos = new System.Windows.Forms.Panel();
             this.lblPantalla = new System.Windows.Forms.Label();
@@ -90,9 +88,7 @@
             this.lblCantBoletos = new System.Windows.Forms.Label();
             this.lblCine = new System.Windows.Forms.Label();
             this.pnlBarraSuperior.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picVerde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRojo)).BeginInit();
@@ -104,65 +100,37 @@
             // pnlBarraSuperior
             // 
             this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
-            this.pnlBarraSuperior.Controls.Add(this.btnRestaurar);
             this.pnlBarraSuperior.Controls.Add(this.btnMin);
-            this.pnlBarraSuperior.Controls.Add(this.btnMax);
             this.pnlBarraSuperior.Controls.Add(this.btnCerrar);
             this.pnlBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarraSuperior.Location = new System.Drawing.Point(0, 0);
+            this.pnlBarraSuperior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlBarraSuperior.Name = "pnlBarraSuperior";
-            this.pnlBarraSuperior.Size = new System.Drawing.Size(1249, 41);
+            this.pnlBarraSuperior.Size = new System.Drawing.Size(1665, 50);
             this.pnlBarraSuperior.TabIndex = 0;
-            this.pnlBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraSuperior_MouseDown);
-            // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1168, 6);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(32, 32);
-            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnRestaurar.TabIndex = 7;
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // btnMin
             // 
             this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(1127, 6);
+            this.btnMin.Location = new System.Drawing.Point(1561, 7);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(32, 32);
+            this.btnMin.Size = new System.Drawing.Size(43, 39);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMin.TabIndex = 6;
             this.btnMin.TabStop = false;
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
-            // 
-            // btnMax
-            // 
-            this.btnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(1166, 11);
-            this.btnMax.Name = "btnMax";
-            this.btnMax.Size = new System.Drawing.Size(19, 21);
-            this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMax.TabIndex = 5;
-            this.btnMax.TabStop = false;
-            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
             // 
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1209, 6);
+            this.btnCerrar.Location = new System.Drawing.Point(1612, 7);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(43, 39);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.TabStop = false;
@@ -170,20 +138,21 @@
             // 
             // pnlAsientos
             // 
-            this.pnlAsientos.Location = new System.Drawing.Point(441, 75);
+            this.pnlAsientos.Location = new System.Drawing.Point(588, 92);
+            this.pnlAsientos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlAsientos.Name = "pnlAsientos";
-            this.pnlAsientos.Size = new System.Drawing.Size(512, 501);
+            this.pnlAsientos.Size = new System.Drawing.Size(683, 617);
             this.pnlAsientos.TabIndex = 1;
-            this.pnlAsientos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlAsientos_MouseClick);
             // 
             // lblPantalla
             // 
             this.lblPantalla.BackColor = System.Drawing.Color.Black;
             this.lblPantalla.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPantalla.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPantalla.Location = new System.Drawing.Point(441, 654);
+            this.lblPantalla.Location = new System.Drawing.Point(588, 805);
+            this.lblPantalla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPantalla.Name = "lblPantalla";
-            this.lblPantalla.Size = new System.Drawing.Size(512, 39);
+            this.lblPantalla.Size = new System.Drawing.Size(683, 48);
             this.lblPantalla.TabIndex = 3;
             this.lblPantalla.Text = "Pantalla";
             this.lblPantalla.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,9 +163,10 @@
             this.lblJ.BackColor = System.Drawing.Color.Transparent;
             this.lblJ.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJ.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblJ.Location = new System.Drawing.Point(402, 88);
+            this.lblJ.Location = new System.Drawing.Point(536, 108);
+            this.lblJ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJ.Name = "lblJ";
-            this.lblJ.Size = new System.Drawing.Size(16, 21);
+            this.lblJ.Size = new System.Drawing.Size(19, 27);
             this.lblJ.TabIndex = 8;
             this.lblJ.Text = "J";
             // 
@@ -206,9 +176,10 @@
             this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl1.Location = new System.Drawing.Point(453, 591);
+            this.lbl1.Location = new System.Drawing.Point(604, 727);
+            this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(20, 21);
+            this.lbl1.Size = new System.Drawing.Size(25, 27);
             this.lbl1.TabIndex = 9;
             this.lbl1.Text = "1";
             // 
@@ -218,9 +189,10 @@
             this.lbl2.BackColor = System.Drawing.Color.Transparent;
             this.lbl2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl2.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl2.Location = new System.Drawing.Point(505, 591);
+            this.lbl2.Location = new System.Drawing.Point(673, 727);
+            this.lbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(20, 21);
+            this.lbl2.Size = new System.Drawing.Size(25, 27);
             this.lbl2.TabIndex = 10;
             this.lbl2.Text = "2";
             // 
@@ -230,9 +202,10 @@
             this.lbl3.BackColor = System.Drawing.Color.Transparent;
             this.lbl3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl3.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl3.Location = new System.Drawing.Point(553, 591);
+            this.lbl3.Location = new System.Drawing.Point(737, 727);
+            this.lbl3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(20, 21);
+            this.lbl3.Size = new System.Drawing.Size(25, 27);
             this.lbl3.TabIndex = 11;
             this.lbl3.Text = "3";
             // 
@@ -242,9 +215,10 @@
             this.lbl4.BackColor = System.Drawing.Color.Transparent;
             this.lbl4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl4.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl4.Location = new System.Drawing.Point(604, 591);
+            this.lbl4.Location = new System.Drawing.Point(805, 727);
+            this.lbl4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(20, 21);
+            this.lbl4.Size = new System.Drawing.Size(25, 27);
             this.lbl4.TabIndex = 12;
             this.lbl4.Text = "4";
             // 
@@ -254,9 +228,10 @@
             this.lbl5.BackColor = System.Drawing.Color.Transparent;
             this.lbl5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl5.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl5.Location = new System.Drawing.Point(655, 591);
+            this.lbl5.Location = new System.Drawing.Point(873, 727);
+            this.lbl5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(20, 21);
+            this.lbl5.Size = new System.Drawing.Size(25, 27);
             this.lbl5.TabIndex = 13;
             this.lbl5.Text = "5";
             // 
@@ -266,9 +241,10 @@
             this.lbl6.BackColor = System.Drawing.Color.Transparent;
             this.lbl6.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl6.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl6.Location = new System.Drawing.Point(707, 591);
+            this.lbl6.Location = new System.Drawing.Point(943, 727);
+            this.lbl6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl6.Name = "lbl6";
-            this.lbl6.Size = new System.Drawing.Size(20, 21);
+            this.lbl6.Size = new System.Drawing.Size(25, 27);
             this.lbl6.TabIndex = 14;
             this.lbl6.Text = "6";
             // 
@@ -278,9 +254,10 @@
             this.lbl7.BackColor = System.Drawing.Color.Transparent;
             this.lbl7.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl7.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl7.Location = new System.Drawing.Point(757, 591);
+            this.lbl7.Location = new System.Drawing.Point(1009, 727);
+            this.lbl7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl7.Name = "lbl7";
-            this.lbl7.Size = new System.Drawing.Size(20, 21);
+            this.lbl7.Size = new System.Drawing.Size(25, 27);
             this.lbl7.TabIndex = 15;
             this.lbl7.Text = "7";
             // 
@@ -290,9 +267,10 @@
             this.lbl8.BackColor = System.Drawing.Color.Transparent;
             this.lbl8.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl8.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl8.Location = new System.Drawing.Point(805, 591);
+            this.lbl8.Location = new System.Drawing.Point(1073, 727);
+            this.lbl8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl8.Name = "lbl8";
-            this.lbl8.Size = new System.Drawing.Size(20, 21);
+            this.lbl8.Size = new System.Drawing.Size(25, 27);
             this.lbl8.TabIndex = 16;
             this.lbl8.Text = "8";
             // 
@@ -302,9 +280,10 @@
             this.lbl9.BackColor = System.Drawing.Color.Transparent;
             this.lbl9.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl9.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl9.Location = new System.Drawing.Point(854, 591);
+            this.lbl9.Location = new System.Drawing.Point(1139, 727);
+            this.lbl9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl9.Name = "lbl9";
-            this.lbl9.Size = new System.Drawing.Size(20, 21);
+            this.lbl9.Size = new System.Drawing.Size(25, 27);
             this.lbl9.TabIndex = 17;
             this.lbl9.Text = "9";
             // 
@@ -314,9 +293,10 @@
             this.lbl10.BackColor = System.Drawing.Color.Transparent;
             this.lbl10.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl10.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl10.Location = new System.Drawing.Point(902, 591);
+            this.lbl10.Location = new System.Drawing.Point(1203, 727);
+            this.lbl10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl10.Name = "lbl10";
-            this.lbl10.Size = new System.Drawing.Size(30, 21);
+            this.lbl10.Size = new System.Drawing.Size(38, 27);
             this.lbl10.TabIndex = 18;
             this.lbl10.Text = "10";
             // 
@@ -328,9 +308,10 @@
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtras.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnAtras.Location = new System.Drawing.Point(61, 591);
+            this.btnAtras.Location = new System.Drawing.Point(81, 727);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(98, 39);
+            this.btnAtras.Size = new System.Drawing.Size(131, 48);
             this.btnAtras.TabIndex = 26;
             this.btnAtras.Text = "ATRAS";
             this.btnAtras.UseVisualStyleBackColor = false;
@@ -344,13 +325,14 @@
             this.btnFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFacturacion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFacturacion.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnFacturacion.Location = new System.Drawing.Point(165, 591);
+            this.btnFacturacion.Location = new System.Drawing.Point(220, 727);
+            this.btnFacturacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFacturacion.Name = "btnFacturacion";
-            this.btnFacturacion.Size = new System.Drawing.Size(169, 39);
+            this.btnFacturacion.Size = new System.Drawing.Size(225, 48);
             this.btnFacturacion.TabIndex = 27;
             this.btnFacturacion.Text = "FACTURACION";
             this.btnFacturacion.UseVisualStyleBackColor = false;
-            this.btnFacturacion.Click += new System.EventHandler(this.button2_Click);
+            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
             // 
             // lblI
             // 
@@ -358,9 +340,10 @@
             this.lblI.BackColor = System.Drawing.Color.Transparent;
             this.lblI.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblI.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblI.Location = new System.Drawing.Point(401, 139);
+            this.lblI.Location = new System.Drawing.Point(535, 171);
+            this.lblI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblI.Name = "lblI";
-            this.lblI.Size = new System.Drawing.Size(16, 21);
+            this.lblI.Size = new System.Drawing.Size(19, 27);
             this.lblI.TabIndex = 28;
             this.lblI.Text = "I";
             // 
@@ -370,9 +353,10 @@
             this.lblH.BackColor = System.Drawing.Color.Transparent;
             this.lblH.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblH.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblH.Location = new System.Drawing.Point(398, 185);
+            this.lblH.Location = new System.Drawing.Point(531, 228);
+            this.lblH.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblH.Name = "lblH";
-            this.lblH.Size = new System.Drawing.Size(23, 21);
+            this.lblH.Size = new System.Drawing.Size(29, 27);
             this.lblH.TabIndex = 29;
             this.lblH.Text = "H";
             // 
@@ -382,9 +366,10 @@
             this.lblG.BackColor = System.Drawing.Color.Transparent;
             this.lblG.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblG.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblG.Location = new System.Drawing.Point(397, 237);
+            this.lblG.Location = new System.Drawing.Point(529, 292);
+            this.lblG.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblG.Name = "lblG";
-            this.lblG.Size = new System.Drawing.Size(25, 21);
+            this.lblG.Size = new System.Drawing.Size(31, 27);
             this.lblG.TabIndex = 30;
             this.lblG.Text = "G";
             // 
@@ -394,9 +379,10 @@
             this.lblF.BackColor = System.Drawing.Color.Transparent;
             this.lblF.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblF.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblF.Location = new System.Drawing.Point(397, 284);
+            this.lblF.Location = new System.Drawing.Point(529, 350);
+            this.lblF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblF.Name = "lblF";
-            this.lblF.Size = new System.Drawing.Size(20, 21);
+            this.lblF.Size = new System.Drawing.Size(25, 27);
             this.lblF.TabIndex = 31;
             this.lblF.Text = "F";
             // 
@@ -406,9 +392,10 @@
             this.lblE.BackColor = System.Drawing.Color.Transparent;
             this.lblE.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblE.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblE.Location = new System.Drawing.Point(397, 337);
+            this.lblE.Location = new System.Drawing.Point(529, 415);
+            this.lblE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblE.Name = "lblE";
-            this.lblE.Size = new System.Drawing.Size(22, 21);
+            this.lblE.Size = new System.Drawing.Size(27, 27);
             this.lblE.TabIndex = 32;
             this.lblE.Text = "E";
             // 
@@ -418,9 +405,10 @@
             this.lblD.BackColor = System.Drawing.Color.Transparent;
             this.lblD.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblD.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblD.Location = new System.Drawing.Point(397, 386);
+            this.lblD.Location = new System.Drawing.Point(529, 475);
+            this.lblD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblD.Name = "lblD";
-            this.lblD.Size = new System.Drawing.Size(24, 21);
+            this.lblD.Size = new System.Drawing.Size(30, 27);
             this.lblD.TabIndex = 33;
             this.lblD.Text = "D";
             // 
@@ -430,9 +418,10 @@
             this.lblC.BackColor = System.Drawing.Color.Transparent;
             this.lblC.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblC.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblC.Location = new System.Drawing.Point(397, 438);
+            this.lblC.Location = new System.Drawing.Point(529, 539);
+            this.lblC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblC.Name = "lblC";
-            this.lblC.Size = new System.Drawing.Size(24, 21);
+            this.lblC.Size = new System.Drawing.Size(30, 27);
             this.lblC.TabIndex = 34;
             this.lblC.Text = "C";
             // 
@@ -442,9 +431,10 @@
             this.lblB.BackColor = System.Drawing.Color.Transparent;
             this.lblB.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblB.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblB.Location = new System.Drawing.Point(397, 490);
+            this.lblB.Location = new System.Drawing.Point(529, 603);
+            this.lblB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblB.Name = "lblB";
-            this.lblB.Size = new System.Drawing.Size(21, 21);
+            this.lblB.Size = new System.Drawing.Size(26, 27);
             this.lblB.TabIndex = 35;
             this.lblB.Text = "B";
             // 
@@ -454,9 +444,10 @@
             this.lblA.BackColor = System.Drawing.Color.Transparent;
             this.lblA.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblA.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblA.Location = new System.Drawing.Point(396, 540);
+            this.lblA.Location = new System.Drawing.Point(528, 665);
+            this.lblA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblA.Name = "lblA";
-            this.lblA.Size = new System.Drawing.Size(23, 21);
+            this.lblA.Size = new System.Drawing.Size(29, 27);
             this.lblA.TabIndex = 36;
             this.lblA.Text = "A";
             // 
@@ -468,9 +459,10 @@
             // picVerde
             // 
             this.picVerde.Image = ((System.Drawing.Image)(resources.GetObject("picVerde.Image")));
-            this.picVerde.Location = new System.Drawing.Point(19, 29);
+            this.picVerde.Location = new System.Drawing.Point(25, 36);
+            this.picVerde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picVerde.Name = "picVerde";
-            this.picVerde.Size = new System.Drawing.Size(45, 45);
+            this.picVerde.Size = new System.Drawing.Size(60, 55);
             this.picVerde.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picVerde.TabIndex = 37;
             this.picVerde.TabStop = false;
@@ -478,9 +470,10 @@
             // picRojo
             // 
             this.picRojo.Image = ((System.Drawing.Image)(resources.GetObject("picRojo.Image")));
-            this.picRojo.Location = new System.Drawing.Point(19, 98);
+            this.picRojo.Location = new System.Drawing.Point(25, 121);
+            this.picRojo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picRojo.Name = "picRojo";
-            this.picRojo.Size = new System.Drawing.Size(45, 45);
+            this.picRojo.Size = new System.Drawing.Size(60, 55);
             this.picRojo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picRojo.TabIndex = 38;
             this.picRojo.TabStop = false;
@@ -488,9 +481,10 @@
             // picAzul
             // 
             this.picAzul.Image = ((System.Drawing.Image)(resources.GetObject("picAzul.Image")));
-            this.picAzul.Location = new System.Drawing.Point(19, 167);
+            this.picAzul.Location = new System.Drawing.Point(25, 206);
+            this.picAzul.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picAzul.Name = "picAzul";
-            this.picAzul.Size = new System.Drawing.Size(45, 45);
+            this.picAzul.Size = new System.Drawing.Size(60, 55);
             this.picAzul.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAzul.TabIndex = 39;
             this.picAzul.TabStop = false;
@@ -504,9 +498,10 @@
             this.pnlSignificadoColores.Controls.Add(this.picVerde);
             this.pnlSignificadoColores.Controls.Add(this.picAzul);
             this.pnlSignificadoColores.Controls.Add(this.picRojo);
-            this.pnlSignificadoColores.Location = new System.Drawing.Point(975, 75);
+            this.pnlSignificadoColores.Location = new System.Drawing.Point(1300, 92);
+            this.pnlSignificadoColores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlSignificadoColores.Name = "pnlSignificadoColores";
-            this.pnlSignificadoColores.Size = new System.Drawing.Size(253, 240);
+            this.pnlSignificadoColores.Size = new System.Drawing.Size(337, 295);
             this.pnlSignificadoColores.TabIndex = 40;
             // 
             // lblElegido
@@ -515,9 +510,10 @@
             this.lblElegido.BackColor = System.Drawing.Color.Transparent;
             this.lblElegido.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblElegido.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblElegido.Location = new System.Drawing.Point(80, 183);
+            this.lblElegido.Location = new System.Drawing.Point(107, 225);
+            this.lblElegido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblElegido.Name = "lblElegido";
-            this.lblElegido.Size = new System.Drawing.Size(94, 21);
+            this.lblElegido.Size = new System.Drawing.Size(118, 27);
             this.lblElegido.TabIndex = 42;
             this.lblElegido.Text = "ELEGIDO";
             // 
@@ -527,9 +523,10 @@
             this.lblNoDisponible.BackColor = System.Drawing.Color.Transparent;
             this.lblNoDisponible.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoDisponible.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNoDisponible.Location = new System.Drawing.Point(80, 116);
+            this.lblNoDisponible.Location = new System.Drawing.Point(107, 143);
+            this.lblNoDisponible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNoDisponible.Name = "lblNoDisponible";
-            this.lblNoDisponible.Size = new System.Drawing.Size(153, 21);
+            this.lblNoDisponible.Size = new System.Drawing.Size(191, 27);
             this.lblNoDisponible.TabIndex = 41;
             this.lblNoDisponible.Text = "NO DISPONIBLE";
             // 
@@ -539,9 +536,10 @@
             this.lblDisponible.BackColor = System.Drawing.Color.Transparent;
             this.lblDisponible.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDisponible.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDisponible.Location = new System.Drawing.Point(80, 43);
+            this.lblDisponible.Location = new System.Drawing.Point(107, 53);
+            this.lblDisponible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDisponible.Name = "lblDisponible";
-            this.lblDisponible.Size = new System.Drawing.Size(119, 21);
+            this.lblDisponible.Size = new System.Drawing.Size(149, 27);
             this.lblDisponible.TabIndex = 40;
             this.lblDisponible.Text = "DISPONIBLE";
             // 
@@ -569,9 +567,10 @@
             this.pnlDatosElegidos.Controls.Add(this.lblDatos);
             this.pnlDatosElegidos.Controls.Add(this.lblCantBoletos);
             this.pnlDatosElegidos.Controls.Add(this.lblCine);
-            this.pnlDatosElegidos.Location = new System.Drawing.Point(24, 75);
+            this.pnlDatosElegidos.Location = new System.Drawing.Point(32, 92);
+            this.pnlDatosElegidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDatosElegidos.Name = "pnlDatosElegidos";
-            this.pnlDatosElegidos.Size = new System.Drawing.Size(355, 500);
+            this.pnlDatosElegidos.Size = new System.Drawing.Size(473, 615);
             this.pnlDatosElegidos.TabIndex = 43;
             // 
             // lblNoSala
@@ -580,9 +579,10 @@
             this.lblNoSala.BackColor = System.Drawing.Color.Transparent;
             this.lblNoSala.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoSala.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNoSala.Location = new System.Drawing.Point(121, 251);
+            this.lblNoSala.Location = new System.Drawing.Point(161, 309);
+            this.lblNoSala.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNoSala.Name = "lblNoSala";
-            this.lblNoSala.Size = new System.Drawing.Size(0, 21);
+            this.lblNoSala.Size = new System.Drawing.Size(0, 27);
             this.lblNoSala.TabIndex = 50;
             // 
             // lblSala
@@ -591,9 +591,10 @@
             this.lblSala.BackColor = System.Drawing.Color.Transparent;
             this.lblSala.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSala.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSala.Location = new System.Drawing.Point(17, 251);
+            this.lblSala.Location = new System.Drawing.Point(23, 309);
+            this.lblSala.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSala.Name = "lblSala";
-            this.lblSala.Size = new System.Drawing.Size(62, 21);
+            this.lblSala.Size = new System.Drawing.Size(79, 27);
             this.lblSala.TabIndex = 49;
             this.lblSala.Text = "SALA:";
             // 
@@ -603,9 +604,10 @@
             this.lblHora.BackColor = System.Drawing.Color.Transparent;
             this.lblHora.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblHora.Location = new System.Drawing.Point(17, 167);
+            this.lblHora.Location = new System.Drawing.Point(23, 206);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(68, 21);
+            this.lblHora.Size = new System.Drawing.Size(87, 27);
             this.lblHora.TabIndex = 48;
             this.lblHora.Text = "HORA:";
             // 
@@ -615,9 +617,10 @@
             this.lblHoraFuncion.BackColor = System.Drawing.Color.Transparent;
             this.lblHoraFuncion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoraFuncion.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblHoraFuncion.Location = new System.Drawing.Point(86, 167);
+            this.lblHoraFuncion.Location = new System.Drawing.Point(115, 206);
+            this.lblHoraFuncion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoraFuncion.Name = "lblHoraFuncion";
-            this.lblHoraFuncion.Size = new System.Drawing.Size(0, 21);
+            this.lblHoraFuncion.Size = new System.Drawing.Size(0, 27);
             this.lblHoraFuncion.TabIndex = 47;
             // 
             // lblFormatoPelicula
@@ -626,9 +629,10 @@
             this.lblFormatoPelicula.BackColor = System.Drawing.Color.Transparent;
             this.lblFormatoPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormatoPelicula.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFormatoPelicula.Location = new System.Drawing.Point(121, 328);
+            this.lblFormatoPelicula.Location = new System.Drawing.Point(161, 404);
+            this.lblFormatoPelicula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormatoPelicula.Name = "lblFormatoPelicula";
-            this.lblFormatoPelicula.Size = new System.Drawing.Size(0, 21);
+            this.lblFormatoPelicula.Size = new System.Drawing.Size(0, 27);
             this.lblFormatoPelicula.TabIndex = 46;
             // 
             // lblFormato
@@ -637,9 +641,10 @@
             this.lblFormato.BackColor = System.Drawing.Color.Transparent;
             this.lblFormato.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormato.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblFormato.Location = new System.Drawing.Point(17, 328);
+            this.lblFormato.Location = new System.Drawing.Point(23, 404);
+            this.lblFormato.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormato.Name = "lblFormato";
-            this.lblFormato.Size = new System.Drawing.Size(108, 21);
+            this.lblFormato.Size = new System.Drawing.Size(137, 27);
             this.lblFormato.TabIndex = 45;
             this.lblFormato.Text = "FORMATO:";
             // 
@@ -649,9 +654,10 @@
             this.lblIdiomaPelicula.BackColor = System.Drawing.Color.Transparent;
             this.lblIdiomaPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdiomaPelicula.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblIdiomaPelicula.Location = new System.Drawing.Point(102, 291);
+            this.lblIdiomaPelicula.Location = new System.Drawing.Point(136, 358);
+            this.lblIdiomaPelicula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdiomaPelicula.Name = "lblIdiomaPelicula";
-            this.lblIdiomaPelicula.Size = new System.Drawing.Size(0, 21);
+            this.lblIdiomaPelicula.Size = new System.Drawing.Size(0, 27);
             this.lblIdiomaPelicula.TabIndex = 44;
             // 
             // lblIdioma
@@ -660,9 +666,10 @@
             this.lblIdioma.BackColor = System.Drawing.Color.Transparent;
             this.lblIdioma.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdioma.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblIdioma.Location = new System.Drawing.Point(17, 291);
+            this.lblIdioma.Location = new System.Drawing.Point(23, 358);
+            this.lblIdioma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdioma.Name = "lblIdioma";
-            this.lblIdioma.Size = new System.Drawing.Size(87, 21);
+            this.lblIdioma.Size = new System.Drawing.Size(108, 27);
             this.lblIdioma.TabIndex = 43;
             this.lblIdioma.Text = "IDIOMA:";
             // 
@@ -672,9 +679,10 @@
             this.lblDia.BackColor = System.Drawing.Color.Transparent;
             this.lblDia.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDia.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDia.Location = new System.Drawing.Point(17, 122);
+            this.lblDia.Location = new System.Drawing.Point(23, 150);
+            this.lblDia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDia.Name = "lblDia";
-            this.lblDia.Size = new System.Drawing.Size(102, 21);
+            this.lblDia.Size = new System.Drawing.Size(126, 27);
             this.lblDia.TabIndex = 42;
             this.lblDia.Text = "FUNCIÓN:";
             // 
@@ -684,9 +692,10 @@
             this.lblCineElegido.BackColor = System.Drawing.Color.Transparent;
             this.lblCineElegido.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCineElegido.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCineElegido.Location = new System.Drawing.Point(74, 78);
+            this.lblCineElegido.Location = new System.Drawing.Point(99, 96);
+            this.lblCineElegido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCineElegido.Name = "lblCineElegido";
-            this.lblCineElegido.Size = new System.Drawing.Size(0, 21);
+            this.lblCineElegido.Size = new System.Drawing.Size(0, 27);
             this.lblCineElegido.TabIndex = 41;
             // 
             // lblDiaFuncion
@@ -695,9 +704,10 @@
             this.lblDiaFuncion.BackColor = System.Drawing.Color.Transparent;
             this.lblDiaFuncion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiaFuncion.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDiaFuncion.Location = new System.Drawing.Point(121, 122);
+            this.lblDiaFuncion.Location = new System.Drawing.Point(161, 150);
+            this.lblDiaFuncion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDiaFuncion.Name = "lblDiaFuncion";
-            this.lblDiaFuncion.Size = new System.Drawing.Size(0, 21);
+            this.lblDiaFuncion.Size = new System.Drawing.Size(0, 27);
             this.lblDiaFuncion.TabIndex = 40;
             // 
             // lblNombrePelicula
@@ -706,9 +716,10 @@
             this.lblNombrePelicula.BackColor = System.Drawing.Color.Transparent;
             this.lblNombrePelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombrePelicula.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNombrePelicula.Location = new System.Drawing.Point(121, 208);
+            this.lblNombrePelicula.Location = new System.Drawing.Point(161, 256);
+            this.lblNombrePelicula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombrePelicula.Name = "lblNombrePelicula";
-            this.lblNombrePelicula.Size = new System.Drawing.Size(0, 21);
+            this.lblNombrePelicula.Size = new System.Drawing.Size(0, 27);
             this.lblNombrePelicula.TabIndex = 39;
             // 
             // lblCantTiempoRestante
@@ -717,9 +728,10 @@
             this.lblCantTiempoRestante.BackColor = System.Drawing.Color.Transparent;
             this.lblCantTiempoRestante.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantTiempoRestante.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCantTiempoRestante.Location = new System.Drawing.Point(260, 453);
+            this.lblCantTiempoRestante.Location = new System.Drawing.Point(347, 558);
+            this.lblCantTiempoRestante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantTiempoRestante.Name = "lblCantTiempoRestante";
-            this.lblCantTiempoRestante.Size = new System.Drawing.Size(0, 21);
+            this.lblCantTiempoRestante.Size = new System.Drawing.Size(0, 27);
             this.lblCantTiempoRestante.TabIndex = 36;
             // 
             // lblBoletosRes
@@ -728,9 +740,10 @@
             this.lblBoletosRes.BackColor = System.Drawing.Color.Transparent;
             this.lblBoletosRes.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoletosRes.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBoletosRes.Location = new System.Drawing.Point(17, 412);
+            this.lblBoletosRes.Location = new System.Drawing.Point(23, 507);
+            this.lblBoletosRes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBoletosRes.Name = "lblBoletosRes";
-            this.lblBoletosRes.Size = new System.Drawing.Size(209, 21);
+            this.lblBoletosRes.Size = new System.Drawing.Size(265, 27);
             this.lblBoletosRes.TabIndex = 35;
             this.lblBoletosRes.Text = "BOLETOS RESTANTES:";
             // 
@@ -740,9 +753,10 @@
             this.lblCantBoletosRes.BackColor = System.Drawing.Color.Transparent;
             this.lblCantBoletosRes.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantBoletosRes.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCantBoletosRes.Location = new System.Drawing.Point(226, 412);
+            this.lblCantBoletosRes.Location = new System.Drawing.Point(301, 507);
+            this.lblCantBoletosRes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantBoletosRes.Name = "lblCantBoletosRes";
-            this.lblCantBoletosRes.Size = new System.Drawing.Size(0, 21);
+            this.lblCantBoletosRes.Size = new System.Drawing.Size(0, 27);
             this.lblCantBoletosRes.TabIndex = 34;
             // 
             // lblBoletos
@@ -751,9 +765,10 @@
             this.lblBoletos.BackColor = System.Drawing.Color.Transparent;
             this.lblBoletos.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBoletos.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblBoletos.Location = new System.Drawing.Point(17, 372);
+            this.lblBoletos.Location = new System.Drawing.Point(23, 458);
+            this.lblBoletos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBoletos.Name = "lblBoletos";
-            this.lblBoletos.Size = new System.Drawing.Size(105, 21);
+            this.lblBoletos.Size = new System.Drawing.Size(132, 27);
             this.lblBoletos.TabIndex = 33;
             this.lblBoletos.Text = "BOLETOS: ";
             // 
@@ -763,9 +778,10 @@
             this.lblTiempoRestante.BackColor = System.Drawing.Color.Transparent;
             this.lblTiempoRestante.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoRestante.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTiempoRestante.Location = new System.Drawing.Point(17, 453);
+            this.lblTiempoRestante.Location = new System.Drawing.Point(23, 558);
+            this.lblTiempoRestante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTiempoRestante.Name = "lblTiempoRestante";
-            this.lblTiempoRestante.Size = new System.Drawing.Size(243, 21);
+            this.lblTiempoRestante.Size = new System.Drawing.Size(305, 27);
             this.lblTiempoRestante.TabIndex = 32;
             this.lblTiempoRestante.Text = "TIEMPO RESTANTE (seg): ";
             // 
@@ -775,9 +791,10 @@
             this.lblPelicula.BackColor = System.Drawing.Color.Transparent;
             this.lblPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPelicula.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPelicula.Location = new System.Drawing.Point(17, 208);
+            this.lblPelicula.Location = new System.Drawing.Point(23, 256);
+            this.lblPelicula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPelicula.Name = "lblPelicula";
-            this.lblPelicula.Size = new System.Drawing.Size(105, 21);
+            this.lblPelicula.Size = new System.Drawing.Size(132, 27);
             this.lblPelicula.TabIndex = 31;
             this.lblPelicula.Text = "PELICULA:";
             // 
@@ -787,9 +804,10 @@
             this.lblDatos.BackColor = System.Drawing.Color.Transparent;
             this.lblDatos.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatos.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDatos.Location = new System.Drawing.Point(85, 29);
+            this.lblDatos.Location = new System.Drawing.Point(113, 36);
+            this.lblDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatos.Name = "lblDatos";
-            this.lblDatos.Size = new System.Drawing.Size(93, 27);
+            this.lblDatos.Size = new System.Drawing.Size(115, 35);
             this.lblDatos.TabIndex = 30;
             this.lblDatos.Text = "DATOS";
             // 
@@ -799,9 +817,10 @@
             this.lblCantBoletos.BackColor = System.Drawing.Color.Transparent;
             this.lblCantBoletos.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantBoletos.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCantBoletos.Location = new System.Drawing.Point(121, 372);
+            this.lblCantBoletos.Location = new System.Drawing.Point(161, 458);
+            this.lblCantBoletos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantBoletos.Name = "lblCantBoletos";
-            this.lblCantBoletos.Size = new System.Drawing.Size(0, 21);
+            this.lblCantBoletos.Size = new System.Drawing.Size(0, 27);
             this.lblCantBoletos.TabIndex = 27;
             // 
             // lblCine
@@ -810,18 +829,19 @@
             this.lblCine.BackColor = System.Drawing.Color.Transparent;
             this.lblCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCine.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCine.Location = new System.Drawing.Point(17, 78);
+            this.lblCine.Location = new System.Drawing.Point(23, 96);
+            this.lblCine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCine.Name = "lblCine";
-            this.lblCine.Size = new System.Drawing.Size(62, 21);
+            this.lblCine.Size = new System.Drawing.Size(76, 27);
             this.lblCine.TabIndex = 25;
             this.lblCine.Text = "CINE:";
             // 
             // frmBoletos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1249, 710);
+            this.ClientSize = new System.Drawing.Size(1665, 874);
             this.Controls.Add(this.pnlDatosElegidos);
             this.Controls.Add(this.pnlSignificadoColores);
             this.Controls.Add(this.lblA);
@@ -850,16 +870,15 @@
             this.Controls.Add(this.pnlAsientos);
             this.Controls.Add(this.pnlBarraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmBoletos";
             this.Opacity = 0.96D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Transparent;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmBoletos_Load);
             this.pnlBarraSuperior.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picVerde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRojo)).EndInit();
@@ -890,9 +909,7 @@
         private System.Windows.Forms.Label lbl9;
         private System.Windows.Forms.Label lbl10;
         private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.PictureBox btnMin;
-        private System.Windows.Forms.PictureBox btnMax;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Button btnFacturacion;
         private System.Windows.Forms.Label lblI;

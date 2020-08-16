@@ -16,6 +16,7 @@ namespace Taquilla
 
        
         public frmTrailer(string url)
+            /*Se asigna que solo muestre el video en lugar de todo el contenedor*/
         {
             
             InitializeComponent();
@@ -35,6 +36,11 @@ namespace Taquilla
         {
             this.Close();
             this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

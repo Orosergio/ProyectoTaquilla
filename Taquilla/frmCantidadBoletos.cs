@@ -38,6 +38,7 @@ namespace Taquilla
       
         }
         public void procNoAsientos()
+        /*Procedimiento para obtner el numero maximo de asientos de la sala*/
         {
             try
             {
@@ -59,6 +60,8 @@ namespace Taquilla
             }
         }
         public bool funcMaximoAsientos(int cantidadActual)
+        /*Se verifica que los asientos que el esta seleccionado no sean mayores al numero maximo de asientos 
+         de la sala*/
         {
             if (cantidadActual>= numeroDeAientosDesOcupados)
             {
@@ -75,6 +78,7 @@ namespace Taquilla
         }
         
         public int funcNoAsientosReservados()
+        /*se obtiene el numero de asientos reservados de la sala*/
         {
             int cantidadAsientos=0;
             try
@@ -102,6 +106,7 @@ namespace Taquilla
             }
         }
         public int funcNoAsientosVendidos()
+        /*Se obtiene el numero de asientos ya vendidos de la sala*/
         {
             int cantidadAsientos = 0;
             try
@@ -136,6 +141,7 @@ namespace Taquilla
         }
 
         private void btnMas1_Click(object sender, EventArgs e)
+        /*Boton para sumar asientos a los deseados que desea comprar*/
         {
             int cantidad = Int32.Parse(lblCantidadTercera.Text);
             double precio = double.Parse(lblPrecioTerceraEdad.Text);
@@ -160,6 +166,7 @@ namespace Taquilla
         }
 
         private void btnMas2_Click(object sender, EventArgs e)
+        /*Boton para sumar asientos a los deseados que desea comprar*/
         {
             int cantidad = Int32.Parse(lblCantidadAdulto.Text);
             double precio = double.Parse(lblPrecioAdulto.Text);
@@ -182,6 +189,7 @@ namespace Taquilla
         }
 
         private void btnMas3_Click(object sender, EventArgs e)
+        /*Boton para sumar asientos a los deseados que desea comprar*/
         {
             int cantidad = Int32.Parse(lblCantidadNinos.Text);
             double precio = double.Parse(lblPrecioNino.Text);
@@ -216,6 +224,7 @@ namespace Taquilla
         }
 
         private void btnMenos3_Click(object sender, EventArgs e)
+        /*Boton para restar asientos a los deseados que desea comprar*/
         {
             int cantidad = Int32.Parse(lblCantidadNinos.Text);
             double precio = double.Parse(lblPrecioNino.Text);
@@ -243,6 +252,7 @@ namespace Taquilla
         }
 
         private void btnMenos1_Click(object sender, EventArgs e)
+        /*Boton para restar asientos a los deseados que desea comprar*/
         {
             int cantidad = Int32.Parse(lblCantidadTercera.Text);
             double precio = double.Parse(lblPrecioTerceraEdad.Text);
@@ -271,6 +281,7 @@ namespace Taquilla
         }
 
         private void btnMenos2_Click(object sender, EventArgs e)
+        /*Boton para restar asientos a los deseados que desea comprar*/
         {
             int cantidad = Int32.Parse(lblCantidadAdulto.Text);
             double precio = double.Parse(lblPrecioAdulto.Text);
@@ -298,6 +309,8 @@ namespace Taquilla
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
+        /*Para pasar al siguiente form se verifica que las cantidades sean diferentes de 0 
+       o que el numero de asientos que eligio no sea cero*/
         {
             List<clsBoletos> infoBoletos = new List<clsBoletos>();
             if (Int32.Parse(lblCantidadTercera.Text) != 0)
@@ -346,6 +359,7 @@ namespace Taquilla
         }
 
         public void procTotal()
+        /*Suma los subtotales para obtner el total*/
         {
             totales = 0;
             totales = (double.Parse(lblSubTercera.Text)) + (double.Parse(lblSubAdulto.Text)) + (double.Parse(lblSubNinos.Text));
@@ -356,6 +370,7 @@ namespace Taquilla
 
         }
         public void procPrecios(int opcion)
+        /*Se obtiene el precio de los difrentes tipos de boletos*/
         {
             try
             {

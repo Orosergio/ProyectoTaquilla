@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCartelera));
             this.pnlCartelera = new System.Windows.Forms.Panel();
             this.btnClasificacion1 = new System.Windows.Forms.Button();
             this.btnClasificacion2 = new System.Windows.Forms.Button();
@@ -69,8 +70,8 @@
             this.lblTrailer1 = new System.Windows.Forms.Label();
             this.lblTrailer2 = new System.Windows.Forms.Label();
             this.lblTrailer3 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.ttpClasificacion = new System.Windows.Forms.ToolTip(this.components);
+            this.wmpLogo = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnlCartelera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPelicula3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPelicula2)).BeginInit();
@@ -78,7 +79,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wmpLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlCartelera
@@ -107,9 +108,10 @@
             this.pnlCartelera.Controls.Add(this.txtSinopsis1);
             this.pnlCartelera.Controls.Add(this.picPelicula1);
             this.pnlCartelera.Controls.Add(this.label1);
-            this.pnlCartelera.Location = new System.Drawing.Point(49, 97);
+            this.pnlCartelera.Location = new System.Drawing.Point(37, 79);
+            this.pnlCartelera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlCartelera.Name = "pnlCartelera";
-            this.pnlCartelera.Size = new System.Drawing.Size(1184, 843);
+            this.pnlCartelera.Size = new System.Drawing.Size(888, 685);
             this.pnlCartelera.TabIndex = 96;
             this.pnlCartelera.Visible = false;
             this.pnlCartelera.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -123,10 +125,10 @@
             this.btnClasificacion1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClasificacion1.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClasificacion1.ForeColor = System.Drawing.Color.White;
-            this.btnClasificacion1.Location = new System.Drawing.Point(757, 66);
-            this.btnClasificacion1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClasificacion1.Location = new System.Drawing.Point(568, 54);
+            this.btnClasificacion1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClasificacion1.Name = "btnClasificacion1";
-            this.btnClasificacion1.Size = new System.Drawing.Size(247, 45);
+            this.btnClasificacion1.Size = new System.Drawing.Size(185, 37);
             this.btnClasificacion1.TabIndex = 116;
             this.btnClasificacion1.Text = "Clasificación";
             this.btnClasificacion1.UseVisualStyleBackColor = false;
@@ -141,10 +143,10 @@
             this.btnClasificacion2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClasificacion2.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClasificacion2.ForeColor = System.Drawing.Color.White;
-            this.btnClasificacion2.Location = new System.Drawing.Point(757, 317);
-            this.btnClasificacion2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClasificacion2.Location = new System.Drawing.Point(568, 258);
+            this.btnClasificacion2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClasificacion2.Name = "btnClasificacion2";
-            this.btnClasificacion2.Size = new System.Drawing.Size(247, 45);
+            this.btnClasificacion2.Size = new System.Drawing.Size(185, 37);
             this.btnClasificacion2.TabIndex = 115;
             this.btnClasificacion2.Text = "Clasificación";
             this.btnClasificacion2.UseVisualStyleBackColor = false;
@@ -161,10 +163,9 @@
             this.btnTrailer1.ForeColor = System.Drawing.Color.White;
             this.btnTrailer1.Image = global::Taquilla.Properties.Resources.video;
             this.btnTrailer1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTrailer1.Location = new System.Drawing.Point(757, 127);
-            this.btnTrailer1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTrailer1.Location = new System.Drawing.Point(568, 103);
             this.btnTrailer1.Name = "btnTrailer1";
-            this.btnTrailer1.Size = new System.Drawing.Size(247, 43);
+            this.btnTrailer1.Size = new System.Drawing.Size(185, 35);
             this.btnTrailer1.TabIndex = 114;
             this.btnTrailer1.Text = "Trailer";
             this.btnTrailer1.UseVisualStyleBackColor = false;
@@ -182,10 +183,9 @@
             this.btnTrailer2.ForeColor = System.Drawing.Color.White;
             this.btnTrailer2.Image = global::Taquilla.Properties.Resources.video;
             this.btnTrailer2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTrailer2.Location = new System.Drawing.Point(757, 379);
-            this.btnTrailer2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTrailer2.Location = new System.Drawing.Point(568, 308);
             this.btnTrailer2.Name = "btnTrailer2";
-            this.btnTrailer2.Size = new System.Drawing.Size(247, 43);
+            this.btnTrailer2.Size = new System.Drawing.Size(185, 35);
             this.btnTrailer2.TabIndex = 113;
             this.btnTrailer2.Text = "Trailer";
             this.btnTrailer2.UseVisualStyleBackColor = false;
@@ -203,10 +203,9 @@
             this.btnTrailer3.ForeColor = System.Drawing.Color.White;
             this.btnTrailer3.Image = global::Taquilla.Properties.Resources.video;
             this.btnTrailer3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTrailer3.Location = new System.Drawing.Point(757, 633);
-            this.btnTrailer3.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTrailer3.Location = new System.Drawing.Point(568, 514);
             this.btnTrailer3.Name = "btnTrailer3";
-            this.btnTrailer3.Size = new System.Drawing.Size(247, 43);
+            this.btnTrailer3.Size = new System.Drawing.Size(185, 35);
             this.btnTrailer3.TabIndex = 112;
             this.btnTrailer3.Text = "Trailer";
             this.btnTrailer3.UseVisualStyleBackColor = false;
@@ -222,10 +221,10 @@
             this.btnClasificacion3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClasificacion3.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClasificacion3.ForeColor = System.Drawing.Color.White;
-            this.btnClasificacion3.Location = new System.Drawing.Point(757, 572);
-            this.btnClasificacion3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClasificacion3.Location = new System.Drawing.Point(568, 465);
+            this.btnClasificacion3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClasificacion3.Name = "btnClasificacion3";
-            this.btnClasificacion3.Size = new System.Drawing.Size(247, 45);
+            this.btnClasificacion3.Size = new System.Drawing.Size(185, 37);
             this.btnClasificacion3.TabIndex = 111;
             this.btnClasificacion3.Text = "Clasificación";
             this.btnClasificacion3.UseVisualStyleBackColor = false;
@@ -242,10 +241,9 @@
             this.btnFuncion3.ForeColor = System.Drawing.Color.White;
             this.btnFuncion3.Image = global::Taquilla.Properties.Resources.calendario;
             this.btnFuncion3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncion3.Location = new System.Drawing.Point(757, 695);
-            this.btnFuncion3.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFuncion3.Location = new System.Drawing.Point(568, 565);
             this.btnFuncion3.Name = "btnFuncion3";
-            this.btnFuncion3.Size = new System.Drawing.Size(247, 43);
+            this.btnFuncion3.Size = new System.Drawing.Size(185, 35);
             this.btnFuncion3.TabIndex = 110;
             this.btnFuncion3.Text = "Funciones";
             this.btnFuncion3.UseVisualStyleBackColor = false;
@@ -257,10 +255,11 @@
             this.lblPelicula3.AutoSize = true;
             this.lblPelicula3.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPelicula3.ForeColor = System.Drawing.Color.White;
-            this.lblPelicula3.Location = new System.Drawing.Point(36, 759);
+            this.lblPelicula3.Location = new System.Drawing.Point(27, 617);
+            this.lblPelicula3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPelicula3.Name = "lblPelicula3";
-            this.lblPelicula3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.lblPelicula3.Size = new System.Drawing.Size(125, 42);
+            this.lblPelicula3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 12);
+            this.lblPelicula3.Size = new System.Drawing.Size(100, 33);
             this.lblPelicula3.TabIndex = 109;
             this.lblPelicula3.Text = "John Wick";
             this.lblPelicula3.Visible = false;
@@ -270,9 +269,10 @@
             this.lblSinopsis3.AutoSize = true;
             this.lblSinopsis3.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSinopsis3.ForeColor = System.Drawing.Color.White;
-            this.lblSinopsis3.Location = new System.Drawing.Point(336, 759);
+            this.lblSinopsis3.Location = new System.Drawing.Point(252, 617);
+            this.lblSinopsis3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSinopsis3.Name = "lblSinopsis3";
-            this.lblSinopsis3.Size = new System.Drawing.Size(104, 27);
+            this.lblSinopsis3.Size = new System.Drawing.Size(84, 21);
             this.lblSinopsis3.TabIndex = 108;
             this.lblSinopsis3.Text = "Sinopsis";
             this.lblSinopsis3.Visible = false;
@@ -282,12 +282,13 @@
             this.txtSinopsis3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.txtSinopsis3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSinopsis3.ForeColor = System.Drawing.Color.White;
-            this.txtSinopsis3.Location = new System.Drawing.Point(341, 572);
+            this.txtSinopsis3.Location = new System.Drawing.Point(256, 465);
+            this.txtSinopsis3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSinopsis3.Multiline = true;
             this.txtSinopsis3.Name = "txtSinopsis3";
             this.txtSinopsis3.ReadOnly = true;
             this.txtSinopsis3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSinopsis3.Size = new System.Drawing.Size(349, 184);
+            this.txtSinopsis3.Size = new System.Drawing.Size(263, 150);
             this.txtSinopsis3.TabIndex = 107;
             this.txtSinopsis3.Text = "\r\n";
             this.txtSinopsis3.Visible = false;
@@ -295,9 +296,10 @@
             // picPelicula3
             // 
             this.picPelicula3.BackColor = System.Drawing.Color.White;
-            this.picPelicula3.Location = new System.Drawing.Point(41, 572);
+            this.picPelicula3.Location = new System.Drawing.Point(31, 465);
+            this.picPelicula3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picPelicula3.Name = "picPelicula3";
-            this.picPelicula3.Size = new System.Drawing.Size(225, 184);
+            this.picPelicula3.Size = new System.Drawing.Size(169, 150);
             this.picPelicula3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPelicula3.TabIndex = 106;
             this.picPelicula3.TabStop = false;
@@ -314,10 +316,9 @@
             this.btnFuncion2.ForeColor = System.Drawing.Color.White;
             this.btnFuncion2.Image = global::Taquilla.Properties.Resources.calendario;
             this.btnFuncion2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncion2.Location = new System.Drawing.Point(757, 439);
-            this.btnFuncion2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFuncion2.Location = new System.Drawing.Point(568, 357);
             this.btnFuncion2.Name = "btnFuncion2";
-            this.btnFuncion2.Size = new System.Drawing.Size(247, 43);
+            this.btnFuncion2.Size = new System.Drawing.Size(185, 35);
             this.btnFuncion2.TabIndex = 105;
             this.btnFuncion2.Text = "Funciones";
             this.btnFuncion2.UseVisualStyleBackColor = false;
@@ -329,9 +330,10 @@
             this.lblPelicula2.AutoSize = true;
             this.lblPelicula2.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPelicula2.ForeColor = System.Drawing.Color.White;
-            this.lblPelicula2.Location = new System.Drawing.Point(36, 504);
+            this.lblPelicula2.Location = new System.Drawing.Point(27, 410);
+            this.lblPelicula2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPelicula2.Name = "lblPelicula2";
-            this.lblPelicula2.Size = new System.Drawing.Size(137, 27);
+            this.lblPelicula2.Size = new System.Drawing.Size(108, 21);
             this.lblPelicula2.TabIndex = 104;
             this.lblPelicula2.Text = "Your Name";
             this.lblPelicula2.Visible = false;
@@ -341,9 +343,10 @@
             this.lblSinopsis2.AutoSize = true;
             this.lblSinopsis2.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSinopsis2.ForeColor = System.Drawing.Color.White;
-            this.lblSinopsis2.Location = new System.Drawing.Point(336, 504);
+            this.lblSinopsis2.Location = new System.Drawing.Point(252, 410);
+            this.lblSinopsis2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSinopsis2.Name = "lblSinopsis2";
-            this.lblSinopsis2.Size = new System.Drawing.Size(104, 27);
+            this.lblSinopsis2.Size = new System.Drawing.Size(84, 21);
             this.lblSinopsis2.TabIndex = 103;
             this.lblSinopsis2.Text = "Sinopsis";
             this.lblSinopsis2.Visible = false;
@@ -353,12 +356,13 @@
             this.txtSinopsis2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.txtSinopsis2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSinopsis2.ForeColor = System.Drawing.Color.White;
-            this.txtSinopsis2.Location = new System.Drawing.Point(341, 317);
+            this.txtSinopsis2.Location = new System.Drawing.Point(256, 258);
+            this.txtSinopsis2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSinopsis2.Multiline = true;
             this.txtSinopsis2.Name = "txtSinopsis2";
             this.txtSinopsis2.ReadOnly = true;
             this.txtSinopsis2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSinopsis2.Size = new System.Drawing.Size(349, 184);
+            this.txtSinopsis2.Size = new System.Drawing.Size(263, 150);
             this.txtSinopsis2.TabIndex = 102;
             this.txtSinopsis2.Text = "\r\n";
             this.txtSinopsis2.Visible = false;
@@ -366,9 +370,10 @@
             // picPelicula2
             // 
             this.picPelicula2.BackColor = System.Drawing.Color.White;
-            this.picPelicula2.Location = new System.Drawing.Point(41, 317);
+            this.picPelicula2.Location = new System.Drawing.Point(31, 258);
+            this.picPelicula2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picPelicula2.Name = "picPelicula2";
-            this.picPelicula2.Size = new System.Drawing.Size(225, 184);
+            this.picPelicula2.Size = new System.Drawing.Size(169, 150);
             this.picPelicula2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPelicula2.TabIndex = 101;
             this.picPelicula2.TabStop = false;
@@ -385,10 +390,9 @@
             this.btnFuncion1.ForeColor = System.Drawing.Color.White;
             this.btnFuncion1.Image = global::Taquilla.Properties.Resources.calendario;
             this.btnFuncion1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncion1.Location = new System.Drawing.Point(757, 189);
-            this.btnFuncion1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFuncion1.Location = new System.Drawing.Point(568, 154);
             this.btnFuncion1.Name = "btnFuncion1";
-            this.btnFuncion1.Size = new System.Drawing.Size(247, 43);
+            this.btnFuncion1.Size = new System.Drawing.Size(185, 35);
             this.btnFuncion1.TabIndex = 100;
             this.btnFuncion1.Text = "Funciones";
             this.btnFuncion1.UseVisualStyleBackColor = false;
@@ -400,9 +404,10 @@
             this.lblPelicula1.AutoSize = true;
             this.lblPelicula1.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPelicula1.ForeColor = System.Drawing.Color.White;
-            this.lblPelicula1.Location = new System.Drawing.Point(36, 253);
+            this.lblPelicula1.Location = new System.Drawing.Point(27, 206);
+            this.lblPelicula1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPelicula1.Name = "lblPelicula1";
-            this.lblPelicula1.Size = new System.Drawing.Size(130, 27);
+            this.lblPelicula1.Size = new System.Drawing.Size(104, 21);
             this.lblPelicula1.TabIndex = 99;
             this.lblPelicula1.Text = "Iron Man 3";
             this.lblPelicula1.Visible = false;
@@ -417,10 +422,10 @@
             this.btnSubir.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubir.ForeColor = System.Drawing.Color.White;
             this.btnSubir.Image = global::Taquilla.Properties.Resources.flecha_arriba;
-            this.btnSubir.Location = new System.Drawing.Point(1055, 317);
-            this.btnSubir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSubir.Location = new System.Drawing.Point(791, 258);
+            this.btnSubir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(76, 58);
+            this.btnSubir.Size = new System.Drawing.Size(57, 47);
             this.btnSubir.TabIndex = 98;
             this.btnSubir.UseVisualStyleBackColor = false;
             this.btnSubir.Visible = false;
@@ -436,10 +441,10 @@
             this.btnBajar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBajar.ForeColor = System.Drawing.Color.White;
             this.btnBajar.Image = global::Taquilla.Properties.Resources.flecha_apuntando_hacia_abajo;
-            this.btnBajar.Location = new System.Drawing.Point(1058, 420);
-            this.btnBajar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBajar.Location = new System.Drawing.Point(794, 341);
+            this.btnBajar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBajar.Name = "btnBajar";
-            this.btnBajar.Size = new System.Drawing.Size(73, 62);
+            this.btnBajar.Size = new System.Drawing.Size(55, 50);
             this.btnBajar.TabIndex = 97;
             this.btnBajar.UseVisualStyleBackColor = false;
             this.btnBajar.Visible = false;
@@ -450,9 +455,10 @@
             this.lblSinopsis1.AutoSize = true;
             this.lblSinopsis1.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSinopsis1.ForeColor = System.Drawing.Color.White;
-            this.lblSinopsis1.Location = new System.Drawing.Point(336, 253);
+            this.lblSinopsis1.Location = new System.Drawing.Point(252, 206);
+            this.lblSinopsis1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSinopsis1.Name = "lblSinopsis1";
-            this.lblSinopsis1.Size = new System.Drawing.Size(104, 27);
+            this.lblSinopsis1.Size = new System.Drawing.Size(84, 21);
             this.lblSinopsis1.TabIndex = 96;
             this.lblSinopsis1.Text = "Sinopsis";
             this.lblSinopsis1.Visible = false;
@@ -462,12 +468,13 @@
             this.txtSinopsis1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.txtSinopsis1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSinopsis1.ForeColor = System.Drawing.Color.White;
-            this.txtSinopsis1.Location = new System.Drawing.Point(341, 66);
+            this.txtSinopsis1.Location = new System.Drawing.Point(256, 54);
+            this.txtSinopsis1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSinopsis1.Multiline = true;
             this.txtSinopsis1.Name = "txtSinopsis1";
             this.txtSinopsis1.ReadOnly = true;
             this.txtSinopsis1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSinopsis1.Size = new System.Drawing.Size(349, 184);
+            this.txtSinopsis1.Size = new System.Drawing.Size(263, 150);
             this.txtSinopsis1.TabIndex = 95;
             this.txtSinopsis1.Text = "\r\n";
             this.txtSinopsis1.Visible = false;
@@ -476,9 +483,10 @@
             // 
             this.picPelicula1.BackColor = System.Drawing.Color.White;
             this.picPelicula1.ImageLocation = "";
-            this.picPelicula1.Location = new System.Drawing.Point(41, 66);
+            this.picPelicula1.Location = new System.Drawing.Point(31, 54);
+            this.picPelicula1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picPelicula1.Name = "picPelicula1";
-            this.picPelicula1.Size = new System.Drawing.Size(225, 184);
+            this.picPelicula1.Size = new System.Drawing.Size(169, 150);
             this.picPelicula1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPelicula1.TabIndex = 94;
             this.picPelicula1.TabStop = false;
@@ -489,9 +497,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(438, 13);
+            this.label1.Location = new System.Drawing.Point(328, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 31);
+            this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 93;
             this.label1.Text = "Cartelera";
             // 
@@ -507,17 +516,19 @@
             this.panel3.Controls.Add(this.cboMunicipio);
             this.panel3.Controls.Add(this.cboDepartamento);
             this.panel3.Location = new System.Drawing.Point(-1, -2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1302, 93);
+            this.panel3.Size = new System.Drawing.Size(976, 76);
             this.panel3.TabIndex = 95;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(944, 15);
+            this.label4.Location = new System.Drawing.Point(708, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 27);
+            this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 122;
             this.label4.Text = "Cine";
             // 
@@ -525,9 +536,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(641, 15);
+            this.label3.Location = new System.Drawing.Point(481, 12);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 27);
+            this.label3.Size = new System.Drawing.Size(100, 21);
             this.label3.TabIndex = 121;
             this.label3.Text = "Municipio";
             // 
@@ -535,9 +547,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(342, 15);
+            this.label2.Location = new System.Drawing.Point(256, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 27);
+            this.label2.Size = new System.Drawing.Size(136, 21);
             this.label2.TabIndex = 120;
             this.label2.Text = "Departamento";
             // 
@@ -546,10 +559,9 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Image = global::Taquilla.Properties.Resources.icon_cerrar2;
-            this.btnClose.Location = new System.Drawing.Point(1242, 15);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Location = new System.Drawing.Point(932, 12);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(47, 43);
+            this.btnClose.Size = new System.Drawing.Size(35, 35);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnClose.TabIndex = 119;
             this.btnClose.TabStop = false;
@@ -560,10 +572,9 @@
             this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = global::Taquilla.Properties.Resources.icon_minimizar;
-            this.btnMin.Location = new System.Drawing.Point(1177, 15);
-            this.btnMin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMin.Location = new System.Drawing.Point(883, 12);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(47, 43);
+            this.btnMin.Size = new System.Drawing.Size(35, 35);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMin.TabIndex = 118;
             this.btnMin.TabStop = false;
@@ -575,9 +586,10 @@
             this.cboCine.Enabled = false;
             this.cboCine.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCine.FormattingEnabled = true;
-            this.cboCine.Location = new System.Drawing.Point(855, 46);
+            this.cboCine.Location = new System.Drawing.Point(641, 37);
+            this.cboCine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCine.Name = "cboCine";
-            this.cboCine.Size = new System.Drawing.Size(242, 30);
+            this.cboCine.Size = new System.Drawing.Size(182, 27);
             this.cboCine.TabIndex = 94;
             this.cboCine.SelectedIndexChanged += new System.EventHandler(this.cboCine_SelectedIndexChanged);
             // 
@@ -587,9 +599,10 @@
             this.cboMunicipio.Enabled = false;
             this.cboMunicipio.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMunicipio.FormattingEnabled = true;
-            this.cboMunicipio.Location = new System.Drawing.Point(567, 45);
+            this.cboMunicipio.Location = new System.Drawing.Point(425, 37);
+            this.cboMunicipio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboMunicipio.Name = "cboMunicipio";
-            this.cboMunicipio.Size = new System.Drawing.Size(262, 30);
+            this.cboMunicipio.Size = new System.Drawing.Size(198, 27);
             this.cboMunicipio.TabIndex = 93;
             this.cboMunicipio.SelectedIndexChanged += new System.EventHandler(this.cboMunicipio_SelectedIndexChanged);
             // 
@@ -598,84 +611,89 @@
             this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartamento.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartamento.FormattingEnabled = true;
-            this.cboDepartamento.Location = new System.Drawing.Point(337, 45);
+            this.cboDepartamento.Location = new System.Drawing.Point(253, 37);
+            this.cboDepartamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboDepartamento.Name = "cboDepartamento";
-            this.cboDepartamento.Size = new System.Drawing.Size(186, 30);
+            this.cboDepartamento.Size = new System.Drawing.Size(140, 27);
             this.cboDepartamento.TabIndex = 92;
             this.cboDepartamento.SelectedIndexChanged += new System.EventHandler(this.cboDepartamento_SelectedIndexChanged);
             // 
             // cboCodigoDepartamento
             // 
             this.cboCodigoDepartamento.FormattingEnabled = true;
-            this.cboCodigoDepartamento.Location = new System.Drawing.Point(12, 120);
+            this.cboCodigoDepartamento.Location = new System.Drawing.Point(9, 98);
+            this.cboCodigoDepartamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoDepartamento.Name = "cboCodigoDepartamento";
-            this.cboCodigoDepartamento.Size = new System.Drawing.Size(31, 24);
+            this.cboCodigoDepartamento.Size = new System.Drawing.Size(24, 21);
             this.cboCodigoDepartamento.TabIndex = 97;
             this.cboCodigoDepartamento.Visible = false;
             // 
             // cboCodigoMunicipio
             // 
             this.cboCodigoMunicipio.FormattingEnabled = true;
-            this.cboCodigoMunicipio.Location = new System.Drawing.Point(12, 160);
+            this.cboCodigoMunicipio.Location = new System.Drawing.Point(9, 130);
+            this.cboCodigoMunicipio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoMunicipio.Name = "cboCodigoMunicipio";
-            this.cboCodigoMunicipio.Size = new System.Drawing.Size(31, 24);
+            this.cboCodigoMunicipio.Size = new System.Drawing.Size(24, 21);
             this.cboCodigoMunicipio.TabIndex = 98;
             this.cboCodigoMunicipio.Visible = false;
             // 
             // cboCodigoCine
             // 
             this.cboCodigoCine.FormattingEnabled = true;
-            this.cboCodigoCine.Location = new System.Drawing.Point(12, 208);
+            this.cboCodigoCine.Location = new System.Drawing.Point(9, 169);
+            this.cboCodigoCine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoCine.Name = "cboCodigoCine";
-            this.cboCodigoCine.Size = new System.Drawing.Size(31, 24);
+            this.cboCodigoCine.Size = new System.Drawing.Size(24, 21);
             this.cboCodigoCine.TabIndex = 99;
             this.cboCodigoCine.Visible = false;
             // 
             // lblTrailer1
             // 
             this.lblTrailer1.AutoSize = true;
-            this.lblTrailer1.Location = new System.Drawing.Point(13, 270);
+            this.lblTrailer1.Location = new System.Drawing.Point(10, 219);
+            this.lblTrailer1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTrailer1.Name = "lblTrailer1";
-            this.lblTrailer1.Size = new System.Drawing.Size(0, 17);
+            this.lblTrailer1.Size = new System.Drawing.Size(0, 13);
             this.lblTrailer1.TabIndex = 100;
             this.lblTrailer1.Visible = false;
             // 
             // lblTrailer2
             // 
             this.lblTrailer2.AutoSize = true;
-            this.lblTrailer2.Location = new System.Drawing.Point(12, 313);
+            this.lblTrailer2.Location = new System.Drawing.Point(9, 254);
+            this.lblTrailer2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTrailer2.Name = "lblTrailer2";
-            this.lblTrailer2.Size = new System.Drawing.Size(0, 17);
+            this.lblTrailer2.Size = new System.Drawing.Size(0, 13);
             this.lblTrailer2.TabIndex = 101;
             this.lblTrailer2.Visible = false;
             // 
             // lblTrailer3
             // 
             this.lblTrailer3.AutoSize = true;
-            this.lblTrailer3.Location = new System.Drawing.Point(15, 355);
+            this.lblTrailer3.Location = new System.Drawing.Point(11, 288);
+            this.lblTrailer3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTrailer3.Name = "lblTrailer3";
-            this.lblTrailer3.Size = new System.Drawing.Size(0, 17);
+            this.lblTrailer3.Size = new System.Drawing.Size(0, 13);
             this.lblTrailer3.TabIndex = 102;
             this.lblTrailer3.Visible = false;
             // 
-            // picLogo
+            // wmpLogo
             // 
-            this.picLogo.Image = global::Taquilla.Properties.Resources.logo;
-            this.picLogo.InitialImage = null;
-            this.picLogo.Location = new System.Drawing.Point(346, 235);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(662, 526);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 103;
-            this.picLogo.TabStop = false;
+            this.wmpLogo.Enabled = true;
+            this.wmpLogo.Location = new System.Drawing.Point(257, 124);
+            this.wmpLogo.Name = "wmpLogo";
+            this.wmpLogo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpLogo.OcxState")));
+            this.wmpLogo.Size = new System.Drawing.Size(432, 432);
+            this.wmpLogo.TabIndex = 117;
             // 
             // frmCartelera
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1300, 900);
-            this.Controls.Add(this.picLogo);
+            this.ClientSize = new System.Drawing.Size(975, 731);
+            this.Controls.Add(this.wmpLogo);
             this.Controls.Add(this.lblTrailer3);
             this.Controls.Add(this.lblTrailer2);
             this.Controls.Add(this.lblTrailer1);
@@ -685,7 +703,8 @@
             this.Controls.Add(this.pnlCartelera);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1139, 900);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(854, 731);
             this.Name = "frmCartelera";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -700,7 +719,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wmpLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -745,10 +764,10 @@
         private System.Windows.Forms.Label lblTrailer1;
         private System.Windows.Forms.Label lblTrailer2;
         private System.Windows.Forms.Label lblTrailer3;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip ttpClasificacion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox picLogo;
+        private AxWMPLib.AxWindowsMediaPlayer wmpLogo;
     }
 }
