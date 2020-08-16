@@ -103,7 +103,7 @@
             this.btnConfirmar.TabIndex = 55;
             this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = false;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // txtNumero
             // 
@@ -112,6 +112,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(420, 30);
             this.txtNumero.TabIndex = 54;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // lblNumero
             // 
@@ -144,6 +145,7 @@
             this.txtCVV.Name = "txtCVV";
             this.txtCVV.Size = new System.Drawing.Size(100, 30);
             this.txtCVV.TabIndex = 51;
+            this.txtCVV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCVV_KeyPress);
             // 
             // cboAño
             // 
@@ -194,6 +196,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(420, 30);
             this.txtNombre.TabIndex = 46;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
             // 

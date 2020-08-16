@@ -113,7 +113,6 @@
             this.pnlBarraSuperior.Name = "pnlBarraSuperior";
             this.pnlBarraSuperior.Size = new System.Drawing.Size(1249, 41);
             this.pnlBarraSuperior.TabIndex = 0;
-            this.pnlBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraSuperior_MouseDown);
             // 
             // btnRestaurar
             // 
@@ -127,7 +126,6 @@
             this.btnRestaurar.TabIndex = 7;
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // btnMin
             // 
@@ -140,7 +138,6 @@
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMin.TabIndex = 6;
             this.btnMin.TabStop = false;
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
             // btnMax
             // 
@@ -153,7 +150,6 @@
             this.btnMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMax.TabIndex = 5;
             this.btnMax.TabStop = false;
-            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
             // 
             // btnCerrar
             // 
@@ -174,7 +170,6 @@
             this.pnlAsientos.Name = "pnlAsientos";
             this.pnlAsientos.Size = new System.Drawing.Size(512, 501);
             this.pnlAsientos.TabIndex = 1;
-            this.pnlAsientos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlAsientos_MouseClick);
             // 
             // lblPantalla
             // 
@@ -350,7 +345,7 @@
             this.btnFacturacion.TabIndex = 27;
             this.btnFacturacion.Text = "FACTURACION";
             this.btnFacturacion.UseVisualStyleBackColor = false;
-            this.btnFacturacion.Click += new System.EventHandler(this.button2_Click);
+            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
             // 
             // lblI
             // 
@@ -855,7 +850,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Transparent;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmBoletos_Load);
             this.pnlBarraSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();

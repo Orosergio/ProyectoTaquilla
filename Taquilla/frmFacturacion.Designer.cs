@@ -132,7 +132,6 @@
             this.pnlDatosDetalles.Name = "pnlDatosDetalles";
             this.pnlDatosDetalles.Size = new System.Drawing.Size(948, 482);
             this.pnlDatosDetalles.TabIndex = 26;
-            this.pnlDatosDetalles.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDatosDetalles_Paint);
             // 
             // lblTarjetaCliente
             // 
@@ -481,7 +480,6 @@
             this.lblCantDescuento.Size = new System.Drawing.Size(46, 21);
             this.lblCantDescuento.TabIndex = 40;
             this.lblCantDescuento.Text = "0.00";
-            this.lblCantDescuento.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblDescuento
             // 
@@ -494,7 +492,6 @@
             this.lblDescuento.Size = new System.Drawing.Size(166, 21);
             this.lblDescuento.TabIndex = 39;
             this.lblDescuento.Text = "DESCUENTO:    Q";
-            this.lblDescuento.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblCantTotal
             // 
@@ -506,7 +503,6 @@
             this.lblCantTotal.Name = "lblCantTotal";
             this.lblCantTotal.Size = new System.Drawing.Size(0, 21);
             this.lblCantTotal.TabIndex = 37;
-            this.lblCantTotal.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtNit
             // 
@@ -515,7 +511,6 @@
             this.txtNit.Name = "txtNit";
             this.txtNit.Size = new System.Drawing.Size(174, 30);
             this.txtNit.TabIndex = 33;
-            this.txtNit.TextChanged += new System.EventHandler(this.txtNit_TextChanged);
             this.txtNit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNit_KeyPress);
             // 
             // lblApellido
@@ -541,7 +536,6 @@
             this.lblFacturacion.Size = new System.Drawing.Size(183, 27);
             this.lblFacturacion.TabIndex = 30;
             this.lblFacturacion.Text = "FACTURACIÓN";
-            this.lblFacturacion.Click += new System.EventHandler(this.label18_Click);
             // 
             // lblNombre
             // 
@@ -566,7 +560,6 @@
             this.lblTotal.Size = new System.Drawing.Size(166, 21);
             this.lblTotal.TabIndex = 27;
             this.lblTotal.Text = "TOTAL:               Q";
-            this.lblTotal.Click += new System.EventHandler(this.label19_Click);
             // 
             // lblNoTarjeta
             // 
@@ -649,7 +642,6 @@
             this.btnRestaurar.TabIndex = 7;
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // btnMin
             // 
@@ -662,7 +654,6 @@
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMin.TabIndex = 6;
             this.btnMin.TabStop = false;
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
             // btnMax
             // 
