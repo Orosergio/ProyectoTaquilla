@@ -52,7 +52,7 @@ namespace AdministrativoReportes
             {
                 try
                 {
-                    string cadena = "SELECT * FROM PROYECCIONPELICULA WHERE idPelicula =" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
+                    string cadena = "SELECT PRO.idProyeccionPelicula AS CODIGO, PE.nombre AS PELICULA,C.nombre AS CINE,S.numero AS SALA, PRO.fechaHoraProyeccion AS HORARIO, I.nombre AS IDIOMA, F.nombre AS FORMATO FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato and PE.idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString()) + "  ";
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);
@@ -155,6 +155,7 @@ namespace AdministrativoReportes
             //funcion para buscar las proyecciones segun el codigo que se indica
             try
             {
+
                 string cadena = "SELECT * FROM PROYECCIONPELICULA WHERE idPelicula =" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
                 OdbcCommand comm1 = new OdbcCommand(cadena, cn.nuevaConexion());
                 OdbcDataReader mostrarMun = comm1.ExecuteReader();

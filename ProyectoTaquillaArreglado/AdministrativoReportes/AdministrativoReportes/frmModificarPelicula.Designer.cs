@@ -119,7 +119,7 @@
             this.cboCodigoC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoC.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoC.FormattingEnabled = true;
-            this.cboCodigoC.Location = new System.Drawing.Point(966, 127);
+            this.cboCodigoC.Location = new System.Drawing.Point(966, 360);
             this.cboCodigoC.Name = "cboCodigoC";
             this.cboCodigoC.Size = new System.Drawing.Size(60, 35);
             this.cboCodigoC.TabIndex = 8;
@@ -235,7 +235,7 @@
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(966, 71);
+            this.cboCodigoP.Location = new System.Drawing.Point(966, 57);
             this.cboCodigoP.Name = "cboCodigoP";
             this.cboCodigoP.Size = new System.Drawing.Size(60, 35);
             this.cboCodigoP.TabIndex = 2;

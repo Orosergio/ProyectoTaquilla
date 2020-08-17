@@ -54,7 +54,7 @@ namespace AdministrativoReportes
             //funcion que busca los los datos del empleado segun e telefono lo que se solicita en la consulta
             try
                 {
-                    string cadena = "select t.idTelefono, E.nombre,T.telefono,T.estatus from empleado E, telefono T WHERE E.idEmpleado = T.idEmpleado and telefono = " + txtTelefono.Text;
+                    string cadena = "select t.idTelefono AS CODIGO, E.nombre NOMBRE,T.telefono AS TELEFONO,T.estatus AS ESTATUS from empleado E, telefono T WHERE E.idEmpleado = T.idEmpleado and telefono = " + txtTelefono.Text;
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);

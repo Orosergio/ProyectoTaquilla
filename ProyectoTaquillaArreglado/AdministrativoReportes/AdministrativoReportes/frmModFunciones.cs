@@ -19,9 +19,11 @@ namespace AdministrativoReportes
             InitializeComponent();
             procBuscar();
         }
+     
         //funcion que busca elementos de la base de datos y los coloca en sus respectivo comboBox
         void procBuscar()
         {
+           procLimpiar();
             try
             {
                 string Departamento = "SELECT * FROM DEPARTAMENTO ";
@@ -96,8 +98,10 @@ namespace AdministrativoReportes
         private void cboDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             //en este comboBox permitira que municipios se veran en el siguiente comboBox
-            cboCodigoD.SelectedIndex =  cboDepartamento.SelectedIndex ;
             cboMunicipio.Items.Clear();
+            cboCodigoM.Items.Clear();
+            cboCodigoD.SelectedIndex =  cboDepartamento.SelectedIndex ;
+           
             try
             {
 
@@ -122,8 +126,10 @@ namespace AdministrativoReportes
         private void cboMunicipio_SelectedIndexChanged(object sender, EventArgs e)
         {
             //en este comboBox permitira que cines se veran en el siguiente comboBox
-            cboCodigoM.SelectedIndex = cboMunicipio.SelectedIndex ;
             cboCine.Items.Clear();
+            cboCodigoC.Items.Clear();
+            cboCodigoM.SelectedIndex = cboMunicipio.SelectedIndex ;
+           
             try
             {
                 string Cine = "SELECT * FROM CINE WHERE idMunicipio =" + Int32.Parse(cboCodigoM.SelectedItem.ToString());
@@ -147,9 +153,12 @@ namespace AdministrativoReportes
         private void cboCine_SelectedIndexChanged(object sender, EventArgs e)
         {
             //en este comboBox permitira que salas se veran en el siguiente comboBox
-                cboCodigoC.SelectedIndex = cboCine.SelectedIndex;
-                cboSala.Items.Clear();
-                cboSalaN.Items.Clear();
+            cboSala.Items.Clear();
+            cboCodigoS.Items.Clear();
+            cboSalaN.Items.Clear();
+            cboCodigoN.Items.Clear();
+            cboCodigoC.SelectedIndex = cboCine.SelectedIndex;
+                
             try
                 {
                     string Sala = "SELECT * FROM SALA WHERE idCine = " + Int32.Parse(cboCodigoC.SelectedItem.ToString());
@@ -169,6 +178,7 @@ namespace AdministrativoReportes
                 {
                     MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde"+ex);
                 }
+            dgtDatos.DataSource = null;
  
         }
 
@@ -222,8 +232,10 @@ namespace AdministrativoReportes
         private void cboSalaN_SelectedIndexChanged(object sender, EventArgs e)
         {
             //en este comboBox permitira que formatos se veran en el siguiente comboBox
+            cboFormato.Items.Clear();
+            cboCodigoF.Items.Clear();
             cboCodigoN.SelectedIndex  = cboSalaN.SelectedIndex  ;
-          cboFormato.Items.Clear();
+         
             try
             {
                 string Sala1 = "SELECT F.idFormato,F.nombre FROM formato F, formatosala FS, sala S WHERE S.idSala = FS.idSala AND F.idFormato = FS.idFormato AND S.idSala = " + Int32.Parse(cboCodigoS.SelectedItem.ToString());
@@ -252,7 +264,7 @@ namespace AdministrativoReportes
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+          
             //en este boton se buscan los datos que se quieren mostrar en el dataGridView segun el codigo de la pelicula y el codigo de la sala
             if (cboDepartamento.SelectedItem == null || cboMunicipio.SelectedItem == null || cboCine.SelectedItem == null || cboPelicula.SelectedItem == null || cboSala.SelectedItem == null)
             {
@@ -268,9 +280,8 @@ namespace AdministrativoReportes
                 lblF.Text = "";
                 try
                 {
-                    int codigoPelicula = Int32.Parse(cboCodigoP.SelectedItem.ToString());
-                    int codigoSala = Int32.Parse(cboCodigoS.SelectedItem.ToString());
-                    string cadena = "SELECT PRO.idProyeccionPelicula, PE.nombre,S.numero, PRO.fechaHoraProyeccion, I.nombre, F.nombre FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato and PE.idPelicula = " + codigoPelicula + " and S.idSala = " + codigoSala + " ";
+                  
+                    string cadena = "SELECT PRO.idProyeccionPelicula AS CODIGO, PE.nombre AS PELICULA,C.nombre AS CINE,S.numero AS SALA, PRO.fechaHoraProyeccion AS HORARIO, I.nombre AS IDIOMA, F.nombre AS FORMATO FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato and PE.idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString()) + " and S.idSala = " + Int32.Parse(cboCodigoS.SelectedItem.ToString()) + " ";
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);
@@ -281,6 +292,7 @@ namespace AdministrativoReportes
                     MessageBox.Show("" + ex);
                 }
             }
+                
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -328,6 +340,16 @@ namespace AdministrativoReportes
         void procLimpiar()
         {
             //funcion que limpia los elementos del form
+            cboCodigoD.Items.Clear();
+            cboCodigoP.Items.Clear();
+            cboCodigoPN.Items.Clear();
+            cboCodigoF.Items.Clear();
+            cboCodigoI.Items.Clear();
+            cboCodigoM.Items.Clear();
+            cboCodigoN.Items.Clear();
+            cboCodigoC.Items.Clear();
+            cboCodigoS.Items.Clear();
+
             cboDepartamento.Items.Clear();
             cboMunicipio.Items.Clear();
             cboPelicula.Items.Clear();

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificarUsuario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCodigoA = new System.Windows.Forms.Label();
             this.cboEmpleado = new System.Windows.Forms.ComboBox();
             this.cboEstatus = new System.Windows.Forms.ComboBox();
@@ -86,7 +86,7 @@
             this.cboEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEmpleado.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEmpleado.FormattingEnabled = true;
-            this.cboEmpleado.Location = new System.Drawing.Point(631, 483);
+            this.cboEmpleado.Location = new System.Drawing.Point(688, 474);
             this.cboEmpleado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboEmpleado.Name = "cboEmpleado";
             this.cboEmpleado.Size = new System.Drawing.Size(461, 35);
@@ -101,7 +101,7 @@
             this.cboEstatus.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.cboEstatus.Location = new System.Drawing.Point(807, 707);
+            this.cboEstatus.Location = new System.Drawing.Point(864, 698);
             this.cboEstatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboEstatus.Name = "cboEstatus";
             this.cboEstatus.Size = new System.Drawing.Size(283, 35);
@@ -112,7 +112,7 @@
             this.cboCoEmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCoEmp.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCoEmp.FormattingEnabled = true;
-            this.cboCoEmp.Location = new System.Drawing.Point(1091, 482);
+            this.cboCoEmp.Location = new System.Drawing.Point(1152, 480);
             this.cboCoEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCoEmp.Name = "cboCoEmp";
             this.cboCoEmp.Size = new System.Drawing.Size(59, 35);
@@ -233,7 +233,7 @@
             this.lblTitulo3.AutoSize = true;
             this.lblTitulo3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo3.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo3.Location = new System.Drawing.Point(586, 431);
+            this.lblTitulo3.Location = new System.Drawing.Point(643, 422);
             this.lblTitulo3.Name = "lblTitulo3";
             this.lblTitulo3.Size = new System.Drawing.Size(164, 27);
             this.lblTitulo3.TabIndex = 170;
@@ -257,17 +257,17 @@
             this.dgtDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgtDatos.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgtDatos.Size = new System.Drawing.Size(616, 238);
@@ -339,7 +339,7 @@
             this.lblR.AutoSize = true;
             this.lblR.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblR.ForeColor = System.Drawing.Color.White;
-            this.lblR.Location = new System.Drawing.Point(205, 533);
+            this.lblR.Location = new System.Drawing.Point(192, 494);
             this.lblR.Name = "lblR";
             this.lblR.Size = new System.Drawing.Size(0, 27);
             this.lblR.TabIndex = 203;
@@ -359,7 +359,7 @@
             this.lblE.AutoSize = true;
             this.lblE.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblE.ForeColor = System.Drawing.Color.White;
-            this.lblE.Location = new System.Drawing.Point(205, 494);
+            this.lblE.Location = new System.Drawing.Point(207, 532);
             this.lblE.Name = "lblE";
             this.lblE.Size = new System.Drawing.Size(0, 27);
             this.lblE.TabIndex = 201;
@@ -369,7 +369,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(461, 706);
+            this.label1.Location = new System.Drawing.Point(518, 697);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 27);
             this.label1.TabIndex = 210;
@@ -380,7 +380,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(461, 612);
+            this.label2.Location = new System.Drawing.Point(518, 603);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 27);
             this.label2.TabIndex = 209;
@@ -391,7 +391,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(462, 529);
+            this.label3.Location = new System.Drawing.Point(519, 520);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 27);
             this.label3.TabIndex = 208;
@@ -402,7 +402,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(462, 568);
+            this.label4.Location = new System.Drawing.Point(519, 559);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 27);
             this.label4.TabIndex = 207;
@@ -413,7 +413,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(462, 483);
+            this.label5.Location = new System.Drawing.Point(519, 474);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 27);
             this.label5.TabIndex = 206;
@@ -424,7 +424,7 @@
             this.cboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRol.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRol.FormattingEnabled = true;
-            this.cboRol.Location = new System.Drawing.Point(631, 522);
+            this.cboRol.Location = new System.Drawing.Point(688, 513);
             this.cboRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboRol.Name = "cboRol";
             this.cboRol.Size = new System.Drawing.Size(461, 35);
@@ -436,7 +436,7 @@
             this.cboCodigoR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoR.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoR.FormattingEnabled = true;
-            this.cboCodigoR.Location = new System.Drawing.Point(1091, 529);
+            this.cboCodigoR.Location = new System.Drawing.Point(1152, 527);
             this.cboCodigoR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoR.Name = "cboCodigoR";
             this.cboCodigoR.Size = new System.Drawing.Size(59, 35);
@@ -446,7 +446,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(631, 567);
+            this.txtUsuario.Location = new System.Drawing.Point(688, 558);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(459, 35);
@@ -455,7 +455,7 @@
             // txtContraseña
             // 
             this.txtContraseña.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(805, 612);
+            this.txtContraseña.Location = new System.Drawing.Point(862, 603);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(285, 35);
@@ -465,7 +465,7 @@
             // txtContraseñaCon
             // 
             this.txtContraseñaCon.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseñaCon.Location = new System.Drawing.Point(807, 660);
+            this.txtContraseñaCon.Location = new System.Drawing.Point(864, 651);
             this.txtContraseñaCon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtContraseñaCon.Name = "txtContraseñaCon";
             this.txtContraseñaCon.Size = new System.Drawing.Size(285, 35);
@@ -477,7 +477,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(462, 664);
+            this.label6.Location = new System.Drawing.Point(519, 655);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(298, 27);
             this.label6.TabIndex = 216;
@@ -488,7 +488,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1104, 870);
+            this.ClientSize = new System.Drawing.Size(1223, 870);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtContraseñaCon);
             this.Controls.Add(this.txtContraseña);

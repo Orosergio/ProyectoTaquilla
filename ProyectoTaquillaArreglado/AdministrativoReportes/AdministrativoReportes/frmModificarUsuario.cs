@@ -99,7 +99,7 @@ namespace AdministrativoReportes
             {
                 try
                 {
-                    string cadena = "select * FROM USUARIO WHERE idUsuario = " + Int32.Parse(cboCodigoU.SelectedItem.ToString());
+                    string cadena = "select  U.idUsuario AS CODIGO,U.nombreUsuario AS USUARIO ,R.nombre AS ROL,E.nombre AS NOMBRE,E.apellido AS APELLIDO,U.estatus AS ESTATUS FROM USUARIO U,EMPLEADO E,ROL R WHERE E.idEmpleado = U.idEmpleado AND R.idRol = U.idRol AND idUsuario = " + Int32.Parse(cboCodigoU.SelectedItem.ToString());
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);
@@ -133,10 +133,14 @@ namespace AdministrativoReportes
         {
             //funcion que copia los elementos del dataGridView en los labels
             lblCodigoA.Text = dgtDatos.CurrentRow.Cells[0].Value.ToString();
-            lblE.Text = dgtDatos.CurrentRow.Cells[1].Value.ToString();
+            String nombre, apellido, nombreCompleto;
+            nombre = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            apellido = dgtDatos.CurrentRow.Cells[4].Value.ToString(); ;
+            nombreCompleto = nombre + " " + apellido;
+            lblE.Text = nombreCompleto;
             lblR.Text = dgtDatos.CurrentRow.Cells[2].Value.ToString();
-            lblU.Text = dgtDatos.CurrentRow.Cells[4].Value.ToString();
-            lblC.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            lblU.Text = dgtDatos.CurrentRow.Cells[1].Value.ToString();
+          //  lblC.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
             lblEstatusC.Text = dgtDatos.CurrentRow.Cells[5].Value.ToString();
            
         }
@@ -144,6 +148,7 @@ namespace AdministrativoReportes
         private void cboUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoU.SelectedIndex = cboUsuario.SelectedIndex;
+            dgtDatos.DataSource = "";
         }
 
         private void cboEmpleado_SelectedIndexChanged(object sender, EventArgs e)

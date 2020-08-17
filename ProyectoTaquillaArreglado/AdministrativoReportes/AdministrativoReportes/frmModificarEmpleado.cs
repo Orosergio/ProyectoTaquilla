@@ -75,6 +75,7 @@ namespace AdministrativoReportes
         private void cboNombre_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoE.SelectedIndex = cboNombre.SelectedIndex;
+            dgtDatos.DataSource = null;
         }
 
         private void cboPuestoN_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,7 +100,7 @@ namespace AdministrativoReportes
                 lblNA.Text = "";
                 try
                     {
-                        string cadena = "select * FROM empleado WHERE idEmpleado = "+Int32.Parse(cboCodigoE.SelectedItem.ToString());
+                        string cadena = "select E.idEmpleado AS CODIGO ,E.nombre AS NOMBRE ,E.apellido AS APELLIDO ,P.nombre AS PUESTO,E.fechaContratacion AS CONTRATACION ,E.fechaNacimiento AS NACIMIENTO,E.estatus AS ESTATUS FROM  puesto P, empleado E WHERE P.idPuesto = E.idPuesto AND idEmpleado = "+Int32.Parse(cboCodigoE.SelectedItem.ToString());
                         OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                         DataTable dt = new DataTable();
                         datos.Fill(dt);
