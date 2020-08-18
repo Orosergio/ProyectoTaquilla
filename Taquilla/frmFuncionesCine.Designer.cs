@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picAyuda = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
             this.lblFuncciones = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContenedorFunciones = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAyuda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPelicula)).BeginInit();
@@ -68,22 +70,36 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(229)))));
+            this.panel1.Controls.Add(this.picAyuda);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnMin);
             this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1032, 69);
+            this.panel1.Size = new System.Drawing.Size(774, 56);
             this.panel1.TabIndex = 92;
+            // 
+            // picAyuda
+            // 
+            this.picAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picAyuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picAyuda.Image = global::Taquilla.Properties.Resources.pregunta;
+            this.picAyuda.Location = new System.Drawing.Point(21, 11);
+            this.picAyuda.Name = "picAyuda";
+            this.picAyuda.Size = new System.Drawing.Size(32, 32);
+            this.picAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAyuda.TabIndex = 124;
+            this.picAyuda.TabStop = false;
+            this.picAyuda.Click += new System.EventHandler(this.picAyuda_Click);
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(964, 13);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Location = new System.Drawing.Point(723, 11);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(47, 43);
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnClose.TabIndex = 123;
             this.btnClose.TabStop = false;
@@ -94,10 +110,9 @@
             this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(895, 13);
-            this.btnMin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMin.Location = new System.Drawing.Point(671, 11);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(47, 43);
+            this.btnMin.Size = new System.Drawing.Size(32, 32);
             this.btnMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMin.TabIndex = 122;
             this.btnMin.TabStop = false;
@@ -108,9 +123,10 @@
             this.lblFuncciones.AutoSize = true;
             this.lblFuncciones.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFuncciones.ForeColor = System.Drawing.Color.White;
-            this.lblFuncciones.Location = new System.Drawing.Point(46, 161);
+            this.lblFuncciones.Location = new System.Drawing.Point(34, 131);
+            this.lblFuncciones.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFuncciones.Name = "lblFuncciones";
-            this.lblFuncciones.Size = new System.Drawing.Size(318, 27);
+            this.lblFuncciones.Size = new System.Drawing.Size(253, 21);
             this.lblFuncciones.TabIndex = 94;
             this.lblFuncciones.Text = "Fecha Funciones Existentes";
             // 
@@ -119,9 +135,10 @@
             this.lblFormato.AutoSize = true;
             this.lblFormato.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormato.ForeColor = System.Drawing.Color.White;
-            this.lblFormato.Location = new System.Drawing.Point(47, 226);
+            this.lblFormato.Location = new System.Drawing.Point(35, 184);
+            this.lblFormato.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFormato.Name = "lblFormato";
-            this.lblFormato.Size = new System.Drawing.Size(104, 27);
+            this.lblFormato.Size = new System.Drawing.Size(82, 21);
             this.lblFormato.TabIndex = 95;
             this.lblFormato.Text = "Formato";
             // 
@@ -130,9 +147,10 @@
             this.lblIdioma.AutoSize = true;
             this.lblIdioma.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdioma.ForeColor = System.Drawing.Color.White;
-            this.lblIdioma.Location = new System.Drawing.Point(47, 305);
+            this.lblIdioma.Location = new System.Drawing.Point(35, 248);
+            this.lblIdioma.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIdioma.Name = "lblIdioma";
-            this.lblIdioma.Size = new System.Drawing.Size(89, 27);
+            this.lblIdioma.Size = new System.Drawing.Size(71, 21);
             this.lblIdioma.TabIndex = 97;
             this.lblIdioma.Text = "Idioma";
             // 
@@ -141,9 +159,10 @@
             this.lblFunciones.AutoSize = true;
             this.lblFunciones.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFunciones.ForeColor = System.Drawing.Color.White;
-            this.lblFunciones.Location = new System.Drawing.Point(47, 381);
+            this.lblFunciones.Location = new System.Drawing.Point(35, 310);
+            this.lblFunciones.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFunciones.Name = "lblFunciones";
-            this.lblFunciones.Size = new System.Drawing.Size(126, 27);
+            this.lblFunciones.Size = new System.Drawing.Size(100, 21);
             this.lblFunciones.TabIndex = 98;
             this.lblFunciones.Text = "Funciones";
             // 
@@ -152,9 +171,10 @@
             this.cboFormato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFormato.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFormato.FormattingEnabled = true;
-            this.cboFormato.Location = new System.Drawing.Point(245, 226);
+            this.cboFormato.Location = new System.Drawing.Point(184, 184);
+            this.cboFormato.Margin = new System.Windows.Forms.Padding(2);
             this.cboFormato.Name = "cboFormato";
-            this.cboFormato.Size = new System.Drawing.Size(296, 37);
+            this.cboFormato.Size = new System.Drawing.Size(223, 30);
             this.cboFormato.TabIndex = 100;
             this.cboFormato.SelectedIndexChanged += new System.EventHandler(this.cboFormato_SelectedIndexChanged);
             // 
@@ -163,9 +183,10 @@
             this.cboIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIdioma.FormattingEnabled = true;
-            this.cboIdioma.Location = new System.Drawing.Point(245, 300);
+            this.cboIdioma.Location = new System.Drawing.Point(184, 244);
+            this.cboIdioma.Margin = new System.Windows.Forms.Padding(2);
             this.cboIdioma.Name = "cboIdioma";
-            this.cboIdioma.Size = new System.Drawing.Size(169, 37);
+            this.cboIdioma.Size = new System.Drawing.Size(128, 30);
             this.cboIdioma.TabIndex = 102;
             this.cboIdioma.SelectedIndexChanged += new System.EventHandler(this.cboIdioma_SelectedIndexChanged);
             // 
@@ -179,10 +200,10 @@
             this.btnSIguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSIguiente.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSIguiente.ForeColor = System.Drawing.Color.White;
-            this.btnSIguiente.Location = new System.Drawing.Point(692, 608);
-            this.btnSIguiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSIguiente.Location = new System.Drawing.Point(519, 494);
+            this.btnSIguiente.Margin = new System.Windows.Forms.Padding(2);
             this.btnSIguiente.Name = "btnSIguiente";
-            this.btnSIguiente.Size = new System.Drawing.Size(208, 45);
+            this.btnSIguiente.Size = new System.Drawing.Size(156, 37);
             this.btnSIguiente.TabIndex = 117;
             this.btnSIguiente.Text = "Siguiente";
             this.btnSIguiente.UseVisualStyleBackColor = false;
@@ -197,10 +218,10 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresar.Location = new System.Drawing.Point(63, 608);
-            this.btnRegresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRegresar.Location = new System.Drawing.Point(47, 494);
+            this.btnRegresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(208, 45);
+            this.btnRegresar.Size = new System.Drawing.Size(156, 37);
             this.btnRegresar.TabIndex = 118;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = false;
@@ -210,9 +231,10 @@
             // 
             this.picPelicula.BackColor = System.Drawing.Color.White;
             this.picPelicula.ImageLocation = "";
-            this.picPelicula.Location = new System.Drawing.Point(706, 145);
+            this.picPelicula.Location = new System.Drawing.Point(530, 118);
+            this.picPelicula.Margin = new System.Windows.Forms.Padding(2);
             this.picPelicula.Name = "picPelicula";
-            this.picPelicula.Size = new System.Drawing.Size(237, 342);
+            this.picPelicula.Size = new System.Drawing.Size(178, 278);
             this.picPelicula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPelicula.TabIndex = 121;
             this.picPelicula.TabStop = false;
@@ -222,9 +244,10 @@
             this.lblNombrePelicula.AutoSize = true;
             this.lblNombrePelicula.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombrePelicula.ForeColor = System.Drawing.Color.White;
-            this.lblNombrePelicula.Location = new System.Drawing.Point(701, 501);
+            this.lblNombrePelicula.Location = new System.Drawing.Point(526, 407);
+            this.lblNombrePelicula.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombrePelicula.Name = "lblNombrePelicula";
-            this.lblNombrePelicula.Size = new System.Drawing.Size(82, 27);
+            this.lblNombrePelicula.Size = new System.Drawing.Size(65, 21);
             this.lblNombrePelicula.TabIndex = 123;
             this.lblNombrePelicula.Text = "label2";
             // 
@@ -233,9 +256,10 @@
             this.lblNombreCine.AutoSize = true;
             this.lblNombreCine.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreCine.ForeColor = System.Drawing.Color.White;
-            this.lblNombreCine.Location = new System.Drawing.Point(240, 86);
+            this.lblNombreCine.Location = new System.Drawing.Point(180, 70);
+            this.lblNombreCine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreCine.Name = "lblNombreCine";
-            this.lblNombreCine.Size = new System.Drawing.Size(82, 27);
+            this.lblNombreCine.Size = new System.Drawing.Size(65, 21);
             this.lblNombreCine.TabIndex = 125;
             this.lblNombreCine.Text = "label2";
             // 
@@ -244,9 +268,10 @@
             this.lblCine.AutoSize = true;
             this.lblCine.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCine.ForeColor = System.Drawing.Color.White;
-            this.lblCine.Location = new System.Drawing.Point(49, 86);
+            this.lblCine.Location = new System.Drawing.Point(37, 70);
+            this.lblCine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCine.Name = "lblCine";
-            this.lblCine.Size = new System.Drawing.Size(65, 27);
+            this.lblCine.Size = new System.Drawing.Size(52, 21);
             this.lblCine.TabIndex = 124;
             this.lblCine.Text = "Cine";
             // 
@@ -259,10 +284,10 @@
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltrar.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrar.Location = new System.Drawing.Point(439, 300);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFiltrar.Location = new System.Drawing.Point(329, 244);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(102, 33);
+            this.btnFiltrar.Size = new System.Drawing.Size(76, 27);
             this.btnFiltrar.TabIndex = 126;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
@@ -271,18 +296,20 @@
             // cboCodigoIdioma
             // 
             this.cboCodigoIdioma.FormattingEnabled = true;
-            this.cboCodigoIdioma.Location = new System.Drawing.Point(612, 300);
+            this.cboCodigoIdioma.Location = new System.Drawing.Point(459, 244);
+            this.cboCodigoIdioma.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoIdioma.Name = "cboCodigoIdioma";
-            this.cboCodigoIdioma.Size = new System.Drawing.Size(49, 24);
+            this.cboCodigoIdioma.Size = new System.Drawing.Size(38, 21);
             this.cboCodigoIdioma.TabIndex = 129;
             this.cboCodigoIdioma.Visible = false;
             // 
             // cboCodigoFormato
             // 
             this.cboCodigoFormato.FormattingEnabled = true;
-            this.cboCodigoFormato.Location = new System.Drawing.Point(612, 226);
+            this.cboCodigoFormato.Location = new System.Drawing.Point(459, 184);
+            this.cboCodigoFormato.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoFormato.Name = "cboCodigoFormato";
-            this.cboCodigoFormato.Size = new System.Drawing.Size(49, 24);
+            this.cboCodigoFormato.Size = new System.Drawing.Size(38, 21);
             this.cboCodigoFormato.TabIndex = 130;
             this.cboCodigoFormato.Visible = false;
             // 
@@ -291,18 +318,20 @@
             this.cboFechaFunciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFechaFunciones.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFechaFunciones.FormattingEnabled = true;
-            this.cboFechaFunciones.Location = new System.Drawing.Point(380, 161);
+            this.cboFechaFunciones.Location = new System.Drawing.Point(285, 131);
+            this.cboFechaFunciones.Margin = new System.Windows.Forms.Padding(2);
             this.cboFechaFunciones.Name = "cboFechaFunciones";
-            this.cboFechaFunciones.Size = new System.Drawing.Size(205, 34);
+            this.cboFechaFunciones.Size = new System.Drawing.Size(155, 28);
             this.cboFechaFunciones.TabIndex = 131;
             this.cboFechaFunciones.SelectedIndexChanged += new System.EventHandler(this.cboFechaFunciones_SelectedIndexChanged);
             // 
             // cboFechasFun
             // 
             this.cboFechasFun.FormattingEnabled = true;
-            this.cboFechasFun.Location = new System.Drawing.Point(612, 166);
+            this.cboFechasFun.Location = new System.Drawing.Point(459, 135);
+            this.cboFechasFun.Margin = new System.Windows.Forms.Padding(2);
             this.cboFechasFun.Name = "cboFechasFun";
-            this.cboFechasFun.Size = new System.Drawing.Size(49, 24);
+            this.cboFechasFun.Size = new System.Drawing.Size(38, 21);
             this.cboFechasFun.TabIndex = 132;
             this.cboFechasFun.Visible = false;
             // 
@@ -329,6 +358,7 @@
             this.dgvFunciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFunciones.EnableHeadersVisualStyles = false;
             this.dgvFunciones.Location = new System.Drawing.Point(0, 0);
+            this.dgvFunciones.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFunciones.MultiSelect = false;
             this.dgvFunciones.Name = "dgvFunciones";
             this.dgvFunciones.RowHeadersVisible = false;
@@ -339,7 +369,7 @@
             this.dgvFunciones.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFunciones.RowTemplate.Height = 24;
             this.dgvFunciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFunciones.Size = new System.Drawing.Size(371, 124);
+            this.dgvFunciones.Size = new System.Drawing.Size(278, 101);
             this.dgvFunciones.TabIndex = 134;
             this.dgvFunciones.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFunciones_CellMouseClick);
             // 
@@ -376,17 +406,18 @@
             // pnlContenedorFunciones
             // 
             this.pnlContenedorFunciones.Controls.Add(this.dgvFunciones);
-            this.pnlContenedorFunciones.Location = new System.Drawing.Point(245, 381);
+            this.pnlContenedorFunciones.Location = new System.Drawing.Point(184, 310);
+            this.pnlContenedorFunciones.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedorFunciones.Name = "pnlContenedorFunciones";
-            this.pnlContenedorFunciones.Size = new System.Drawing.Size(371, 124);
+            this.pnlContenedorFunciones.Size = new System.Drawing.Size(278, 101);
             this.pnlContenedorFunciones.TabIndex = 135;
             // 
             // frmFuncionesCine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1036, 684);
+            this.ClientSize = new System.Drawing.Size(777, 556);
             this.Controls.Add(this.pnlContenedorFunciones);
             this.Controls.Add(this.cboFechasFun);
             this.Controls.Add(this.cboFechaFunciones);
@@ -407,12 +438,14 @@
             this.Controls.Add(this.lblFuncciones);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmFuncionesCine";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FuncionesCine";
             this.Load += new System.EventHandler(this.frmFuncionesCine_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAyuda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPelicula)).EndInit();
@@ -451,5 +484,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.PictureBox picAyuda;
     }
 }

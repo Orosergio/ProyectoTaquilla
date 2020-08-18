@@ -49,7 +49,7 @@ namespace Taquilla
                 e.Handled = false;
             }
             else
-            if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
+            if (Char.IsControl(e.KeyChar) || e.KeyChar==(char)Keys.Space) //permitir teclas de control como retroceso
             {
                 e.Handled = false;
             }
@@ -140,7 +140,7 @@ namespace Taquilla
                     {
                         //si todo está correcto se muestra un mensaje y se regresa al anterior form
                         MessageBox.Show("Los datos de la tarjeta fueron aceptados.", "TARJETA ACEPTADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        tmrTiempo.Stop();
                         this.Close();
                         this.Dispose();
                     }
@@ -162,6 +162,11 @@ namespace Taquilla
             }
         }
 
-      
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "Tarjeta.html");
+        }
+
+    
     }
 }
