@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsBoletos.cs" />
+    <Compile Include="frmAgregarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarCliente.Designer.cs">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBoletos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,11 +72,11 @@
       <DependentUpon>frmCartelera.cs</DependentUpon>
     </Compile>
     <Compile Include="clsConexion.cs" />
-    <Compile Include="frmFacturacion.cs">
+    <Compile Include="frmDatosCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFacturacion.Designer.cs">
-      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    <Compile Include="frmDatosCliente.Designer.cs">
+      <DependentUpon>frmDatosCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPagoTarjeta.cs">
       <SubType>Form</SubType>
@@ -93,6 +99,9 @@
     <Compile Include="clsPelicula.cs" />
     <Compile Include="clsProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAgregarCliente.resx">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBoletos.resx">
       <DependentUpon>frmBoletos.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,8 +111,8 @@
     <EmbeddedResource Include="frmCartelera.resx">
       <DependentUpon>frmCartelera.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFacturacion.resx">
-      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    <EmbeddedResource Include="frmDatosCliente.resx">
+      <DependentUpon>frmDatosCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPagoTarjeta.resx">
       <DependentUpon>frmPagoTarjeta.cs</DependentUpon>
@@ -139,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\Imagenes\logo.jpeg" />
+    <None Include="Imagenes\anadiruser.png" />
     <Content Include="Imagenes\calendario.png" />
     <Content Include="Imagenes\espalda.png" />
     <Content Include="Imagenes\flecha-apuntando-hacia-abajo.png" />
@@ -152,6 +162,8 @@
     <Content Include="Imagenes\johnwick.jpg" />
     <Content Include="Imagenes\menos %281%29.png" />
     <Content Include="Imagenes\plus-sign-in-a-black-circle %281%29.png" />
+    <None Include="Imagenes\pregunta.png" />
+    <None Include="Imagenes\tarjeta.png" />
     <Content Include="Imagenes\video.png" />
     <Content Include="Imagenes\youname.jpg" />
     <Content Include="Imagenes\yourname.jpg" />

@@ -76,7 +76,17 @@ namespace Taquilla
                 return true;
             }
         }
-        
+        public void procVerificarBoletos()
+        {
+            if (cantidadBoletos==0)
+            {
+                btnSiguiente.Enabled = false;
+            }
+            else
+            {
+                btnSiguiente.Enabled = true;
+            }
+        }
         public int funcNoAsientosReservados()
         /*se obtiene el numero de asientos reservados de la sala*/
         {
@@ -150,6 +160,7 @@ namespace Taquilla
             {
                 cantidad++;
                 cantidadBoletos++;
+                procVerificarBoletos();
                 lblCantidadTercera.Text = cantidad.ToString();
                 total = cantidad * precio;
                 lblSubTercera.Text = total.ToString();
@@ -175,6 +186,7 @@ namespace Taquilla
             {
                 cantidad++;
                 cantidadBoletos++;
+                procVerificarBoletos();
                 lblCantidadAdulto.Text = cantidad.ToString();
                 total = cantidad * precio;
                 lblSubAdulto.Text = total.ToString();
@@ -198,6 +210,7 @@ namespace Taquilla
             {
                 cantidad++;
                 cantidadBoletos++;
+                procVerificarBoletos();
                 lblCantidadNinos.Text = cantidad.ToString();
                 total = cantidad * precio;
                 lblSubNinos.Text = total.ToString();
@@ -223,6 +236,11 @@ namespace Taquilla
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "CantidadBoletos.html");
+        }
+
         private void btnMenos3_Click(object sender, EventArgs e)
         /*Boton para restar asientos a los deseados que desea comprar*/
         {
@@ -238,6 +256,7 @@ namespace Taquilla
             {
                 cantidad--;
                 cantidadBoletos--;
+                procVerificarBoletos();
                 lblCantidadNinos.Text = cantidad.ToString();
             }
             if (funcMaximoAsientos(cantidadBoletos) == true)
@@ -267,6 +286,7 @@ namespace Taquilla
             {
                 cantidad--;
                 cantidadBoletos--;
+                procVerificarBoletos();
                 lblCantidadTercera.Text = cantidad.ToString();
             }
             if (funcMaximoAsientos(cantidadBoletos) == true)
@@ -295,6 +315,7 @@ namespace Taquilla
             {
                 cantidad--;
                 cantidadBoletos--;
+                procVerificarBoletos();
                 lblCantidadAdulto.Text = cantidad.ToString();
             }
             if (funcMaximoAsientos(cantidadBoletos) == true)
@@ -348,15 +369,6 @@ namespace Taquilla
             }
         }
 
-        private void lblFormato_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         public void procTotal()
         /*Suma los subtotales para obtner el total*/
@@ -364,10 +376,6 @@ namespace Taquilla
             totales = 0;
             totales = (double.Parse(lblSubTercera.Text)) + (double.Parse(lblSubAdulto.Text)) + (double.Parse(lblSubNinos.Text));
             lblCantidadTotal.Text = totales.ToString();
-        }
-        private void Boletos_Load(object sender, EventArgs e)
-        {
-
         }
         public void procPrecios(int opcion)
         /*Se obtiene el precio de los difrentes tipos de boletos*/
@@ -408,10 +416,6 @@ namespace Taquilla
                 MessageBox.Show(ex.ToString());
                 throw;
             }
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

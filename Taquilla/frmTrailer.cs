@@ -42,5 +42,10 @@ namespace Taquilla
         {
 
         }
+
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "Trailer.html");
+        }
     }
 }

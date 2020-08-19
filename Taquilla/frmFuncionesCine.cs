@@ -24,18 +24,21 @@ namespace Taquilla
             procIdioma();
             procFechaFunciones();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void procHora()
         {
-
+            string horaActual = DateTime.Now.ToString("HH");
+            int conversion = Int32.Parse(horaActual);
+            while (conversion<=23)
+            {
+                cboHoraInicio.Items.Add(conversion.ToString() +":00:00");
+                conversion++;
+            }
+            cboHoraInicio.Items.Add("23:59:00");
         }
-
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
-            
-       
+            this.Dispose();           
         }
         public void procFechaFunciones()
         /*Procedimiento para mostrar las fechas de las funciones disponibles desde la hora que esta consultando hasta los siguientes dias
@@ -46,7 +49,7 @@ namespace Taquilla
                 string Query = "select distinct date_format(pp.fechahoraproyeccion, '%d - %m - %Y'),  date_format(pp.fechahoraproyeccion, '%Y-%m-%d') ";
                 Query += "from pelicula p, proyeccionpelicula pp, sala s, cine c ";
                 Query += "where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine=" + codigoCine + "  and pp.estatus=1 and p.estatus=1 ";
-                Query += "and s.estatus=1 and pp.fechahoraproyeccion >= sysdate() AND P.IDPELICULA=" + codigoPelicula;
+                Query += "and s.estatus=1 and pp.fechahoraproyeccion between sysdate() and date_add(now(), interval +7 day) and p.idpelicula=" + codigoPelicula+" order by pp.fechahoraproyeccion asc";
                 OdbcDataReader Datos;
                 OdbcCommand Consulta = new OdbcCommand();
                 Consulta.CommandText = Query;
@@ -128,6 +131,10 @@ namespace Taquilla
             {
                 MessageBox.Show("Debe elegir una fecha para la pelicula");
             }
+            else if (cboHoraInicio.Text == "")
+            {
+                MessageBox.Show("Debe elegir un rango de horas");
+            }
             else
             {
                 dgvFunciones.Rows.Clear();
@@ -143,7 +150,8 @@ namespace Taquilla
                         Query += "and pp.idformato=f.idformato and pp.idpelicula=p.idpelicula and i.ididioma=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
                         Query += "and f.idformato=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " and c.idcine=" + codigoCine + " and p.idpelicula=" + codigoPelicula + " ";
                         Query += "and cast(pp.fechahoraproyeccion as date) ='" + cboFechasFun.SelectedItem.ToString() + "' and pp.estatus=1 and p.estatus=1 and s.estatus=1 ";
-                        Query += "and pp.fechahoraproyeccion >= sysdate()";
+                        Query += "and pp.fechahoraproyeccion between sysdate() and date_add(now(), interval +7 day) " +
+                            "and cast(pp.fechahoraproyeccion as time) between '" + cboHoraInicio.SelectedItem.ToString() + "' and '23:59:59'";
                     }
                     else
                     {
@@ -152,7 +160,7 @@ namespace Taquilla
                         Query += "and pp.idformato=f.idformato and pp.idpelicula=p.idpelicula and i.ididioma=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
                         Query += "and f.idformato=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " and c.idcine=" + codigoCine + " and p.idpelicula=" + codigoPelicula + " ";
                         Query += "and cast(pp.fechahoraproyeccion as date) ='" + cboFechasFun.SelectedItem.ToString() + "' and pp.estatus=1 and p.estatus=1 and s.estatus=1 ";
-                        Query += "and cast(pp.fechahoraproyeccion as time) between curTime() and '23:59:59'";
+                        Query += "and cast(pp.fechahoraproyeccion as time) between '" + cboHoraInicio.SelectedItem.ToString() + "' and '23:59:59'";
                     }
                     
                     OdbcDataReader Datos;
@@ -161,7 +169,7 @@ namespace Taquilla
                     Consulta.Connection = conn.Conexion();
                     Datos = Consulta.ExecuteReader();
                     if (Datos.Read())
-                    {
+                    {  
                         dgvFunciones.Rows.Add(Datos.GetString(1), Datos.GetString(0), Datos.GetString(2), Datos.GetString(3));
                         while (Datos.Read())
                         {
@@ -190,6 +198,32 @@ namespace Taquilla
         private void cboFechaFunciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboFechasFun.SelectedIndex = cboFechaFunciones.SelectedIndex;
+            cboHoraInicio.Items.Clear();
+            DateTime dia = DateTime.Parse(cboFechaFunciones.SelectedItem.ToString());
+            DateTime diaActual = DateTime.Now;
+            if (dia.Date > diaActual.Date)
+            {
+                int conversion = 0;
+                while (conversion <= 23)
+                {
+                    if (conversion < 10)
+                    {
+                        cboHoraInicio.Items.Add("0"+conversion.ToString() + ":00:00");
+                    }
+                    else
+                    {
+                        cboHoraInicio.Items.Add(conversion.ToString() + ":00:00");
+                    }
+                 
+                    conversion++;
+                }
+                cboHoraInicio.Items.Add("23:59:00");
+            }
+            else if (dia.Date == diaActual.Date)
+            {
+                procHora();
+            }
+            cboHoraInicio.Enabled = true;
         }
 
         private void cboFormato_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,10 +237,6 @@ namespace Taquilla
             cboCodigoIdioma.SelectedIndex = cboIdioma.SelectedIndex;
         }
 
-        private void dgvFunciones_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-    
-        }
 
         private void btnSIguiente_Click(object sender, EventArgs e)
         /*Se obtienen los datos para lso parametros que necesita el siguiente frm y se cambia
@@ -250,9 +280,30 @@ namespace Taquilla
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void frmFuncionesCine_Load(object sender, EventArgs e)
+        private void dgvFunciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        private void dgvFunciones_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+        private void cboIdioma_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cboCodigoIdioma.SelectedIndex = cboIdioma.SelectedIndex;
+        }
+
+        private void cboFormato_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cboCodigoFormato.SelectedIndex = cboFormato.SelectedIndex;
+        }
+
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "Funciones.html");
+        }
+
     }
 }
