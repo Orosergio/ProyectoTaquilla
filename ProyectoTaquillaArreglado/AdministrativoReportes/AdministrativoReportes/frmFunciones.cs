@@ -348,37 +348,45 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //boton para ingresar los datos seleccionados en el form
-            if( cboCine.SelectedItem == null || cboDepartamento.SelectedItem == null || cboFormato.SelectedItem == null
-               || cboIdioma.SelectedItem == null || cboMunicipio.SelectedItem == null || cboSala.SelectedItem == null  ||
+            if (cboCine.SelectedItem == null || cboDepartamento.SelectedItem == null || cboFormato.SelectedItem == null
+               || cboIdioma.SelectedItem == null || cboMunicipio.SelectedItem == null || cboSala.SelectedItem == null ||
                cboPelicula.SelectedItem == null)
             {
                 MessageBox.Show("No debe dejar campos vacios");
             }
-                else
-                    {
+            else
+            {
                 procCodigoA();
-                String Fecha = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:MM");
-                try
-                        {
-                            string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion,estatus) " +
-                            "VALUES ( "+codigoA+"," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "','"+Estatus+"')";
-                            OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
-                            OdbcDataReader mostrarC = comm.ExecuteReader();
-                            MessageBox.Show("La funcion se guardo correctamente");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-                        }
+                if (dtpHorario.Value.Date < DateTime.Now.Date)
+                {
+                    MessageBox.Show("La fecha de inicio no puede ser menor a la de Hoy ");
+                }
+                else
+                {
 
-                clsBitacora bitacora = new clsBitacora();
-                string proceso = "Ingreso de Funciones";
-                string tabla = "PROYECCIONPELICULA";
-                bitacora.GuardarBitacora(proceso, tabla);
-                procLimpiar();
-                procCargarPoryecciones();
-                procBuscar();
-           
+                    String Fecha = dtpHorario.Value.ToString("yyyy-MM-dd HH:MM");
+                    try
+                    {
+                        string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion,estatus) " +
+                        "VALUES ( " + codigoA + "," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "','" + Estatus + "')";
+                        OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
+                        OdbcDataReader mostrarC = comm.ExecuteReader();
+                        MessageBox.Show("La funcion se guardo correctamente");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                    }
+
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Ingreso de Funciones";
+                    string tabla = "PROYECCIONPELICULA";
+                    bitacora.GuardarBitacora(proceso, tabla);
+                    procLimpiar();
+                    procCargarPoryecciones();
+                    procBuscar();
+
+                }
             }
         }
 
@@ -397,6 +405,11 @@ namespace AdministrativoReportes
         private void dtpFecha2_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Funciones.html");
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificarPelicula));
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -50,13 +50,13 @@
             this.lblNuevo = new System.Windows.Forms.Label();
             this.txtNuevo = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.txtLink = new System.Windows.Forms.TextBox();
             this.lblLink = new System.Windows.Forms.Label();
             this.btnImagen = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAyuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +79,7 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripcion.Size = new System.Drawing.Size(289, 157);
+            this.txtDescripcion.Size = new System.Drawing.Size(291, 157);
             this.txtDescripcion.TabIndex = 3;
             // 
             // txtMultimedia
@@ -106,9 +106,6 @@
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
             this.cboEstado.Location = new System.Drawing.Point(299, 447);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(289, 35);
@@ -219,12 +216,12 @@
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
             this.dgtDatos.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgtDatos.Size = new System.Drawing.Size(806, 253);
@@ -235,7 +232,7 @@
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(966, 57);
+            this.cboCodigoP.Location = new System.Drawing.Point(681, 52);
             this.cboCodigoP.Name = "cboCodigoP";
             this.cboCodigoP.Size = new System.Drawing.Size(60, 35);
             this.cboCodigoP.TabIndex = 2;
@@ -249,7 +246,7 @@
             this.cboPelicula.FormattingEnabled = true;
             this.cboPelicula.Location = new System.Drawing.Point(297, 52);
             this.cboPelicula.Name = "cboPelicula";
-            this.cboPelicula.Size = new System.Drawing.Size(290, 35);
+            this.cboPelicula.Size = new System.Drawing.Size(291, 35);
             this.cboPelicula.TabIndex = 1;
             this.cboPelicula.SelectedIndexChanged += new System.EventHandler(this.cboPelicula_SelectedIndexChanged);
             // 
@@ -283,22 +280,6 @@
             this.lblTitulo.TabIndex = 25;
             this.lblTitulo.Text = "Modificacion de peliculas";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(681, 52);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(220, 70);
-            this.btnBuscar.TabIndex = 26;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
@@ -307,7 +288,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(840, 561);
+            this.btnModificar.Location = new System.Drawing.Point(840, 586);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(208, 62);
             this.btnModificar.TabIndex = 27;
@@ -336,7 +317,7 @@
             this.lblLink.AutoSize = true;
             this.lblLink.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLink.ForeColor = System.Drawing.Color.White;
-            this.lblLink.Location = new System.Drawing.Point(727, 417);
+            this.lblLink.Location = new System.Drawing.Point(697, 414);
             this.lblLink.Name = "lblLink";
             this.lblLink.Size = new System.Drawing.Size(211, 27);
             this.lblLink.TabIndex = 31;
@@ -352,7 +333,7 @@
             this.btnImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImagen.Location = new System.Drawing.Point(681, 494);
             this.btnImagen.Name = "btnImagen";
-            this.btnImagen.Size = new System.Drawing.Size(367, 61);
+            this.btnImagen.Size = new System.Drawing.Size(257, 61);
             this.btnImagen.TabIndex = 32;
             this.btnImagen.Text = "Cargar imagen";
             this.btnImagen.UseVisualStyleBackColor = false;
@@ -366,7 +347,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(840, 629);
+            this.btnCancelar.Location = new System.Drawing.Point(840, 692);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(208, 62);
             this.btnCancelar.TabIndex = 33;
@@ -374,19 +355,29 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(951, 12);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(75, 75);
+            this.btnAyuda.TabIndex = 47;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
             // frmModificarPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(1052, 835);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnImagen);
             this.Controls.Add(this.lblLink);
             this.Controls.Add(this.txtLink);
             this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtNuevo);
             this.Controls.Add(this.lblNuevo);
@@ -442,12 +433,12 @@
         private System.Windows.Forms.Label lblNuevo;
         private System.Windows.Forms.TextBox txtNuevo;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.TextBox txtLink;
         private System.Windows.Forms.Label lblLink;
         private System.Windows.Forms.Button btnImagen;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

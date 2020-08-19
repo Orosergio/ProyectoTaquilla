@@ -19,9 +19,14 @@ namespace AdministrativoReportes
             procEmpleado();
             procRol();
             procUsuario();
+            procEstatus();
         }
         clsConexion cn = new clsConexion();
-
+        void procEstatus()
+        {
+            cboEstatus.Items.Add("Activo");
+            cboEstatus.Items.Add("Inactivo");
+        }
         void procEmpleado()
         {
             //en esta funcion buscar se seleccionaran las clasificacions de las peliculas y se mostraran en el cboClaficicacion
@@ -127,6 +132,7 @@ namespace AdministrativoReportes
             cboRol.Items.Clear();
             cboUsuario.Items.Clear();
             dgtDatos.DataSource = null;
+            cboEstatus.Items.Clear();
         }
 
         private void dgtDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -203,6 +209,7 @@ namespace AdministrativoReportes
                     procRol();
                     procEmpleado();
                     procUsuario();
+                    procEstatus();
                 }
                 else
                 {
@@ -215,6 +222,11 @@ namespace AdministrativoReportes
         private void frmModificarUsuario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Usuario.html");
         }
     }
 }

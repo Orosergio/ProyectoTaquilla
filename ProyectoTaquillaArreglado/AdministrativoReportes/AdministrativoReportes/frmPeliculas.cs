@@ -19,6 +19,7 @@ namespace AdministrativoReportes
         clsValidacion validar = new clsValidacion(); //variable de la clase validar para ver que se cumplan las restricciones de campos
         clsConexion cn = new clsConexion(); //varible de la clase conexion para realizar la conexion a la base de datos
         String uno = "1";
+        String Fecha;
         string Link ;
         int numero = 0;
         int codigoA = 0;
@@ -233,42 +234,40 @@ namespace AdministrativoReportes
             }
             else
             {
-                //en el string estatus guardo el estatus seleccinado en el cboEstado 
-                String Estatus, Fecha;
-                Estatus = cboEstado.SelectedItem.ToString();
-                if (Estatus == "Activo")
+                if (dtpFecha.Value.Date < DateTime.Now.Date)
                 {
-                    Estatus = "1";
+                    MessageBox.Show("La fecha de inicio no puede ser menor a la de Hoy ");
                 }
-                else if (Estatus == "Inactivo")
+                else
                 {
-                    Estatus = "0";
-                }
-                //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
-                Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
-               
-                try
-                {
-                    //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
-                    string Insertar = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) " +
-                          "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtDescripcion.Text + "'," + Int32.Parse(cboCodigoCla.SelectedItem.ToString()) + ",'" + Fecha + "','" + Estatus + "','" + txtMultimedia.Text + "','" + Link + "','" + txtDuracion.Text + "')";
-                    OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
-                    OdbcDataReader mostrarC = comm.ExecuteReader();
-                    MessageBox.Show("Los datos se ingresaron correctamente");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("" + ex);
+                   
+                    //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
+                    Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
+                    MessageBox.Show("" + Fecha);
 
+                    try
+                    {
+                        //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
+                        string Insertar = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) " +
+                              "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtDescripcion.Text + "'," + Int32.Parse(cboCodigoCla.SelectedItem.ToString()) + ",'" + Fecha + "','" + uno + "','" + txtMultimedia.Text + "','" + Link + "','" + txtDuracion.Text + "')";
+                        OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
+                        OdbcDataReader mostrarC = comm.ExecuteReader();
+                        MessageBox.Show("Los datos se ingresaron correctamente");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("" + ex);
+
+                    }
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Adición de películas";
+                    string tabla = "PELICULA";
+                    bitacora.GuardarBitacora(proceso, tabla);
+                    procLimpiar();
+                    procCargar();
+                    procBuscar();
+                    procCodigoA();
                 }
-                clsBitacora bitacora = new clsBitacora();
-                string proceso = "Adición de películas";
-                string tabla = "PELICULA";
-                bitacora.GuardarBitacora(proceso, tabla);
-                procLimpiar();
-                procCargar();
-                procBuscar();
-                procCodigoA();
             }
         }
 
@@ -318,6 +317,22 @@ namespace AdministrativoReportes
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtpFecha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (dtpFecha.Value.Date < DateTime.Now.Date)
+                MessageBox.Show("La fecha seleccionada es menor a la fecha actual");
+            {
+                //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
+                Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
+                MessageBox.Show("" + Fecha);
+            }
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this,"AyudaAdministracion/Ayuda.chm","Peliculas.html");
         }
     }
 }

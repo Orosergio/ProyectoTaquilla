@@ -83,23 +83,15 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
-            if (txtTelefono.Text == "" || cboEmpleado.SelectedItem == null || cboEstatus.SelectedItem == null)
+            if (txtTelefono.Text == "" || cboEmpleado.SelectedItem == null )
             {
                 MessageBox.Show("Necesita llegar todos los campos");
             }
             else
             {
                 //en el string estatus guardo el estatus seleccinado en el cboEstado 
-                String Estatus;
-                Estatus = cboEstatus.SelectedItem.ToString();
-                if (Estatus == "Activo")
-                {
-                    Estatus = "1";
-                }
-                else if (Estatus == "Inactivo")
-                {
-                    Estatus = "0";
-                }
+                String Estatus = "1";
+               
 
                 try
                 {
@@ -148,6 +140,11 @@ namespace AdministrativoReportes
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             telefono.funcTelefono(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Ingreso Telefonos.html");
         }
     }
 }

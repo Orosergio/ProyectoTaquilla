@@ -75,23 +75,15 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
-            if (txtPuesto.Text == "" || cboEstatus.SelectedItem == null || txtSueldo.Text == "")
+            if (txtPuesto.Text == ""  || txtSueldo.Text == "")
             {
                 MessageBox.Show("Necesita llegar todos los campos");
             }
             else
             {
                 //en el string estatus guardo el estatus seleccinado en el cboEstado 
-                String Estatus;
-                Estatus = cboEstatus.SelectedItem.ToString();
-                if (Estatus == "Activo")
-                {
-                    Estatus = "1";
-                }
-                else if (Estatus == "Inactivo")
-                {
-                    Estatus = "0";
-                }
+                String Estatus = "1";
+                
                 try
                 {
                     //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
@@ -144,6 +136,11 @@ namespace AdministrativoReportes
         private void txtSueldo_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.funcSueldo(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Ingreso Puesto.html");
         }
     }
 }

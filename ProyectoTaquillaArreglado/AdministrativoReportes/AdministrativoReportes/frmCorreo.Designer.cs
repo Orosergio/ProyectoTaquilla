@@ -35,12 +35,11 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.cboEstatus = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblEstatus = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cboCodigoE
@@ -48,7 +47,7 @@
             this.cboCodigoE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoE.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoE.FormattingEnabled = true;
-            this.cboCodigoE.Location = new System.Drawing.Point(565, 160);
+            this.cboCodigoE.Location = new System.Drawing.Point(599, 209);
             this.cboCodigoE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoE.Name = "cboCodigoE";
             this.cboCodigoE.Size = new System.Drawing.Size(64, 35);
@@ -63,7 +62,7 @@
             this.cboEmpleado.Location = new System.Drawing.Point(187, 160);
             this.cboEmpleado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboEmpleado.Name = "cboEmpleado";
-            this.cboEmpleado.Size = new System.Drawing.Size(372, 35);
+            this.cboEmpleado.Size = new System.Drawing.Size(476, 35);
             this.cboEmpleado.TabIndex = 58;
             this.cboEmpleado.SelectedIndexChanged += new System.EventHandler(this.cboEmpleado_SelectedIndexChanged);
             // 
@@ -123,20 +122,6 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // cboEstatus
-            // 
-            this.cboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEstatus.FormattingEnabled = true;
-            this.cboEstatus.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cboEstatus.Location = new System.Drawing.Point(187, 210);
-            this.cboEstatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboEstatus.Name = "cboEstatus";
-            this.cboEstatus.Size = new System.Drawing.Size(263, 35);
-            this.cboEstatus.TabIndex = 52;
-            // 
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,17 +159,6 @@
             this.lblTitulo.TabIndex = 49;
             this.lblTitulo.Text = "Ingreso de Correo";
             // 
-            // lblEstatus
-            // 
-            this.lblEstatus.AutoSize = true;
-            this.lblEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstatus.ForeColor = System.Drawing.Color.White;
-            this.lblEstatus.Location = new System.Drawing.Point(23, 218);
-            this.lblEstatus.Name = "lblEstatus";
-            this.lblEstatus.Size = new System.Drawing.Size(90, 27);
-            this.lblEstatus.TabIndex = 48;
-            this.lblEstatus.Text = "Estatus";
-            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
@@ -196,23 +170,32 @@
             this.lblNombre.TabIndex = 47;
             this.lblNombre.Text = "Correo";
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(906, 12);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(75, 75);
+            this.btnAyuda.TabIndex = 70;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
             // frmCorreo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(1024, 341);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.cboCodigoE);
             this.Controls.Add(this.cboEmpleado);
             this.Controls.Add(this.lblPuesto);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.cboEstatus);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.lblEstatus);
             this.Controls.Add(this.lblNombre);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCorreo";
@@ -230,11 +213,10 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.ComboBox cboEstatus;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblEstatus;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

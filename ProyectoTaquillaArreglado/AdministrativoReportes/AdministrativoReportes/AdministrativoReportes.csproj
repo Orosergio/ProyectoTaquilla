@@ -128,6 +128,12 @@
     <Compile Include="frmModFunciones.Designer.cs">
       <DependentUpon>frmModFunciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificacionDescuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificacionDescuentos.Designer.cs">
+      <DependentUpon>frmModificacionDescuentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificarCorreo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,12 @@
     </Compile>
     <Compile Include="frmPeliculas.Designer.cs">
       <DependentUpon>frmPeliculas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPromocion.Designer.cs">
+      <DependentUpon>frmPromocion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPuesto.cs">
       <SubType>Form</SubType>
@@ -253,6 +265,9 @@
     <EmbeddedResource Include="frmModFunciones.resx">
       <DependentUpon>frmModFunciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificacionDescuentos.resx">
+      <DependentUpon>frmModificacionDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModificarCorreo.resx">
       <DependentUpon>frmModificarCorreo.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPeliculas.resx">
       <DependentUpon>frmPeliculas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPromocion.resx">
+      <DependentUpon>frmPromocion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPuesto.resx">
       <DependentUpon>frmPuesto.cs</DependentUpon>

@@ -17,9 +17,16 @@ namespace AdministrativoReportes
         {
             InitializeComponent();
             procEmpleado();
+            procEstatus();
         }
         clsConexion cn = new clsConexion();
         clsValidacion telefono = new clsValidacion();
+
+        void procEstatus()
+        {
+            cboEstatus.Items.Add("Activo");
+            cboEstatus.Items.Add("Inactivo");
+        }
         void procEmpleado()
         {
             //en esta funcion buscar se seleccionaran las clasificacions de las peliculas y se mostraran en el cboClaficicacion
@@ -54,7 +61,8 @@ namespace AdministrativoReportes
             //funcion que busca los los datos del empleado segun e telefono lo que se solicita en la consulta
             try
                 {
-                    string cadena = "select t.idTelefono AS CODIGO, E.nombre NOMBRE,T.telefono AS TELEFONO,T.estatus AS ESTATUS from empleado E, telefono T WHERE E.idEmpleado = T.idEmpleado and telefono = " + txtTelefono.Text;
+                    String telefono = txtTelefono.Text.ToString();
+                    string cadena = "select t.idTelefono AS CODIGO, E.nombre NOMBRE,E.apellido,T.telefono AS TELEFONO,T.estatus AS ESTATUS from empleado E, telefono T WHERE E.idEmpleado = T.idEmpleado and telefono =" + telefono;
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);
@@ -63,9 +71,7 @@ namespace AdministrativoReportes
                 catch (Exception ex)
                 {
                     MessageBox.Show("" + ex);
-                }
-            
-
+                } 
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -76,7 +82,6 @@ namespace AdministrativoReportes
             }
             else
             {
-
                 procDatosEmpleado();
             }
         }
@@ -84,10 +89,14 @@ namespace AdministrativoReportes
         private void dgtDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //copia los datos del DataGridView en los labels
+            String nombre, apellido, nombreCompleto;
             lblC.Text = dgtDatos.CurrentRow.Cells[0].Value.ToString();
-            lblE.Text = dgtDatos.CurrentRow.Cells[1].Value.ToString();
-            lblT.Text = dgtDatos.CurrentRow.Cells[2].Value.ToString();
-            lblEs.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            nombre = dgtDatos.CurrentRow.Cells[1].Value.ToString();
+            apellido = dgtDatos.CurrentRow.Cells[2].Value.ToString();
+            nombreCompleto = nombre +" "+apellido;
+            lblE.Text = nombreCompleto;
+            lblT.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            lblEs.Text = dgtDatos.CurrentRow.Cells[4].Value.ToString();
           
         }
 
@@ -113,7 +122,7 @@ namespace AdministrativoReportes
                 try
                 {
 
-                    string Modificar = "UPDATE TELEFONO SET  telefono = '" + txtTelefonoN.Text + "' ,idEmpleado = " + cboCodigoE.SelectedItem + " ,estatus = '" + Estatus + "'  WHERE idTelefono=" + lblC.Text;
+                    string Modificar = "UPDATE TELEFONO SET  telefono = '" + txtTelefonoN.Text + "' ,idEmpleado = " + cboCodigoE.SelectedItem + " ,estatus = '" + Estatus + "'  WHERE idTelefono= " + lblC.Text.ToString();
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
                     MessageBox.Show("Los Datos se actualizaron correctamente");
@@ -124,6 +133,7 @@ namespace AdministrativoReportes
                 }
                procLimpiar();
                procEmpleado();
+               procEstatus();
             }
         }
         //funcion para limpiar los elementos de la base de datos
@@ -137,6 +147,7 @@ namespace AdministrativoReportes
             txtTelefono.Text = "";
             cboEmpleadoN.Items.Clear();
             dgtDatos.DataSource = null;
+            cboEstatus.Items.Clear();
         }
 
         private void cboEmpleadoN_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,6 +168,11 @@ namespace AdministrativoReportes
         private void txtTelefonoN_KeyPress(object sender, KeyPressEventArgs e)
         {
             telefono.funcTelefono(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Telefono.html");
         }
     }
 }

@@ -19,6 +19,13 @@ namespace AdministrativoReportes
             InitializeComponent();
             procBuscar();
             procCargar();
+            procEstatus();
+        }
+       void procEstatus()
+        {
+            cboEstado.Items.Add("Activo");
+            cboEstado.Items.Add("Inactivo ");
+
         }
         clsValidacion validar = new clsValidacion();
         clsConexion cn = new clsConexion();
@@ -34,8 +41,35 @@ namespace AdministrativoReportes
             cboClasificacion.Items.Clear();
             cboPelicula.Items.Clear();
             pbImagen.BackgroundImage = null;
+            cboEstado.Items.Clear();
 
-            
+
+
+        }
+
+        void procCargarPeliculas()
+        {
+            //carga los datos de las peliculas en los txt dependiendo cual se seleccione
+            try
+            {
+                string Pelicula = "SELECT * FROM PELICULA WHERE idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString());
+                OdbcCommand com5 = new OdbcCommand(Pelicula, cn.nuevaConexion());
+                OdbcDataReader mostrarDatos = com5.ExecuteReader();
+
+                while (mostrarDatos.Read())
+                {
+                    txtNuevo.Text = mostrarDatos.GetString(1);
+                    txtDescripcion.Text = mostrarDatos.GetString(2);
+                    txtMultimedia.Text = mostrarDatos.GetString(6);
+                    txtLink.Text = mostrarDatos.GetString(7);
+                    txtDuracion.Text = mostrarDatos.GetString(8);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+            }
         }
         void procCargar()
         {
@@ -93,6 +127,7 @@ namespace AdministrativoReportes
         private void cboPelicula_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoP.SelectedIndex = cboPelicula.SelectedIndex;
+            procCargarPeliculas();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -127,42 +162,17 @@ namespace AdministrativoReportes
             validar.funcNumerosYpuntos(e);
         }
 
+
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //boton que muestra los datos seleccinados en los txt para modificarlos
-            if (cboPelicula.SelectedItem == null)
-            {
-                MessageBox.Show("Seleccione una pelicula");
-            }
-            else
-            {
-                try
-                {
-                    string Pelicula = "SELECT * FROM PELICULA WHERE idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString());
-                    OdbcCommand com5 = new OdbcCommand(Pelicula, cn.nuevaConexion());
-                    OdbcDataReader mostrarDatos = com5.ExecuteReader();
-
-                    while (mostrarDatos.Read())
-                    {
-                        txtNuevo.Text = mostrarDatos.GetString(1);
-                        txtDescripcion.Text = mostrarDatos.GetString(2);
-                        txtMultimedia.Text = mostrarDatos.GetString(6);
-                        txtLink.Text = mostrarDatos.GetString(7);
-                        txtDuracion.Text = mostrarDatos.GetString(8);
-                    }
-                 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-                }
-            }
+           
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             //boton para modificar los datos de la base de datos segun los datos que se seleccionaron
-            if ( txtLink.Text =="" || txtNuevo.Text == "" || txtDescripcion.Text == "" || txtDuracion.Text == "" || txtMultimedia.Text == "" ||
+            if (txtLink.Text == "" || txtNuevo.Text == "" || txtDescripcion.Text == "" || txtDuracion.Text == "" || txtMultimedia.Text == "" ||
               cboClasificacion.SelectedItem == null || cboEstado.SelectedItem == null)
             {
                 MessageBox.Show("No debe dejar campos vacios");
@@ -179,26 +189,35 @@ namespace AdministrativoReportes
                 {
                     Estatus = "0";
                 }
-                Fecha = dtpFecha.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                try
+                if (dtpFecha.Value.Date < DateTime.Now.Date)
                 {
-                 
-                    string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + cboCodigoC.SelectedItem + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + Link + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + cboCodigoP.SelectedItem;
-                    OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
-                    OdbcDataReader leer = Consulta.ExecuteReader();
+                    MessageBox.Show("La fecha de inicio no puede ser menor a la de Hoy ");
+                }
+                else
+                {
 
+                    Fecha = dtpFecha.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                    try
+                    {
+
+                        string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + cboCodigoC.SelectedItem + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + Link + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + cboCodigoP.SelectedItem;
+                        OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
+                        OdbcDataReader leer = Consulta.ExecuteReader();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                    }
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Modificación datos de película";
+                    string tabla = "PELICULA";
+                    bitacora.GuardarBitacora(proceso, tabla);
+                    procLimpiar();
+                    procBuscar();
+                    procCargar();
+                    procEstatus();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-                }
-                clsBitacora bitacora = new clsBitacora();
-                string proceso = "Modificación datos de película";
-                string tabla = "PELICULA";
-                bitacora.GuardarBitacora(proceso, tabla);
-                procLimpiar();
-                procBuscar();
-                procCargar();
             }
 
         }
@@ -239,7 +258,12 @@ namespace AdministrativoReportes
         {
             procLimpiar();
             procBuscar();
+            procEstatus();
         }
-       
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Peliculas.html");
+        }
     }
 }

@@ -31,11 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmpleado));
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.cboEstatus = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblEstatus = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -50,6 +48,7 @@
             this.btnCorreo = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnPuesto = new System.Windows.Forms.Button();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -60,7 +59,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(779, 142);
+            this.btnCancelar.Location = new System.Drawing.Point(758, 252);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(365, 49);
@@ -77,7 +76,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(779, 84);
+            this.btnModificar.Location = new System.Drawing.Point(758, 194);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(365, 49);
@@ -85,20 +84,6 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // cboEstatus
-            // 
-            this.cboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEstatus.FormattingEnabled = true;
-            this.cboEstatus.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cboEstatus.Location = new System.Drawing.Point(296, 357);
-            this.cboEstatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboEstatus.Name = "cboEstatus";
-            this.cboEstatus.Size = new System.Drawing.Size(263, 35);
-            this.cboEstatus.TabIndex = 27;
             // 
             // txtNombre
             // 
@@ -118,7 +103,7 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(779, 25);
+            this.btnIngresar.Location = new System.Drawing.Point(758, 135);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(365, 49);
@@ -137,17 +122,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(279, 31);
             this.lblTitulo.TabIndex = 24;
             this.lblTitulo.Text = "Ingreso de Empleado";
-            // 
-            // lblEstatus
-            // 
-            this.lblEstatus.AutoSize = true;
-            this.lblEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstatus.ForeColor = System.Drawing.Color.White;
-            this.lblEstatus.Location = new System.Drawing.Point(47, 361);
-            this.lblEstatus.Name = "lblEstatus";
-            this.lblEstatus.Size = new System.Drawing.Size(90, 27);
-            this.lblEstatus.TabIndex = 23;
-            this.lblEstatus.Text = "Estatus";
             // 
             // lblNombre
             // 
@@ -267,8 +241,8 @@
             this.btnTelefono.ForeColor = System.Drawing.Color.White;
             this.btnTelefono.Image = ((System.Drawing.Image)(resources.GetObject("btnTelefono.Image")));
             this.btnTelefono.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTelefono.Location = new System.Drawing.Point(779, 258);
-            this.btnTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTelefono.Location = new System.Drawing.Point(758, 368);
+            this.btnTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.btnTelefono.Name = "btnTelefono";
             this.btnTelefono.Size = new System.Drawing.Size(365, 49);
             this.btnTelefono.TabIndex = 46;
@@ -287,8 +261,8 @@
             this.btnCorreo.ForeColor = System.Drawing.Color.White;
             this.btnCorreo.Image = ((System.Drawing.Image)(resources.GetObject("btnCorreo.Image")));
             this.btnCorreo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCorreo.Location = new System.Drawing.Point(779, 199);
-            this.btnCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCorreo.Location = new System.Drawing.Point(758, 309);
+            this.btnCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.btnCorreo.Name = "btnCorreo";
             this.btnCorreo.Size = new System.Drawing.Size(365, 49);
             this.btnCorreo.TabIndex = 45;
@@ -307,8 +281,8 @@
             this.btnEmpleado.ForeColor = System.Drawing.Color.White;
             this.btnEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("btnEmpleado.Image")));
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(779, 325);
-            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEmpleado.Location = new System.Drawing.Point(758, 435);
+            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Size = new System.Drawing.Size(365, 49);
             this.btnEmpleado.TabIndex = 44;
@@ -327,8 +301,8 @@
             this.btnPuesto.ForeColor = System.Drawing.Color.White;
             this.btnPuesto.Image = ((System.Drawing.Image)(resources.GetObject("btnPuesto.Image")));
             this.btnPuesto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPuesto.Location = new System.Drawing.Point(779, 391);
-            this.btnPuesto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPuesto.Location = new System.Drawing.Point(758, 501);
+            this.btnPuesto.Margin = new System.Windows.Forms.Padding(4);
             this.btnPuesto.Name = "btnPuesto";
             this.btnPuesto.Size = new System.Drawing.Size(365, 49);
             this.btnPuesto.TabIndex = 47;
@@ -336,12 +310,23 @@
             this.btnPuesto.UseVisualStyleBackColor = false;
             this.btnPuesto.Click += new System.EventHandler(this.btnPuesto_Click);
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(1048, 21);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(75, 75);
+            this.btnAyuda.TabIndex = 71;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
             // frmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1175, 475);
+            this.ClientSize = new System.Drawing.Size(1175, 601);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.btnPuesto);
             this.Controls.Add(this.btnTelefono);
             this.Controls.Add(this.btnCorreo);
@@ -357,11 +342,9 @@
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.cboEstatus);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.lblEstatus);
             this.Controls.Add(this.lblNombre);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmEmpleado";
@@ -375,11 +358,9 @@
         #endregion
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.ComboBox cboEstatus;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblEstatus;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblApellido;
@@ -394,5 +375,6 @@
         private System.Windows.Forms.Button btnCorreo;
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Button btnPuesto;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

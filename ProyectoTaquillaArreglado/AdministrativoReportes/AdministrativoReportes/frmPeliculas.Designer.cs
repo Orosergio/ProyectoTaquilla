@@ -36,7 +36,6 @@
             this.lblClasificacion = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.cboClasificacion = new System.Windows.Forms.ComboBox();
@@ -46,7 +45,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnImagen = new System.Windows.Forms.Button();
             this.pbPelicula = new System.Windows.Forms.PictureBox();
-            this.cboEstado = new System.Windows.Forms.ComboBox();
             this.lblMultimedia = new System.Windows.Forms.Label();
             this.txtMultimedia = new System.Windows.Forms.TextBox();
             this.cboCodigoCla = new System.Windows.Forms.ComboBox();
@@ -58,6 +56,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtLink = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPelicula)).BeginInit();
             this.SuspendLayout();
@@ -117,17 +116,6 @@
             this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = "PELICULAS";
             // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.ForeColor = System.Drawing.Color.White;
-            this.lblEstado.Location = new System.Drawing.Point(53, 402);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(218, 27);
-            this.lblEstado.TabIndex = 16;
-            this.lblEstado.Text = "Estado de pelicula";
-            // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,6 +159,7 @@
             this.dtpFecha.Size = new System.Drawing.Size(357, 35);
             this.dtpFecha.TabIndex = 21;
             this.dtpFecha.ValueChanged += new System.EventHandler(this.dtpFecha_ValueChanged);
+            this.dtpFecha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpFecha_KeyPress);
             // 
             // label9
             // 
@@ -256,27 +245,13 @@
             // pbPelicula
             // 
             this.pbPelicula.Location = new System.Drawing.Point(900, 81);
-            this.pbPelicula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPelicula.Margin = new System.Windows.Forms.Padding(4);
             this.pbPelicula.Name = "pbPelicula";
             this.pbPelicula.Size = new System.Drawing.Size(289, 272);
             this.pbPelicula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPelicula.TabIndex = 30;
             this.pbPelicula.TabStop = false;
             this.pbPelicula.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // cboEstado
-            // 
-            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstado.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cboEstado.Location = new System.Drawing.Point(292, 402);
-            this.cboEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(216, 35);
-            this.cboEstado.TabIndex = 31;
             // 
             // lblMultimedia
             // 
@@ -315,7 +290,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(53, 450);
+            this.label1.Location = new System.Drawing.Point(53, 402);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 27);
             this.label1.TabIndex = 39;
@@ -324,7 +299,7 @@
             // txtDuracion
             // 
             this.txtDuracion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDuracion.Location = new System.Drawing.Point(339, 447);
+            this.txtDuracion.Location = new System.Drawing.Point(339, 399);
             this.txtDuracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDuracion.Name = "txtDuracion";
             this.txtDuracion.Size = new System.Drawing.Size(224, 35);
@@ -408,12 +383,23 @@
             this.label2.TabIndex = 45;
             this.label2.Text = "Link de la imagen";
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(1114, 11);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(75, 63);
+            this.btnAyuda.TabIndex = 46;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
             // frmPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(1227, 836);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtLink);
             this.Controls.Add(this.btnEliminar);
@@ -424,7 +410,6 @@
             this.Controls.Add(this.cboCodigoCla);
             this.Controls.Add(this.txtMultimedia);
             this.Controls.Add(this.lblMultimedia);
-            this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.pbPelicula);
             this.Controls.Add(this.btnImagen);
             this.Controls.Add(this.btnModificar);
@@ -434,7 +419,6 @@
             this.Controls.Add(this.cboClasificacion);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblClasificacion);
@@ -458,7 +442,6 @@
         private System.Windows.Forms.Label lblClasificacion;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.ComboBox cboClasificacion;
@@ -468,7 +451,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnImagen;
         private System.Windows.Forms.PictureBox pbPelicula;
-        private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.Label lblMultimedia;
         private System.Windows.Forms.TextBox txtMultimedia;
         private System.Windows.Forms.ComboBox cboCodigoCla;
@@ -480,5 +462,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtLink;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

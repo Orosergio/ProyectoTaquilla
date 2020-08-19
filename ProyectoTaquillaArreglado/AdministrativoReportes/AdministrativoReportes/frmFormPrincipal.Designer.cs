@@ -61,6 +61,8 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
+            this.btnDescuento = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.PanelContenedor.SuspendLayout();
             this.panel4.SuspendLayout();
             this.Menu.SuspendLayout();
@@ -138,6 +140,8 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.Menu.Controls.Add(this.panel9);
+            this.Menu.Controls.Add(this.btnDescuento);
             this.Menu.Controls.Add(this.panel5);
             this.Menu.Controls.Add(this.btnReportes);
             this.Menu.Controls.Add(this.panel8);
@@ -505,6 +509,35 @@
             this.tmContraerMenu.Interval = 15;
             this.tmContraerMenu.Tick += new System.EventHandler(this.TmContraerMenu_Tick);
             // 
+            // btnDescuento
+            // 
+            this.btnDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescuento.FlatAppearance.BorderSize = 0;
+            this.btnDescuento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescuento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescuento.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDescuento.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuento.Image")));
+            this.btnDescuento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescuento.Location = new System.Drawing.Point(29, 56);
+            this.btnDescuento.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDescuento.Name = "btnDescuento";
+            this.btnDescuento.Size = new System.Drawing.Size(351, 53);
+            this.btnDescuento.TabIndex = 11;
+            this.btnDescuento.Text = "   Descuentos";
+            this.btnDescuento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDescuento.UseVisualStyleBackColor = true;
+            this.btnDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel9.Location = new System.Drawing.Point(0, 70);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(7, 39);
+            this.panel9.TabIndex = 12;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -566,6 +599,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnReportePuntos;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button btnDescuento;
     }
 }
 

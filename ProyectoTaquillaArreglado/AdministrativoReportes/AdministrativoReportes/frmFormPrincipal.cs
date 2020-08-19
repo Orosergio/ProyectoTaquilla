@@ -41,6 +41,7 @@ namespace FinalProyecto
                     {
                         //TIENE TODO PERMITIDO
                         btnPeliculas.Visible = true;
+                        btnDescuento.Visible = true;
                         btnFunciones.Visible = true;
                         btnEmpleado.Visible = true;
                         btnUsuario.Visible = true;
@@ -321,6 +322,12 @@ namespace FinalProyecto
         {
             Submenurepor.Visible = false;
             frmReportePuntos fm = new frmReportePuntos();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnDescuento_Click(object sender, EventArgs e)
+        {
+            frmPromocion fm = new frmPromocion();
             AbrirFormEnPanel(fm);
         }
 

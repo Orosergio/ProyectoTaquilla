@@ -45,14 +45,10 @@ namespace AdministrativoReportes
         //funcion que busca las proyecciones de las peliculas segun el codigo indicado
         void procCargarFunciones()
         {
-            if (cboPelicula.SelectedItem  == null)
-            {
-                MessageBox.Show("Debe seleccionar una pelicula");
-            }else
-            {
+            String uno = "1";
                 try
                 {
-                    string cadena = "SELECT PRO.idProyeccionPelicula AS CODIGO, PE.nombre AS PELICULA,C.nombre AS CINE,S.numero AS SALA, PRO.fechaHoraProyeccion AS HORARIO, I.nombre AS IDIOMA, F.nombre AS FORMATO FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato and PE.idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString()) + "  ";
+                    string cadena = "SELECT PRO.idProyeccionPelicula AS CODIGO, PE.nombre AS PELICULA,C.nombre AS CINE,S.numero AS SALA, PRO.fechaHoraProyeccion AS HORARIO, I.nombre AS IDIOMA, F.nombre AS FORMATO FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato and PE.idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString()) + "  and PRO.estatus = '"+uno+"'";
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);
@@ -62,7 +58,7 @@ namespace AdministrativoReportes
                 {
                     MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
                 }
-            }
+            
            
             
         }
@@ -100,6 +96,8 @@ namespace AdministrativoReportes
         {
             cboCodigoP.SelectedIndex = cboPelicula.SelectedIndex;
             procCargarCodigoProyecciones();
+            procCargarFunciones();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -182,6 +180,11 @@ namespace AdministrativoReportes
             dgtDatos.DataSource = null;
             procCargarPelicula();
 
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Eliminacion Funciones.html");
         }
     }
 }

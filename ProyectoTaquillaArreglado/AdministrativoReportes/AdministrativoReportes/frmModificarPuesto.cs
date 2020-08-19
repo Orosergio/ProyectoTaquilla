@@ -19,8 +19,15 @@ namespace AdministrativoReportes
             InitializeComponent();
             procBuscarPuesto();
             procCargarPuesto();
+            procEstatus();
         }
         clsValidacion validar = new clsValidacion();
+        void procEstatus()
+        {
+            cboEstatus.Items.Add("Activo");
+            cboEstatus.Items.Add("Inactivo");
+        }
+
         void procBuscarPuesto()
         {
             //funcion para buscar los puestos guardados en la base de datos
@@ -136,12 +143,14 @@ namespace AdministrativoReportes
                 procLimpiar();
                 procBuscarPuesto();
                 procCargarPuesto();
+                procEstatus();
             }
         }
 
         void procLimpiar()
         {  
             cboPuesto.Items.Clear();
+            cboEstatus.Items.Clear();
             txtPuesto.Text = "";
             txtSueldo.Text = "";
          
@@ -152,6 +161,7 @@ namespace AdministrativoReportes
         {
             procLimpiar();
             procBuscarPuesto();
+            procEstatus();
         }
 
         private void frmModificarPuesto_Load(object sender, EventArgs e)
@@ -174,6 +184,11 @@ namespace AdministrativoReportes
         private void txtSueldo_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.funcSueldo(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Puesto.html");
         }
     }
 }

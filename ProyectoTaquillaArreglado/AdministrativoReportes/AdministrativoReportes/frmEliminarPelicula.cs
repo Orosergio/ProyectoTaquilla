@@ -115,6 +115,11 @@ namespace AdministrativoReportes
                 procCargarDatos();
             }
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Eliminacion Pelicula.html");
         }
+    }
     }
 

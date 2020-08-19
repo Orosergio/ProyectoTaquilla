@@ -16,12 +16,14 @@ namespace AdministrativoReportes
         clsConexion cn = new clsConexion();
         int numero = 0;
         int codigoA =  0;
+        string uno = "1";
         clsValidacion validar = new clsValidacion();
         public frmEmpleado()
         {
             InitializeComponent();
             procCodigoA();
             procPuesto();
+          
         }
         void procCodigoA()
         {
@@ -70,18 +72,19 @@ namespace AdministrativoReportes
             }
         }
 
+      
         void procLimpiar()
         {
             txtNombre.Text = "";
             txtApellido.Text = "";
             cboPuesto.Items.Clear();
-
+            //cboEstatus.Items.Clear();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
-            if(txtNombre.Text == "" || txtApellido.Text == "" || cboPuesto.SelectedItem ==  null || cboEstatus.SelectedItem == null)
+            if(txtNombre.Text == "" || txtApellido.Text == "" || cboPuesto.SelectedItem ==  null )
             { 
                 MessageBox.Show("Necesita llegar todos los campos");
             }
@@ -89,45 +92,41 @@ namespace AdministrativoReportes
             {
                 //en el string estatus guardo el estatus seleccinado en el cboEstado 
                 String Estatus, fechaContratacion,fechaNacimiento;
-                Estatus = cboEstatus.SelectedItem.ToString();
-                if (Estatus == "Activo")
+                if (dtpContratacion.Value.Date > DateTime.Now.Date || dtpNacimiento.Value.Date >= DateTime.Now.Date)
                 {
-                    Estatus = "1";
+                    MessageBox.Show("La fecha de contratacion no puede ser mayor a la de hoy o la fecha de nacimiento no puede ser mayor a la de hoy");
                 }
-                else if (Estatus == "Inactivo")
+                else
                 {
-                    Estatus = "0";
-                }
-                //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
-                fechaContratacion = dtpContratacion.Value.ToString("yyyy-MM-dd");
-                fechaNacimiento = dtpNacimiento.Value.ToString("yyyy-MM-dd");
+                    //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
+                    fechaContratacion = dtpContratacion.Value.ToString("yyyy-MM-dd");
+                    fechaNacimiento = dtpNacimiento.Value.ToString("yyyy-MM-dd");
 
-                try
-                {
-                    //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
-                    string Insertar = "INSERT INTO EMPLEADO (idEmpleado,nombre,apellido,idPuesto,fechaContratacion,fechaNacimiento,estatus) " +
-                    "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtApellido.Text + "'," + Int32.Parse(cboCodigoPuesto.SelectedItem.ToString()) + ",'" + fechaContratacion + "','" + fechaNacimiento + "','" + Estatus + "')";
-                    OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
-                    OdbcDataReader mostrarC = comm.ExecuteReader();
-                    MessageBox.Show("Los datos se ingresaron correctamente");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("" + ex);
+                    try
+                    {
+                        //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
+                        string Insertar = "INSERT INTO EMPLEADO (idEmpleado,nombre,apellido,idPuesto,fechaContratacion,fechaNacimiento,estatus) " +
+                        "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtApellido.Text + "'," + Int32.Parse(cboCodigoPuesto.SelectedItem.ToString()) + ",'" + fechaContratacion + "','" + fechaNacimiento + "','" + uno + "')";
+                        OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
+                        OdbcDataReader mostrarC = comm.ExecuteReader();
+                        MessageBox.Show("Los datos se ingresaron correctamente");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("" + ex);
 
+                    }
+                    //Adicion de bitacora
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Ingreso de empleados";
+                    string tabla = "EMPLEADO";
+                    bitacora.GuardarBitacora(proceso, tabla);
+
+                    procLimpiar();
+                    procPuesto();
+                    procCodigoA();
                 }
-                //Adicion de bitacora
-                clsBitacora bitacora = new clsBitacora();
-                string proceso = "Ingreso de empleados";
-                string tabla = "EMPLEADO";
-                bitacora.GuardarBitacora(proceso, tabla);
-                //Limpieza
-                procLimpiar();
-                procPuesto();
-                procCodigoA();
-                /*funcCargar();
-                funcBuscar();
-                funcCodigoA();*/
+              
             }
         }
 
@@ -186,6 +185,12 @@ namespace AdministrativoReportes
             procLimpiar();
             procPuesto();
             procCodigoA();
+           
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Empleado.html");
         }
     }
 }

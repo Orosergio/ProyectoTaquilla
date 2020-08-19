@@ -34,7 +34,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.dtpHorario = new System.Windows.Forms.DateTimePicker();
             this.cboCodigoF = new System.Windows.Forms.ComboBox();
             this.cboCodigoI = new System.Windows.Forms.ComboBox();
             this.cboCodigoP = new System.Windows.Forms.ComboBox();
@@ -214,7 +215,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1108, 858);
+            this.panel5.Size = new System.Drawing.Size(1038, 780);
             this.panel5.TabIndex = 10;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -260,13 +261,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1108, 858);
+            this.panel1.Size = new System.Drawing.Size(1038, 780);
             this.panel1.TabIndex = 55;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.btnAyuda);
+            this.panel2.Controls.Add(this.dtpHorario);
             this.panel2.Controls.Add(this.cboCodigoF);
             this.panel2.Controls.Add(this.cboCodigoI);
             this.panel2.Controls.Add(this.cboCodigoP);
@@ -299,27 +301,37 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1108, 858);
+            this.panel2.Size = new System.Drawing.Size(1038, 780);
             this.panel2.TabIndex = 55;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // dateTimePicker2
+            // btnAyuda
             // 
-            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:MM";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(358, 413);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(263, 35);
-            this.dateTimePicker2.TabIndex = 73;
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(934, 12);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(75, 75);
+            this.btnAyuda.TabIndex = 74;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // dtpHorario
+            // 
+            this.dtpHorario.CustomFormat = "yyyy-MM-dd HH:MM";
+            this.dtpHorario.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHorario.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHorario.Location = new System.Drawing.Point(358, 413);
+            this.dtpHorario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpHorario.Name = "dtpHorario";
+            this.dtpHorario.Size = new System.Drawing.Size(263, 35);
+            this.dtpHorario.TabIndex = 73;
             // 
             // cboCodigoF
             // 
             this.cboCodigoF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoF.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoF.FormattingEnabled = true;
-            this.cboCodigoF.Location = new System.Drawing.Point(934, 354);
+            this.cboCodigoF.Location = new System.Drawing.Point(934, 419);
             this.cboCodigoF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoF.Name = "cboCodigoF";
             this.cboCodigoF.Size = new System.Drawing.Size(76, 35);
@@ -331,7 +343,7 @@
             this.cboCodigoI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoI.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoI.FormattingEnabled = true;
-            this.cboCodigoI.Location = new System.Drawing.Point(934, 308);
+            this.cboCodigoI.Location = new System.Drawing.Point(934, 373);
             this.cboCodigoI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoI.Name = "cboCodigoI";
             this.cboCodigoI.Size = new System.Drawing.Size(76, 35);
@@ -343,7 +355,7 @@
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(934, 260);
+            this.cboCodigoP.Location = new System.Drawing.Point(934, 325);
             this.cboCodigoP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoP.Name = "cboCodigoP";
             this.cboCodigoP.Size = new System.Drawing.Size(76, 35);
@@ -355,7 +367,7 @@
             this.cboCodigoS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoS.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoS.FormattingEnabled = true;
-            this.cboCodigoS.Location = new System.Drawing.Point(934, 209);
+            this.cboCodigoS.Location = new System.Drawing.Point(934, 274);
             this.cboCodigoS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoS.Name = "cboCodigoS";
             this.cboCodigoS.Size = new System.Drawing.Size(76, 35);
@@ -367,7 +379,7 @@
             this.cboCodigoC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoC.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoC.FormattingEnabled = true;
-            this.cboCodigoC.Location = new System.Drawing.Point(934, 164);
+            this.cboCodigoC.Location = new System.Drawing.Point(934, 229);
             this.cboCodigoC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoC.Name = "cboCodigoC";
             this.cboCodigoC.Size = new System.Drawing.Size(76, 35);
@@ -379,7 +391,7 @@
             this.cboCodigoM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoM.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoM.FormattingEnabled = true;
-            this.cboCodigoM.Location = new System.Drawing.Point(934, 112);
+            this.cboCodigoM.Location = new System.Drawing.Point(934, 177);
             this.cboCodigoM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoM.Name = "cboCodigoM";
             this.cboCodigoM.Size = new System.Drawing.Size(76, 35);
@@ -391,7 +403,7 @@
             this.cboCodigoD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoD.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoD.FormattingEnabled = true;
-            this.cboCodigoD.Location = new System.Drawing.Point(934, 63);
+            this.cboCodigoD.Location = new System.Drawing.Point(934, 128);
             this.cboCodigoD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoD.Name = "cboCodigoD";
             this.cboCodigoD.Size = new System.Drawing.Size(76, 35);
@@ -1630,7 +1642,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 858);
+            this.ClientSize = new System.Drawing.Size(1038, 780);
             this.Controls.Add(this.panel5);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmFunciones";
@@ -1783,6 +1795,7 @@
         private System.Windows.Forms.ComboBox cboCodigoC;
         private System.Windows.Forms.ComboBox cboCodigoM;
         private System.Windows.Forms.ComboBox cboCodigoD;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpHorario;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

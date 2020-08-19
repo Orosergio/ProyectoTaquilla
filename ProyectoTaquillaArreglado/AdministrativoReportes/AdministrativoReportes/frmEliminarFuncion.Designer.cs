@@ -36,12 +36,12 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.cboCodigoP = new System.Windows.Forms.ComboBox();
             this.cboPelicula = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblCodigoF = new System.Windows.Forms.Label();
             this.cboCodigoF = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgtDatos.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgtDatos.Location = new System.Drawing.Point(24, 180);
+            this.dgtDatos.Location = new System.Drawing.Point(24, 196);
             this.dgtDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
@@ -100,7 +100,7 @@
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(747, 49);
+            this.cboCodigoP.Location = new System.Drawing.Point(772, 141);
             this.cboCodigoP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoP.Name = "cboCodigoP";
             this.cboCodigoP.Size = new System.Drawing.Size(68, 35);
@@ -119,21 +119,6 @@
             this.cboPelicula.TabIndex = 62;
             this.cboPelicula.SelectedIndexChanged += new System.EventHandler(this.cboPelicula_SelectedIndexChanged);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(553, 49);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(178, 44);
-            this.btnBuscar.TabIndex = 63;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(181)))), ((int)(((byte)(226)))));
@@ -145,7 +130,7 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(367, 498);
+            this.btnEliminar.Location = new System.Drawing.Point(545, 49);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(221, 54);
@@ -183,10 +168,10 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(553, 110);
+            this.btnCancelar.Location = new System.Drawing.Point(545, 119);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(178, 47);
+            this.btnCancelar.Size = new System.Drawing.Size(221, 57);
             this.btnCancelar.TabIndex = 67;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -203,18 +188,28 @@
             this.label1.TabIndex = 68;
             this.label1.Text = "Eliminar Funciones";
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(889, 28);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(75, 75);
+            this.btnAyuda.TabIndex = 69;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
             // frmEliminarFuncion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(1007, 634);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cboCodigoF);
             this.Controls.Add(this.lblCodigoF);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cboPelicula);
             this.Controls.Add(this.cboCodigoP);
             this.Controls.Add(this.lblCodigo);
@@ -235,11 +230,11 @@
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.ComboBox cboCodigoP;
         private System.Windows.Forms.ComboBox cboPelicula;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblCodigoF;
         private System.Windows.Forms.ComboBox cboCodigoF;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }
