@@ -76,7 +76,7 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(511, 60);
+            this.btnBuscar.Location = new System.Drawing.Point(689, 129);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(227, 47);
@@ -180,7 +180,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(735, 401);
+            this.label3.Location = new System.Drawing.Point(762, 401);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 27);
             this.label3.TabIndex = 81;
@@ -191,7 +191,7 @@
             this.lblEmpleadoN.AutoSize = true;
             this.lblEmpleadoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpleadoN.ForeColor = System.Drawing.Color.White;
-            this.lblEmpleadoN.Location = new System.Drawing.Point(583, 496);
+            this.lblEmpleadoN.Location = new System.Drawing.Point(610, 496);
             this.lblEmpleadoN.Name = "lblEmpleadoN";
             this.lblEmpleadoN.Size = new System.Drawing.Size(126, 27);
             this.lblEmpleadoN.TabIndex = 80;
@@ -202,7 +202,7 @@
             this.lblEstatusN.AutoSize = true;
             this.lblEstatusN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstatusN.ForeColor = System.Drawing.Color.White;
-            this.lblEstatusN.Location = new System.Drawing.Point(583, 542);
+            this.lblEstatusN.Location = new System.Drawing.Point(610, 542);
             this.lblEstatusN.Name = "lblEstatusN";
             this.lblEstatusN.Size = new System.Drawing.Size(90, 27);
             this.lblEstatusN.TabIndex = 79;
@@ -213,7 +213,7 @@
             this.lblTelefonoN.AutoSize = true;
             this.lblTelefonoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefonoN.ForeColor = System.Drawing.Color.White;
-            this.lblTelefonoN.Location = new System.Drawing.Point(583, 459);
+            this.lblTelefonoN.Location = new System.Drawing.Point(610, 459);
             this.lblTelefonoN.Name = "lblTelefonoN";
             this.lblTelefonoN.Size = new System.Drawing.Size(110, 27);
             this.lblTelefonoN.TabIndex = 78;
@@ -252,7 +252,7 @@
             // txtTelefonoN
             // 
             this.txtTelefonoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoN.Location = new System.Drawing.Point(708, 450);
+            this.txtTelefonoN.Location = new System.Drawing.Point(735, 450);
             this.txtTelefonoN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTelefonoN.Name = "txtTelefonoN";
             this.txtTelefonoN.Size = new System.Drawing.Size(400, 35);
@@ -264,7 +264,7 @@
             this.cboEmpleadoN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEmpleadoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEmpleadoN.FormattingEnabled = true;
-            this.cboEmpleadoN.Location = new System.Drawing.Point(708, 498);
+            this.cboEmpleadoN.Location = new System.Drawing.Point(735, 498);
             this.cboEmpleadoN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboEmpleadoN.Name = "cboEmpleadoN";
             this.cboEmpleadoN.Size = new System.Drawing.Size(400, 35);
@@ -276,7 +276,7 @@
             this.cboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstatus.FormattingEnabled = true;
-            this.cboEstatus.Location = new System.Drawing.Point(708, 539);
+            this.cboEstatus.Location = new System.Drawing.Point(735, 539);
             this.cboEstatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboEstatus.Name = "cboEstatus";
             this.cboEstatus.Size = new System.Drawing.Size(300, 35);
@@ -287,7 +287,7 @@
             this.cboCodigoE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoE.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoE.FormattingEnabled = true;
-            this.cboCodigoE.Location = new System.Drawing.Point(708, 578);
+            this.cboCodigoE.Location = new System.Drawing.Point(735, 578);
             this.cboCodigoE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoE.Name = "cboCodigoE";
             this.cboCodigoE.Size = new System.Drawing.Size(67, 35);
@@ -302,10 +302,10 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(740, 630);
+            this.btnModificar.Location = new System.Drawing.Point(689, 197);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(227, 47);
+            this.btnModificar.Size = new System.Drawing.Size(227, 52);
             this.btnModificar.TabIndex = 89;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -316,7 +316,7 @@
             this.txtCodigo.AutoSize = true;
             this.txtCodigo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.ForeColor = System.Drawing.Color.White;
-            this.txtCodigo.Location = new System.Drawing.Point(691, 271);
+            this.txtCodigo.Location = new System.Drawing.Point(996, 185);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(95, 27);
             this.txtCodigo.TabIndex = 90;
@@ -328,7 +328,7 @@
             this.lblC.AutoSize = true;
             this.lblC.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblC.ForeColor = System.Drawing.Color.White;
-            this.lblC.Location = new System.Drawing.Point(809, 271);
+            this.lblC.Location = new System.Drawing.Point(1119, 185);
             this.lblC.Name = "lblC";
             this.lblC.Size = new System.Drawing.Size(0, 27);
             this.lblC.TabIndex = 91;

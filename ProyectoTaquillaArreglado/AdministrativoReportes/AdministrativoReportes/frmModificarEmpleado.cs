@@ -193,7 +193,7 @@ namespace AdministrativoReportes
                     Fecha2 = dtpNacimientoN.Value.ToString("yyyy-MM-dd");
                     try
                     {
-                        string Modificar = "UPDATE EMPLEADO SET nombre = '" + txtNombreN.Text + "' , apellido  = '" + txtApellidoN.Text + "', idPuesto = " + cboCodigoPnuevo.SelectedItem + ",fechaContratacion = '" + Fecha1 + "',fechaNacimiento = '" + Fecha2 + "',estatus = " + Estatus + "  WHERE idEmpleado=" + lblCodigoA.Text;
+                        string Modificar = "UPDATE EMPLEADO SET nombre = '" + txtNombreN.Text + "' , apellido  = '" + txtApellidoN.Text + "', idPuesto = " + Int32.Parse(cboCodigoPnuevo.SelectedItem.ToString()) + ",fechaContratacion = '" + Fecha1 + "',fechaNacimiento = '" + Fecha2 + "',estatus = " + Estatus + "  WHERE idEmpleado= '"+ Int32.Parse(lblCodigoA.Text.ToString())+"' ";
                         OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                         OdbcDataReader leer = Consulta.ExecuteReader();
                         MessageBox.Show("Los Datos se guardaron correctamente");

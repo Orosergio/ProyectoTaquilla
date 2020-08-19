@@ -368,7 +368,7 @@ namespace AdministrativoReportes
                     try
                     {
                         string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion,estatus) " +
-                        "VALUES ( " + codigoA + "," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "','" + Estatus + "')";
+                        "VALUES ( " + codigoA + "," + Int32.Parse(cboCodigoP.SelectedItem.ToString()) + "," + Int32.Parse(cboCodigoS.SelectedItem.ToString()) + "," + Int32.Parse(cboCodigoI.SelectedItem.ToString()) + "," + Int32.Parse(cboCodigoF.SelectedItem.ToString()) + ",'" + Fecha + "','" + Estatus + "')";
                         OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                         OdbcDataReader mostrarC = comm.ExecuteReader();
                         MessageBox.Show("La funcion se guardo correctamente");

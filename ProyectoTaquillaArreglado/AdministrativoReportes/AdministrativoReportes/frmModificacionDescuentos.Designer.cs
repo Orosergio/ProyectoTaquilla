@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificacionDescuentos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -82,6 +83,7 @@
             this.btnAyuda.Size = new System.Drawing.Size(75, 75);
             this.btnAyuda.TabIndex = 75;
             this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // btnCancelar
             // 
@@ -176,6 +178,9 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgtDatos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgtDatos.Size = new System.Drawing.Size(668, 150);

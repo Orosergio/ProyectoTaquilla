@@ -36,6 +36,12 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.Menu = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btnBoleto = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnCine = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnDescuento = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -61,8 +67,6 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.btnDescuento = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.PanelContenedor.SuspendLayout();
             this.panel4.SuspendLayout();
             this.Menu.SuspendLayout();
@@ -140,6 +144,10 @@
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.Menu.Controls.Add(this.panel12);
+            this.Menu.Controls.Add(this.btnBoleto);
+            this.Menu.Controls.Add(this.panel11);
+            this.Menu.Controls.Add(this.btnCine);
             this.Menu.Controls.Add(this.panel9);
             this.Menu.Controls.Add(this.btnDescuento);
             this.Menu.Controls.Add(this.panel5);
@@ -162,10 +170,99 @@
             this.Menu.TabIndex = 100;
             this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_Paint);
             // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel12.Location = new System.Drawing.Point(0, 414);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(7, 39);
+            this.panel12.TabIndex = 22;
+            // 
+            // btnBoleto
+            // 
+            this.btnBoleto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBoleto.FlatAppearance.BorderSize = 0;
+            this.btnBoleto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnBoleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBoleto.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoleto.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBoleto.Image = ((System.Drawing.Image)(resources.GetObject("btnBoleto.Image")));
+            this.btnBoleto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBoleto.Location = new System.Drawing.Point(29, 411);
+            this.btnBoleto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBoleto.Name = "btnBoleto";
+            this.btnBoleto.Size = new System.Drawing.Size(347, 50);
+            this.btnBoleto.TabIndex = 23;
+            this.btnBoleto.Text = "     Boleto";
+            this.btnBoleto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBoleto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBoleto.UseVisualStyleBackColor = true;
+            this.btnBoleto.Click += new System.EventHandler(this.btnBoleto_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel11.Location = new System.Drawing.Point(0, 356);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(7, 39);
+            this.panel11.TabIndex = 20;
+            // 
+            // btnCine
+            // 
+            this.btnCine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCine.FlatAppearance.BorderSize = 0;
+            this.btnCine.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnCine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCine.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnCine.Image = ((System.Drawing.Image)(resources.GetObject("btnCine.Image")));
+            this.btnCine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCine.Location = new System.Drawing.Point(29, 353);
+            this.btnCine.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCine.Name = "btnCine";
+            this.btnCine.Size = new System.Drawing.Size(347, 50);
+            this.btnCine.TabIndex = 21;
+            this.btnCine.Text = "     Cine";
+            this.btnCine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCine.UseVisualStyleBackColor = true;
+            this.btnCine.Click += new System.EventHandler(this.btnCine_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel9.Location = new System.Drawing.Point(0, 70);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(7, 39);
+            this.panel9.TabIndex = 12;
+            // 
+            // btnDescuento
+            // 
+            this.btnDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescuento.FlatAppearance.BorderSize = 0;
+            this.btnDescuento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescuento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescuento.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDescuento.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuento.Image")));
+            this.btnDescuento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescuento.Location = new System.Drawing.Point(29, 56);
+            this.btnDescuento.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDescuento.Name = "btnDescuento";
+            this.btnDescuento.Size = new System.Drawing.Size(351, 53);
+            this.btnDescuento.TabIndex = 11;
+            this.btnDescuento.Text = "   Descuentos";
+            this.btnDescuento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDescuento.UseVisualStyleBackColor = true;
+            this.btnDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel5.Location = new System.Drawing.Point(0, 362);
+            this.panel5.Location = new System.Drawing.Point(0, 485);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(7, 39);
@@ -181,7 +278,7 @@
             this.btnReportes.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(29, 357);
+            this.btnReportes.Location = new System.Drawing.Point(29, 480);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(347, 50);
@@ -302,7 +399,7 @@
             this.Submenurepor.Controls.Add(this.panel6);
             this.Submenurepor.Controls.Add(this.btnreportventa);
             this.Submenurepor.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Submenurepor.Location = new System.Drawing.Point(29, 427);
+            this.Submenurepor.Location = new System.Drawing.Point(29, 550);
             this.Submenurepor.Margin = new System.Windows.Forms.Padding(4);
             this.Submenurepor.Name = "Submenurepor";
             this.Submenurepor.Size = new System.Drawing.Size(304, 316);
@@ -509,35 +606,6 @@
             this.tmContraerMenu.Interval = 15;
             this.tmContraerMenu.Tick += new System.EventHandler(this.TmContraerMenu_Tick);
             // 
-            // btnDescuento
-            // 
-            this.btnDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDescuento.FlatAppearance.BorderSize = 0;
-            this.btnDescuento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescuento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescuento.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnDescuento.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuento.Image")));
-            this.btnDescuento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescuento.Location = new System.Drawing.Point(29, 56);
-            this.btnDescuento.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDescuento.Name = "btnDescuento";
-            this.btnDescuento.Size = new System.Drawing.Size(351, 53);
-            this.btnDescuento.TabIndex = 11;
-            this.btnDescuento.Text = "   Descuentos";
-            this.btnDescuento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDescuento.UseVisualStyleBackColor = true;
-            this.btnDescuento.Click += new System.EventHandler(this.btnDescuento_Click);
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel9.Location = new System.Drawing.Point(0, 70);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(7, 39);
-            this.panel9.TabIndex = 12;
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -601,6 +669,10 @@
         private System.Windows.Forms.Button btnReportePuntos;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button btnDescuento;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btnCine;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button btnBoleto;
     }
 }
 

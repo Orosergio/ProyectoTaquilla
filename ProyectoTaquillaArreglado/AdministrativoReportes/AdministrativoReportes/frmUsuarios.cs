@@ -122,7 +122,7 @@ namespace AdministrativoReportes
                     {
                         //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
                         string Insertar = "INSERT INTO USUARIO (idUsuario,idEmpleado,idRol,contrasenia,nombreUsuario,estatus) " +
-                              "VALUES (" + codigoA + "," + +Int32.Parse(cboCodigoE.SelectedItem.ToString()) + ", "+Int32.Parse(cboCodigoR.SelectedItem.ToString()) + " ,'"+txtConfirmar.Text+"','"+txtUsuario.Text+"','" + Estatus + "')";
+                              "VALUES (" + codigoA + ","+Int32.Parse(cboCodigoE.SelectedItem.ToString())+ ", "+Int32.Parse(cboCodigoR.SelectedItem.ToString()) + " ,'"+txtConfirmar.Text+"','"+txtUsuario.Text+"','" + Estatus + "')";
                         OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                         OdbcDataReader mostrarC = comm.ExecuteReader();
                         MessageBox.Show("Los datos se ingresaron correctamente");

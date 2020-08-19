@@ -236,14 +236,13 @@ namespace AdministrativoReportes
             {
                 if (dtpFecha.Value.Date < DateTime.Now.Date)
                 {
-                    MessageBox.Show("La fecha de inicio no puede ser menor a la de Hoy ");
+                    MessageBox.Show("La fecha de estreno no puede ser menor a la de Hoy ");
                 }
                 else
                 {
                    
                     //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
                     Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
-                    MessageBox.Show("" + Fecha);
 
                     try
                     {

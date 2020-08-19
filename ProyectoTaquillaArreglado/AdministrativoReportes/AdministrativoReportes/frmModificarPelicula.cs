@@ -200,10 +200,10 @@ namespace AdministrativoReportes
                     try
                     {
 
-                        string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + cboCodigoC.SelectedItem + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + Link + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + cboCodigoP.SelectedItem;
+                        string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + Int32.Parse(cboCodigoC.SelectedItem.ToString()) + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + Link + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
                         OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                         OdbcDataReader leer = Consulta.ExecuteReader();
-
+                        MessageBox.Show("Los datos fueron actualizados correctamente ");
                     }
                     catch (Exception ex)
                     {

@@ -291,7 +291,7 @@ namespace AdministrativoReportes
          
             try
             {
-                string Sala1 = "SELECT F.idFormato,F.nombre FROM formato F, formatosala FS, sala S WHERE S.idSala = FS.idSala AND F.idFormato = FS.idFormato AND S.idSala = " + Int32.Parse(cboCodigoS.SelectedItem.ToString());
+                string Sala1 = "SELECT F.idFormato,F.nombre FROM formato F, formatosala FS, sala S WHERE S.idSala = FS.idSala AND F.idFormato = FS.idFormato AND S.idSala = " + Int32.Parse(cboCodigoN.SelectedItem.ToString());
                 OdbcCommand comm33 = new OdbcCommand(Sala1, cn.nuevaConexion());
                 OdbcDataReader mostrarSala1 = comm33.ExecuteReader();
 
@@ -353,7 +353,7 @@ namespace AdministrativoReportes
                     try
                     {
 
-                        string Modificar = "UPDATE PROYECCIONPELICULA SET idPelicula = '" + cboCodigoPN.SelectedItem + "' , idSala = '" + cboCodigoN.SelectedItem + "', idIdioma= " + cboCodigoI.SelectedItem + ", idFormato = '" + cboCodigoF.SelectedItem + "', fechaHoraProyeccion = '" + Fecha + "', estatus = '" + Estatus + "'  WHERE idProyeccionPelicula=" + lblC.Text;
+                        string Modificar = "UPDATE PROYECCIONPELICULA SET idPelicula = '" + Int32.Parse(cboCodigoPN.SelectedItem.ToString()) + "' , idSala = '" + Int32.Parse(cboCodigoN.SelectedItem.ToString()) + "', idIdioma= " + Int32.Parse(cboCodigoI.SelectedItem.ToString()) + ", idFormato = '" + Int32.Parse(cboCodigoF.SelectedItem.ToString()) + "', fechaHoraProyeccion = '" + Fecha + "', estatus = '" + Estatus + "'  WHERE idProyeccionPelicula=" + Int32.Parse(lblC.Text.ToString());
                         OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                         OdbcDataReader leer = Consulta.ExecuteReader();
                         MessageBox.Show("Los Datos se actualizaron correctamente");

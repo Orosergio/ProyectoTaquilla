@@ -62,7 +62,7 @@ namespace AdministrativoReportes
             try
                 {
                     String telefono = txtTelefono.Text.ToString();
-                    string cadena = "select t.idTelefono AS CODIGO, E.nombre NOMBRE,E.apellido,T.telefono AS TELEFONO,T.estatus AS ESTATUS from empleado E, telefono T WHERE E.idEmpleado = T.idEmpleado and telefono =" + telefono;
+                    string cadena = "select t.idTelefono AS CODIGO, E.nombre NOMBRE,E.apellido AS APELLIDO,T.telefono AS TELEFONO,T.estatus AS ESTATUS from empleado E, telefono T WHERE E.idEmpleado = T.idEmpleado and telefono = '"+ telefono+"' ";
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);
@@ -122,7 +122,7 @@ namespace AdministrativoReportes
                 try
                 {
 
-                    string Modificar = "UPDATE TELEFONO SET  telefono = '" + txtTelefonoN.Text + "' ,idEmpleado = " + cboCodigoE.SelectedItem + " ,estatus = '" + Estatus + "'  WHERE idTelefono= " + lblC.Text.ToString();
+                    string Modificar = "UPDATE TELEFONO SET  telefono = '" + txtTelefonoN.Text + "' ,idEmpleado = " + Int32.Parse(cboCodigoE.SelectedItem.ToString()) + " ,estatus = '" + Estatus + "'  WHERE idTelefono= '"+ lblC.Text+"' ";
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
                     MessageBox.Show("Los Datos se actualizaron correctamente");

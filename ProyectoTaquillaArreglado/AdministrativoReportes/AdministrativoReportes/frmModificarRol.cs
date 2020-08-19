@@ -97,7 +97,7 @@ namespace AdministrativoReportes
                 try
                 {
                   
-                    string Modificar = "UPDATE ROL SET nombre = '" + txtRol.Text + "' , estatus = '" + Estatus + "'  WHERE idRol=" + cboCodigoRol.SelectedItem;
+                    string Modificar = "UPDATE ROL SET nombre = '" + txtRol.Text + "' , estatus = '" + Estatus + "'  WHERE idRol=" + Int32.Parse(cboCodigoRol.SelectedItem.ToString());
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
 

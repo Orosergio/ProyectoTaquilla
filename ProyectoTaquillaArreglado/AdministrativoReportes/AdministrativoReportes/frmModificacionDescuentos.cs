@@ -207,6 +207,11 @@ namespace AdministrativoReportes
             validar.funcSueldo(e);
         }
 
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAgregado/Ayuda.chm", "ModificarDescuentos.html");
+        }
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
@@ -226,7 +231,7 @@ namespace AdministrativoReportes
                 {
                     Estatus = "0";
                 }
-                if (dtpInicio.Value.Date < DateTime.Now.Date || dtpFinal.Value.Date < DateTime.Now.Date)
+                if (dtpInicio.Value.Date < DateTime.Now.Date || dtpFinal.Value.Date < DateTime.Now.Date || dtpInicio.Value.Date >= dtpFinal.Value.Date )
                 {
                     MessageBox.Show("La fecha de inicio no puede ser menor a la de Hoy o la fecha de finalizacion no puede se menor a la de hoy");
                 }
@@ -237,7 +242,7 @@ namespace AdministrativoReportes
                     try
                     {
                         //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
-                        string Insertar = "UPDATE PROMOCION SET NombrePromocion = '" +txtPromocion.Text + "' , CantidadDescuento = '" + txtDescuento.Text + "', fechaInicio = '"+fechaI+"', fechaFinal = '" + fechaF + "', idBoleto = '" + lblCodigoBoleto.Text.ToString() + "', estatus = '" + Estatus + "'  WHERE idPromocion = " + lblCodigoA.Text; 
+                        string Insertar = "UPDATE PROMOCION SET NombrePromocion = '" +txtPromocion.Text + "' , CantidadDescuento = " + double.Parse(txtDescuento.Text.ToString())+", fechaInicio = '"+fechaI+"', fechaFinal = '" + fechaF + "', idBoleto = " + Int32.Parse(lblCodigoBoleto.Text.ToString())+ ", estatus = '" + Estatus + "'  WHERE idPromocion = " + Int32.Parse(lblCodigoA.Text.ToString())+" "; 
                         OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                         OdbcDataReader mostrarC = comm.ExecuteReader();
                         MessageBox.Show("Los datos se ingresaron correctamente");

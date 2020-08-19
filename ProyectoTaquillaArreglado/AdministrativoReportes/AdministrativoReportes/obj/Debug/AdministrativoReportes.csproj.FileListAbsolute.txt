@@ -448,3 +448,6 @@ C:\Users\jose lopez\Documents\GitHub\Proyecto\ProyectoTaquillaArreglado\Administ
 C:\Users\jose lopez\Documents\GitHub\Proyecto\ProyectoTaquillaArreglado\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.pdb
 C:\Users\jose lopez\Documents\GitHub\Proyecto\ProyectoTaquillaArreglado\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.frmPromocion.resources
 C:\Users\jose lopez\Documents\GitHub\Proyecto\ProyectoTaquillaArreglado\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.frmModificacionDescuentos.resources
+C:\Users\jose lopez\Documents\GitHub\Proyecto\ProyectoTaquillaArreglado\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.frmCine.resources
+C:\Users\jose lopez\Documents\GitHub\Proyecto\ProyectoTaquillaArreglado\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.frmModificarCine.resources
+C:\Users\jose lopez\Documents\GitHub\Proyecto\ProyectoTaquillaArreglado\AdministrativoReportes\AdministrativoReportes\obj\Debug\AdministrativoReportes.frmModificacionBoleto.resources

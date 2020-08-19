@@ -63,6 +63,7 @@
             this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgtDatos.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

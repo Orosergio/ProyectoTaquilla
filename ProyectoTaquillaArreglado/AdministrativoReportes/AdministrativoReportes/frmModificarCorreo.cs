@@ -30,10 +30,11 @@ namespace AdministrativoReportes
             lblT.Text = "";
             lblE.Text = "";
             lblEs.Text = "";
-
+            dgtDatos.DataSource = null;
         }
         void procEmpleado()
         {
+
             //en esta funcion buscar se seleccionaran las clasificacions de las peliculas y se mostraran en el cboClaficicacion
             try
             {
@@ -76,10 +77,11 @@ namespace AdministrativoReportes
             {
                 try
                  {
-                    String Correo = txtCorreo.Text.ToString();
-                    String Cadena = "select * from correo c where c.correo ='"+txtCorreo.Text.ToString();
-                string cadena = "select C.idCorreo, E.nombre,C.correo,C.estatus from empleado E, correo C where E.idEmpleado = C.idEmpleado and C.correo = "+txtCorreo.Text.ToString();
-                OdbcDataAdapter datos = new OdbcDataAdapter(Cadena, cn.nuevaConexion());
+                    
+             
+                   // string Cadena = "select * from correo c where c.correo ='"+txtCorreo.Text+"' ";
+                string cadena = "select C.idCorreo, E.nombre,E.apellido,C.correo,C.estatus from empleado E, correo C where E.idEmpleado = C.idEmpleado and C.correo = '"+txtCorreo.Text+"' ";
+                OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                 DataTable dt = new DataTable();
                 datos.Fill(dt);
                 dgtDatos.DataSource = dt;
@@ -100,10 +102,14 @@ namespace AdministrativoReportes
         {
             //boton para copiar los datos del dataGridView en labels correspondientes
             lblCodigoCorreo.Text = dgtDatos.CurrentRow.Cells[0].Value.ToString();
-            lblT.Text = dgtDatos.CurrentRow.Cells[1].Value.ToString();
-            lblE.Text = dgtDatos.CurrentRow.Cells[2].Value.ToString();
-           
-            lblEs.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            string nombre, apellido, nombreCompleto;
+            nombre = dgtDatos.CurrentRow.Cells[1].Value.ToString();
+            apellido = dgtDatos.CurrentRow.Cells[2].Value.ToString();
+            nombreCompleto = nombre + " " + apellido;
+            lblE.Text = nombreCompleto;
+            lblT.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            lblEs.Text = dgtDatos.CurrentRow.Cells[4].Value.ToString();
+
         }
 
         private void cboCodigoN_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,7 +139,7 @@ namespace AdministrativoReportes
                 try
                 {
 
-                    string Modificar = "UPDATE CORREO SET  correo = '" + txtCorreo.Text + "' ,idEmpleado = " + cboCodigoN.SelectedItem + " ,estatus = '" + Estatus + "'  WHERE idTelefono= " + lblC.Text.ToString();
+                    string Modificar = "UPDATE CORREO SET  correo = '" + txtCorreoN.Text + "' ,idEmpleado = " + Int32.Parse(cboCodigoN.SelectedItem.ToString()) + " ,estatus = '" + Estatus + "'  WHERE idCorreo= '"+lblCodigoCorreo.Text+"' ";
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
                     MessageBox.Show("Los Datos se actualizaron correctamente");
@@ -151,6 +157,11 @@ namespace AdministrativoReportes
         private void btnAyuda_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Correo.html");
+        }
+
+        private void cboEmpleadoN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboCodigoN.SelectedIndex = cboEmpleadoN.SelectedIndex;
         }
     }
 }

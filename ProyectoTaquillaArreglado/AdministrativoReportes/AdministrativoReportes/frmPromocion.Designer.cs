@@ -235,6 +235,7 @@
             this.btnAyuda.Size = new System.Drawing.Size(75, 75);
             this.btnAyuda.TabIndex = 71;
             this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // cboFormato
             // 

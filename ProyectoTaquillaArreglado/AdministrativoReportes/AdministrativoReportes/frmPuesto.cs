@@ -88,7 +88,7 @@ namespace AdministrativoReportes
                 {
                     //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
                     string Insertar = "INSERT INTO Puesto (idPuesto,nombre,sueldo,estatus) " +
-                          "VALUES (" + codigoA + ",'" + txtPuesto.Text + "', '" + txtSueldo.Text + "','" + Estatus + "')";
+                          "VALUES (" + codigoA + ",'" + txtPuesto.Text + "', " + double.Parse(txtSueldo.Text.ToString()) + ",'" + Estatus + "')";
                     OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                     OdbcDataReader mostrarC = comm.ExecuteReader();
                     MessageBox.Show("Los datos se ingresaron correctamente");

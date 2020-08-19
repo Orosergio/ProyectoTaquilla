@@ -117,7 +117,7 @@ namespace AdministrativoReportes
                 try
                 {
                     string Estatus = "0";
-                    string Modificar = "UPDATE PROYECCIONPELICULA SET estatus = '" + Estatus + "' WHERE idPelicula=" + cboCodigoP.SelectedItem;
+                    string Modificar = "UPDATE PROYECCIONPELICULA SET estatus = '" + Estatus + "' WHERE idPelicula=" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
                     MessageBox.Show("El estatus de la pelicula fue modificado a inactivo");

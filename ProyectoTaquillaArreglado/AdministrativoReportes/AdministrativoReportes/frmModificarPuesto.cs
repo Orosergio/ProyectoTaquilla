@@ -126,7 +126,7 @@ namespace AdministrativoReportes
  
                 try
                 {
-                    string Modificar = "UPDATE PUESTO SET nombre = '" + txtPuesto.Text + "' , sueldo  = '" + txtSueldo.Text + "', estatus = " + Estatus + "  WHERE idPuesto=" + cboCodigoPuesto.SelectedItem;
+                    string Modificar = "UPDATE PUESTO SET nombre = '" + txtPuesto.Text + "' , sueldo  = " + double.Parse(txtSueldo.Text.ToString()) + ", estatus = " + Estatus + "  WHERE idPuesto=" + Int32.Parse(cboCodigoPuesto.SelectedItem.ToString());
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
                 }

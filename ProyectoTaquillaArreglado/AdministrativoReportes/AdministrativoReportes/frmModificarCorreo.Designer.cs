@@ -107,6 +107,7 @@
             this.cboEmpleadoN.Name = "cboEmpleadoN";
             this.cboEmpleadoN.Size = new System.Drawing.Size(481, 35);
             this.cboEmpleadoN.TabIndex = 108;
+            this.cboEmpleadoN.SelectedIndexChanged += new System.EventHandler(this.cboEmpleadoN_SelectedIndexChanged);
             // 
             // txtCorreoN
             // 
@@ -245,7 +246,7 @@
             this.dgtDatos.RowHeadersWidth = 51;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(647, 254);
+            this.dgtDatos.Size = new System.Drawing.Size(772, 254);
             this.dgtDatos.TabIndex = 95;
             this.dgtDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgtDatos_CellContentClick);
             // 
@@ -313,7 +314,7 @@
             this.cboCodigoN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoN.FormattingEnabled = true;
-            this.cboCodigoN.Location = new System.Drawing.Point(1051, 575);
+            this.cboCodigoN.Location = new System.Drawing.Point(972, 536);
             this.cboCodigoN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCodigoN.Name = "cboCodigoN";
             this.cboCodigoN.Size = new System.Drawing.Size(73, 35);
@@ -324,7 +325,7 @@
             // btnAyuda
             // 
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
-            this.btnAyuda.Location = new System.Drawing.Point(1027, 25);
+            this.btnAyuda.Location = new System.Drawing.Point(970, 25);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(75, 75);
             this.btnAyuda.TabIndex = 114;
@@ -341,13 +342,14 @@
             this.lblCodigoCorreo.Size = new System.Drawing.Size(95, 27);
             this.lblCodigoCorreo.TabIndex = 115;
             this.lblCodigoCorreo.Text = "Codigo";
+            this.lblCodigoCorreo.Visible = false;
             // 
             // frmModificarCorreo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1136, 718);
+            this.ClientSize = new System.Drawing.Size(1058, 718);
             this.Controls.Add(this.lblCodigoCorreo);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.cboCodigoN);

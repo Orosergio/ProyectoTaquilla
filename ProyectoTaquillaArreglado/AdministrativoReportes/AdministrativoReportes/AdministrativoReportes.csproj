@@ -86,6 +86,12 @@
     <Compile Include="clsBitacora.cs" />
     <Compile Include="clsConexion.cs" />
     <Compile Include="clsValidacion.cs" />
+    <Compile Include="frmCine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCine.Designer.cs">
+      <DependentUpon>frmCine.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCorreo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,11 +134,23 @@
     <Compile Include="frmModFunciones.Designer.cs">
       <DependentUpon>frmModFunciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificacionBoleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificacionBoleto.Designer.cs">
+      <DependentUpon>frmModificacionBoleto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificacionDescuentos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmModificacionDescuentos.Designer.cs">
       <DependentUpon>frmModificacionDescuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarCine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarCine.Designer.cs">
+      <DependentUpon>frmModificarCine.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificarCorreo.cs">
       <SubType>Form</SubType>
@@ -244,6 +262,9 @@
     <Compile Include="frmReporteVentas.Designer.cs">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCine.resx">
+      <DependentUpon>frmCine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCorreo.resx">
       <DependentUpon>frmCorreo.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,8 +286,14 @@
     <EmbeddedResource Include="frmModFunciones.resx">
       <DependentUpon>frmModFunciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificacionBoleto.resx">
+      <DependentUpon>frmModificacionBoleto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModificacionDescuentos.resx">
       <DependentUpon>frmModificacionDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarCine.resx">
+      <DependentUpon>frmModificarCine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarCorreo.resx">
       <DependentUpon>frmModificarCorreo.cs</DependentUpon>

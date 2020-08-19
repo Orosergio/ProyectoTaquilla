@@ -190,7 +190,7 @@ namespace AdministrativoReportes
                     }
                     try
                     {
-                        string Modificar = "UPDATE USUARIO SET idEmpleado = '" + cboCoEmp.SelectedItem + "' , idRol  = '" + cboCodigoR.SelectedItem + "', contrasenia = '" + txtContraseñaCon.Text + "', nombreUsuario = '" + txtUsuario.Text + "',estatus = " + Estatus + "  WHERE idUsuario=" +Int32.Parse(cboCodigoU.SelectedItem.ToString()); ;
+                        string Modificar = "UPDATE USUARIO SET idEmpleado = " + Int32.Parse(cboCoEmp.SelectedItem.ToString()) + " , idRol  = '" + Int32.Parse(cboCodigoR.SelectedItem.ToString()) + "', contrasenia = '" + txtContraseñaCon.Text + "', nombreUsuario = '" + txtUsuario.Text + "',estatus = '" + Estatus + "'  WHERE idUsuario=" +Int32.Parse(cboCodigoU.SelectedItem.ToString()); ;
                         OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                         OdbcDataReader leer = Consulta.ExecuteReader();
                         MessageBox.Show("Los Datos se guardaron correctamente");

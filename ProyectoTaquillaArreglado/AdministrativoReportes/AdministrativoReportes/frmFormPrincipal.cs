@@ -46,6 +46,8 @@ namespace FinalProyecto
                         btnEmpleado.Visible = true;
                         btnUsuario.Visible = true;
                         btnReportes.Visible = true;
+                        btnCine.Visible = true;
+                        btnBoleto.Visible = true;
                     }
                     if (reader[0].ToString() == "2") //admin
                     {
@@ -328,6 +330,18 @@ namespace FinalProyecto
         private void btnDescuento_Click(object sender, EventArgs e)
         {
             frmPromocion fm = new frmPromocion();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnCine_Click(object sender, EventArgs e)
+        {
+            frmCine fm = new frmCine();
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnBoleto_Click(object sender, EventArgs e)
+        {
+            frmModificacionBoleto fm = new frmModificacionBoleto();
             AbrirFormEnPanel(fm);
         }
 
