@@ -1,0 +1,82 @@
+//MASTER
+acfc0ac Entrega #4
+*   6edcab8 Merge branch 'master' of https://github.com/Orosergio/ProyectoTaquilla
+|\
+| * bab380d Modificaciones Finales proyecto de Taquilla (usuario)
+* | 747c651 Modificaciones finales Administrativo
+|/
+* 188c6b7 Parte Administrativa del Proyecto
+* f45072f Add files via upload
+* 2809d94 Add files via upload
+* 8e48894 Documento de prueba
+
+
+//RAMA TAQUILLA_LAIB
+* bfe84fb Correcion a la cartelera y funciones
+* bb52f87 Comentarios y algunas verificaciones
+* 53dac7c Se unificaron algunos formularios
+* 4d112d5 Funciones y Boletos actualizados
+* d1ad2df Proyectos unidos
+* 385b5ea Cartelera 2.0
+* ef98ed9 Cartelera y trailer
+* 632c821 Cambio al protitpo y clase conexión
+* 381830a Forms Cartelera, funciones, boletos
+* 8e48894 Documento de prueba
+
+
+//RAMA TAQUILLA_BRYAN
+* a5f8d6c Form de Agregar Cliente,Mejoras en Datos de Cliente e Implementacion de Ayuda
+* a5a834b Update Resources.Designer.cs
+* 9769bd1 Documentación y arreglo de errores
+* 23b1bcb Forms de Facturacion y Asientos
+* 208895d Funcionalidades en Reservación de Asiento
+* ed54f20 Tamaño de íconos cambiados según la estandarización
+* 1ee6c8b Cambio de letra y tamaño de acuerdo a estandarización
+* 0aa6f76 Colores cambiados de acuerda a la estandarización
+* 4f15bb5 Restriccion de campos
+* 13a7eb1 Cambio de nombre a objetos
+* c02a67f Prototipo no funcional (Asientos y Facturacion)
+* 8e48894 Documento de prueba
+
+
+//RAMA AdministrativoJose
+* be3745f MantenimientoTerminado
+* 50356d5 .
+* 1444c32 AdministracionCasiFinalizada
+* cd1121a Prueba
+* 2459d5d AdministracionFinal
+* 3702b93 ProyectoAdministrativo
+* dcfb7e4 Mantenimiento
+* 677362a Peliculas y funciones
+* 1c5cdb2 Peliculas terminado
+* e4b315b Guardar imagenes en la base de datos
+* f6af1bc Eliminar-Modificar-Agregar
+* 4a6c1c8 prueba
+* 8e48894 Documento de prueba
+
+
+//RAMA AdministrativoYavhe
+* 51a8ee6 Adicion de roles
+* 98ecafc Bitacora y PDF
+* 42075fd Implementacion de Bitacora
+* 5151049 Adicion de Login
+* df5eec3 Actualizacion de Reportes
+* 7bf4701 Adicion de informe
+* 53cbd38 Modificación de reportes
+* ea89949 Reporte de ganancias
+* bb7e8e0 Inicio creación de reportes
+* 8e48894 Documento de prueba
+
+
+
+//RAMA TAQUILLA
+* a09edcf TaquillaBD
+* 8e48894 Documento de prueba
+
+
+//RAMA ADMINISTRATIVA
+* b8e1d0b Aplicación Administrativa
+* a0c3638 Add files via upload
+* 8e48894 Documento de prueba
+
+
