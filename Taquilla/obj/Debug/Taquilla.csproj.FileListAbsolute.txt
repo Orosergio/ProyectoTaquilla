@@ -22,7 +22,6 @@ C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.ex
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.pdb
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmTrailer.resources
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmCantidadBoletos.resources
-C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmFacturacion.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\bin\Debug\Taquilla.exe.config
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\bin\Debug\Taquilla.exe
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\bin\Debug\Taquilla.pdb
@@ -30,7 +29,6 @@ D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taqu
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmBoletos.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmCantidadBoletos.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmCartelera.resources
-D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmFacturacion.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmTrailer.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmFuncionesCine.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.Properties.Resources.resources
@@ -47,7 +45,6 @@ D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmBoletos.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmCantidadBoletos.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmCartelera.resources
-D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmFacturacion.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmPagoTarjeta.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmTrailer.resources
 D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmFuncionesCine.resources
@@ -66,3 +63,35 @@ C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\bin\Debug\AxInterop.W
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Interop.WMPLib.dll
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.csproj.ResolveComReference.cache
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmDatosCliente.resources
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\Taquilla\obj\Debug\Taquilla.frmAgregarCliente.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmAgregarCliente.resources
+C:\Users\Carlos\Documents\GitHub\ProyectoTaquilla\Taquilla\obj\Debug\Taquilla.frmDatosCliente.resources
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\bin\Debug\Interop.WMPLib.dll
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\bin\Debug\AxInterop.WMPLib.dll
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Interop.WMPLib.dll
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\AxInterop.WMPLib.dll
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.csproj.ResolveComReference.cache
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmAgregarCliente.resources
+D:\U\4 AÑO 2 SEM\ANALISIS 2\PRIMER PARCIAL\PROYECTO\asd\Taquilla\obj\Debug\Taquilla.frmDatosCliente.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\bin\Debug\Taquilla.exe.config
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\bin\Debug\Taquilla.exe
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\bin\Debug\Taquilla.pdb
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\bin\Debug\Interop.WMPLib.dll
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.csprojAssemblyReference.cache
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Interop.WMPLib.dll
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.csproj.ResolveComReference.cache
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmAgregarCliente.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmBoletos.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmCantidadBoletos.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmCartelera.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmDatosCliente.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmPagoTarjeta.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmTrailer.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.frmFuncionesCine.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.Properties.Resources.resources
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.csproj.GenerateResource.cache
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.exe
+C:\Users\Carlos\Desktop\Taquilla (2)\Taquilla\obj\Debug\Taquilla.pdb

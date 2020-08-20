@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace Taquilla
 {
-    public partial class frmFacturacion : Form
+    public partial class frmDatosCliente : Form
     {
         int tiempo, idProyeccionPelicula, idSala, idCine;
         List<clsBoletos> infoBoletosComprados = new List<clsBoletos>();
         List<clsBoletos> infoAsientosElegidos = new List<clsBoletos>();
         clsConexion cn = new clsConexion();
         //esto sirve para que el form de facturación pueda recibir los datos enviados por el form de boletos.
-        public frmFacturacion(List<clsBoletos> infoBoletos, List<clsBoletos> infoAsientos, int sala, int cine, int proyeccion)
+        public frmDatosCliente(List<clsBoletos> infoBoletos, List<clsBoletos> infoAsientos, int sala, int cine, int proyeccion)
         {
             InitializeComponent();
             //se copian las variables recibidas a variables globales
@@ -57,8 +57,8 @@ namespace Taquilla
                     try
                     {
                         //consulta para insertar los datos en la tabla de factura encabezado
-                        string insertarEncabezado = "INSERT INTO FACTURAENCABEZADO (IDFACTURAENCABEZADO,SERIE,FECHA,NITCLIENTE,TOTAL,DESCUENTO,IDPROYECCIONPELICULA,ESTATUS) " +
-                            "VALUES(" + codigoEnc + ",'" + "BGCLC-" + codigoEnc + "',?," + txtNit.Text.ToString() + "," + decimal.Parse(lblCantTotal.Text.ToString()) + "," + decimal.Parse(lblCantDescuento.Text.ToString()) + "," + idProyeccionPelicula + "," + 1 + ")";
+                        string insertarEncabezado = "INSERT INTO FACTURAENCABEZADO (IDFACTURAENCABEZADO,SERIE,FECHA,NITCLIENTE,TOTAL,DESCUENTO,IDPROYECCIONPELICULA,PUNTOS,ESTATUS) " +
+                            "VALUES(" + codigoEnc + ",'" + "BGCLC-" + codigoEnc + "',?," + txtNit.Text.ToString() + "," + decimal.Parse(lblCantTotal.Text.ToString()) + "," + decimal.Parse(lblCantDescuento.Text.ToString()) + "," + idProyeccionPelicula + ","+lblCantPuntos.Text.ToString()+"," + 1 + ")";
                         OdbcCommand comm = new OdbcCommand(insertarEncabezado, cn.Conexion());
                         comm.Parameters.Add("@FECHA", OdbcType.DateTime).Value = fechaActual;
                         comm.ExecuteNonQuery();
@@ -98,19 +98,7 @@ namespace Taquilla
                         procCorreoConfirmacion("Compra");
                         if ((MessageBox.Show("Compra exitosa, recibirá un correo de confirmación.", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information)) == DialogResult.OK)
                         {
-                            frmCartelera cartelera = new frmCartelera();
-                            this.Hide();
-                            cartelera.ShowDialog();
-                            try
-                            {
-                                this.Show();
-                            }
-                            catch (Exception)
-                            {
-
-                                Application.Exit();
-                            }
-                           
+                            Application.Restart();
                         }
                     }
                     catch (Exception ex)
@@ -142,15 +130,10 @@ namespace Taquilla
                     {
                         //consulta para insertar los datos en la tabla de reservación encabezado
                         string insertarEncabezado = "INSERT INTO RESERVACIONENCABEZADO (IDRESERVACIONENCABEZADO,FECHA,NITCLIENTE,TOTAL,DESCUENTO,IDPROYECCIONPELICULA,ESTATUS) " +
-                            "VALUES(?,?,'" + txtNit.Text.ToString() + "',?,?,?,?)";
+                            "VALUES(" + codigoEnc + ",?," + txtNit.Text.ToString() + "," + decimal.Parse(lblCantTotal.Text.ToString()) + "," + decimal.Parse(lblCantDescuento.Text.ToString()) + "," + idProyeccionPelicula + "," + 1 + ")";
                         OdbcCommand comm = new OdbcCommand(insertarEncabezado, cn.Conexion());
-                        comm.Parameters.Add("@IDRESERVACIONENCABEZADO", OdbcType.Int).Value = codigoEnc;
                         comm.Parameters.Add("@FECHA", OdbcType.DateTime).Value = fechaActual;
-                        comm.Parameters.Add("@TOTAL", OdbcType.Decimal).Value = decimal.Parse(lblCantTotal.Text.ToString());
-                        comm.Parameters.Add("@DESCUENTO", OdbcType.Decimal).Value = decimal.Parse(lblCantDescuento.Text.ToString());
-                        comm.Parameters.Add("@IDPROYECCIONPELICULA", OdbcType.Int).Value = idProyeccionPelicula;
-                        comm.Parameters.Add("@ESTATUS", OdbcType.TinyInt).Value = 1;
-                        OdbcDataReader insEnc = comm.ExecuteReader();
+                        comm.ExecuteNonQuery();
                         //se recorre la lista de boletos para que se guarden
                         for (int i = 0; i < infoBoletosComprados.Count; i++)
                         {
@@ -160,7 +143,7 @@ namespace Taquilla
                                 string insertarDetalle = "INSERT INTO RESERVACIONDETALLE (IDBOLETO,IDRESERVACIONENCABEZADO,CANTIDAD) " +
                                    "VALUES ( " + infoBoletosComprados.ElementAt(i).idBoletos + ", " + codigoEnc + "," + infoBoletosComprados.ElementAt(i).cantidadBoletos + ")";
                                 OdbcCommand comm2 = new OdbcCommand(insertarDetalle, cn.Conexion());
-                                insEnc = comm2.ExecuteReader();
+                                comm2.ExecuteReader();
                             }
                             catch (Exception ex2)
                             {
@@ -176,7 +159,7 @@ namespace Taquilla
                                 string insertarAsiento = "INSERT INTO ASIENTORESERVADO (FILA,NUMERO,IDRESERVACIONENCABEZADO) " +
                                    "VALUES ( " + infoAsientosElegidos.ElementAt(i).idBoletos + ", " + infoAsientosElegidos.ElementAt(i).cantidadBoletos + "," + codigoEnc + ")";
                                 OdbcCommand comm2 = new OdbcCommand(insertarAsiento, cn.Conexion());
-                                insEnc = comm2.ExecuteReader();
+                                comm2.ExecuteReader();
                             }
                             catch (Exception ex3)
                             {
@@ -187,10 +170,7 @@ namespace Taquilla
                         procCorreoConfirmacion("Reserva");
                         if ((MessageBox.Show("Reservación exitosa, recibirá un correo de confirmación.", "ÉXITO", MessageBoxButtons.OK, MessageBoxIcon.Information)) == DialogResult.OK)
                         {
-                            frmCartelera cartelera = new frmCartelera();
-                            this.Hide();
-                            cartelera.ShowDialog();
-                            this.Show();
+                            Application.Restart();
                         }
 
                     }
@@ -202,7 +182,7 @@ namespace Taquilla
             }
             else
             {
-                MessageBox.Show("Debe de ingresar un cliente para los datos de facturación", "FALTA DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe de ingresar un cliente", "FALTA DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         //proceso de enviar correo al cliente
@@ -249,21 +229,24 @@ namespace Taquilla
             }
         }
 
-        /*bool procEsEmailValido(string email)
-        {
-            try
-            {
-                var mail = new System.Net.Mail.MailAddress(email);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }*/
 
         private void txtNit_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //revisa que puede ingresar numeros y k o K
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.K || e.KeyChar == 107)
+            {
+                e.Handled = false;
+            }
+            else
+           if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                //el resto de teclas pulsadas se desactivan
+                e.Handled = true;
+            }
             //si presiona la tecla enter busca el nit ingresado
             if (e.KeyChar == 13)
             {
@@ -310,6 +293,7 @@ namespace Taquilla
                 //muestra el form de tarjeta para ingresar datos   
                 frmPagoTarjeta tarjeta = new frmPagoTarjeta();
                 tarjeta.lblCantTiempoRestante.Text = lblCantTiempoRestante.Text.ToString();
+                btnPagar.Text = "Facturar";
                 tiempo = tiempo + 2;
                 this.Hide();
                 tarjeta.ShowDialog();
@@ -326,14 +310,20 @@ namespace Taquilla
             }
         }
 
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
 
+        private void picAgregarCliente_Click(object sender, EventArgs e)
+        {
+            frmAgregarCliente agregar = new frmAgregarCliente();
+            agregar.lblCantTiempoRestante.Text = lblCantTiempoRestante.Text.ToString();
+            tiempo = tiempo + 2;
+            this.Hide();
+            agregar.ShowDialog();
+            this.Show();
         }
 
-        private void btnDescripcion_Click(object sender, EventArgs e)
+        private void picAyuda_Click(object sender, EventArgs e)
         {
-
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "DatosCliente.html");
         }
 
         private void frmFacturacion_Load(object sender, EventArgs e)
@@ -347,7 +337,7 @@ namespace Taquilla
             lblCantPuntos.Text = (double.Parse(lblCantTotal.Text.ToString()) * 0.30).ToString();
         }
 
-        //procedimiento para obtener el decuento
+        //procedimiento para obtener el descuento
         private void procObtenerDescuento()
         {
             //se obtiene la fecha y tiemmpo actual
