@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
+using System.Globalization;
 
 namespace Taquilla
 {
@@ -24,18 +25,21 @@ namespace Taquilla
             procIdioma();
             procFechaFunciones();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void procHora()
         {
-
+            string horaActual = DateTime.Now.ToString("HH");
+            int conversion = Int32.Parse(horaActual);
+            while (conversion<=23)
+            {
+                cboHoraInicio.Items.Add(conversion.ToString() +":00:00");
+                conversion++;
+            }
+            cboHoraInicio.Items.Add("23:59:00");
         }
-
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
-            
-       
+            this.Dispose();           
         }
         public void procFechaFunciones()
         /*Procedimiento para mostrar las fechas de las funciones disponibles desde la hora que esta consultando hasta los siguientes dias
@@ -43,10 +47,10 @@ namespace Taquilla
         {
             try
             {
-                string Query = "select distinct date_format(pp.fechahoraproyeccion, '%d - %m - %Y'),  date_format(pp.fechahoraproyeccion, '%Y-%m-%d') ";
-                Query += "from pelicula p, proyeccionpelicula pp, sala s, cine c ";
-                Query += "where p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine and c.idcine=" + codigoCine + "  and pp.estatus=1 and p.estatus=1 ";
-                Query += "and s.estatus=1 and pp.fechahoraproyeccion >= sysdate() AND P.IDPELICULA=" + codigoPelicula;
+                string Query = "SELECT DISTINCT DATE_FORMAT(PP.FECHAHORAPROYECCION, '%d - %m - %Y'),  DATE_FORMAT(PP.FECHAHORAPROYECCION, '%Y-%m-%d') ";
+                Query += "FROM PELICULA P, PROYECCIONPELICULA PP, SALA S, CINE C ";
+                Query += "WHERE P.IDPELICULA=PP.IDPELICULA AND PP.IDSALA=S.IDSALA AND S.IDCINE=C.IDCINE AND C.IDCINE=" + codigoCine + "  AND PP.ESTATUS=1 AND P.ESTATUS=1 ";
+                Query += "AND S.ESTATUS=1 AND PP.FECHAHORAPROYECCION BETWEEN SYSDATE() AND DATE_ADD(NOW(), INTERVAL +7 DAY) AND P.IDPELICULA=" + codigoPelicula + " ORDER BY PP.FECHAHORAPROYECCION ASC";
                 OdbcDataReader Datos;
                 OdbcCommand Consulta = new OdbcCommand();
                 Consulta.CommandText = Query;
@@ -128,6 +132,10 @@ namespace Taquilla
             {
                 MessageBox.Show("Debe elegir una fecha para la pelicula");
             }
+            else if (cboHoraInicio.Text == "")
+            {
+                MessageBox.Show("Debe elegir un rango de horas");
+            }
             else
             {
                 dgvFunciones.Rows.Clear();
@@ -138,21 +146,22 @@ namespace Taquilla
                     string fechaActual = DateTime.Now.ToString("yyyy-MM-dd");
                     if (cboFechasFun.SelectedItem.ToString()!=fechaActual)
                     {
-                        Query = "select date_format(pp.fechahoraproyeccion, '%h:%i %p'), s.numero, pp.idproyeccionpelicula, s.idsala from proyeccionpelicula pp,";
-                        Query += "idioma i, formato f, sala s, pelicula p, cine c where c.idcine=s.idcine and s.idsala=pp.idsala and pp.ididioma=i.ididioma ";
-                        Query += "and pp.idformato=f.idformato and pp.idpelicula=p.idpelicula and i.ididioma=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
-                        Query += "and f.idformato=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " and c.idcine=" + codigoCine + " and p.idpelicula=" + codigoPelicula + " ";
-                        Query += "and cast(pp.fechahoraproyeccion as date) ='" + cboFechasFun.SelectedItem.ToString() + "' and pp.estatus=1 and p.estatus=1 and s.estatus=1 ";
-                        Query += "and pp.fechahoraproyeccion >= sysdate()";
+                        Query = "SELECT DATE_FORMAT(PP.FECHAHORAPROYECCION, '%h:%i %p'), S.NUMERO, PP.IDPROYECCIONPELICULA, S.IDSALA FROM PROYECCIONPELICULA PP,";
+                        Query += "IDIOMA I, FORMATO F, SALA S, PELICULA P, CINE C WHERE C.IDCINE=S.IDCINE AND S.IDSALA=PP.IDSALA AND PP.IDIDIOMA=I.IDIDIOMA ";
+                        Query += "AND PP.IDFORMATO=F.IDFORMATO AND PP.IDPELICULA=P.IDPELICULA AND I.IDIDIOMA=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
+                        Query += "AND F.IDFORMATO=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " AND C.IDCINE=" + codigoCine + " AND P.IDPELICULA=" + codigoPelicula + " ";
+                        Query += "AND CAST(PP.FECHAHORAPROYECCION AS DATE) ='" + cboFechasFun.SelectedItem.ToString() + "' AND PP.ESTATUS=1 AND P.ESTATUS=1 AND S.ESTATUS=1 ";
+                        Query += "AND PP.FECHAHORAPROYECCION BETWEEN SYSDATE() AND DATE_ADD(NOW(), INTERVAL +7 DAY) " +
+                            "AND CAST(PP.FECHAHORAPROYECCION AS TIME) BETWEEN '" + cboHoraInicio.SelectedItem.ToString() + "' AND '23:59:59'";
                     }
                     else
                     {
-                        Query = "select date_format(pp.fechahoraproyeccion, '%h:%i %p'), s.numero, pp.idproyeccionpelicula, s.idsala from proyeccionpelicula pp,";
-                        Query += "idioma i, formato f, sala s, pelicula p, cine c where c.idcine=s.idcine and s.idsala=pp.idsala and pp.ididioma=i.ididioma ";
-                        Query += "and pp.idformato=f.idformato and pp.idpelicula=p.idpelicula and i.ididioma=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
-                        Query += "and f.idformato=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " and c.idcine=" + codigoCine + " and p.idpelicula=" + codigoPelicula + " ";
-                        Query += "and cast(pp.fechahoraproyeccion as date) ='" + cboFechasFun.SelectedItem.ToString() + "' and pp.estatus=1 and p.estatus=1 and s.estatus=1 ";
-                        Query += "and cast(pp.fechahoraproyeccion as time) between curTime() and '23:59:59'";
+                        Query = "SELECT DATE_FORMAT(PP.FECHAHORAPROYECCION, '%h:%i %p'), S.NUMERO, PP.IDPROYECCIONPELICULA, S.IDSALA FROM PROYECCIONPELICULA PP,";
+                        Query += "IDIOMA I, FORMATO F, SALA S, PELICULA P, CINE C WHERE C.IDCINE=S.IDCINE AND S.IDSALA=PP.IDSALA AND PP.IDIDIOMA=I.IDIDIOMA ";
+                        Query += "AND PP.IDFORMATO=F.IDFORMATO AND PP.IDPELICULA=P.IDPELICULA AND I.IDIDIOMA=" + Int32.Parse(cboCodigoIdioma.SelectedItem.ToString()) + " ";
+                        Query += "AND F.IDFORMATO=" + Int32.Parse(cboCodigoFormato.SelectedItem.ToString()) + " AND C.IDCINE=" + codigoCine + " AND P.IDPELICULA=" + codigoPelicula + " ";
+                        Query += "AND CAST(PP.FECHAHORAPROYECCION AS DATE) ='" + cboFechasFun.SelectedItem.ToString() + "' AND PP.ESTATUS=1 AND P.ESTATUS=1 AND S.ESTATUS=1 ";
+                        Query += "AND CAST(PP.FECHAHORAPROYECCION AS TIME) BETWEEN '" + cboHoraInicio.SelectedItem.ToString() + "' AND '23:59:59'";
                     }
                     
                     OdbcDataReader Datos;
@@ -161,7 +170,7 @@ namespace Taquilla
                     Consulta.Connection = conn.Conexion();
                     Datos = Consulta.ExecuteReader();
                     if (Datos.Read())
-                    {
+                    {  
                         dgvFunciones.Rows.Add(Datos.GetString(1), Datos.GetString(0), Datos.GetString(2), Datos.GetString(3));
                         while (Datos.Read())
                         {
@@ -190,6 +199,33 @@ namespace Taquilla
         private void cboFechaFunciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboFechasFun.SelectedIndex = cboFechaFunciones.SelectedIndex;
+            cboHoraInicio.Items.Clear();
+            CultureInfo cultureInfo = new CultureInfo("es-ES");
+            DateTime dia = DateTime.Parse(cboFechaFunciones.SelectedItem.ToString(), cultureInfo);  
+            DateTime diaActual = DateTime.Now;
+            if (dia.Date > diaActual.Date)
+            {
+                int conversion = 0;
+                while (conversion <= 23)
+                {
+                    if (conversion < 10)
+                    {
+                        cboHoraInicio.Items.Add("0"+conversion.ToString() + ":00:00");
+                    }
+                    else
+                    {
+                        cboHoraInicio.Items.Add(conversion.ToString() + ":00:00");
+                    }
+                 
+                    conversion++;
+                }
+                cboHoraInicio.Items.Add("23:59:00");
+            }
+            else if (dia.Date == diaActual.Date)
+            {
+                procHora();
+            }
+            cboHoraInicio.Enabled = true;
         }
 
         private void cboFormato_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,10 +239,6 @@ namespace Taquilla
             cboCodigoIdioma.SelectedIndex = cboIdioma.SelectedIndex;
         }
 
-        private void dgvFunciones_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-    
-        }
 
         private void btnSIguiente_Click(object sender, EventArgs e)
         /*Se obtienen los datos para lso parametros que necesita el siguiente frm y se cambia
@@ -250,9 +282,21 @@ namespace Taquilla
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void frmFuncionesCine_Load(object sender, EventArgs e)
-        {
 
+        private void cboIdioma_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cboCodigoIdioma.SelectedIndex = cboIdioma.SelectedIndex;
         }
+
+        private void cboFormato_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cboCodigoFormato.SelectedIndex = cboFormato.SelectedIndex;
+        }
+
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "Funciones.html");
+        }
+
     }
 }

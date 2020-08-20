@@ -27,10 +27,7 @@ namespace Taquilla
               this.webBrowser1.DocumentText = string.Format(html, url.Split('=')[1]);
         }
 
-        private void frmTrailer_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -38,9 +35,11 @@ namespace Taquilla
             this.Hide();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+    
 
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "Trailer.html");
         }
     }
 }

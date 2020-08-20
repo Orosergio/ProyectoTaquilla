@@ -49,68 +49,31 @@ namespace Taquilla
                 throw;
             }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cartelera_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnMax_Click(object sender, EventArgs e)
-        {
-
-    
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         public void procMostrarCartelera()
             /*Procedimiento que muestra las primeras peliculas en la cartelera dependiendo de su cantidad*/
         {
             peliculasPasadas = 0;
-            if (cantidadPeliculas>=3)/*Si la cantidad de peliculas es mayor a 3 o igual a 3 vuelve visibles 
+            if (cantidadPeliculas > 3)/*Si la cantidad de peliculas es mayor a 3 o igual a 3 vuelve visibles 
                 todos los obsjetos y desbloquea ambas flechas para moverse atreves de la cartelera y a la variable
                 le suma 3 para indicar que ya pasaron las primeras 3 peliculas*/
             {
                 procPeliculasIniciales(3, 1);
                 procDesbloquearObjetos(1);
                 btnBajar.Visible = true;
+                btnSubir.Visible = false;
+                peliculasPasadas += 3;
+            }
+            else if (cantidadPeliculas == 3)
+            {
+                procPeliculasIniciales(3, 1);
+                procDesbloquearObjetos(1);
+                btnBajar.Visible = false;
                 btnSubir.Visible = false;
                 peliculasPasadas += 3;
             }
@@ -368,10 +331,6 @@ namespace Taquilla
             }
         
         }
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void cboDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         /*Este procedimiento que muestra los municipios dependiendo del codigo y el estatus del departamento*/
@@ -480,10 +439,11 @@ namespace Taquilla
             listaPelicula.Clear();//limpiamos la lista donde se almacenan las peliculas del cine
             try
             {
-                string Query = "select distinct p.nombre, p.descripcion, p.linktrailer, p.imagen, p.idpelicula, cl.nombre,cl.descripcion " +
-                    "from pelicula p, proyeccionpelicula pp, sala s, cine c, clasificacionpelicula cl " +
-                    "where cl.idclasificacionpelicula=p.idclasificacion and p.idpelicula=pp.idpelicula and pp.idsala=s.idsala and s.idcine=c.idcine " +
-                    "and c.idcine=" + Int32.Parse(cboCodigoCine.SelectedItem.ToString()) + " and p.estatus=1";
+                string Query = "SELECT DISTINCT P.NOMBRE, P.DESCRIPCION, P.LINKTRAILER, P.IMAGEN, P.IDPELICULA, CL.NOMBRE,CL.DESCRIPCION " +
+                    "FROM PELICULA P, PROYECCIONPELICULA PP, SALA S, CINE C, CLASIFICACIONPELICULA CL " +
+                    "WHERE CL.IDCLASIFICACIONPELICULA=P.IDCLASIFICACION AND P.IDPELICULA=PP.IDPELICULA AND PP.IDSALA=S.IDSALA AND S.IDCINE=C.IDCINE " +
+                    "AND C.IDCINE=" + Int32.Parse(cboCodigoCine.SelectedItem.ToString()) + " AND P.ESTATUS=1 AND PP.FECHAHORAPROYECCION BETWEEN SYSDATE() AND DATE_ADD(NOW(), INTERVAL +7 DAY)" +
+                    " AND P.FECHAESTRENO <= SYSDATE()";
                 OdbcDataReader Datos;
                 OdbcCommand Consulta = new OdbcCommand();
                 Consulta.CommandText = Query;
@@ -597,6 +557,11 @@ namespace Taquilla
             
         }
 
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "Cartelera.html");
+        }
+
         private void cboMunicipio_SelectedIndexChanged(object sender, EventArgs e)
             /*¨Procedimiento que muestra los cines dependiendo del codigo y el estatus del municipio*/
         {
@@ -606,7 +571,7 @@ namespace Taquilla
             cboCine.Enabled = true;
             try
             {
-                string Query = "SELECT * FROM cine WHERE IDMUNICIPIO="+Int32.Parse(cboCodigoMunicipio.SelectedItem.ToString())+" AND ESTATUS=1";
+                string Query = "SELECT * FROM CINE WHERE IDMUNICIPIO="+Int32.Parse(cboCodigoMunicipio.SelectedItem.ToString())+" AND ESTATUS=1";
                 OdbcDataReader Datos;
                 OdbcCommand Consulta = new OdbcCommand();
                 Consulta.CommandText = Query;
@@ -634,9 +599,5 @@ namespace Taquilla
             }
         }
 
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

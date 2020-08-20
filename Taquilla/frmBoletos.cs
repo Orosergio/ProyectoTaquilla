@@ -257,7 +257,12 @@ namespace Taquilla
             }
         }
 
-       
+        private void picAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Ayuda/AyudaTaquilla.chm", "Asientos.html");
+        }
+
+
 
 
 
@@ -284,7 +289,7 @@ namespace Taquilla
             if (int.Parse(lblCantBoletosRes.Text.ToString()) == 0)
             {
                 //manda los parametros al form de facturación
-                frmFacturacion facturacion = new frmFacturacion(infoBoletosComprados, infoAsientosElegidos, idSala, idCine, idProyeccionPelicula);
+                frmDatosCliente facturacion = new frmDatosCliente(infoBoletosComprados, infoAsientosElegidos, idSala, idCine, idProyeccionPelicula);
                 //copia información esencial a labels del form de facturación.
                 facturacion.lblNombrePelicula.Text = lblNombrePelicula.Text.ToString();
                 facturacion.lblCineElegido.Text = lblCineElegido.Text.ToString();
