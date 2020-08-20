@@ -78,8 +78,8 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(693, 548);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Location = new System.Drawing.Point(735, 561);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(170, 38);
             this.btnModificar.TabIndex = 110;
@@ -92,8 +92,8 @@
             this.cboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstatus.FormattingEnabled = true;
-            this.cboEstatus.Location = new System.Drawing.Point(425, 548);
-            this.cboEstatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboEstatus.Location = new System.Drawing.Point(695, 509);
+            this.cboEstatus.Margin = new System.Windows.Forms.Padding(2);
             this.cboEstatus.Name = "cboEstatus";
             this.cboEstatus.Size = new System.Drawing.Size(252, 29);
             this.cboEstatus.TabIndex = 109;
@@ -103,8 +103,8 @@
             this.cboEmpleadoN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEmpleadoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEmpleadoN.FormattingEnabled = true;
-            this.cboEmpleadoN.Location = new System.Drawing.Point(425, 511);
-            this.cboEmpleadoN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboEmpleadoN.Location = new System.Drawing.Point(695, 472);
+            this.cboEmpleadoN.Margin = new System.Windows.Forms.Padding(2);
             this.cboEmpleadoN.Name = "cboEmpleadoN";
             this.cboEmpleadoN.Size = new System.Drawing.Size(362, 29);
             this.cboEmpleadoN.TabIndex = 108;
@@ -113,8 +113,8 @@
             // txtCorreoN
             // 
             this.txtCorreoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoN.Location = new System.Drawing.Point(425, 467);
-            this.txtCorreoN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCorreoN.Location = new System.Drawing.Point(695, 428);
+            this.txtCorreoN.Margin = new System.Windows.Forms.Padding(2);
             this.txtCorreoN.Name = "txtCorreoN";
             this.txtCorreoN.Size = new System.Drawing.Size(252, 30);
             this.txtCorreoN.TabIndex = 107;
@@ -157,7 +157,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(427, 428);
+            this.label3.Location = new System.Drawing.Point(732, 395);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 21);
@@ -169,7 +169,7 @@
             this.lblEmpleadoN.AutoSize = true;
             this.lblEmpleadoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpleadoN.ForeColor = System.Drawing.Color.White;
-            this.lblEmpleadoN.Location = new System.Drawing.Point(321, 509);
+            this.lblEmpleadoN.Location = new System.Drawing.Point(591, 470);
             this.lblEmpleadoN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmpleadoN.Name = "lblEmpleadoN";
             this.lblEmpleadoN.Size = new System.Drawing.Size(100, 21);
@@ -181,7 +181,7 @@
             this.lblEstatusN.AutoSize = true;
             this.lblEstatusN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstatusN.ForeColor = System.Drawing.Color.White;
-            this.lblEstatusN.Location = new System.Drawing.Point(321, 548);
+            this.lblEstatusN.Location = new System.Drawing.Point(591, 509);
             this.lblEstatusN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstatusN.Name = "lblEstatusN";
             this.lblEstatusN.Size = new System.Drawing.Size(73, 21);
@@ -193,7 +193,7 @@
             this.lblCorreoN.AutoSize = true;
             this.lblCorreoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreoN.ForeColor = System.Drawing.Color.White;
-            this.lblCorreoN.Location = new System.Drawing.Point(319, 473);
+            this.lblCorreoN.Location = new System.Drawing.Point(589, 434);
             this.lblCorreoN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCorreoN.Name = "lblCorreoN";
             this.lblCorreoN.Size = new System.Drawing.Size(73, 21);
@@ -251,14 +251,14 @@
             // dgtDatos
             // 
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(20, 133);
-            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgtDatos.Location = new System.Drawing.Point(11, 123);
+            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
             this.dgtDatos.RowHeadersWidth = 51;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(657, 243);
+            this.dgtDatos.Size = new System.Drawing.Size(1021, 249);
             this.dgtDatos.TabIndex = 95;
             this.dgtDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgtDatos_CellContentClick);
             // 
@@ -266,7 +266,7 @@
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Location = new System.Drawing.Point(101, 75);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(279, 30);
             this.txtCorreo.TabIndex = 94;
@@ -280,7 +280,7 @@
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(405, 69);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(170, 38);
             this.btnBuscar.TabIndex = 93;
@@ -329,8 +329,8 @@
             this.cboCodigoN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoN.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoN.FormattingEnabled = true;
-            this.cboCodigoN.Location = new System.Drawing.Point(731, 480);
-            this.cboCodigoN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoN.Location = new System.Drawing.Point(1001, 441);
+            this.cboCodigoN.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoN.Name = "cboCodigoN";
             this.cboCodigoN.Size = new System.Drawing.Size(56, 29);
             this.cboCodigoN.TabIndex = 113;
@@ -340,8 +340,8 @@
             // btnAyuda
             // 
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
-            this.btnAyuda.Location = new System.Drawing.Point(807, 32);
-            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Location = new System.Drawing.Point(965, 21);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(56, 61);
             this.btnAyuda.TabIndex = 114;
@@ -366,7 +366,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(890, 668);
+            this.ClientSize = new System.Drawing.Size(1058, 718);
             this.Controls.Add(this.lblCodigoCorreo);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.cboCodigoN);
@@ -392,7 +392,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblCorreo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmModificarCorreo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmModificarCorreo";

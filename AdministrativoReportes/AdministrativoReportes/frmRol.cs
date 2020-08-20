@@ -132,5 +132,10 @@ namespace AdministrativoReportes
         {
             Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Ingreso de Rol.html");
         }
+
+        private void dgtDatosPro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -54,7 +54,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
-            this.dgtDatos.Size = new System.Drawing.Size(734, 410);
+            this.dgtDatos.Size = new System.Drawing.Size(1055, 524);
             this.dgtDatos.TabIndex = 0;
             // 
             // btnActualizar
@@ -79,7 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(756, 498);
+            this.ClientSize = new System.Drawing.Size(1090, 632);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dgtDatos);
             this.Margin = new System.Windows.Forms.Padding(2);

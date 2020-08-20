@@ -288,7 +288,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(840, 600);
+            this.btnModificar.Location = new System.Drawing.Point(840, 608);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(208, 62);
             this.btnModificar.TabIndex = 27;
@@ -298,7 +298,7 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Location = new System.Drawing.Point(681, 142);
+            this.pbImagen.Location = new System.Drawing.Point(668, 87);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(250, 251);
             this.pbImagen.TabIndex = 28;
@@ -307,7 +307,7 @@
             // txtLink
             // 
             this.txtLink.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLink.Location = new System.Drawing.Point(681, 452);
+            this.txtLink.Location = new System.Drawing.Point(668, 384);
             this.txtLink.Name = "txtLink";
             this.txtLink.Size = new System.Drawing.Size(250, 30);
             this.txtLink.TabIndex = 30;
@@ -317,7 +317,7 @@
             this.lblLink.AutoSize = true;
             this.lblLink.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLink.ForeColor = System.Drawing.Color.White;
-            this.lblLink.Location = new System.Drawing.Point(697, 414);
+            this.lblLink.Location = new System.Drawing.Point(708, 351);
             this.lblLink.Name = "lblLink";
             this.lblLink.Size = new System.Drawing.Size(168, 21);
             this.lblLink.TabIndex = 31;
@@ -331,9 +331,9 @@
             this.btnImagen.ForeColor = System.Drawing.Color.White;
             this.btnImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnImagen.Image")));
             this.btnImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImagen.Location = new System.Drawing.Point(681, 494);
+            this.btnImagen.Location = new System.Drawing.Point(668, 420);
             this.btnImagen.Name = "btnImagen";
-            this.btnImagen.Size = new System.Drawing.Size(257, 61);
+            this.btnImagen.Size = new System.Drawing.Size(250, 61);
             this.btnImagen.TabIndex = 32;
             this.btnImagen.Text = "Cargar imagen";
             this.btnImagen.UseVisualStyleBackColor = false;
@@ -347,7 +347,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(840, 692);
+            this.btnCancelar.Location = new System.Drawing.Point(840, 700);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(208, 62);
             this.btnCancelar.TabIndex = 33;

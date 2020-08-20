@@ -188,6 +188,8 @@ namespace AdministrativoReportes
             catch (Exception ex)
             {
                 MessageBox.Show("El link no se logro encontrar, intente con otro link");
+                txtLink.Text = "";
+                Link = "";
             }
             
 
@@ -240,31 +242,38 @@ namespace AdministrativoReportes
                 }
                 else
                 {
-                   
-                    //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
-                    Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
-
-                    try
+                    if (txtMultimedia.Text.ToString().StartsWith("https://www.youtube.com/"))
                     {
-                        //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
-                        string Insertar = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) " +  "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtDescripcion.Text + "'," + Int32.Parse(cboCodigoCla.SelectedItem.ToString()) + ",'" + Fecha + "','" + uno + "','" + txtMultimedia.Text + "','" + Link + "','" + txtDuracion.Text + "');";
-                        OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
-                        OdbcDataReader mostrarC = comm.ExecuteReader();
-                        MessageBox.Show("Los datos se ingresaron correctamente");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("" + ex);
+                        //Fecha obtiene la fecha seleccionada en el dptFecha y le coloca un formato
+                        Fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
 
+                        try
+                        {
+                            //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
+                            string Insertar = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) " + "VALUES (" + codigoA + ",'" + txtNombre.Text + "','" + txtDescripcion.Text + "'," + Int32.Parse(cboCodigoCla.SelectedItem.ToString()) + ",'" + Fecha + "','" + uno + "','" + txtMultimedia.Text + "','" + Link + "','" + txtDuracion.Text + "');";
+                            OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
+                            OdbcDataReader mostrarC = comm.ExecuteReader();
+                            MessageBox.Show("Los datos se ingresaron correctamente");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("" + ex);
+
+                        }
+                        clsBitacora bitacora = new clsBitacora();
+                        string proceso = "Adición de películas";
+                        string tabla = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) VALUES (" + codigoA.ToString() + "," + txtNombre.Text.ToString() + "," + txtDescripcion.Text.ToString() + "," + cboCodigoCla.SelectedItem.ToString() + "," + Fecha.ToString() + "," + uno.ToString() + "," + txtMultimedia.Text.ToString() + "," + Link.ToString() + "," + txtDuracion.Text.ToString() + ");";
+                        bitacora.GuardarBitacora(proceso, tabla);
+                        procLimpiar();
+                        procCargar();
+                        procBuscar();
+                        procCodigoA();
                     }
-                    clsBitacora bitacora = new clsBitacora();
-                    string proceso = "Adición de películas";
-                    string tabla = "INSERT INTO PELICULA (idPelicula,nombre,descripcion,idClasificacion,fechaestreno,estatus,linkTrailer,imagen,duracion) VALUES (" + codigoA.ToString() + "," + txtNombre.Text.ToString() + "," + txtDescripcion.Text.ToString() + "," + cboCodigoCla.SelectedItem.ToString() + "," + Fecha.ToString() + "," + uno.ToString() + "," + txtMultimedia.Text.ToString() + "," + Link.ToString() + "," + txtDuracion.Text.ToString() + ");";
-                    bitacora.GuardarBitacora(proceso, tabla);
-                    procLimpiar();
-                    procCargar();
-                    procBuscar();
-                    procCodigoA();
+                    else
+                    {
+                        MessageBox.Show("Enlace Incorrecto");
+                    }                     
+                                      
                 }
             }
         }

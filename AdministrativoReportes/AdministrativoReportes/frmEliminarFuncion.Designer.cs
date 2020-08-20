@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEliminarFuncion));
             this.dgtDatos = new System.Windows.Forms.DataGridView();
             this.lblCodigo = new System.Windows.Forms.Label();
@@ -52,36 +52,36 @@
             this.dgtDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgtDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgtDatos.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgtDatos.Location = new System.Drawing.Point(24, 196);
-            this.dgtDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgtDatos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgtDatos.Location = new System.Drawing.Point(18, 159);
+            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgtDatos.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(952, 289);
+            this.dgtDatos.Size = new System.Drawing.Size(893, 235);
             this.dgtDatos.TabIndex = 1;
             // 
             // lblCodigo
@@ -89,9 +89,10 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(19, 49);
+            this.lblCodigo.Location = new System.Drawing.Point(14, 40);
+            this.lblCodigo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(101, 27);
+            this.lblCodigo.Size = new System.Drawing.Size(81, 21);
             this.lblCodigo.TabIndex = 4;
             this.lblCodigo.Text = "Pelicula";
             // 
@@ -100,10 +101,10 @@
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(772, 141);
-            this.cboCodigoP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboCodigoP.Location = new System.Drawing.Point(579, 115);
+            this.cboCodigoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoP.Name = "cboCodigoP";
-            this.cboCodigoP.Size = new System.Drawing.Size(68, 35);
+            this.cboCodigoP.Size = new System.Drawing.Size(52, 29);
             this.cboCodigoP.TabIndex = 6;
             this.cboCodigoP.Visible = false;
             // 
@@ -112,10 +113,10 @@
             this.cboPelicula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPelicula.FormattingEnabled = true;
-            this.cboPelicula.Location = new System.Drawing.Point(155, 46);
-            this.cboPelicula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboPelicula.Location = new System.Drawing.Point(116, 37);
+            this.cboPelicula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboPelicula.Name = "cboPelicula";
-            this.cboPelicula.Size = new System.Drawing.Size(361, 35);
+            this.cboPelicula.Size = new System.Drawing.Size(272, 29);
             this.cboPelicula.TabIndex = 62;
             this.cboPelicula.SelectedIndexChanged += new System.EventHandler(this.cboPelicula_SelectedIndexChanged);
             // 
@@ -130,10 +131,10 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(545, 49);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminar.Location = new System.Drawing.Point(409, 40);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(221, 54);
+            this.btnEliminar.Size = new System.Drawing.Size(166, 44);
             this.btnEliminar.TabIndex = 64;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -144,9 +145,10 @@
             this.lblCodigoF.AutoSize = true;
             this.lblCodigoF.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigoF.ForeColor = System.Drawing.Color.White;
-            this.lblCodigoF.Location = new System.Drawing.Point(15, 110);
+            this.lblCodigoF.Location = new System.Drawing.Point(11, 89);
+            this.lblCodigoF.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigoF.Name = "lblCodigoF";
-            this.lblCodigoF.Size = new System.Drawing.Size(190, 27);
+            this.lblCodigoF.Size = new System.Drawing.Size(151, 21);
             this.lblCodigoF.TabIndex = 65;
             this.lblCodigoF.Text = "Codigo Funcion";
             // 
@@ -155,10 +157,10 @@
             this.cboCodigoF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoF.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoF.FormattingEnabled = true;
-            this.cboCodigoF.Location = new System.Drawing.Point(221, 106);
-            this.cboCodigoF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboCodigoF.Location = new System.Drawing.Point(166, 86);
+            this.cboCodigoF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoF.Name = "cboCodigoF";
-            this.cboCodigoF.Size = new System.Drawing.Size(295, 35);
+            this.cboCodigoF.Size = new System.Drawing.Size(222, 29);
             this.cboCodigoF.TabIndex = 66;
             this.cboCodigoF.SelectedIndexChanged += new System.EventHandler(this.cboCodigoF_SelectedIndexChanged);
             // 
@@ -168,10 +170,10 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(545, 119);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(409, 97);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(221, 57);
+            this.btnCancelar.Size = new System.Drawing.Size(166, 46);
             this.btnCancelar.TabIndex = 67;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -182,28 +184,30 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(344, 9);
+            this.label1.Location = new System.Drawing.Point(258, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 31);
+            this.label1.Size = new System.Drawing.Size(206, 25);
             this.label1.TabIndex = 68;
             this.label1.Text = "Eliminar Funciones";
             // 
             // btnAyuda
             // 
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
-            this.btnAyuda.Location = new System.Drawing.Point(889, 28);
+            this.btnAyuda.Location = new System.Drawing.Point(855, 22);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(75, 75);
+            this.btnAyuda.Size = new System.Drawing.Size(56, 61);
             this.btnAyuda.TabIndex = 69;
             this.btnAyuda.UseVisualStyleBackColor = true;
             this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // frmEliminarFuncion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1007, 634);
+            this.ClientSize = new System.Drawing.Size(928, 425);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
@@ -214,7 +218,7 @@
             this.Controls.Add(this.cboCodigoP);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.dgtDatos);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEliminarFuncion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eliminarFuncion";

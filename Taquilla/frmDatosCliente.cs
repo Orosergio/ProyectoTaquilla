@@ -253,7 +253,7 @@ namespace Taquilla
                 try
                 {
                     //consulta para buscar los datos del nit ingresado 
-                    string consulta = "SELECT C.NOMBRECLIENTETARJETA, C.APELLIDOCLIENTETARJETA, CO.CORREO, T.NOTARJETA FROM CLIENTE C, CORREOCLIENTE CO, TARJETA T WHERE C.NITCLIENTE= '" + txtNit.Text.ToString() + "'";
+                    string consulta = "SELECT C.NOMBRECLIENTETARJETA, C.APELLIDOCLIENTETARJETA, CO.CORREO, T.NOTARJETA FROM CLIENTE C, CORREOCLIENTE CO, TARJETA T WHERE C.NITCLIENTE=CO.NITCLIENTE AND C.NITCLIENTE= '" + txtNit.Text.ToString() + "'";
                     OdbcCommand comm = new OdbcCommand(consulta, cn.Conexion());
                     OdbcDataReader datosCliente = comm.ExecuteReader();
                     if (datosCliente.Read())

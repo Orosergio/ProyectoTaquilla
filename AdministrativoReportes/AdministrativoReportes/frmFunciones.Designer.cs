@@ -214,7 +214,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(794, 665);
+            this.panel5.Size = new System.Drawing.Size(926, 704);
             this.panel5.TabIndex = 10;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -259,7 +259,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(794, 665);
+            this.panel1.Size = new System.Drawing.Size(926, 704);
             this.panel1.TabIndex = 55;
             // 
             // panel2
@@ -298,7 +298,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(794, 665);
+            this.panel2.Size = new System.Drawing.Size(926, 704);
             this.panel2.TabIndex = 55;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -306,7 +306,7 @@
             // 
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
             this.btnAyuda.Location = new System.Drawing.Point(700, 10);
-            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(56, 61);
             this.btnAyuda.TabIndex = 74;
@@ -319,7 +319,7 @@
             this.dtpHorario.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHorario.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpHorario.Location = new System.Drawing.Point(268, 336);
-            this.dtpHorario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHorario.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHorario.Name = "dtpHorario";
             this.dtpHorario.Size = new System.Drawing.Size(198, 30);
             this.dtpHorario.TabIndex = 73;
@@ -330,7 +330,7 @@
             this.cboCodigoF.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoF.FormattingEnabled = true;
             this.cboCodigoF.Location = new System.Drawing.Point(700, 340);
-            this.cboCodigoF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoF.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoF.Name = "cboCodigoF";
             this.cboCodigoF.Size = new System.Drawing.Size(58, 29);
             this.cboCodigoF.TabIndex = 72;
@@ -342,7 +342,7 @@
             this.cboCodigoI.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoI.FormattingEnabled = true;
             this.cboCodigoI.Location = new System.Drawing.Point(700, 303);
-            this.cboCodigoI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoI.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoI.Name = "cboCodigoI";
             this.cboCodigoI.Size = new System.Drawing.Size(58, 29);
             this.cboCodigoI.TabIndex = 71;
@@ -354,7 +354,7 @@
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
             this.cboCodigoP.Location = new System.Drawing.Point(700, 264);
-            this.cboCodigoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoP.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoP.Name = "cboCodigoP";
             this.cboCodigoP.Size = new System.Drawing.Size(58, 29);
             this.cboCodigoP.TabIndex = 70;
@@ -366,7 +366,7 @@
             this.cboCodigoS.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoS.FormattingEnabled = true;
             this.cboCodigoS.Location = new System.Drawing.Point(700, 223);
-            this.cboCodigoS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoS.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoS.Name = "cboCodigoS";
             this.cboCodigoS.Size = new System.Drawing.Size(58, 29);
             this.cboCodigoS.TabIndex = 69;
@@ -378,7 +378,7 @@
             this.cboCodigoC.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoC.FormattingEnabled = true;
             this.cboCodigoC.Location = new System.Drawing.Point(700, 186);
-            this.cboCodigoC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoC.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoC.Name = "cboCodigoC";
             this.cboCodigoC.Size = new System.Drawing.Size(58, 29);
             this.cboCodigoC.TabIndex = 68;
@@ -390,7 +390,7 @@
             this.cboCodigoM.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoM.FormattingEnabled = true;
             this.cboCodigoM.Location = new System.Drawing.Point(700, 144);
-            this.cboCodigoM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoM.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoM.Name = "cboCodigoM";
             this.cboCodigoM.Size = new System.Drawing.Size(58, 29);
             this.cboCodigoM.TabIndex = 67;
@@ -402,7 +402,7 @@
             this.cboCodigoD.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoD.FormattingEnabled = true;
             this.cboCodigoD.Location = new System.Drawing.Point(700, 104);
-            this.cboCodigoD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoD.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoD.Name = "cboCodigoD";
             this.cboCodigoD.Size = new System.Drawing.Size(58, 29);
             this.cboCodigoD.TabIndex = 66;
@@ -414,7 +414,7 @@
             this.cboFormato.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFormato.FormattingEnabled = true;
             this.cboFormato.Location = new System.Drawing.Point(268, 293);
-            this.cboFormato.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboFormato.Margin = new System.Windows.Forms.Padding(2);
             this.cboFormato.Name = "cboFormato";
             this.cboFormato.Size = new System.Drawing.Size(198, 29);
             this.cboFormato.TabIndex = 65;
@@ -426,7 +426,7 @@
             this.cboIdioma.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIdioma.FormattingEnabled = true;
             this.cboIdioma.Location = new System.Drawing.Point(268, 254);
-            this.cboIdioma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboIdioma.Margin = new System.Windows.Forms.Padding(2);
             this.cboIdioma.Name = "cboIdioma";
             this.cboIdioma.Size = new System.Drawing.Size(198, 29);
             this.cboIdioma.TabIndex = 64;
@@ -466,7 +466,7 @@
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar.Location = new System.Drawing.Point(502, 113);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(168, 44);
             this.btnModificar.TabIndex = 61;
@@ -486,7 +486,7 @@
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(502, 238);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(169, 44);
             this.btnEliminar.TabIndex = 60;
@@ -506,7 +506,7 @@
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(502, 175);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(168, 44);
             this.btnCancelar.TabIndex = 59;
@@ -526,7 +526,7 @@
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIngresar.Location = new System.Drawing.Point(500, 51);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(171, 44);
             this.btnIngresar.TabIndex = 58;
@@ -552,7 +552,7 @@
             this.cboSala.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSala.FormattingEnabled = true;
             this.cboSala.Location = new System.Drawing.Point(268, 174);
-            this.cboSala.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboSala.Margin = new System.Windows.Forms.Padding(2);
             this.cboSala.Name = "cboSala";
             this.cboSala.Size = new System.Drawing.Size(198, 29);
             this.cboSala.TabIndex = 55;
@@ -576,8 +576,8 @@
             this.dgtDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgtDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(26, 386);
-            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgtDatos.Location = new System.Drawing.Point(11, 386);
+            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -597,7 +597,7 @@
             this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(743, 268);
+            this.dgtDatos.Size = new System.Drawing.Size(898, 301);
             this.dgtDatos.TabIndex = 53;
             // 
             // cboPelicula
@@ -606,7 +606,7 @@
             this.cboPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPelicula.FormattingEnabled = true;
             this.cboPelicula.Location = new System.Drawing.Point(268, 214);
-            this.cboPelicula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPelicula.Margin = new System.Windows.Forms.Padding(2);
             this.cboPelicula.Name = "cboPelicula";
             this.cboPelicula.Size = new System.Drawing.Size(198, 29);
             this.cboPelicula.TabIndex = 49;
@@ -630,7 +630,7 @@
             this.cboCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCine.FormattingEnabled = true;
             this.cboCine.Location = new System.Drawing.Point(268, 136);
-            this.cboCine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCine.Margin = new System.Windows.Forms.Padding(2);
             this.cboCine.Name = "cboCine";
             this.cboCine.Size = new System.Drawing.Size(198, 29);
             this.cboCine.TabIndex = 47;
@@ -642,7 +642,7 @@
             this.cboMunicipio.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMunicipio.FormattingEnabled = true;
             this.cboMunicipio.Location = new System.Drawing.Point(268, 94);
-            this.cboMunicipio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMunicipio.Margin = new System.Windows.Forms.Padding(2);
             this.cboMunicipio.Name = "cboMunicipio";
             this.cboMunicipio.Size = new System.Drawing.Size(198, 29);
             this.cboMunicipio.TabIndex = 46;
@@ -687,7 +687,7 @@
             this.cboDepartamento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartamento.FormattingEnabled = true;
             this.cboDepartamento.Location = new System.Drawing.Point(268, 51);
-            this.cboDepartamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboDepartamento.Margin = new System.Windows.Forms.Padding(2);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(198, 29);
             this.cboDepartamento.TabIndex = 36;
@@ -780,7 +780,7 @@
             // 
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(221, 91);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(198, 21);
             this.comboBox4.TabIndex = 47;
@@ -789,7 +789,7 @@
             // 
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(221, 58);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(198, 21);
             this.comboBox5.TabIndex = 46;
@@ -831,7 +831,7 @@
             // 
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(221, 24);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(198, 21);
             this.comboBox6.TabIndex = 36;
@@ -1175,7 +1175,7 @@
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(221, 91);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(198, 21);
             this.comboBox3.TabIndex = 47;
@@ -1184,7 +1184,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(221, 58);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(198, 21);
             this.comboBox2.TabIndex = 46;
@@ -1227,7 +1227,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(221, 24);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(198, 21);
             this.comboBox1.TabIndex = 36;
@@ -1569,7 +1569,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 665);
+            this.ClientSize = new System.Drawing.Size(926, 704);
             this.Controls.Add(this.panel5);
             this.Name = "frmFunciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

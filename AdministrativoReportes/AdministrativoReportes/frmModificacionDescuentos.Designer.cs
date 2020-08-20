@@ -79,7 +79,7 @@
             // 
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
             this.btnAyuda.Location = new System.Drawing.Point(887, 32);
-            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(56, 61);
             this.btnAyuda.TabIndex = 75;
@@ -95,7 +95,7 @@
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(787, 450);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(161, 38);
             this.btnCancelar.TabIndex = 74;
@@ -112,7 +112,7 @@
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificar.Location = new System.Drawing.Point(787, 400);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(161, 38);
             this.btnModificar.TabIndex = 73;
@@ -138,7 +138,7 @@
             this.cboCodigoB.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoB.FormattingEnabled = true;
             this.cboCodigoB.Location = new System.Drawing.Point(507, 65);
-            this.cboCodigoB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoB.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoB.Name = "cboCodigoB";
             this.cboCodigoB.Size = new System.Drawing.Size(54, 28);
             this.cboCodigoB.TabIndex = 77;
@@ -150,7 +150,7 @@
             this.cboBoleto.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboBoleto.FormattingEnabled = true;
             this.cboBoleto.Location = new System.Drawing.Point(148, 65);
-            this.cboBoleto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboBoleto.Margin = new System.Windows.Forms.Padding(2);
             this.cboBoleto.Name = "cboBoleto";
             this.cboBoleto.Size = new System.Drawing.Size(356, 28);
             this.cboBoleto.TabIndex = 76;
@@ -172,7 +172,7 @@
             // 
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgtDatos.Location = new System.Drawing.Point(24, 98);
-            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -189,7 +189,7 @@
             this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(688, 226);
+            this.dgtDatos.Size = new System.Drawing.Size(919, 226);
             this.dgtDatos.TabIndex = 80;
             this.dgtDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgtDatos_CellContentClick);
             // 
@@ -367,7 +367,7 @@
             this.cboCodigoF.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoF.FormattingEnabled = true;
             this.cboCodigoF.Location = new System.Drawing.Point(775, 551);
-            this.cboCodigoF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoF.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoF.Name = "cboCodigoF";
             this.cboCodigoF.Size = new System.Drawing.Size(54, 28);
             this.cboCodigoF.TabIndex = 129;
@@ -379,7 +379,7 @@
             this.cboFormato.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFormato.FormattingEnabled = true;
             this.cboFormato.Location = new System.Drawing.Point(545, 551);
-            this.cboFormato.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboFormato.Margin = new System.Windows.Forms.Padding(2);
             this.cboFormato.Name = "cboFormato";
             this.cboFormato.Size = new System.Drawing.Size(228, 28);
             this.cboFormato.TabIndex = 128;
@@ -389,7 +389,7 @@
             // 
             this.txtDescuento.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescuento.Location = new System.Drawing.Point(545, 419);
-            this.txtDescuento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescuento.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(228, 29);
             this.txtDescuento.TabIndex = 127;
@@ -399,7 +399,7 @@
             // 
             this.txtPromocion.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPromocion.Location = new System.Drawing.Point(545, 385);
-            this.txtPromocion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPromocion.Margin = new System.Windows.Forms.Padding(2);
             this.txtPromocion.Name = "txtPromocion";
             this.txtPromocion.Size = new System.Drawing.Size(228, 29);
             this.txtPromocion.TabIndex = 126;
@@ -422,7 +422,7 @@
             this.cboCodigoBN.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoBN.FormattingEnabled = true;
             this.cboCodigoBN.Location = new System.Drawing.Point(775, 519);
-            this.cboCodigoBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoBN.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoBN.Name = "cboCodigoBN";
             this.cboCodigoBN.Size = new System.Drawing.Size(54, 28);
             this.cboCodigoBN.TabIndex = 124;
@@ -458,7 +458,7 @@
             this.dtpFinal.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFinal.Location = new System.Drawing.Point(545, 485);
-            this.dtpFinal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFinal.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFinal.Name = "dtpFinal";
             this.dtpFinal.Size = new System.Drawing.Size(228, 29);
             this.dtpFinal.TabIndex = 120;
@@ -469,7 +469,7 @@
             this.dtpInicio.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpInicio.Location = new System.Drawing.Point(545, 452);
-            this.dtpInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpInicio.Margin = new System.Windows.Forms.Padding(2);
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(228, 29);
             this.dtpInicio.TabIndex = 119;
@@ -529,7 +529,7 @@
             this.cboEstatus.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstatus.FormattingEnabled = true;
             this.cboEstatus.Location = new System.Drawing.Point(545, 584);
-            this.cboEstatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboEstatus.Margin = new System.Windows.Forms.Padding(2);
             this.cboEstatus.Name = "cboEstatus";
             this.cboEstatus.Size = new System.Drawing.Size(228, 28);
             this.cboEstatus.TabIndex = 132;
@@ -561,7 +561,7 @@
             this.cboNombreB.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNombreB.FormattingEnabled = true;
             this.cboNombreB.Location = new System.Drawing.Point(545, 519);
-            this.cboNombreB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboNombreB.Margin = new System.Windows.Forms.Padding(2);
             this.cboNombreB.Name = "cboNombreB";
             this.cboNombreB.Size = new System.Drawing.Size(228, 28);
             this.cboNombreB.TabIndex = 136;
@@ -614,7 +614,7 @@
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmModificacionDescuentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmModificacionDescuentos";

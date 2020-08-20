@@ -47,7 +47,7 @@
             this.cboNombre.FormattingEnabled = true;
             this.cboNombre.Location = new System.Drawing.Point(308, 51);
             this.cboNombre.Name = "cboNombre";
-            this.cboNombre.Size = new System.Drawing.Size(298, 35);
+            this.cboNombre.Size = new System.Drawing.Size(298, 29);
             this.cboNombre.TabIndex = 0;
             this.cboNombre.SelectedIndexChanged += new System.EventHandler(this.cboNombre_SelectedIndexChanged);
             // 
@@ -58,7 +58,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(41, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 27);
+            this.label1.Size = new System.Drawing.Size(208, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre de la pelicula";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -70,7 +70,7 @@
             this.dgtDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgtDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(45, 108);
+            this.dgtDatos.Location = new System.Drawing.Point(24, 93);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
             this.dgtDatos.RowHeadersWidth = 51;
@@ -82,7 +82,7 @@
             this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(678, 194);
+            this.dgtDatos.Size = new System.Drawing.Size(994, 264);
             this.dgtDatos.TabIndex = 2;
             this.dgtDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgtDatos_CellContentClick);
             // 
@@ -91,9 +91,9 @@
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(732, 195);
+            this.cboCodigoP.Location = new System.Drawing.Point(783, 394);
             this.cboCodigoP.Name = "cboCodigoP";
-            this.cboCodigoP.Size = new System.Drawing.Size(106, 35);
+            this.cboCodigoP.Size = new System.Drawing.Size(106, 29);
             this.cboCodigoP.TabIndex = 4;
             this.cboCodigoP.Visible = false;
             // 
@@ -103,7 +103,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(265, 329);
+            this.btnEliminar.Location = new System.Drawing.Point(384, 379);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(222, 56);
             this.btnEliminar.TabIndex = 5;
@@ -118,7 +118,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(248, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(232, 31);
+            this.label2.Size = new System.Drawing.Size(182, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Eliminar Pelicula";
             // 
@@ -134,10 +134,10 @@
             // 
             // frmEliminarPelicula
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(850, 520);
+            this.ClientSize = new System.Drawing.Size(1042, 498);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEliminar);

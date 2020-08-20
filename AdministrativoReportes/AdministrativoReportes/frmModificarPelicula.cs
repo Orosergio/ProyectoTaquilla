@@ -195,28 +195,35 @@ namespace AdministrativoReportes
                 }
                 else
                 {
-
-                    Fecha = dtpFecha.Value.ToString("yyyy-MM-dd hh:mm:ss");
-                    try
+                    if (txtMultimedia.Text.ToString().StartsWith("https://www.youtube.com/"))
                     {
+                        Fecha = dtpFecha.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                        try
+                        {
 
-                        string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + Int32.Parse(cboCodigoC.SelectedItem.ToString()) + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + Link + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
-                        OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
-                        OdbcDataReader leer = Consulta.ExecuteReader();
-                        MessageBox.Show("Los datos fueron actualizados correctamente ");
+                            string Modificar = "UPDATE PELICULA SET nombre = '" + txtNuevo.Text + "' , descripcion = '" + txtDescripcion.Text + "', idClasificacion = " + Int32.Parse(cboCodigoC.SelectedItem.ToString()) + ", fechaestreno = '" + Fecha + "', estatus = '" + Estatus + "', linkTrailer = '" + txtMultimedia.Text + "', imagen = '" + Link + "', duracion = '" + txtDuracion.Text + "'  WHERE idPelicula=" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
+                            OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
+                            OdbcDataReader leer = Consulta.ExecuteReader();
+                            MessageBox.Show("Los datos fueron actualizados correctamente ");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                        }
+                        clsBitacora bitacora = new clsBitacora();
+                        string proceso = "Modificación datos de película";
+                        string tabla = "UPDATE PELICULA SET nombre = " + txtNuevo.Text.ToString() + ", descripcion = " + txtDescripcion.Text.ToString() + ", idClasificacion = " + cboCodigoC.SelectedItem.ToString() + ", fechaestreno = " + Fecha.ToString() + ", estatus = " + Estatus.ToString() + ", linkTrailer = " + txtMultimedia.Text.ToString() + ", imagen = " + Link.ToString() + ", duracion = " + txtDuracion.Text.ToString() + " WHERE idPelicula=" + cboCodigoP.SelectedItem.ToString() + "";
+                        bitacora.GuardarBitacora(proceso, tabla);
+                        procLimpiar();
+                        procBuscar();
+                        procCargar();
+                        procEstatus();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                        MessageBox.Show("Enlace Incorrecto");
                     }
-                    clsBitacora bitacora = new clsBitacora();
-                    string proceso = "Modificación datos de película";
-                    string tabla = "UPDATE PELICULA SET nombre = " + txtNuevo.Text.ToString() + ", descripcion = " + txtDescripcion.Text.ToString() + ", idClasificacion = " + cboCodigoC.SelectedItem.ToString() + ", fechaestreno = " + Fecha.ToString() + ", estatus = " + Estatus.ToString() + ", linkTrailer = " + txtMultimedia.Text.ToString() + ", imagen = " + Link.ToString() + ", duracion = " + txtDuracion.Text.ToString() + " WHERE idPelicula=" + cboCodigoP.SelectedItem.ToString()+"";
-                    bitacora.GuardarBitacora(proceso, tabla);
-                    procLimpiar();
-                    procBuscar();
-                    procCargar();
-                    procEstatus();
+                        
                 }
             }
 
@@ -249,6 +256,8 @@ namespace AdministrativoReportes
             catch (Exception ex)
             {
                 MessageBox.Show("El link de la imagen ingresada no es valido, intenete con otro link");
+                txtLink.Text = "";
+                Link = "";
             }
 
 

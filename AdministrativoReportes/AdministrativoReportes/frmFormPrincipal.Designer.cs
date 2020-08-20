@@ -36,6 +36,12 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.Menu = new System.Windows.Forms.Panel();
+            this.btnCine = new System.Windows.Forms.Button();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.btnDescuentos = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnBoleto = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnMostrarBitacora = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -63,13 +69,9 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.btnBoleto = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btnDescuentos = new System.Windows.Forms.Button();
-            this.btnCine = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.PanelContenedor.SuspendLayout();
+            this.Principal.SuspendLayout();
             this.panel4.SuspendLayout();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSLIDE)).BeginInit();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelContenedor
@@ -97,6 +100,7 @@
             // Principal
             // 
             this.Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.Principal.Controls.Add(this.axWindowsMediaPlayer1);
             this.Principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Principal.Location = new System.Drawing.Point(250, 40);
             this.Principal.Name = "Principal";
@@ -167,6 +171,87 @@
             this.Menu.Size = new System.Drawing.Size(250, 760);
             this.Menu.TabIndex = 100;
             this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_Paint);
+            // 
+            // btnCine
+            // 
+            this.btnCine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCine.FlatAppearance.BorderSize = 0;
+            this.btnCine.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnCine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCine.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnCine.Image = ((System.Drawing.Image)(resources.GetObject("btnCine.Image")));
+            this.btnCine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCine.Location = new System.Drawing.Point(22, 140);
+            this.btnCine.Name = "btnCine";
+            this.btnCine.Size = new System.Drawing.Size(263, 43);
+            this.btnCine.TabIndex = 28;
+            this.btnCine.Text = "   Cine";
+            this.btnCine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCine.UseVisualStyleBackColor = true;
+            this.btnCine.Click += new System.EventHandler(this.btnCine_Click);
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel14.Location = new System.Drawing.Point(0, 238);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(5, 32);
+            this.panel14.TabIndex = 27;
+            // 
+            // btnDescuentos
+            // 
+            this.btnDescuentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescuentos.FlatAppearance.BorderSize = 0;
+            this.btnDescuentos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnDescuentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescuentos.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescuentos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDescuentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuentos.Image")));
+            this.btnDescuentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescuentos.Location = new System.Drawing.Point(22, 238);
+            this.btnDescuentos.Name = "btnDescuentos";
+            this.btnDescuentos.Size = new System.Drawing.Size(263, 43);
+            this.btnDescuentos.TabIndex = 26;
+            this.btnDescuentos.Text = "   Descuentos";
+            this.btnDescuentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDescuentos.UseVisualStyleBackColor = true;
+            this.btnDescuentos.Click += new System.EventHandler(this.btnDescuentos_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel11.Location = new System.Drawing.Point(0, 189);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(5, 32);
+            this.panel11.TabIndex = 25;
+            // 
+            // btnBoleto
+            // 
+            this.btnBoleto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBoleto.FlatAppearance.BorderSize = 0;
+            this.btnBoleto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.btnBoleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBoleto.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoleto.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBoleto.Image = ((System.Drawing.Image)(resources.GetObject("btnBoleto.Image")));
+            this.btnBoleto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBoleto.Location = new System.Drawing.Point(22, 189);
+            this.btnBoleto.Name = "btnBoleto";
+            this.btnBoleto.Size = new System.Drawing.Size(263, 43);
+            this.btnBoleto.TabIndex = 24;
+            this.btnBoleto.Text = "   Boleto";
+            this.btnBoleto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBoleto.UseVisualStyleBackColor = true;
+            this.btnBoleto.Click += new System.EventHandler(this.btnBoleto_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
+            this.panel12.Location = new System.Drawing.Point(0, 140);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(5, 32);
+            this.panel12.TabIndex = 23;
             // 
             // panel9
             // 
@@ -519,86 +604,14 @@
             this.tmContraerMenu.Interval = 15;
             this.tmContraerMenu.Tick += new System.EventHandler(this.TmContraerMenu_Tick);
             // 
-            // panel11
+            // axWindowsMediaPlayer1
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel11.Location = new System.Drawing.Point(0, 189);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(5, 32);
-            this.panel11.TabIndex = 25;
-            // 
-            // btnBoleto
-            // 
-            this.btnBoleto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBoleto.FlatAppearance.BorderSize = 0;
-            this.btnBoleto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnBoleto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBoleto.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBoleto.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnBoleto.Image = ((System.Drawing.Image)(resources.GetObject("btnBoleto.Image")));
-            this.btnBoleto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBoleto.Location = new System.Drawing.Point(22, 189);
-            this.btnBoleto.Name = "btnBoleto";
-            this.btnBoleto.Size = new System.Drawing.Size(263, 43);
-            this.btnBoleto.TabIndex = 24;
-            this.btnBoleto.Text = "   Boleto";
-            this.btnBoleto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBoleto.UseVisualStyleBackColor = true;
-            this.btnBoleto.Click += new System.EventHandler(this.btnBoleto_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel12.Location = new System.Drawing.Point(0, 140);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(5, 32);
-            this.panel12.TabIndex = 23;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.panel14.Location = new System.Drawing.Point(0, 238);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(5, 32);
-            this.panel14.TabIndex = 27;
-            // 
-            // btnDescuentos
-            // 
-            this.btnDescuentos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDescuentos.FlatAppearance.BorderSize = 0;
-            this.btnDescuentos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnDescuentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescuentos.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescuentos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnDescuentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuentos.Image")));
-            this.btnDescuentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDescuentos.Location = new System.Drawing.Point(22, 238);
-            this.btnDescuentos.Name = "btnDescuentos";
-            this.btnDescuentos.Size = new System.Drawing.Size(263, 43);
-            this.btnDescuentos.TabIndex = 26;
-            this.btnDescuentos.Text = "   Descuentos";
-            this.btnDescuentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDescuentos.UseVisualStyleBackColor = true;
-            this.btnDescuentos.Click += new System.EventHandler(this.btnDescuentos_Click);
-            // 
-            // btnCine
-            // 
-            this.btnCine.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCine.FlatAppearance.BorderSize = 0;
-            this.btnCine.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(251)))), ((int)(((byte)(25)))));
-            this.btnCine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCine.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnCine.Image = ((System.Drawing.Image)(resources.GetObject("btnCine.Image")));
-            this.btnCine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCine.Location = new System.Drawing.Point(22, 140);
-            this.btnCine.Name = "btnCine";
-            this.btnCine.Size = new System.Drawing.Size(263, 43);
-            this.btnCine.TabIndex = 28;
-            this.btnCine.Text = "   Cine";
-            this.btnCine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCine.UseVisualStyleBackColor = true;
-            this.btnCine.Click += new System.EventHandler(this.btnCine_Click);
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(323, 122);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(432, 432);
+            this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // FormPrincipal
             // 
@@ -614,6 +627,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.PanelContenedor.ResumeLayout(false);
+            this.Principal.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.Menu.ResumeLayout(false);
@@ -624,6 +638,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -668,6 +683,7 @@
         private System.Windows.Forms.Button btnBoleto;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button btnCine;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
 

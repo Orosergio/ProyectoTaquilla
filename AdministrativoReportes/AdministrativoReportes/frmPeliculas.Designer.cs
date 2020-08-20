@@ -125,7 +125,7 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(215, 50);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(318, 30);
             this.txtNombre.TabIndex = 17;
@@ -136,7 +136,7 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(215, 84);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -149,7 +149,7 @@
             this.cboClasificacion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboClasificacion.FormattingEnabled = true;
             this.cboClasificacion.Location = new System.Drawing.Point(215, 258);
-            this.cboClasificacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboClasificacion.Margin = new System.Windows.Forms.Padding(2);
             this.cboClasificacion.Name = "cboClasificacion";
             this.cboClasificacion.Size = new System.Drawing.Size(163, 29);
             this.cboClasificacion.TabIndex = 19;
@@ -159,7 +159,7 @@
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.Location = new System.Drawing.Point(215, 291);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(269, 30);
             this.dtpFecha.TabIndex = 21;
@@ -184,7 +184,7 @@
             this.dgtDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgtDatos.Location = new System.Drawing.Point(11, 393);
-            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgtDatos.MultiSelect = false;
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
@@ -205,7 +205,7 @@
             this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(898, 194);
+            this.dgtDatos.Size = new System.Drawing.Size(1034, 214);
             this.dgtDatos.TabIndex = 27;
             // 
             // btnModificar
@@ -219,8 +219,8 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(278, 611);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Location = new System.Drawing.Point(288, 625);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(169, 44);
             this.btnModificar.TabIndex = 28;
@@ -239,8 +239,8 @@
             this.btnImagen.ForeColor = System.Drawing.Color.White;
             this.btnImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnImagen.Image")));
             this.btnImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImagen.Location = new System.Drawing.Point(675, 327);
-            this.btnImagen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImagen.Location = new System.Drawing.Point(717, 310);
+            this.btnImagen.Margin = new System.Windows.Forms.Padding(2);
             this.btnImagen.Name = "btnImagen";
             this.btnImagen.Size = new System.Drawing.Size(217, 44);
             this.btnImagen.TabIndex = 29;
@@ -250,7 +250,7 @@
             // 
             // pbPelicula
             // 
-            this.pbPelicula.Location = new System.Drawing.Point(675, 66);
+            this.pbPelicula.Location = new System.Drawing.Point(717, 49);
             this.pbPelicula.Name = "pbPelicula";
             this.pbPelicula.Size = new System.Drawing.Size(217, 221);
             this.pbPelicula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -274,7 +274,7 @@
             // 
             this.txtMultimedia.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMultimedia.Location = new System.Drawing.Point(215, 215);
-            this.txtMultimedia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMultimedia.Margin = new System.Windows.Forms.Padding(2);
             this.txtMultimedia.Name = "txtMultimedia";
             this.txtMultimedia.Size = new System.Drawing.Size(318, 30);
             this.txtMultimedia.TabIndex = 33;
@@ -285,7 +285,7 @@
             this.cboCodigoCla.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoCla.FormattingEnabled = true;
             this.cboCodigoCla.Location = new System.Drawing.Point(414, 258);
-            this.cboCodigoCla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCodigoCla.Margin = new System.Windows.Forms.Padding(2);
             this.cboCodigoCla.Name = "cboCodigoCla";
             this.cboCodigoCla.Size = new System.Drawing.Size(61, 29);
             this.cboCodigoCla.TabIndex = 35;
@@ -307,7 +307,7 @@
             // 
             this.txtDuracion.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDuracion.Location = new System.Drawing.Point(254, 324);
-            this.txtDuracion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDuracion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDuracion.Name = "txtDuracion";
             this.txtDuracion.Size = new System.Drawing.Size(169, 30);
             this.txtDuracion.TabIndex = 40;
@@ -327,8 +327,8 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(94, 611);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIngresar.Location = new System.Drawing.Point(104, 625);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(169, 44);
             this.btnIngresar.TabIndex = 41;
@@ -344,8 +344,8 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(464, 611);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(474, 625);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(169, 44);
             this.btnCancelar.TabIndex = 42;
@@ -361,8 +361,8 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(650, 611);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Location = new System.Drawing.Point(660, 625);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(169, 44);
             this.btnEliminar.TabIndex = 43;
@@ -373,8 +373,8 @@
             // txtLink
             // 
             this.txtLink.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLink.Location = new System.Drawing.Point(675, 293);
-            this.txtLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLink.Location = new System.Drawing.Point(717, 276);
+            this.txtLink.Margin = new System.Windows.Forms.Padding(2);
             this.txtLink.Name = "txtLink";
             this.txtLink.Size = new System.Drawing.Size(218, 30);
             this.txtLink.TabIndex = 44;
@@ -384,7 +384,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(500, 298);
+            this.label2.Location = new System.Drawing.Point(545, 276);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 21);
@@ -394,8 +394,8 @@
             // btnAyuda
             // 
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
-            this.btnAyuda.Location = new System.Drawing.Point(836, 9);
-            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Location = new System.Drawing.Point(967, 20);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(56, 51);
             this.btnAyuda.TabIndex = 46;
@@ -407,7 +407,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(920, 679);
+            this.ClientSize = new System.Drawing.Size(1074, 716);
             this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtLink);
@@ -433,7 +433,7 @@
             this.Controls.Add(this.lblClasificacion);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPeliculas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Producto_Load);
