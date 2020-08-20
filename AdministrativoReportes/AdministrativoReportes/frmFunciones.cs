@@ -56,7 +56,7 @@ namespace AdministrativoReportes
         {
             try
             {
-                string cadena = "SELECT * FROM PROYECCIONPELICULA WHERE estatus = '"+Estatus+"' ";
+                string cadena = "SELECT PRO.idProyeccionPelicula AS CODIGO, PE.nombre AS PELICULA,C.nombre AS CINE,S.numero AS SALA, PRO.fechaHoraProyeccion AS HORARIO, I.nombre AS IDIOMA, F.nombre AS FORMATO , PRO.estatus AS ESTATUS FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato AND PRO.estatus = '" + Estatus + "' ORDER BY PRO.idProyeccionPelicula ASC  ";
                 OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                 DataTable dt = new DataTable();
                 datos.Fill(dt);
@@ -150,14 +150,14 @@ namespace AdministrativoReportes
         private void btnCancelar_Click(object sender, EventArgs e)
         {
            
-            funcLimpiar();
+            procLimpiar();
             procCargarPoryecciones();
             procBuscar();
 
 
         }
         //funcion que limpia los campos del form
-        void funcLimpiar()
+        void procLimpiar()
         {
             
             cboCine.Items.Clear();
@@ -178,6 +178,7 @@ namespace AdministrativoReportes
         //funcion para buscar y cargar datos en los comboBox 
         void procBuscar()
         {
+            procLimpiar();
             try
             {
                 string Departamento = "SELECT * FROM DEPARTAMENTO ";
@@ -223,9 +224,10 @@ namespace AdministrativoReportes
         private void cboDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             //esta parte del codigo define que campos se mostraran en el sigiente comboBox MUNICIPIO
-            cboCodigoD.SelectedIndex = cboDepartamento.SelectedIndex;
             cboMunicipio.Items.Clear();
-            try
+            cboCodigoM.Items.Clear();
+            cboCodigoD.SelectedIndex = cboDepartamento.SelectedIndex;
+             try
             {
                
                 string Municipio = "SELECT * FROM MUNICIPIO  WHERE idDepartamento= " + Int32.Parse(cboCodigoD.SelectedItem.ToString());
@@ -248,8 +250,11 @@ namespace AdministrativoReportes
         private void cboMunicipio_SelectedIndexChanged(object sender, EventArgs e)
         {
             //esta parte del codigo define que campos se mostraran en el sigiente comboBox CINE
-            cboCodigoM.SelectedIndex = cboMunicipio.SelectedIndex;
+            cboCodigoC.Items.Clear();
             cboCine.Items.Clear();
+            cboCodigoM.SelectedIndex = cboMunicipio.SelectedIndex;
+           
+            
             try
             {
                 string Cine = "SELECT * FROM CINE WHERE idMunicipio =" + Int32.Parse(cboCodigoM.SelectedItem.ToString());
@@ -271,10 +276,12 @@ namespace AdministrativoReportes
         }
 
         private void cboCine_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        { 
+            cboSala.Items.Clear();
+            cboCodigoS.Items.Clear();
             //esta parte del codigo define que campos se mostraran en el sigiente comboBox SALA
             cboCodigoC.SelectedIndex = cboCine.SelectedIndex;
-            cboSala.Items.Clear();
+           
             try
             {
                 string Sala = "SELECT * FROM SALA WHERE idCine = " + Int32.Parse(cboCodigoC.SelectedItem.ToString());
@@ -341,37 +348,46 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //boton para ingresar los datos seleccionados en el form
-            if( cboCine.SelectedItem == null || cboDepartamento.SelectedItem == null || cboFormato.SelectedItem == null
-               || cboIdioma.SelectedItem == null || cboMunicipio.SelectedItem == null || cboSala.SelectedItem == null  ||
+            if (cboCine.SelectedItem == null || cboDepartamento.SelectedItem == null || cboFormato.SelectedItem == null
+               || cboIdioma.SelectedItem == null || cboMunicipio.SelectedItem == null || cboSala.SelectedItem == null ||
                cboPelicula.SelectedItem == null)
             {
                 MessageBox.Show("No debe dejar campos vacios");
             }
-                else
-                    {
+            else
+            {
                 procCodigoA();
-                String Fecha = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:MM");
-                try
-                        {
-                            string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion,estatus) " +
-                            "VALUES ( "+codigoA+"," + cboCodigoP.SelectedItem + "," + cboCodigoS.SelectedItem + "," + cboCodigoI.SelectedItem + "," + cboCodigoF.SelectedItem + ",'" + Fecha + "','"+Estatus+"')";
-                            OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
-                            OdbcDataReader mostrarC = comm.ExecuteReader();
-                            MessageBox.Show("La funcion se guardo correctamente");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-                        }
+                if (dtpHorario.Value.Date < DateTime.Now.Date)
+                {
+                    MessageBox.Show("La fecha de inicio no puede ser menor a la de Hoy ");
+                }
+                else
+                {
 
-                clsBitacora bitacora = new clsBitacora();
-                string proceso = "Ingreso de Funciones";
-                string tabla = "PROYECCIONPELICULA";
-                bitacora.GuardarBitacora(proceso, tabla);
-                funcLimpiar();
-                procCargarPoryecciones();
-                procBuscar();
-           
+                    String Fecha = dtpHorario.Value.ToString("yyyy-MM-dd HH:MM");
+                    string Insertar = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion,estatus) " +
+                        "VALUES ( " + codigoA + "," + Int32.Parse(cboCodigoP.SelectedItem.ToString()) + "," + Int32.Parse(cboCodigoS.SelectedItem.ToString()) + "," + Int32.Parse(cboCodigoI.SelectedItem.ToString()) + "," + Int32.Parse(cboCodigoF.SelectedItem.ToString()) + ",'" + Fecha + "','" + Estatus + "')";
+                    try
+                    {
+                        
+                        OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
+                        OdbcDataReader mostrarC = comm.ExecuteReader();
+                        MessageBox.Show("La funcion se guardo correctamente");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                    }
+
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Ingreso de Funciones";
+                    string tabla = "INSERT INTO PROYECCIONPELICULA (idProyeccionPelicula,idPelicula,idSala,idIdioma,idFormato,fechaHoraProyeccion,estatus) VALUES ( " + codigoA.ToString() + "," + cboCodigoP.SelectedItem.ToString() + "," + cboCodigoS.SelectedItem.ToString() + "," + cboCodigoI.SelectedItem.ToString() + "," + cboCodigoF.SelectedItem.ToString() + "," + Fecha.ToString() + "," + Estatus.ToString() + ")";
+                    bitacora.GuardarBitacora(proceso, tabla);
+                    procLimpiar();
+                    procCargarPoryecciones();
+                    procBuscar();
+
+                }
             }
         }
 
@@ -390,6 +406,11 @@ namespace AdministrativoReportes
         private void dtpFecha2_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Funciones.html");
         }
     }
 }

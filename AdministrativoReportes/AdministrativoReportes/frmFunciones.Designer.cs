@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFunciones));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.dtpHorario = new System.Windows.Forms.DateTimePicker();
             this.cboCodigoF = new System.Windows.Forms.ComboBox();
             this.cboCodigoI = new System.Windows.Forms.ComboBox();
             this.cboCodigoP = new System.Windows.Forms.ComboBox();
@@ -213,7 +214,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(860, 863);
+            this.panel5.Size = new System.Drawing.Size(794, 665);
             this.panel5.TabIndex = 10;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -258,13 +259,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(860, 863);
+            this.panel1.Size = new System.Drawing.Size(794, 665);
             this.panel1.TabIndex = 55;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.btnAyuda);
+            this.panel2.Controls.Add(this.dtpHorario);
             this.panel2.Controls.Add(this.cboCodigoF);
             this.panel2.Controls.Add(this.cboCodigoI);
             this.panel2.Controls.Add(this.cboCodigoP);
@@ -296,27 +298,38 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(860, 863);
+            this.panel2.Size = new System.Drawing.Size(794, 665);
             this.panel2.TabIndex = 55;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // dateTimePicker2
+            // btnAyuda
             // 
-            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd HH:MM";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(277, 390);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(187, 30);
-            this.dateTimePicker2.TabIndex = 73;
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(700, 10);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(56, 61);
+            this.btnAyuda.TabIndex = 74;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // dtpHorario
+            // 
+            this.dtpHorario.CustomFormat = "yyyy-MM-dd HH:MM";
+            this.dtpHorario.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHorario.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHorario.Location = new System.Drawing.Point(268, 336);
+            this.dtpHorario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHorario.Name = "dtpHorario";
+            this.dtpHorario.Size = new System.Drawing.Size(198, 30);
+            this.dtpHorario.TabIndex = 73;
             // 
             // cboCodigoF
             // 
             this.cboCodigoF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoF.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoF.FormattingEnabled = true;
-            this.cboCodigoF.Location = new System.Drawing.Point(499, 347);
+            this.cboCodigoF.Location = new System.Drawing.Point(700, 340);
             this.cboCodigoF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoF.Name = "cboCodigoF";
             this.cboCodigoF.Size = new System.Drawing.Size(58, 29);
@@ -328,7 +341,7 @@
             this.cboCodigoI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoI.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoI.FormattingEnabled = true;
-            this.cboCodigoI.Location = new System.Drawing.Point(500, 306);
+            this.cboCodigoI.Location = new System.Drawing.Point(700, 303);
             this.cboCodigoI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoI.Name = "cboCodigoI";
             this.cboCodigoI.Size = new System.Drawing.Size(58, 29);
@@ -340,7 +353,7 @@
             this.cboCodigoP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoP.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoP.FormattingEnabled = true;
-            this.cboCodigoP.Location = new System.Drawing.Point(500, 267);
+            this.cboCodigoP.Location = new System.Drawing.Point(700, 264);
             this.cboCodigoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoP.Name = "cboCodigoP";
             this.cboCodigoP.Size = new System.Drawing.Size(58, 29);
@@ -352,7 +365,7 @@
             this.cboCodigoS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoS.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoS.FormattingEnabled = true;
-            this.cboCodigoS.Location = new System.Drawing.Point(500, 226);
+            this.cboCodigoS.Location = new System.Drawing.Point(700, 223);
             this.cboCodigoS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoS.Name = "cboCodigoS";
             this.cboCodigoS.Size = new System.Drawing.Size(58, 29);
@@ -364,7 +377,7 @@
             this.cboCodigoC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoC.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoC.FormattingEnabled = true;
-            this.cboCodigoC.Location = new System.Drawing.Point(500, 189);
+            this.cboCodigoC.Location = new System.Drawing.Point(700, 186);
             this.cboCodigoC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoC.Name = "cboCodigoC";
             this.cboCodigoC.Size = new System.Drawing.Size(58, 29);
@@ -376,7 +389,7 @@
             this.cboCodigoM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoM.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoM.FormattingEnabled = true;
-            this.cboCodigoM.Location = new System.Drawing.Point(500, 147);
+            this.cboCodigoM.Location = new System.Drawing.Point(700, 144);
             this.cboCodigoM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoM.Name = "cboCodigoM";
             this.cboCodigoM.Size = new System.Drawing.Size(58, 29);
@@ -388,7 +401,7 @@
             this.cboCodigoD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCodigoD.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCodigoD.FormattingEnabled = true;
-            this.cboCodigoD.Location = new System.Drawing.Point(500, 107);
+            this.cboCodigoD.Location = new System.Drawing.Point(700, 104);
             this.cboCodigoD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCodigoD.Name = "cboCodigoD";
             this.cboCodigoD.Size = new System.Drawing.Size(58, 29);
@@ -400,7 +413,7 @@
             this.cboFormato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFormato.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFormato.FormattingEnabled = true;
-            this.cboFormato.Location = new System.Drawing.Point(277, 348);
+            this.cboFormato.Location = new System.Drawing.Point(268, 293);
             this.cboFormato.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboFormato.Name = "cboFormato";
             this.cboFormato.Size = new System.Drawing.Size(198, 29);
@@ -412,7 +425,7 @@
             this.cboIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIdioma.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIdioma.FormattingEnabled = true;
-            this.cboIdioma.Location = new System.Drawing.Point(277, 308);
+            this.cboIdioma.Location = new System.Drawing.Point(268, 254);
             this.cboIdioma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboIdioma.Name = "cboIdioma";
             this.cboIdioma.Size = new System.Drawing.Size(198, 29);
@@ -424,7 +437,7 @@
             this.lblFormato.AutoSize = true;
             this.lblFormato.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormato.ForeColor = System.Drawing.Color.White;
-            this.lblFormato.Location = new System.Drawing.Point(32, 350);
+            this.lblFormato.Location = new System.Drawing.Point(24, 296);
             this.lblFormato.Name = "lblFormato";
             this.lblFormato.Size = new System.Drawing.Size(184, 21);
             this.lblFormato.TabIndex = 63;
@@ -435,7 +448,7 @@
             this.lblIdioma.AutoSize = true;
             this.lblIdioma.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdioma.ForeColor = System.Drawing.Color.White;
-            this.lblIdioma.Location = new System.Drawing.Point(33, 306);
+            this.lblIdioma.Location = new System.Drawing.Point(25, 252);
             this.lblIdioma.Name = "lblIdioma";
             this.lblIdioma.Size = new System.Drawing.Size(173, 21);
             this.lblIdioma.TabIndex = 62;
@@ -452,10 +465,10 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(231, 720);
+            this.btnModificar.Location = new System.Drawing.Point(502, 113);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(160, 44);
+            this.btnModificar.Size = new System.Drawing.Size(168, 44);
             this.btnModificar.TabIndex = 61;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -472,7 +485,7 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(612, 720);
+            this.btnEliminar.Location = new System.Drawing.Point(502, 238);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(169, 44);
@@ -492,7 +505,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(416, 720);
+            this.btnCancelar.Location = new System.Drawing.Point(502, 175);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(168, 44);
@@ -512,10 +525,10 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresar.Image")));
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresar.Location = new System.Drawing.Point(47, 720);
+            this.btnIngresar.Location = new System.Drawing.Point(500, 51);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(162, 44);
+            this.btnIngresar.Size = new System.Drawing.Size(171, 44);
             this.btnIngresar.TabIndex = 58;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
@@ -527,7 +540,7 @@
             this.lblFecha.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.White;
             this.lblFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblFecha.Location = new System.Drawing.Point(33, 390);
+            this.lblFecha.Location = new System.Drawing.Point(25, 336);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(123, 21);
             this.lblFecha.TabIndex = 56;
@@ -538,7 +551,7 @@
             this.cboSala.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSala.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSala.FormattingEnabled = true;
-            this.cboSala.Location = new System.Drawing.Point(277, 228);
+            this.cboSala.Location = new System.Drawing.Point(268, 174);
             this.cboSala.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboSala.Name = "cboSala";
             this.cboSala.Size = new System.Drawing.Size(198, 29);
@@ -550,7 +563,7 @@
             this.lblSala.AutoSize = true;
             this.lblSala.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSala.ForeColor = System.Drawing.Color.White;
-            this.lblSala.Location = new System.Drawing.Point(33, 226);
+            this.lblSala.Location = new System.Drawing.Point(25, 171);
             this.lblSala.Name = "lblSala";
             this.lblSala.Size = new System.Drawing.Size(148, 21);
             this.lblSala.TabIndex = 54;
@@ -563,28 +576,28 @@
             this.dgtDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgtDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(32, 440);
+            this.dgtDatos.Location = new System.Drawing.Point(26, 386);
             this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgtDatos.Name = "dgtDatos";
             this.dgtDatos.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgtDatos.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
             this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(771, 247);
+            this.dgtDatos.Size = new System.Drawing.Size(743, 268);
             this.dgtDatos.TabIndex = 53;
             // 
             // cboPelicula
@@ -592,7 +605,7 @@
             this.cboPelicula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPelicula.FormattingEnabled = true;
-            this.cboPelicula.Location = new System.Drawing.Point(277, 268);
+            this.cboPelicula.Location = new System.Drawing.Point(268, 214);
             this.cboPelicula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboPelicula.Name = "cboPelicula";
             this.cboPelicula.Size = new System.Drawing.Size(198, 29);
@@ -604,7 +617,7 @@
             this.lblPelicula.AutoSize = true;
             this.lblPelicula.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPelicula.ForeColor = System.Drawing.Color.White;
-            this.lblPelicula.Location = new System.Drawing.Point(33, 267);
+            this.lblPelicula.Location = new System.Drawing.Point(25, 213);
             this.lblPelicula.Name = "lblPelicula";
             this.lblPelicula.Size = new System.Drawing.Size(183, 21);
             this.lblPelicula.TabIndex = 48;
@@ -616,7 +629,7 @@
             this.cboCine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCine.FormattingEnabled = true;
-            this.cboCine.Location = new System.Drawing.Point(277, 190);
+            this.cboCine.Location = new System.Drawing.Point(268, 136);
             this.cboCine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboCine.Name = "cboCine";
             this.cboCine.Size = new System.Drawing.Size(198, 29);
@@ -628,7 +641,7 @@
             this.cboMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMunicipio.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMunicipio.FormattingEnabled = true;
-            this.cboMunicipio.Location = new System.Drawing.Point(277, 149);
+            this.cboMunicipio.Location = new System.Drawing.Point(268, 94);
             this.cboMunicipio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboMunicipio.Name = "cboMunicipio";
             this.cboMunicipio.Size = new System.Drawing.Size(198, 29);
@@ -640,7 +653,7 @@
             this.lblCine.AutoSize = true;
             this.lblCine.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCine.ForeColor = System.Drawing.Color.White;
-            this.lblCine.Location = new System.Drawing.Point(33, 189);
+            this.lblCine.Location = new System.Drawing.Point(25, 135);
             this.lblCine.Name = "lblCine";
             this.lblCine.Size = new System.Drawing.Size(154, 21);
             this.lblCine.TabIndex = 45;
@@ -651,7 +664,7 @@
             this.lblMunicipio.AutoSize = true;
             this.lblMunicipio.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMunicipio.ForeColor = System.Drawing.Color.White;
-            this.lblMunicipio.Location = new System.Drawing.Point(33, 147);
+            this.lblMunicipio.Location = new System.Drawing.Point(25, 93);
             this.lblMunicipio.Name = "lblMunicipio";
             this.lblMunicipio.Size = new System.Drawing.Size(202, 21);
             this.lblMunicipio.TabIndex = 44;
@@ -662,7 +675,7 @@
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartamento.ForeColor = System.Drawing.Color.White;
-            this.lblDepartamento.Location = new System.Drawing.Point(33, 107);
+            this.lblDepartamento.Location = new System.Drawing.Point(25, 53);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(238, 21);
             this.lblDepartamento.TabIndex = 43;
@@ -673,7 +686,7 @@
             this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartamento.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDepartamento.FormattingEnabled = true;
-            this.cboDepartamento.Location = new System.Drawing.Point(277, 106);
+            this.cboDepartamento.Location = new System.Drawing.Point(268, 51);
             this.cboDepartamento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(198, 29);
@@ -685,7 +698,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(323, 24);
+            this.lblTitulo.Location = new System.Drawing.Point(287, 18);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(109, 23);
             this.lblTitulo.TabIndex = 2;
@@ -1556,7 +1569,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 863);
+            this.ClientSize = new System.Drawing.Size(794, 665);
             this.Controls.Add(this.panel5);
             this.Name = "frmFunciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1708,6 +1721,7 @@
         private System.Windows.Forms.ComboBox cboCodigoC;
         private System.Windows.Forms.ComboBox cboCodigoM;
         private System.Windows.Forms.ComboBox cboCodigoD;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpHorario;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

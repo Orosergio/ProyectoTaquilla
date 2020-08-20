@@ -172,8 +172,8 @@ namespace FinalProyecto
                                 clsBitacora bitacora = new clsBitacora();
                                 //Adicion de la bitacora
                                 bitacora.obtenerIdUsuario(reader[0].ToString());
-                                string proceso = "LOGIN";
-                                string tabla = "USUARIO";
+                                string proceso = "Inicio de Sesión";
+                                string tabla = cadena;
                                 bitacora.GuardarBitacora(proceso,tabla);
                                 ver = 3;
                                 FormPrincipal frm = new FormPrincipal();

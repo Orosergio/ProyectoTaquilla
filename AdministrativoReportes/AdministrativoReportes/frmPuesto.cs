@@ -17,6 +17,7 @@ namespace AdministrativoReportes
         int codigoA = 0;
         String uno = "1";
         clsConexion cn = new clsConexion();
+        clsValidacion validar = new clsValidacion();
         public frmPuesto()
         {
             InitializeComponent();
@@ -74,28 +75,20 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
-            if (txtPuesto.Text == "" || cboEstatus.SelectedItem == null || txtSueldo.Text == "")
+            if (txtPuesto.Text == ""  || txtSueldo.Text == "")
             {
                 MessageBox.Show("Necesita llegar todos los campos");
             }
             else
             {
                 //en el string estatus guardo el estatus seleccinado en el cboEstado 
-                String Estatus;
-                Estatus = cboEstatus.SelectedItem.ToString();
-                if (Estatus == "Activo")
-                {
-                    Estatus = "1";
-                }
-                else if (Estatus == "Inactivo")
-                {
-                    Estatus = "0";
-                }
+                String Estatus = "1";
+                
                 try
                 {
                     //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
                     string Insertar = "INSERT INTO Puesto (idPuesto,nombre,sueldo,estatus) " +
-                          "VALUES (" + codigoA + ",'" + txtPuesto.Text + "', '" + txtSueldo.Text + "','" + Estatus + "')";
+                          "VALUES (" + codigoA + ",'" + txtPuesto.Text + "', " + double.Parse(txtSueldo.Text.ToString()) + ",'" + Estatus + "')";
                     OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                     OdbcDataReader mostrarC = comm.ExecuteReader();
                     MessageBox.Show("Los datos se ingresaron correctamente");
@@ -108,11 +101,12 @@ namespace AdministrativoReportes
                 //Adición de bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "Ingreso de puesto";
-                string tabla = "PUESTO";
+                string tabla = "INSERT INTO Puesto (idPuesto,nombre,sueldo,estatus) VALUES (" + codigoA.ToString() + "," + txtPuesto.Text.ToString() + ", " + txtSueldo.Text.ToString() + "," + Estatus.ToString() + ")";
                 bitacora.GuardarBitacora(proceso, tabla);
                 //Limpieaza
                 procLimpiar();
                 procCodigoA();
+                procCargarPuesto();
             }
         }
 
@@ -132,6 +126,21 @@ namespace AdministrativoReportes
         {
             frmModificarPuesto puesto = new frmModificarPuesto();
             puesto.ShowDialog();
+        }
+
+        private void txtPuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.funcSoloLetras(e);
+        }
+
+        private void txtSueldo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.funcSueldo(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Ingreso Puesto.html");
         }
     }
 }

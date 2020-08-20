@@ -108,13 +108,18 @@ namespace AdministrativoReportes
                 }
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "Inactivación de película";
-                string tabla = "PELICULA";
+                string tabla = "UPDATE PELICULA SET estatus = 0 WHERE idPelicula= " + cboCodigoP.SelectedItem.ToString()+"";
                 bitacora.GuardarBitacora(proceso, tabla);
                 cboNombre.Items.Clear();
                 procCargar(); 
                 procCargarDatos();
             }
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Eliminacion Pelicula.html");
         }
+    }
     }
 

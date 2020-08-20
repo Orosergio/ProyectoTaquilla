@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
+using System.Collections;
 
 namespace AdministrativoReportes
 {
@@ -48,30 +50,54 @@ namespace AdministrativoReportes
             }
         }
 
+
         //Esta función sirve para tomar la ip de la máquina
         public static string getLocalIPAddress()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
+        {           
+            Stack miPila = new Stack();
+            IPHostEntry host;
+            string localIP = "";
+            host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
             {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                if (ip.AddressFamily.ToString() == "InterNetwork")
                 {
-                    return ip.ToString();
+                    
+                    miPila.Push(ip.ToString());
+                    //localIP = ip.ToString();
+                    //MessageBox.Show("Tú IP Local Es: " + localIP + " " + ip.AddressFamily.ToString());
                 }
             }
+            string direccion = miPila.Pop().ToString();
+           // MessageBox.Show("GUARDARÉ " + direccion);
+            return direccion;
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
         //Recibo parámetros para enviarlo a la tabla de Bitácora
         public void GuardarBitacora(string proceso, string tabla)
         {
-            //agrego a la variable ipAddress el método
-            ipAddress = getLocalIPAddress();
-            string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            procCodigoUser();
-            string cadena = "INSERT INTO BITACORA (idBitacora, fecha, idUsuario,ipAddress,proceso,tabla) VALUES (" +codigoA+",'" + fecha +"',"+int.Parse(idUsuario)+",'" + ipAddress + "','" +proceso+ "','"+tabla+"');";
-            OdbcCommand consulta = new OdbcCommand(cadena, cn.nuevaConexion());
-            consulta.ExecuteNonQuery();
+            try
+            {
+                //agrego a la variable ipAddress el método
+                ipAddress = getLocalIPAddress();
+                string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                procCodigoUser();
+                /*MessageBox.Show("idBitacora: " + codigoA);
+                MessageBox.Show("fecha: " + fecha);
+                MessageBox.Show("idUsuario: " + idUsuario);
+                MessageBox.Show("ipAddress " + ipAddress);
+                MessageBox.Show("Proceso: " + proceso);
+                MessageBox.Show("tabla: " + tabla);*/
+                string cadena = "INSERT INTO BITACORA (idBitacora, fecha, idUsuario,ipAddress,proceso,tabla) VALUES (" + codigoA + ",'" + fecha + "'," + int.Parse(idUsuario) + ",'" + ipAddress + "','" + proceso + "','" + tabla + "');";
+                OdbcCommand consulta = new OdbcCommand(cadena, cn.nuevaConexion());
+                consulta.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error en la bitácora: " + ex);
+            }
+            
         }
 
         public void obtenerIdUsuario(string id)

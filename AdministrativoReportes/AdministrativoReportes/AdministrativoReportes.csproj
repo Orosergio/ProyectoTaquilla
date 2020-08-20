@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -42,6 +43,10 @@
     <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="itext.barcodes, Version=7.1.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.1.12\lib\net40\itext.barcodes.dll</HintPath>
     </Reference>
@@ -72,6 +77,8 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,6 +93,12 @@
     <Compile Include="clsBitacora.cs" />
     <Compile Include="clsConexion.cs" />
     <Compile Include="clsValidacion.cs" />
+    <Compile Include="frmCine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCine.Designer.cs">
+      <DependentUpon>frmCine.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCorreo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +140,24 @@
     </Compile>
     <Compile Include="frmModFunciones.Designer.cs">
       <DependentUpon>frmModFunciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificacionBoleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificacionBoleto.Designer.cs">
+      <DependentUpon>frmModificacionBoleto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificacionDescuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificacionDescuentos.Designer.cs">
+      <DependentUpon>frmModificacionDescuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarCine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarCine.Designer.cs">
+      <DependentUpon>frmModificarCine.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificarCorreo.cs">
       <SubType>Form</SubType>
@@ -170,11 +201,23 @@
     <Compile Include="frmModificarUsuario.Designer.cs">
       <DependentUpon>frmModificarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMostrarBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMostrarBitacora.Designer.cs">
+      <DependentUpon>frmMostrarBitacora.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPeliculas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPeliculas.Designer.cs">
       <DependentUpon>frmPeliculas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPromocion.Designer.cs">
+      <DependentUpon>frmPromocion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPuesto.cs">
       <SubType>Form</SubType>
@@ -232,6 +275,9 @@
     <Compile Include="frmReporteVentas.Designer.cs">
       <DependentUpon>frmReporteVentas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCine.resx">
+      <DependentUpon>frmCine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCorreo.resx">
       <DependentUpon>frmCorreo.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +298,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModFunciones.resx">
       <DependentUpon>frmModFunciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificacionBoleto.resx">
+      <DependentUpon>frmModificacionBoleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificacionDescuentos.resx">
+      <DependentUpon>frmModificacionDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarCine.resx">
+      <DependentUpon>frmModificarCine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarCorreo.resx">
       <DependentUpon>frmModificarCorreo.cs</DependentUpon>
@@ -274,8 +329,14 @@
     <EmbeddedResource Include="frmModificarUsuario.resx">
       <DependentUpon>frmModificarUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMostrarBitacora.resx">
+      <DependentUpon>frmMostrarBitacora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPeliculas.resx">
       <DependentUpon>frmPeliculas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPromocion.resx">
+      <DependentUpon>frmPromocion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPuesto.resx">
       <DependentUpon>frmPuesto.cs</DependentUpon>
@@ -345,6 +406,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

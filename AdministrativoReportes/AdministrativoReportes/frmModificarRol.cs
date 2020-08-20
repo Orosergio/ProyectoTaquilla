@@ -20,8 +20,13 @@ namespace AdministrativoReportes
             InitializeComponent();
             procBuscarRoles();
             procCargarRol();
+            procEstatus();
         }
-    
+        void procEstatus()
+        {
+            cboEstatus.Items.Add("Activo");
+            cboEstatus.Items.Add("Inactivo");
+        }
         void procBuscarRoles()
         {
             //en esta funcion buscar se seleccionaran las clasificacions de las peliculas y se mostraran en el cboClaficicacion
@@ -92,7 +97,7 @@ namespace AdministrativoReportes
                 try
                 {
                   
-                    string Modificar = "UPDATE ROL SET nombre = '" + txtRol.Text + "' , estatus = '" + Estatus + "'  WHERE idRol=" + cboCodigoRol.SelectedItem;
+                    string Modificar = "UPDATE ROL SET nombre = '" + txtRol.Text + "' , estatus = '" + Estatus + "'  WHERE idRol=" + Int32.Parse(cboCodigoRol.SelectedItem.ToString());
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
 
@@ -104,12 +109,13 @@ namespace AdministrativoReportes
                 //Adición de bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "Modificación de rol";
-                string tabla = "CLIENTE,TARJETA,CORREOCLIENTE";
+                string tabla = "UPDATE ROL SET nombre = " + txtRol.Text.ToString() + ", estatus = " + Estatus.ToString() + " WHERE idRol =" + cboCodigoRol.SelectedItem.ToString();
                 bitacora.GuardarBitacora(proceso, tabla);
                 //Limpieaza
                 procLimpiar();
                 procBuscarRoles();
                 procCargarRol();
+                procEstatus();
             }
         }
 
@@ -117,12 +123,19 @@ namespace AdministrativoReportes
         {
             procLimpiar();
             procBuscarRoles();
+            procEstatus();
         }
 
         void procLimpiar()
         {
             cboRol.Items.Clear();
             txtRol.Text = "";
+            cboEstatus.Items.Clear();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Rol.html");
         }
     }
 }

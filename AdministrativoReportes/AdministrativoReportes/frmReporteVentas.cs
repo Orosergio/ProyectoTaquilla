@@ -60,11 +60,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Administración de objetos
@@ -114,7 +109,7 @@ namespace WindowsFormsApp1
                     }
                     clsBitacora bitacora = new clsBitacora();
                     string proceso = "Reporte de ganancias por mes";
-                    string tabla = "CLIENTE,FACTURAENCABEZADO";
+                    string tabla = cadena;
                     bitacora.GuardarBitacora(proceso, tabla);
 
                 }
@@ -132,6 +127,10 @@ namespace WindowsFormsApp1
                 Double ganancia = 0;
                 lblGanancia.Visible = true;
                 lblGeneralData.Text = "REPORTE DE SEMANA";
+                clsBitacora bitacora = new clsBitacora();
+                string proceso = "Reporte de ganancias por semana";
+                string tabla = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND fecha BETWEEN " + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + " AND " + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + " AND FACENC.estatus=true;";
+                bitacora.GuardarBitacora(proceso, tabla);
                 //Realiza la consulta y actualiza el DataGridView
                 try
                 {
@@ -144,10 +143,7 @@ namespace WindowsFormsApp1
                         ganancia += reader.GetDouble(4);
                         lblGanancia.Text="TOTAL DE GANANCIAS: " +ganancia ;
                     }
-                    clsBitacora bitacora = new clsBitacora();
-                    string proceso = "Reporte de ganancias por semana";
-                    string tabla = "CLIENTE,FACTURAENCABEZADO";
-                    bitacora.GuardarBitacora(proceso, tabla);
+                    
 
                 }
                 catch (Exception ex)
@@ -157,10 +153,7 @@ namespace WindowsFormsApp1
             }          
         }
             
-        private void dtpInicio_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
+      
         private void btnPdf_Click(object sender, EventArgs e)
         {
             //Llama a la funcion
@@ -172,7 +165,7 @@ namespace WindowsFormsApp1
             //CREACION DEL DOCUMENTO
             string nameRepo = "";
             nameRepo = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el nombre del archivo:", "Registro", "Orosergio", 500, 500);
-            PdfWriter pdfWriter = new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf");
+            PdfWriter pdfWriter = new PdfWriter("ReportesPdf/prueba.pdf");
             PdfDocument pdf = new PdfDocument(pdfWriter);
             Document documento = new Document(pdf, PageSize.LETTER);
             documento.SetMargins(200, 20, 55, 20);
@@ -196,16 +189,16 @@ namespace WindowsFormsApp1
             //Si selecciona la opcion por mes 
             if (cboEleccion.SelectedIndex == 0)
             {
+                int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
                 //Adición a la Bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF DE GANANCIAS POR MES";
-                string tablaEnvio = "CLIENTE,FACTURAENCABEZADO";
+                string tablaEnvio = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND MONTH(fecha) = " + mes + " AND FACENC.estatus=true;";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
                 Double ganancia = 0;
                 //Realizar la consulta y actualiza el DataGridView
                 try
-                {
-                    int mes = Int32.Parse(cboMes.SelectedIndex.ToString()) + 1;
+                {                    
                     string cadena = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND MONTH(fecha) = " + mes + " AND FACENC.estatus=true;";
                     OdbcCommand cma = new OdbcCommand(cadena, cn.nuevaConexion());
                     OdbcDataReader reader = cma.ExecuteReader();
@@ -227,7 +220,7 @@ namespace WindowsFormsApp1
                 documento.Add(tabla);
                 documento.Close();
                 //Adicion de diseño
-                var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
+                var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE DE GANANCIAS");
                 titulo.SetTextAlignment(TextAlignment.CENTER);
@@ -238,7 +231,7 @@ namespace WindowsFormsApp1
                 var fecha = new Paragraph("Fecha de Creación: " + dfecha + "\nHora de Creación: " + dhora + "\nGanacia: " + ganancia + "\n" + lblGeneralData.Text);
                 fecha.SetFontSize(12);
 
-                PdfDocument pdfDoc = new PdfDocument(new PdfReader("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf"), new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/'" + nameRepo + "'.pdf"));
+                PdfDocument pdfDoc = new PdfDocument(new PdfReader("ReportesPdf/prueba.pdf"), new PdfWriter("ReportesPdf/'" + nameRepo + "'.pdf"));
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
@@ -260,7 +253,7 @@ namespace WindowsFormsApp1
                 //Adición de la bitacora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "GENERACION REPORTE PDF DE GANANCIAS POR SEMANA";
-                string tablaEnvio = "CLIENTE,FACTURAENCABEZADO";
+                string tablaEnvio = "SELECT FACENC.idFacturaEncabezado,FACENC.fecha,C.nombreClienteTarjeta,C.apellidoClienteTarjeta,FACENC.total,FACENC.descuento FROM CLIENTE C,FACTURAENCABEZADO FACENC WHERE FACENC.nitCliente = C.nitCliente AND fecha BETWEEN " + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") + " AND " + dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss") + " AND FACENC.estatus=true;";
                 bitacora.GuardarBitacora(proceso, tablaEnvio);
                 Double ganancia = 0;
                 //Realiza la consulta y actualiza el DataGridView
@@ -289,7 +282,7 @@ namespace WindowsFormsApp1
                 documento.Add(tabla);
                 documento.Close();
                 //Adición del diseño
-                var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/Images/logoCine.jpeg")).SetWidth(50);
+                var logo = new iText.Layout.Element.Image(ImageDataFactory.Create("logoCine.jpeg")).SetWidth(50);
                 var plogo = new Paragraph("").Add(logo);
                 var titulo = new Paragraph("REPORTE DE GANANCIAS");
                 titulo.SetTextAlignment(TextAlignment.CENTER);
@@ -300,7 +293,7 @@ namespace WindowsFormsApp1
                 var fecha = new Paragraph("Fecha: " + dfecha + "\nHora: " + dhora + "\nGanancia: " + ganancia + "\n" + lblGeneralData.Text + " DEL " + dtpInicio.Value.ToString("yyyy-MM-dd hh:mm:ss") +"  AL  "+ dtpFin.Value.ToString("yyyy-MM-dd hh:mm:ss"));
                 fecha.SetFontSize(12);
 
-                PdfDocument pdfDoc = new PdfDocument(new PdfReader("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/prueba.pdf"), new PdfWriter("C:/Users/Yavhé Orozco/Documents/GitHub/ProyectoTaquilla/TaquillaAdministrativo/AdministrativoReportes/ReportesPdf/'" + nameRepo + "'.pdf"));
+                PdfDocument pdfDoc = new PdfDocument(new PdfReader("ReportesPdf/prueba.pdf"), new PdfWriter("ReportesPdf/'" + nameRepo + "'.pdf"));
                 Document doc = new Document(pdfDoc);
 
                 int numeros = pdfDoc.GetNumberOfPages();
@@ -322,5 +315,9 @@ namespace WindowsFormsApp1
 
         }
 
+        private void btnCrystalGanancia_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

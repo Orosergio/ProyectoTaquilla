@@ -13,11 +13,13 @@ namespace AdministrativoReportes
 {
     public partial class frmModificarEmpleado : Form
     {
+        clsValidacion validar = new clsValidacion();
         public frmModificarEmpleado()
         {
             InitializeComponent();
             procPuesto();
             procEmpleado();
+            procEstatus();
         }
         clsConexion cn = new clsConexion();
         void procPuesto()
@@ -50,10 +52,14 @@ namespace AdministrativoReportes
                 OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
                 OdbcDataReader mostrarC = comm.ExecuteReader();
 
+                string Nombre, Apellido, nombreCompleto;
                 while (mostrarC.Read())
                 {
+                    Nombre = mostrarC.GetString(1);
+                    Apellido = mostrarC.GetString(2);
+                    nombreCompleto = Nombre+" "+Apellido;
                     cboCodigoE.Items.Add(mostrarC.GetInt32(0));
-                    cboNombre.Items.Add(mostrarC.GetString(1));
+                    cboNombre.Items.Add(nombreCompleto);
                 }
             }
             catch (Exception ex)
@@ -70,7 +76,22 @@ namespace AdministrativoReportes
         private void cboNombre_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoE.SelectedIndex = cboNombre.SelectedIndex;
-        }
+            dgtDatos.DataSource = null;
+            try
+            {
+                string cadena = "select E.idEmpleado AS CODIGO ,E.nombre AS NOMBRE ,E.apellido AS APELLIDO ,P.nombre AS PUESTO,E.fechaContratacion AS CONTRATACION ,E.fechaNacimiento AS NACIMIENTO,E.estatus AS ESTATUS FROM  puesto P, empleado E WHERE P.idPuesto = E.idPuesto AND idEmpleado = " + Int32.Parse(cboCodigoE.SelectedItem.ToString());
+                OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
+                DataTable dt = new DataTable();
+                datos.Fill(dt);
+                dgtDatos.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Correo" + ex);
+            }
+        
+       
+    }
 
         private void cboPuestoN_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -82,13 +103,19 @@ namespace AdministrativoReportes
             //boton que muestra que datos se quieren mostrar en el dataGridView
                 if (cboNombre.SelectedItem == null)
                 {
-                    MessageBox.Show("Debe ingresar un correo");
+                    MessageBox.Show("Debe ingresar un Empleado");
                 }
                 else
                 {
-                    try
+                lblA.Text = "";
+                lblN.Text = "";
+                lblP.Text = "";
+                lblCa.Text = "";
+                lblEs.Text = "";
+                lblNA.Text = "";
+                try
                     {
-                        string cadena = "select * FROM empleado WHERE idEmpleado = "+Int32.Parse(cboCodigoE.SelectedItem.ToString());
+                        string cadena = "select E.idEmpleado AS CODIGO ,E.nombre AS NOMBRE ,E.apellido AS APELLIDO ,P.nombre AS PUESTO,E.fechaContratacion AS CONTRATACION ,E.fechaNacimiento AS NACIMIENTO,E.estatus AS ESTATUS FROM  puesto P, empleado E WHERE P.idPuesto = E.idPuesto AND idEmpleado = "+Int32.Parse(cboCodigoE.SelectedItem.ToString());
                         OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                         DataTable dt = new DataTable();
                         datos.Fill(dt);
@@ -116,7 +143,8 @@ namespace AdministrativoReportes
             lblCa.Text = "";
             lblEs.Text = "";
             lblNA.Text = "";
-
+            dgtDatos.DataSource = null;
+            cboEstatus.Items.Clear();
         }
 
         private void dgtDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -131,15 +159,20 @@ namespace AdministrativoReportes
 
         }
 
+        void procEstatus()
+        {
+            cboEstatus.Items.Add("Activo");
+            cboEstatus.Items.Add("Inactivo");
+        }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (txtNombreN.Text == "" || txtApellidoN.Text == "" || cboEstatus.SelectedItem == null || cboPuestoN.SelectedItem == null)
+            if (lblCodigoA.Text == "" || txtNombreN.Text == "" || txtApellidoN.Text == "" || cboEstatus.SelectedItem == null || cboPuestoN.SelectedItem == null)
             {
-                MessageBox.Show("No debe dejar campos vacios");
+                MessageBox.Show("No debe dejar campos vacios o debe seleccionar el dato que desea modificar");
             }
             else
             {
-                String Estatus,Fecha1,Fecha2;
+                String Estatus, Fecha1, Fecha2;
                 Estatus = cboEstatus.SelectedItem.ToString();
                 if (Estatus == "Activo")
                 {
@@ -149,34 +182,66 @@ namespace AdministrativoReportes
                 {
                     Estatus = "0";
                 }
-                Fecha1 = dtpContratacionN.Value.ToString("yyyy-MM-dd");
-                Fecha2 = dtpNacimientoN.Value.ToString("yyyy-MM-dd");
-                try
+                if (dtpContratacionN.Value.Date > DateTime.Now.Date || dtpNacimientoN.Value.Date >= DateTime.Now.Date)
                 {
-                    string Modificar = "UPDATE EMPLEADO SET nombre = '" + txtNombreN.Text + "' , apellido  = '" + txtApellidoN.Text + "', idPuesto = "+cboCodigoPnuevo.SelectedItem+",fechaContratacion = '"+Fecha1+ "',fechaNacimiento = '" + Fecha2 + "',estatus = " + Estatus + "  WHERE idEmpleado=" + lblCodigoA.Text;
-                    OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
-                    OdbcDataReader leer = Consulta.ExecuteReader();
-                    MessageBox.Show("Los Datos se guardaron correctamente");
+                    MessageBox.Show("La fecha de contratacion no puede ser mayor a la de hoy o la fecha de nacimiento no puede ser mayor a la de hoy");
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                  
+                    Fecha1 = dtpContratacionN.Value.ToString("yyyy-MM-dd");
+                    Fecha2 = dtpNacimientoN.Value.ToString("yyyy-MM-dd");
+                    try
+                    {
+                        string Modificar = "UPDATE EMPLEADO SET nombre = '" + txtNombreN.Text + "' , apellido  = '" + txtApellidoN.Text + "', idPuesto = " + Int32.Parse(cboCodigoPnuevo.SelectedItem.ToString()) + ",fechaContratacion = '" + Fecha1 + "',fechaNacimiento = '" + Fecha2 + "',estatus = " + Estatus + "  WHERE idEmpleado= '"+ Int32.Parse(lblCodigoA.Text.ToString())+"' ";
+                        OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
+                        OdbcDataReader leer = Consulta.ExecuteReader();
+                        MessageBox.Show("Los Datos se guardaron correctamente");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                    }
+                    //Adicion de bitacora
+                    clsBitacora bitacora = new clsBitacora();
+                    string proceso = "Modificación de empleados";
+                    string tabla = "UPDATE EMPLEADO SET nombre = " + txtNombreN.Text.ToString() + ", apellido  = " + txtApellidoN.Text.ToString() + ", idPuesto = " + cboCodigoPnuevo.SelectedItem.ToString() + ",fechaContratacion = " + Fecha1.ToString() + ",fechaNacimiento = " + Fecha2.ToString() + ",estatus = " + Estatus.ToString() + " WHERE idEmpleado= " + lblCodigoA.Text.ToString() + "";
+                    bitacora.GuardarBitacora(proceso, tabla);
+                    //Limpieza
+                    procLimpiar();
+                    procPuesto();
+                    procEmpleado();
+                    procEstatus();
                 }
-                //Adicion de bitacora
-                clsBitacora bitacora = new clsBitacora();
-                string proceso = "Modificación de empleados";
-                string tabla = "EMPLEADOS";
-                bitacora.GuardarBitacora(proceso, tabla);
-                //Limpieza
-                procLimpiar();
-               procPuesto();
-               procEmpleado();
             }
         }
 
         private void frmModificarEmpleado_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNombreN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.funcSoloLetras(e);
+        }
+
+        private void txtApellidoN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.funcSoloLetras(e);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            procLimpiar();
+            procPuesto();
+            procEmpleado();
+            procEstatus();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Empleado.html");
         }
     }
 }

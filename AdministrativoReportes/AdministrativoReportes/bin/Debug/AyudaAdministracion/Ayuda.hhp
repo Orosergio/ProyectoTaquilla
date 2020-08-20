@@ -1,0 +1,34 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayuda.chm
+Contents file=AyudaAdministracion.hhc
+Default Window=Ayuda Sistema Administrativo
+Display compile progress=No
+Language=0x100a Español (Guatemala)
+
+[WINDOWS]
+Ayuda Sistema Administrativo=,"AyudaAdministracion.hhc",,"Peliculas.html","Peliculas.html","Funciones.html","Funciones","Empleado.html","Empleado",0x23520,,0xc387e,,,,,,,,0
+
+
+[FILES]
+Eliminacion Funciones.html
+Eliminacion Pelicula.html
+Empleado.html
+Funciones.html
+Ingreso de Correos.html
+Ingreso de Rol.html
+Ingreso Puesto.html
+Ingreso Telefonos.html
+Ingreso Usuario.html
+Modificar Correo.html
+Modificar Empleado.html
+Modificar Funciones.html
+Modificar Peliculas.html
+Modificar Puesto.html
+Modificar Rol.html
+Modificar Telefono.html
+Modificar Usuario.html
+Peliculas.html
+
+[INFOTYPES]
+

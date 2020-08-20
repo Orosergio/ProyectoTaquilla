@@ -57,11 +57,14 @@ namespace AdministrativoReportes
                 string Sala = "SELECT * FROM EMPLEADO";
                 OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
                 OdbcDataReader mostrarC = comm.ExecuteReader();
-
+                String nombre, apellido, nombreCompleto;
                 while (mostrarC.Read())
                 {
+                    nombre = mostrarC.GetString(1);
+                    apellido = mostrarC.GetString(2);
+                    nombreCompleto = nombre + " " + apellido;
                     cboCodigoE.Items.Add(mostrarC.GetInt32(0));
-                    cboEmpleado.Items.Add(mostrarC.GetString(1));
+                    cboEmpleado.Items.Add(nombreCompleto);
                 }
             }
             catch (Exception ex)
@@ -103,7 +106,7 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
-            if (txtUsuario.Text == "" || txtContraseña.Text == "" || txtConfirmar.Text == "" || cboEmpleado.SelectedItem == null || cboRol.SelectedItem == null || cboEstatus.SelectedItem == null)
+            if (txtUsuario.Text == "" || txtContraseña.Text == "" || txtConfirmar.Text == "" || cboEmpleado.SelectedItem == null || cboRol.SelectedItem == null )
             {
                 MessageBox.Show("Necesita llegar todos los campos");
             }
@@ -113,21 +116,13 @@ namespace AdministrativoReportes
 
                 {
                     //en el string estatus guardo el estatus seleccinado en el cboEstado 
-                    String Estatus;
-                    Estatus = cboEstatus.SelectedItem.ToString();
-                    if (Estatus == "Activo")
-                    {
-                        Estatus = "1";
-                    }
-                    else if (Estatus == "Inactivo")
-                    {
-                        Estatus = "0";
-                    }
+                    String Estatus = "1";
+                    
                     try
                     {
                         //se realiza la consulta de insertar en tabla pelicula con sus respectivos campos
                         string Insertar = "INSERT INTO USUARIO (idUsuario,idEmpleado,idRol,contrasenia,nombreUsuario,estatus) " +
-                              "VALUES (" + codigoA + "," + +Int32.Parse(cboCodigoE.SelectedItem.ToString()) + ", "+Int32.Parse(cboCodigoR.SelectedItem.ToString()) + " ,'"+txtConfirmar.Text+"','"+txtUsuario.Text+"','" + Estatus + "')";
+                              "VALUES (" + codigoA + ","+Int32.Parse(cboCodigoE.SelectedItem.ToString())+ ", "+Int32.Parse(cboCodigoR.SelectedItem.ToString()) + " ,'"+txtConfirmar.Text+"','"+txtUsuario.Text+"','" + Estatus + "')";
                         OdbcCommand comm = new OdbcCommand(Insertar, cn.nuevaConexion());
                         OdbcDataReader mostrarC = comm.ExecuteReader();
                         MessageBox.Show("Los datos se ingresaron correctamente");
@@ -140,7 +135,7 @@ namespace AdministrativoReportes
                     //Adicion de bitacora
                     clsBitacora bitacora = new clsBitacora();
                     string proceso = "Ingreso de usuarios";
-                    string tabla = "USUARIO";
+                    string tabla = "INSERT INTO USUARIO (idUsuario,idEmpleado,idRol,contrasenia,nombreUsuario,estatus) VALUES (" + codigoA.ToString() + "," + cboCodigoE.SelectedItem.ToString() + ", " + cboCodigoR.SelectedItem.ToString() + "," + txtConfirmar.Text.ToString() + "," + txtUsuario.Text.ToString() + "," + Estatus.ToString() + ")";
                     bitacora.GuardarBitacora(proceso, tabla);
                     //Limpieza
                     /*  txtRol.Text = "";
@@ -191,6 +186,11 @@ namespace AdministrativoReportes
         {
             frmRol rol = new frmRol();
             rol.ShowDialog();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Ingreso Usuario.html");
         }
     }
 }

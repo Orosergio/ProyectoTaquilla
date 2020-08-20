@@ -12,6 +12,7 @@ using WindowsFormsApp1;
 using AdministrativoReportes;
 using System.Data.Odbc;
 using AdministrativoReportes;
+using System.Net;
 
 namespace FinalProyecto
 {
@@ -45,6 +46,10 @@ namespace FinalProyecto
                         btnEmpleado.Visible = true;
                         btnUsuario.Visible = true;
                         btnReportes.Visible = true;
+                        btnMostrarBitacora.Visible = true;
+                        btnCine.Visible = true;
+                        btnBoleto.Visible = true;
+                        btnDescuentos.Visible = true;
                     }
                     if (reader[0].ToString() == "2") //admin
                     {
@@ -57,6 +62,13 @@ namespace FinalProyecto
                         panel8.Visible = false;
                         panel5.Visible = false;
                         panel1.Visible = false;
+                        panel9.Visible = false;
+                        btnMostrarBitacora.Visible = false;
+                        btnCine.Visible = true;
+                        btnBoleto.Visible = false;
+                        btnDescuentos.Visible = false;
+                        panel11.Visible = false;
+                        panel14.Visible = false;
 
                     }
                     if (reader[0].ToString() == "3") //recursos humanos
@@ -70,6 +82,14 @@ namespace FinalProyecto
                         panel10.Visible = false;
                         panel3.Visible = false;
                         panel5.Visible = false;
+                        panel9.Visible = false;
+                        btnMostrarBitacora.Visible = false;
+                        btnCine.Visible = false;
+                        panel12.Visible = false;
+                        btnBoleto.Visible = false;
+                        panel11.Visible = false;
+                        btnDescuentos.Visible = false;
+                        panel14.Visible = false;
                     }
                    
                 }
@@ -187,6 +207,8 @@ namespace FinalProyecto
         private void Btnreportventa_Click(object sender, EventArgs e)
         {
             Submenurepor.Visible = false;
+            panel7.Visible = false;
+            panel2.Visible = false;
             frmReporteVentas fm = new frmReporteVentas();
             AbrirFormEnPanel(fm);
             
@@ -196,6 +218,8 @@ namespace FinalProyecto
         private void Btnreportcompra_Click(object sender, EventArgs e)
         {
             Submenurepor.Visible = false;
+            panel7.Visible = false;
+            panel2.Visible = false;
             frmReporteTaquillera fm = new frmReporteTaquillera();
             AbrirFormEnPanel(fm);
             
@@ -315,14 +339,48 @@ namespace FinalProyecto
         private void btnReportes_Click_1(object sender, EventArgs e)
         {
             Submenurepor.Visible = true;
+            panel7.Visible = true;
+            panel2.Visible = true;
         }
 
         private void btnReportePuntos_Click(object sender, EventArgs e)
         {
             Submenurepor.Visible = false;
+            panel7.Visible = false;
+            panel2.Visible = false;
             frmReportePuntos fm = new frmReportePuntos();
             AbrirFormEnPanel(fm);
         }
+
+        private void btnMostrarBitacora_Click(object sender, EventArgs e)
+        {
+            frmMostrarBitacora frm = new frmMostrarBitacora();
+            AbrirFormEnPanel(frm);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCine_Click(object sender, EventArgs e)
+        {
+            frmCine frm = new frmCine();
+            AbrirFormEnPanel(frm);
+        }
+
+        private void btnBoleto_Click(object sender, EventArgs e)
+        {
+            frmModificacionBoleto frm = new frmModificacionBoleto();
+            AbrirFormEnPanel(frm);
+        }
+
+        private void btnDescuentos_Click(object sender, EventArgs e)
+        {
+            frmPromocion frm = new frmPromocion();
+            AbrirFormEnPanel(frm);
+        }
+
 
         //Utilizar la hora del sistema en el programa
         private void TmFechaHora_Tick_1(object sender, EventArgs e)

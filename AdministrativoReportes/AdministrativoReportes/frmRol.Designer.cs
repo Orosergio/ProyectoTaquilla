@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRol));
             this.lblNombre = new System.Windows.Forms.Label();
-            this.lblEstatus = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtRol = new System.Windows.Forms.TextBox();
-            this.cboEstatus = new System.Windows.Forms.ComboBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.dgtDatos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).BeginInit();
+            this.dgtDatosPro = new System.Windows.Forms.DataGridView();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtDatosPro)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -53,18 +52,6 @@
             this.lblNombre.Size = new System.Drawing.Size(82, 21);
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre";
-            // 
-            // lblEstatus
-            // 
-            this.lblEstatus.AutoSize = true;
-            this.lblEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstatus.ForeColor = System.Drawing.Color.White;
-            this.lblEstatus.Location = new System.Drawing.Point(31, 102);
-            this.lblEstatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEstatus.Name = "lblEstatus";
-            this.lblEstatus.Size = new System.Drawing.Size(73, 21);
-            this.lblEstatus.TabIndex = 1;
-            this.lblEstatus.Text = "Estatus";
             // 
             // lblTitulo
             // 
@@ -83,7 +70,7 @@
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIngresar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
-            this.btnIngresar.Location = new System.Drawing.Point(35, 332);
+            this.btnIngresar.Location = new System.Drawing.Point(35, 293);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(118, 47);
@@ -98,22 +85,8 @@
             this.txtRol.Location = new System.Drawing.Point(122, 61);
             this.txtRol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(247, 30);
+            this.txtRol.Size = new System.Drawing.Size(306, 30);
             this.txtRol.TabIndex = 6;
-            // 
-            // cboEstatus
-            // 
-            this.cboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstatus.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEstatus.FormattingEnabled = true;
-            this.cboEstatus.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cboEstatus.Location = new System.Drawing.Point(122, 102);
-            this.cboEstatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboEstatus.Name = "cboEstatus";
-            this.cboEstatus.Size = new System.Drawing.Size(247, 29);
-            this.cboEstatus.TabIndex = 7;
             // 
             // btnModificar
             // 
@@ -121,7 +94,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModificar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(173, 332);
+            this.btnModificar.Location = new System.Drawing.Point(173, 293);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(118, 47);
@@ -136,7 +109,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(310, 332);
+            this.btnCancelar.Location = new System.Drawing.Point(310, 293);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(118, 47);
@@ -145,50 +118,54 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // dgtDatos
+            // dgtDatosPro
             // 
-            this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtDatos.Location = new System.Drawing.Point(35, 148);
-            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgtDatos.Name = "dgtDatos";
-            this.dgtDatos.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgtDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgtDatos.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgtDatos.RowTemplate.Height = 24;
-            this.dgtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtDatos.Size = new System.Drawing.Size(376, 169);
-            this.dgtDatos.TabIndex = 10;
+            this.dgtDatosPro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgtDatosPro.Location = new System.Drawing.Point(35, 104);
+            this.dgtDatosPro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgtDatosPro.Name = "dgtDatosPro";
+            this.dgtDatosPro.ReadOnly = true;
+            this.dgtDatosPro.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgtDatosPro.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgtDatosPro.RowTemplate.Height = 24;
+            this.dgtDatosPro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgtDatosPro.Size = new System.Drawing.Size(393, 169);
+            this.dgtDatosPro.TabIndex = 11;
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
+            this.btnAyuda.Location = new System.Drawing.Point(446, 10);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(56, 61);
+            this.btnAyuda.TabIndex = 219;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // frmRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(449, 441);
-            this.Controls.Add(this.dgtDatos);
+            this.ClientSize = new System.Drawing.Size(512, 441);
+            this.Controls.Add(this.btnAyuda);
+            this.Controls.Add(this.dgtDatosPro);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.cboEstatus);
             this.Controls.Add(this.txtRol);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.lblEstatus);
             this.Controls.Add(this.lblNombre);
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmRol";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRol";
             this.Load += new System.EventHandler(this.frmRol_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgtDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtDatosPro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,13 +174,12 @@
         #endregion
 
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblEstatus;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.TextBox txtRol;
-        private System.Windows.Forms.ComboBox cboEstatus;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridView dgtDatos;
+        private System.Windows.Forms.DataGridView dgtDatosPro;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

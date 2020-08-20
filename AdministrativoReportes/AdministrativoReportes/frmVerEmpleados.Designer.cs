@@ -40,7 +40,7 @@
             // 
             this.dgtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgtDatos.Location = new System.Drawing.Point(11, 77);
-            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgtDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgtDatos.Name = "dgtDatos";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -54,7 +54,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgtDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgtDatos.RowTemplate.Height = 24;
-            this.dgtDatos.Size = new System.Drawing.Size(584, 303);
+            this.dgtDatos.Size = new System.Drawing.Size(734, 410);
             this.dgtDatos.TabIndex = 0;
             // 
             // btnActualizar
@@ -66,7 +66,7 @@
             this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnActualizar.Location = new System.Drawing.Point(22, 20);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(212, 38);
             this.btnActualizar.TabIndex = 52;
@@ -79,10 +79,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(617, 391);
+            this.ClientSize = new System.Drawing.Size(756, 498);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dgtDatos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmVerEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVerEmpleados";

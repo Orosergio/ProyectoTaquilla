@@ -19,7 +19,15 @@ namespace AdministrativoReportes
             InitializeComponent();
             procBuscarPuesto();
             procCargarPuesto();
+            procEstatus();
         }
+        clsValidacion validar = new clsValidacion();
+        void procEstatus()
+        {
+            cboEstatus.Items.Add("Activo");
+            cboEstatus.Items.Add("Inactivo");
+        }
+
         void procBuscarPuesto()
         {
             //funcion para buscar los puestos guardados en la base de datos
@@ -118,7 +126,7 @@ namespace AdministrativoReportes
  
                 try
                 {
-                    string Modificar = "UPDATE PUESTO SET nombre = '" + txtPuesto.Text + "' , sueldo  = '" + txtSueldo.Text + "', estatus = " + Estatus + "  WHERE idPuesto=" + cboCodigoPuesto.SelectedItem;
+                    string Modificar = "UPDATE PUESTO SET nombre = '" + txtPuesto.Text + "' , sueldo  = " + double.Parse(txtSueldo.Text.ToString()) + ", estatus = " + Estatus + "  WHERE idPuesto=" + Int32.Parse(cboCodigoPuesto.SelectedItem.ToString());
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
                 }
@@ -129,17 +137,20 @@ namespace AdministrativoReportes
                 //Adición de bitácora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "Modificación de puesto";
-                string tabla = "PUESTO";
+                string tabla = "UPDATE PUESTO SET nombre = " + txtPuesto.Text.ToString() + ", sueldo  = " + txtSueldo.Text.ToString() + ", estatus = " + Estatus.ToString() + " WHERE idPuesto=" + cboCodigoPuesto.SelectedItem.ToString()+"";
                 bitacora.GuardarBitacora(proceso, tabla);
                 //Limpieaza
                 procLimpiar();
+                procBuscarPuesto();
                 procCargarPuesto();
+                procEstatus();
             }
         }
 
         void procLimpiar()
         {  
             cboPuesto.Items.Clear();
+            cboEstatus.Items.Clear();
             txtPuesto.Text = "";
             txtSueldo.Text = "";
          
@@ -150,11 +161,34 @@ namespace AdministrativoReportes
         {
             procLimpiar();
             procBuscarPuesto();
+            procEstatus();
         }
 
         private void frmModificarPuesto_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            validar.funcSoloLetras(e);
+
+        }
+
+        private void txtSueldo_KeyUp(object sender, KeyEventArgs e)
+        {
+          
+        }
+
+        private void txtSueldo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.funcSueldo(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Puesto.html");
         }
     }
 }

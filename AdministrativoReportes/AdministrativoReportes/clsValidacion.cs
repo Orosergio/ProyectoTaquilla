@@ -79,6 +79,31 @@ namespace AdministrativoReportes
 
 
             }
+
+        public void funcSueldo(KeyPressEventArgs validar)
+        {
+            if ((validar.KeyChar >= 32 && validar.KeyChar <= 45) || (validar.KeyChar == 47) || (validar.KeyChar >= 58 && validar.KeyChar <= 255))
+            {
+                MessageBox.Show("Ingrese solo Numeros");
+                validar.Handled = true;
+                return;
+            }
+
+
         }
+
+        public void funcTelefono(KeyPressEventArgs validar)
+        {
+            if ((validar.KeyChar >= 32 && validar.KeyChar <= 39) || (validar.KeyChar == 42) || (validar.KeyChar == 44)  || (validar.KeyChar >= 46 && validar.KeyChar <= 47)  || (validar.KeyChar >= 58 && validar.KeyChar <= 255))
+            {
+                MessageBox.Show("Ingrese solo Numeros");
+                validar.Handled = true;
+                return;
+            }
+
+
+        }
+
+    }
 
     }

@@ -19,9 +19,14 @@ namespace AdministrativoReportes
             procEmpleado();
             procRol();
             procUsuario();
+            procEstatus();
         }
         clsConexion cn = new clsConexion();
-
+        void procEstatus()
+        {
+            cboEstatus.Items.Add("Activo");
+            cboEstatus.Items.Add("Inactivo");
+        }
         void procEmpleado()
         {
             //en esta funcion buscar se seleccionaran las clasificacions de las peliculas y se mostraran en el cboClaficicacion
@@ -30,11 +35,15 @@ namespace AdministrativoReportes
                 string Sala = "SELECT * FROM EMPLEADO";
                 OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
                 OdbcDataReader mostrarC = comm.ExecuteReader();
+                String nombre, apellido, nombreCompleto;
 
                 while (mostrarC.Read())
                 {
+                    nombre = mostrarC.GetString(1);
+                    apellido = mostrarC.GetString(2);
+                    nombreCompleto = nombre +" "+apellido;
                     cboCoEmp.Items.Add(mostrarC.GetInt32(0));
-                    cboEmpleado.Items.Add(mostrarC.GetString(1));
+                    cboEmpleado.Items.Add(nombreCompleto);
                 }
             }
             catch (Exception ex)
@@ -95,7 +104,7 @@ namespace AdministrativoReportes
             {
                 try
                 {
-                    string cadena = "select * FROM USUARIO WHERE idUsuario = " + Int32.Parse(cboCodigoU.SelectedItem.ToString());
+                    string cadena = "select  U.idUsuario AS CODIGO,U.nombreUsuario AS USUARIO ,R.nombre AS ROL,E.nombre AS NOMBRE,E.apellido AS APELLIDO,U.estatus AS ESTATUS FROM USUARIO U,EMPLEADO E,ROL R WHERE E.idEmpleado = U.idEmpleado AND R.idRol = U.idRol AND idUsuario = " + Int32.Parse(cboCodigoU.SelectedItem.ToString());
                     OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
                     DataTable dt = new DataTable();
                     datos.Fill(dt);
@@ -122,16 +131,22 @@ namespace AdministrativoReportes
             cboEmpleado.Items.Clear();
             cboRol.Items.Clear();
             cboUsuario.Items.Clear();
+            dgtDatos.DataSource = null;
+            cboEstatus.Items.Clear();
         }
 
         private void dgtDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //funcion que copia los elementos del dataGridView en los labels
             lblCodigoA.Text = dgtDatos.CurrentRow.Cells[0].Value.ToString();
-            lblE.Text = dgtDatos.CurrentRow.Cells[1].Value.ToString();
+            String nombre, apellido, nombreCompleto;
+            nombre = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            apellido = dgtDatos.CurrentRow.Cells[4].Value.ToString(); ;
+            nombreCompleto = nombre + " " + apellido;
+            lblE.Text = nombreCompleto;
             lblR.Text = dgtDatos.CurrentRow.Cells[2].Value.ToString();
-            lblU.Text = dgtDatos.CurrentRow.Cells[4].Value.ToString();
-            lblC.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
+            lblU.Text = dgtDatos.CurrentRow.Cells[1].Value.ToString();
+          //  lblC.Text = dgtDatos.CurrentRow.Cells[3].Value.ToString();
             lblEstatusC.Text = dgtDatos.CurrentRow.Cells[5].Value.ToString();
            
         }
@@ -139,6 +154,7 @@ namespace AdministrativoReportes
         private void cboUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboCodigoU.SelectedIndex = cboUsuario.SelectedIndex;
+            dgtDatos.DataSource = "";
         }
 
         private void cboEmpleado_SelectedIndexChanged(object sender, EventArgs e)
@@ -154,15 +170,15 @@ namespace AdministrativoReportes
         private void btnModificar_Click(object sender, EventArgs e)
         {
             //boton que modifica los datos de usuario
-            if (txtUsuario.Text == "" || txtContraseña.Text == "" || txtContraseñaCon.Text == "" || cboEstatus.SelectedItem == null || cboRol.SelectedItem == null || cboEmpleado.SelectedItem == null)
+            if (txtUsuario.Text == "" || txtContraseña.Text == "" || txtContraseñaCon.Text == "" || cboEstatus.SelectedItem == null || cboRol.SelectedItem == null || cboEmpleado.SelectedItem == null || lblCodigoA.Text == "")
             {
-                MessageBox.Show("No debe dejar campos vacios");
+                MessageBox.Show("No debe dejar campos vacios o debe seleccionar un dato el cual desea modificar");
             }
             else
             {
                 if(txtContraseña.Text == txtContraseñaCon.Text)
                 {
-                    String Estatus, Fecha1, Fecha2;
+                    String Estatus;
                     Estatus = cboEstatus.SelectedItem.ToString();
                     if (Estatus == "Activo")
                     {
@@ -174,7 +190,7 @@ namespace AdministrativoReportes
                     }
                     try
                     {
-                        string Modificar = "UPDATE USUARIO SET idEmpleado = '" + cboCoEmp.SelectedItem + "' , idRol  = '" + cboCodigoR.SelectedItem + "', contrasenia = '" + txtContraseñaCon.Text + "', nombreUsuario = '" + txtUsuario.Text + "',estatus = " + Estatus + "  WHERE idUsuario=" +Int32.Parse(cboCodigoU.SelectedItem.ToString()); ;
+                        string Modificar = "UPDATE USUARIO SET idEmpleado = " + Int32.Parse(cboCoEmp.SelectedItem.ToString()) + " , idRol  = '" + Int32.Parse(cboCodigoR.SelectedItem.ToString()) + "', contrasenia = '" + txtContraseñaCon.Text + "', nombreUsuario = '" + txtUsuario.Text + "',estatus = '" + Estatus + "'  WHERE idUsuario=" +Int32.Parse(cboCodigoU.SelectedItem.ToString());
                         OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                         OdbcDataReader leer = Consulta.ExecuteReader();
                         MessageBox.Show("Los Datos se guardaron correctamente");
@@ -186,13 +202,14 @@ namespace AdministrativoReportes
                     //Adicion de bitacora
                     clsBitacora bitacora = new clsBitacora();
                     string proceso = "Modificación de usuarios";
-                    string tabla = "USUARIO";
+                    string tabla = "UPDATE USUARIO SET idEmpleado = " + cboCoEmp.SelectedItem.ToString() + ", idRol  = " + cboCodigoR.SelectedItem.ToString() + ", contrasenia = " + txtContraseñaCon.Text.ToString() + ", nombreUsuario = " + txtUsuario.Text.ToString() + ",estatus = " + Estatus.ToString() + " WHERE idUsuario=" + cboCodigoU.SelectedItem.ToString()+"";
                     bitacora.GuardarBitacora(proceso, tabla);
                     //Limpieza
                     procLimpiar();
                     procRol();
                     procEmpleado();
                     procUsuario();
+                    procEstatus();
                 }
                 else
                 {
@@ -205,6 +222,11 @@ namespace AdministrativoReportes
         private void frmModificarUsuario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Modificar Usuario.html");
         }
     }
 }

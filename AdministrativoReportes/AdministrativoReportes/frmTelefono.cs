@@ -16,6 +16,7 @@ namespace AdministrativoReportes
         int numero = 0;
         int codigoA = 0;
         clsConexion cn = new clsConexion();
+        clsValidacion telefono = new clsValidacion();
         public frmTelefono()
         {
             InitializeComponent();
@@ -57,11 +58,15 @@ namespace AdministrativoReportes
                 string Sala = "SELECT * FROM EMPLEADO";
                 OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
                 OdbcDataReader mostrarC = comm.ExecuteReader();
+                string Nombre, Apellido, nombreCompleto;
 
                 while (mostrarC.Read())
                 {
                     cboCodigoE.Items.Add(mostrarC.GetInt32(0));
-                    cboEmpleado.Items.Add(mostrarC.GetString(1));
+                    Nombre = mostrarC.GetString(1);
+                    Apellido = mostrarC.GetString(2);
+                    nombreCompleto = Nombre + " " + Apellido;
+                    cboEmpleado.Items.Add(nombreCompleto);
                 }
             }
             catch (Exception ex)
@@ -78,23 +83,15 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
-            if (txtTelefono.Text == "" || cboEmpleado.SelectedItem == null || cboEstatus.SelectedItem == null)
+            if (txtTelefono.Text == "" || cboEmpleado.SelectedItem == null )
             {
                 MessageBox.Show("Necesita llegar todos los campos");
             }
             else
             {
                 //en el string estatus guardo el estatus seleccinado en el cboEstado 
-                String Estatus;
-                Estatus = cboEstatus.SelectedItem.ToString();
-                if (Estatus == "Activo")
-                {
-                    Estatus = "1";
-                }
-                else if (Estatus == "Inactivo")
-                {
-                    Estatus = "0";
-                }
+                String Estatus = "1";
+               
 
                 try
                 {
@@ -113,7 +110,7 @@ namespace AdministrativoReportes
                 //Adicion de bitacora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "Adición de teléfono a empleado";
-                string tabla = "TELEFONO";
+                string tabla = "INSERT INTO telefono (idTelefono,telefono,idEmpleado,estatus) VALUES (" + codigoA.ToString() + "," + txtTelefono.Text.ToString() + "," + cboCodigoE.SelectedItem.ToString() + "," + Estatus.ToString() + ")";
                 bitacora.GuardarBitacora(proceso, tabla);
                 //Limpieza
                 procLimpiar();
@@ -138,6 +135,16 @@ namespace AdministrativoReportes
         {
             frmModificarTelefono modificar = new frmModificarTelefono();
             modificar.ShowDialog();
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            telefono.funcTelefono(e);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Ingreso Telefonos.html");
         }
     }
 }

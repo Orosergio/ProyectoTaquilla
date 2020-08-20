@@ -1,0 +1,22 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayuda.chm
+Contents file=AyudaAgregado.hhc
+Default Window=AyudaAgregado
+Default topic=Boleto.html
+Display compile progress=No
+Language=0x100a Español (Guatemala)
+
+[WINDOWS]
+AyudaAgregado="Esta Ayuda es un agregado al anterior","AyudaAgregado.hhc",,"IngresoDescuentos.html","IngresoDescuentos.html","IngresoCine.html","IngresoCine","Boleto.html","Boleto",0x23520,,0xc387e,,,,,,,,0
+
+
+[FILES]
+Boleto.html
+IngresoCine.html
+IngresoDescuentos.html
+ModificarDescuentos.html
+ModificacionCines.html
+
+[INFOTYPES]
+

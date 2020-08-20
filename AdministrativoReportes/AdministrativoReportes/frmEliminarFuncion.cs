@@ -42,21 +42,25 @@ namespace AdministrativoReportes
 
 
         }
+        //funcion que busca las proyecciones de las peliculas segun el codigo indicado
         void procCargarFunciones()
         {
-            //funcion que busca las proyecciones de las peliculas segun el codigo indicado
-            try
-            {
-                string cadena = "SELECT * FROM PROYECCIONPELICULA WHERE idPelicula =" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
-                OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
-                DataTable dt = new DataTable();
-                datos.Fill(dt);
-                dgtDatos.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
-            }
+            String uno = "1";
+                try
+                {
+                    string cadena = "SELECT PRO.idProyeccionPelicula AS CODIGO, PE.nombre AS PELICULA,C.nombre AS CINE,S.numero AS SALA, PRO.fechaHoraProyeccion AS HORARIO, I.nombre AS IDIOMA, F.nombre AS FORMATO FROM proyeccionpelicula PRO, pelicula PE,sala S, cine C, idioma I, formato F , departamento D, municipio M WHERE D.idDepartamento = M.idDepartamento AND M.idMunicipio = C.idMunicipio AND C.idCine = S.idCine AND S.idSala = PRO.idSala AND PE.idPelicula = PRO.idPelicula AND I.idIdioma = PRO.idIdioma AND F.idFormato = PRO.idFormato and PE.idPelicula = " + Int32.Parse(cboCodigoP.SelectedItem.ToString()) + "  and PRO.estatus = '"+uno+"'";
+                    OdbcDataAdapter datos = new OdbcDataAdapter(cadena, cn.nuevaConexion());
+                    DataTable dt = new DataTable();
+                    datos.Fill(dt);
+                    dgtDatos.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
+                }
+            
+           
+            
         }
             private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -92,6 +96,8 @@ namespace AdministrativoReportes
         {
             cboCodigoP.SelectedIndex = cboPelicula.SelectedIndex;
             procCargarCodigoProyecciones();
+            procCargarFunciones();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -111,7 +117,7 @@ namespace AdministrativoReportes
                 try
                 {
                     string Estatus = "0";
-                    string Modificar = "UPDATE PROYECCIONPELICULA SET estatus = '" + Estatus + "' WHERE idPelicula=" + cboCodigoP.SelectedItem;
+                    string Modificar = "UPDATE PROYECCIONPELICULA SET estatus = '" + Estatus + "' WHERE idPelicula=" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
                     OdbcCommand Consulta = new OdbcCommand(Modificar, cn.nuevaConexion());
                     OdbcDataReader leer = Consulta.ExecuteReader();
                     MessageBox.Show("El estatus de la pelicula fue modificado a inactivo");
@@ -122,8 +128,8 @@ namespace AdministrativoReportes
                 }
                 //Adición de bitácora
                 clsBitacora bitacora = new clsBitacora();
-                string proceso = "Eliminar funciones de peliculas";
-                string tabla = "PROYECCIONPELICULA";
+                string proceso = "Inhabilitar funciones de peliculas";
+                string tabla = "UPDATE PROYECCIONPELICULA SET estatus = 0 WHERE idPelicula=" + cboCodigoP.SelectedItem.ToString()+"";
                 bitacora.GuardarBitacora(proceso, tabla);
                 //Limpieza de items
                 cboPelicula.Items.Clear();
@@ -143,9 +149,11 @@ namespace AdministrativoReportes
         }
         void procCargarCodigoProyecciones()
         {
+            cboCodigoF.Items.Clear();
             //funcion para buscar las proyecciones segun el codigo que se indica
             try
             {
+
                 string cadena = "SELECT * FROM PROYECCIONPELICULA WHERE idPelicula =" + Int32.Parse(cboCodigoP.SelectedItem.ToString());
                 OdbcCommand comm1 = new OdbcCommand(cadena, cn.nuevaConexion());
                 OdbcDataReader mostrarMun = comm1.ExecuteReader();
@@ -158,6 +166,25 @@ namespace AdministrativoReportes
             {
                 MessageBox.Show("No se pudieron mostrar los registros en este momento intente mas tarde" + ex);
             }
+        }
+
+        private void cboCodigoF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            cboPelicula.Items.Clear();
+            cboCodigoF.Items.Clear();
+            dgtDatos.DataSource = null;
+            procCargarPelicula();
+
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Eliminacion Funciones.html");
         }
     }
 }

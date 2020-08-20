@@ -62,10 +62,15 @@ namespace AdministrativoReportes
                 OdbcCommand comm = new OdbcCommand(Sala, cn.nuevaConexion());
                 OdbcDataReader mostrarC = comm.ExecuteReader();
 
+                String nombre, apellido, nombreCompleto;
+               
                 while (mostrarC.Read())
                 {
                     cboCodigoE.Items.Add(mostrarC.GetInt32(0));
-                    cboEmpleado.Items.Add(mostrarC.GetString(1));
+                    nombre = mostrarC.GetString(1);
+                    apellido = mostrarC.GetString(2);
+                    nombreCompleto = nombre + " " + apellido;
+                    cboEmpleado.Items.Add(nombreCompleto);
                 }
             }
             catch (Exception ex)
@@ -76,23 +81,14 @@ namespace AdministrativoReportes
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             //Este if verifica que no se deje ningun campo en blanco, si hay uno en blando muestra el mensaje de que se necesitan llenar los campos
-            if (txtCorreo.Text == "" || cboEmpleado.SelectedItem == null || cboEstatus.SelectedItem == null)
+            if (txtCorreo.Text == "" || cboEmpleado.SelectedItem == null )
             {
                 MessageBox.Show("Necesita llegar todos los campos");
             }
             else
             {
                 //en el string estatus guardo el estatus seleccinado en el cboEstado 
-                String Estatus;
-                Estatus = cboEstatus.SelectedItem.ToString();
-                if (Estatus == "Activo")
-                {
-                    Estatus = "1";
-                }
-                else if (Estatus == "Inactivo")
-                {
-                    Estatus = "0";
-                }
+                String Estatus = "1";
                
                 try
                 {
@@ -111,7 +107,7 @@ namespace AdministrativoReportes
                 //Adicion de bitacora
                 clsBitacora bitacora = new clsBitacora();
                 string proceso = "Ingreso de correos a empleados";
-                string tabla = "CORREO";
+                string tabla = "INSERT INTO CORREO (idCorreo,correo,idEmpleado,estatus) VALUES (" + codigoA.ToString() + "," + txtCorreo.Text.ToString() + "," + cboCodigoE.SelectedItem.ToString() + "," + Estatus.ToString() + ")";
                 bitacora.GuardarBitacora(proceso, tabla);
                 //Limpieza
                 procLimpiar();
@@ -139,6 +135,11 @@ namespace AdministrativoReportes
             //boton para abrir otro form
             frmModificarCorreo correo = new frmModificarCorreo();
             correo.ShowDialog();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "AyudaAdministracion/Ayuda.chm", "Ingreso de Correos.html");
         }
     }
    
